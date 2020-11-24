@@ -1,0 +1,53 @@
+1606229840a:1:{s:10:"header.htm";a:6:{s:8:"fileName";s:10:"header.htm";s:7:"content";s:843:"description = "Default layout"
+==
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+	<title>{{ this.page.title }} | Хатан - интернет магазин одежды</title>
+	{% if record.description != null %}<meta name="description" content="{{ str_limit(record.description | striptags , 120) }}">
+	{% else %}<meta name="description" content="{{ this.page.meta_description }}">{% endif %}
+	<meta name="viewport" content="width=device-width">
+	<link rel="icon" href="{{ 'assets/images/october.png' | theme }}">
+	<link href="{{ 'assets/css/app.min.css' | theme }}" rel="stylesheet">
+	{% styles %}
+	
+
+</head>
+
+<body class="is_{{ this.page.id }}{{ class ? ' ' ~ class }}">
+
+{% partial "modal-microcart" %}
+
+<div class="modal-overlay"></div>
+
+{% partial "top-bar" %}
+
+{% partial "header-site" %}";s:5:"mtime";i:1606227539;s:6:"markup";s:807:"<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+	<title>{{ this.page.title }} | Хатан - интернет магазин одежды</title>
+	{% if record.description != null %}<meta name="description" content="{{ str_limit(record.description | striptags , 120) }}">
+	{% else %}<meta name="description" content="{{ this.page.meta_description }}">{% endif %}
+	<meta name="viewport" content="width=device-width">
+	<link rel="icon" href="{{ 'assets/images/october.png' | theme }}">
+	<link href="{{ 'assets/css/app.min.css' | theme }}" rel="stylesheet">
+	{% styles %}
+	
+
+</head>
+
+<body class="is_{{ this.page.id }}{{ class ? ' ' ~ class }}">
+
+{% partial "modal-microcart" %}
+
+<div class="modal-overlay"></div>
+
+{% partial "top-bar" %}
+
+{% partial "header-site" %}";s:4:"code";N;s:11:"description";s:14:"Default layout";}}

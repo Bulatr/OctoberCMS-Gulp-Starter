@@ -3,4 +3,424 @@ url = "/"
 layout = "default"
 is_hidden = 0
 ==
-<p>Content example.</p>
+<div class="carousel-wrapper">
+	<div class="container">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+			  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			  <li data-target="#myCarousel" data-slide-to="1"></li>
+			  <li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner">
+			  	<div class="carousel-item active">
+				  
+					<div class="content-slide dark">
+						<div class="img-slide">
+							<img src="{{ 'assets/images/dest/Photo.png' | theme }}" alt="">
+						</div>
+						<div class="slide-content">
+							<div class="subtitle">
+								Зима 2020
+							</div>
+							<div class="title-slide">
+								<h2>Встречай зиму легко!<br>Пуховики от 5999 руб.</h2>
+							</div>
+							<div class="btn-slide">
+								<a href="#" class="btn btn-primary">Смотреть коллекцию</a>
+							</div>
+						</div>																
+					</div>
+					  					
+				</div>
+				
+			<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+			  	<span class="carousel-control-prev-icon" aria-hidden="true"></span>				  
+			</a>
+			<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+			  	<span class="carousel-control-next-icon" aria-hidden="true"></span>				  
+			</a>
+		</div>
+	</div>		
+</div>	
+<div class="main-banners">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+				<div class="banner type-f">
+					<img src="{{ 'assets/images/dest/bannerF.jpg' | theme }}" alt="Бонусы по акции">
+					<div class="content-banner">
+						<div class="subtitle">
+							Акции
+						</div>
+						<div class="title">
+							<h2>Бонусы по акции</h2>
+						</div>
+						<div class="content">
+							<p>
+								Оплатите до 30% стоимости товара бонусами. Торопитесь оплатить бонусами
+							</p>
+						</div>
+						<a href="#" class="btn btn-primary secondary">Подробнее</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-4 col-lg-6 col-xl-6 col-xxl-6">
+				<div class="banner type-e dark">
+					<img src="{{ 'assets/images/dest/bannerE.jpg' | theme }}" alt="Бонусы по акции">
+					<div class="content-banner">
+						<div class="subtitle">
+							Акции
+						</div>
+						<div class="title">
+							<h2>Всемирный день шопинга</h2>
+						</div>
+						<div class="content">
+							<p>
+								11.11 Всемирный день шопинга. Соберите корзину уже сейчас
+							</p>
+						</div>
+						<a href="#" class="btn btn-primary secondary">Начать шопинг</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+				<div class="banner type-f small">
+					<a href=""><img src="{{ 'assets/images/dest/bannerE_small.jpg' | theme }}" alt="Бонусы по акции"></a>						
+					<div class="content-banner">
+						
+						<div class="title">
+							<h2>Для нее</h2>
+						</div>
+						
+					</div>
+				</div>
+				<div class="banner type-f small dark">
+					<a href=""><img src="{{ 'assets/images/dest/bannerF_small.jpg' | theme }}" alt="Бонусы по акции"></a>
+					<div class="content-banner">
+						
+						<div class="title">
+							<h2>Для него</h2>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="call-to-action">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="call-to-action-wrapper">
+					<div class="content">
+						<h2>Подпишитесь на рассылку</h2>
+						<p>Будьте в курсе всех обновлений и акций нашего магазина</p>
+					</div>
+					<a href="" class="btn btn-primary">
+						Подписаться
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="bestsellers">
+	<div class="container">
+		<div class="row">
+			<div class="col d-flex justify-content-center">
+				<div class="title">
+					<h2>Популярные товары</h2>
+				</div>					
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div id="carouselExampleIndicators" class="carousel slide products" data-ride="carousel">
+					<ol class="carousel-indicators">
+					  	<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+					  	<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+					  	<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+					</ol>
+					<div class="carousel-inner">
+					  	<div class="carousel-item active" >
+							<div class="product-wrapper">
+								<div class="product-card">
+									<div class="card-img-wrapper">
+										<a href="product-single.html">
+											<img src="{{ 'assets/images/dest/1/37416640299.jpg' | theme }}" alt="" class="card-img-top">
+										</a>										
+									</div>
+									<div class="card-content-wrapper">
+										<div class="product-title">
+											<a href="">
+												<h4>Джемпер структурной вязки</h4>
+											</a>											
+										</div>
+										<div class="price">
+											4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
+										</div>
+										<div class="raiting-wrapper">
+											<div class="star-wrapper">
+												<a href="#">
+													<div class="star">														
+													</div>
+												</a>
+												<a href="#">
+													<div class="star">														
+													</div>
+												</a>
+												<a href="#">
+													<div class="star">														
+													</div>
+												</a>
+												<a href="#">
+													<div class="star">														
+													</div>
+												</a>
+												<a href="#">
+													<div class="star none">														
+													</div>
+												</a>
+											</div>
+											<div class="star-count">
+												(8)
+											</div>
+										</div>
+									</div>	
+									<div class="cart">
+										<img src="{{ 'assets/images/Cart-icon.svg' | theme }}" alt="">										
+									</div>	
+									<div class="badje">
+										<div class="content">
+											15%
+										</div>
+									</div>							
+								</div>
+								<div class="product-card">
+									<div class="card-img-wrapper">
+										<a href="product-single.html">
+											<img src="{{ 'assets/images/dest/2/37375710299.jpg' | theme }}" alt="" class="card-img-top">
+										</a>										
+									</div>
+									<div class="card-content-wrapper">
+										<div class="product-title">
+											<a href="">
+												<h4>Джемпер структурной вязки</h4>
+											</a>											
+										</div>
+										<div class="price">
+											4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
+										</div>
+										<div class="raiting-wrapper">
+											<div class="star-wrapper">
+												<a href="#">
+													<div class="star">														
+													</div>
+												</a>
+												<a href="#">
+													<div class="star">														
+													</div>
+												</a>
+												<a href="#">
+													<div class="star">														
+													</div>
+												</a>
+												<a href="#">
+													<div class="star">														
+													</div>
+												</a>
+												<a href="#">
+													<div class="star none">														
+													</div>
+												</a>
+											</div>
+											<div class="star-count">
+												(8)
+											</div>
+										</div>
+									</div>	
+									<div class="cart">
+										<img src="{{ 'assets/images/Cart-icon.svg' | theme }}" alt="">										
+									</div>	
+									<div class="badje active">
+										<div class="content">
+											15%
+										</div>
+									</div>							
+								</div>
+								<div class="product-card">
+									<div class="card-img-wrapper">
+										<a href="product-single.html">
+											<img src="{{ 'assets/images/dest/3/37488640299.jpg' | theme }}" alt="" class="card-img-top">
+										</a>										
+									</div>
+									<div class="card-content-wrapper">
+										<div class="product-title">
+											<a href="">
+												<h4>Джемпер структурной вязки</h4>
+											</a>											
+										</div>
+										<div class="price">
+											4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
+										</div>
+										<div class="raiting-wrapper">
+											<div class="star-wrapper">
+												<a href="#">
+													<div class="star">														
+													</div>
+												</a>
+												<a href="#">
+													<div class="star">														
+													</div>
+												</a>
+												<a href="#">
+													<div class="star">														
+													</div>
+												</a>
+												<a href="#">
+													<div class="star">														
+													</div>
+												</a>
+												<a href="#">
+													<div class="star none">														
+													</div>
+												</a>
+											</div>
+											<div class="star-count">
+												(8)
+											</div>
+										</div>
+									</div>	
+									<div class="cart">
+										<img src="{{ 'assets/images/Cart-icon.svg' | theme }}" alt="">										
+									</div>	
+									<div class="badje">
+										<div class="content">
+											15%
+										</div>
+									</div>							
+								</div>
+								<div class="product-card">
+									<div class="card-img-wrapper">
+										<a href="product-single.html">
+											<img src="{{ 'assets/images/dest/1/37416640299.jpg' | theme }}" alt="" class="card-img-top">
+										</a>										
+									</div>
+									<div class="card-content-wrapper">
+										<div class="product-title">
+											<a href="">
+												<h4>Джемпер структурной вязки</h4>
+											</a>											
+										</div>
+										<div class="price">
+											4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
+										</div>
+										<div class="raiting-wrapper">
+											<div class="star-wrapper">
+												<a href="#">
+													<div class="star">														
+													</div>
+												</a>
+												<a href="#">
+													<div class="star">														
+													</div>
+												</a>
+												<a href="#">
+													<div class="star">														
+													</div>
+												</a>
+												<a href="#">
+													<div class="star">														
+													</div>
+												</a>
+												<a href="#">
+													<div class="star none">														
+													</div>
+												</a>
+											</div>
+											<div class="star-count">
+												(8)
+											</div>
+										</div>
+									</div>	
+									<div class="cart">
+										<img src="{{ 'assets/images/Cart-icon.svg' | theme }}" alt="">										
+									</div>	
+									<div class="badje">
+										<div class="content">
+											15%
+										</div>
+									</div>							
+								</div>
+							</div>								
+					  	</div>						  	
+					</div>
+					<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					  	<span class="carousel-control-prev-icon" aria-hidden="true"></span>						  	
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+					  	<span class="carousel-control-next-icon" aria-hidden="true"></span>						  	
+					</a>
+				  </div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<div class="lookbook">
+	<div class="container">
+		<div class="row">
+			<div class="col d-flex flex-column align-items-center justify-content-center">
+				<div class="title">
+					<h2>Осенняя коллекция</h2>
+				</div>
+				<div class="subtitle">
+					<h6>LOOKBOOK</h6>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 cl-md-6 col-lg-6 col-xl-6 col-xxl-6 d-flex flex-column align-items-end">
+				<div class="card-gallery big">
+					<img src="{{ 'assets/images/dest/2/37375710299.jpg' | theme }}" alt="">
+					<div class="overlay"></div>
+					<div class="title-gallery">
+						<a href="#">
+							<h6>Смотреть</h6>
+						</a>
+					</div>
+				</div>
+				<div class="card-gallery">
+					<img src="{{ 'assets/images/dest/3/37488640299.jpg' | theme }}" alt="">
+					<div class="overlay"></div>
+					<div class="title-gallery">
+						<a href="#">
+							<h6>Смотреть</h6>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 cl-md-6 col-lg-6 col-xl-6 col-xxl-6 d-flex flex-column align-items-start">
+				<div class="card-gallery">
+					<img src="{{ 'assets/images/dest/4/37917310299.jpg' | theme }}" alt="">
+					<div class="overlay"></div>
+					<div class="title-gallery">
+						<a href="#">
+							<h6>Смотреть</h6>
+						</a>
+					</div>
+				</div>
+				<div class="card-gallery big">
+					<img src="{{ 'assets/images/dest/5/38359520299.jpg' | theme }}" alt="">
+					<div class="overlay"></div>
+					<div class="title-gallery">
+						<a href="#">
+							<h6>Смотреть</h6>
+						</a>
+					</div>
+				</div>					
+			</div>
+		</div>
+	</div>
+</div>

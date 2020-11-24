@@ -5,4 +5,9 @@
   'system\\Controllers\\settings' => 'modules\\system\\controllers\\settings.php',
   'cms\\Controllers\\themes' => 'modules\\cms\\controllers\\themes.php',
   'cms\\Controllers\\index' => 'modules\\cms\\controllers\\index.php',
+  'backend\\Controllers\\users' => 'modules\\backend\\controllers\\users.php',
+  'backend\\Controllers\\preferences' => 'modules\\backend\\controllers\\preferences.php',
+  'system\\Controllers\\updates' => 'modules\\system\\controllers\\updates.php',
+  'vojtasvoboda\\twigextensions\\Plugin' => 'plugins\\vojtasvoboda\\twigextensions\\Plugin.php',
+  'VojtaSvoboda\\TwigExtensions\\Classes\\TimeDiffTranslator' => 'plugins\\vojtasvoboda\\twigextensions\\classes\\TimeDiffTranslator.php',
 );

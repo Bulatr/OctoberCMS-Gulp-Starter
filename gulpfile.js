@@ -1,8 +1,8 @@
 // VARIABLES & PATHS
 
-let localhost    = 'october.loc:8080', // Local domain
+let localhost    = 'hatan.loc', // Local domain
     preprocessor = 'sass', // Preprocessor (sass, scss, less, styl) / Preprocessor folder name / Module require const name. Example: themes/mytheme/assets/scss/
-    theme        = 'mytheme', // Theme folder name
+    theme        = 'hatan', // Theme folder name
     fileswatch   = 'html,htm,php,txt,yaml,twig,json,md', // List of files extensions for watching & hard reload (comma separated)
     online       = true; // If «false» - Browsersync will work offline without internet connection
 
