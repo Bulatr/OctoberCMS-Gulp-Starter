@@ -1,0 +1,6 @@
+plugin:
+    name: 'bulatr.basecode::lang.plugin.name'
+    description: 'bulatr.basecode::lang.plugin.description'
+    author: bulatR
+    icon: oc-icon-code
+    homepage: ''

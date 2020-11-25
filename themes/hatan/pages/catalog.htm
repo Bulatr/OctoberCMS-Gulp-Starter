@@ -1,14 +1,53 @@
-title = "catalog"
-url = "/catalog"
+title = "Каталог товаров"
+url = "/catalog/:slug"
 layout = "default"
 description = "Каталог магазина"
 is_hidden = 0
+
+[CategoryPage]
+slug = "{{ :slug }}"
+slug_required = 1
+smart_url_check = 1
+has_wildcard = 0
+skip_error = 0
+
+[ProductList]
+sorting = "new"
+
+[Pagination]
+count_per_page = 15
+pagination_limit = 5
+active_class = ""
+button_list = "first,first-more,main,last-more,last"
+first_button_name = "First"
+first_button_limit = 3
+first_button_number = 1
+first-more_button_name = "..."
+first-more_button_limit = 4
+prev_button_name = "Prev"
+prev_button_limit = 1
+prev-more_button_name = "..."
+prev-more_button_limit = 1
+next-more_button_name = "..."
+next-more_button_limit = 1
+next_button_name = "Next"
+next_button_limit = 1
+last-more_button_name = "..."
+last-more_button_limit = 4
+last_button_name = "Last"
+last_button_limit = 3
+last_button_number = 1
 ==
 {##}
+
+{# @var obCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
+{# Get category item #}
+{% set obCategory = CategoryPage.get() %}
+
 {% partial "filter-modal" %}
 
 <!-- Category-->
-<div class="category">
+<div class="category" data-id="{{ obCategory.id }}" itemscope itemtype="http://schema.org/Category">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -21,40 +60,11 @@ is_hidden = 0
                 <div class="category__row">
                     <div class="sidebar">
                         <div class="sidebar__title">
-                            <h3>Категории</h3>
+                            <h3>{{ obCategory.name }}</h3>
                         </div>
                         <div class="sidebar__content">
                             <div class="sidebar__menu">
-                                <ul class="menu-nav">
-                                    <li class="menu-nav__item">
-                                        <span class="menu-nav__item--main"><a href=""> Одежда</a></span>
-                                        <div class="menu-nav__item-submenu">
-                                            <a href="" class="item-submenu__link">Верхняя одежда</a>
-                                            <a href="" class="item-submenu__link">Джемперы</a>
-                                            <a href="" class="item-submenu__link">Рубашки</a>
-                                            <a href="" class="item-submenu__link">Брюки</a>
-                                            <a href="" class="item-submenu__link">Джинсы</a>
-                                            <a href="" class="item-submenu__link">Нижнее белье</a>
-                                        </div>							
-                                    </li>
-                                    <li class="menu-nav__item">
-                                        <span class="menu-nav__item--main"><a href="">Обувь</a></span>
-                                        <div class="menu-nav__item-submenu">
-                                            <a href="" class="item-submenu__link">Кроссовки</a>
-                                            <a href="" class="item-submenu__link">Туфли</a>
-                                            <a href="" class="item-submenu__link">Сапоги</a>
-                                            <a href="" class="item-submenu__link">Ботинки</a>
-                                        </div>							
-                                    </li>
-                                    <li class="menu-nav__item">
-                                        <span class="menu-nav__item--main"><a href="">Аксессуары</a></span>
-                                        <div class="menu-nav__item-submenu">
-                                            <a href="" class="item-submenu__link">Ремни</a>
-                                            <a href="" class="item-submenu__link">Сумки</a>
-                                        </div>							
-                                    </li>
-                                    
-                                </ul>
+                                {% partial "category/category-tree/category-tree" %}
                             </div>
                             <div class="sidebar__filter">
                                 <div class="sidebar-filter-item">
@@ -115,422 +125,7 @@ is_hidden = 0
                             </div>
                         </div>
                         <div class="wrapper-overlay card-container">
-                            <div class="product-card">
-                                <div class="card-img-wrapper">
-                                    <a href="{{"product-single" | page }}">
-                                        <img src="{{ 'assets/images/dest/1/37416640299.jpg' | theme }}" alt="" class="card-img-top">
-                                    </a>										
-                                </div>
-                                <div class="card-content-wrapper">
-                                    <div class="product-title">
-                                        <a href="">
-                                            <h4>Джемпер структурной вязки</h4>
-                                        </a>											
-                                    </div>
-                                    <div class="price">
-                                        4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
-                                    </div>
-                                    <div class="raiting-wrapper">
-                                        <div class="star-wrapper">
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star none">														
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="star-count">
-                                            (8)
-                                        </div>
-                                    </div>
-                                </div>	
-                                <div class="cart">
-                                    <img src="{{ 'assets/images/Cart-icon.svg' | theme }}" alt="">										
-                                </div>	
-                                <div class="badje">
-                                    <div class="content">
-                                        15%
-                                    </div>
-                                </div>							
-                            </div>
-                            <div class="product-card">
-                                <div class="card-img-wrapper">
-                                    <a href="product-single.html">
-                                        <img src="{{ 'assets/images/dest/2/37375710299.jpg' | theme }}" alt="" class="card-img-top">
-                                    </a>										
-                                </div>
-                                <div class="card-content-wrapper">
-                                    <div class="product-title">
-                                        <a href="">
-                                            <h4>Джемпер структурной вязки</h4>
-                                        </a>											
-                                    </div>
-                                    <div class="price">
-                                        4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
-                                    </div>
-                                    <div class="raiting-wrapper">
-                                        <div class="star-wrapper">
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star none">														
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="star-count">
-                                            (8)
-                                        </div>
-                                    </div>
-                                </div>	
-                                <div class="cart">
-                                    <img src="{{ 'assets/images/Cart-icon.svg' | theme }}" alt="">										
-                                </div>	
-                                <div class="badje active">
-                                    <div class="content">
-                                        15%
-                                    </div>
-                                </div>							
-                            </div>
-                            <div class="product-card">
-                                <div class="card-img-wrapper">
-                                    <a href="product-single.html">
-                                        <img src="{{ 'assets/images/dest/3/37488640299.jpg' | theme }}" alt="" class="card-img-top">
-                                    </a>										
-                                </div>
-                                <div class="card-content-wrapper">
-                                    <div class="product-title">
-                                        <a href="">
-                                            <h4>Джемпер структурной вязки</h4>
-                                        </a>											
-                                    </div>
-                                    <div class="price">
-                                        4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
-                                    </div>
-                                    <div class="raiting-wrapper">
-                                        <div class="star-wrapper">
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star none">														
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="star-count">
-                                            (8)
-                                        </div>
-                                    </div>
-                                </div>	
-                                <div class="cart">
-                                    <img src="{{ 'assets/images/Cart-icon.svg' | theme }}" alt="">										
-                                </div>	
-                                <div class="badje">
-                                    <div class="content">
-                                        15%
-                                    </div>
-                                </div>							
-                            </div>
-                            <div class="product-card">
-                                <div class="card-img-wrapper">
-                                    <a href="product-single.html">
-                                        <img src="{{ 'assets/images/dest/1/37416640299.jpg' | theme }}" alt="" class="card-img-top">
-                                    </a>										
-                                </div>
-                                <div class="card-content-wrapper">
-                                    <div class="product-title">
-                                        <a href="">
-                                            <h4>Джемпер структурной вязки</h4>
-                                        </a>											
-                                    </div>
-                                    <div class="price">
-                                        4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
-                                    </div>
-                                    <div class="raiting-wrapper">
-                                        <div class="star-wrapper">
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star none">														
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="star-count">
-                                            (8)
-                                        </div>
-                                    </div>
-                                </div>	
-                                <div class="cart">
-                                    <img src="{{ 'assets/images/Cart-icon.svg' | theme }}" alt="">										
-                                </div>	
-                                <div class="badje">
-                                    <div class="content">
-                                        15%
-                                    </div>
-                                </div>							
-                            </div>
-                            <div class="product-card">
-                                <div class="card-img-wrapper">
-                                    <a href="{{"product-single" | page }}">
-                                        <img src="{{ 'assets/images/dest/1/37416640299.jpg' | theme }}" alt="" class="card-img-top">
-                                    </a>										
-                                </div>
-                                <div class="card-content-wrapper">
-                                    <div class="product-title">
-                                        <a href="">
-                                            <h4>Джемпер структурной вязки</h4>
-                                        </a>											
-                                    </div>
-                                    <div class="price">
-                                        4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
-                                    </div>
-                                    <div class="raiting-wrapper">
-                                        <div class="star-wrapper">
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star none">														
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="star-count">
-                                            (8)
-                                        </div>
-                                    </div>
-                                </div>	
-                                <div class="cart">
-                                    <img src="{{ 'assets/images/Cart-icon.svg' | theme }}" alt="">										
-                                </div>	
-                                <div class="badje">
-                                    <div class="content">
-                                        15%
-                                    </div>
-                                </div>							
-                            </div>
-                            <div class="product-card">
-                                <div class="card-img-wrapper">
-                                    <a href="product-single.html">
-                                        <img src="{{ 'assets/images/dest/2/37375710299.jpg' | theme }}" alt="" class="card-img-top">
-                                    </a>										
-                                </div>
-                                <div class="card-content-wrapper">
-                                    <div class="product-title">
-                                        <a href="">
-                                            <h4>Джемпер структурной вязки</h4>
-                                        </a>											
-                                    </div>
-                                    <div class="price">
-                                        4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
-                                    </div>
-                                    <div class="raiting-wrapper">
-                                        <div class="star-wrapper">
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star none">														
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="star-count">
-                                            (8)
-                                        </div>
-                                    </div>
-                                </div>	
-                                <div class="cart">
-                                    <img src="{{ 'assets/images/Cart-icon.svg' | theme }}" alt="">										
-                                </div>	
-                                <div class="badje active">
-                                    <div class="content">
-                                        15%
-                                    </div>
-                                </div>							
-                            </div>
-                            <div class="product-card">
-                                <div class="card-img-wrapper">
-                                    <a href="product-single.html">
-                                        <img src="{{ 'assets/images/dest/3/37488640299.jpg' | theme }}" alt="" class="card-img-top">
-                                    </a>										
-                                </div>
-                                <div class="card-content-wrapper">
-                                    <div class="product-title">
-                                        <a href="">
-                                            <h4>Джемпер структурной вязки</h4>
-                                        </a>											
-                                    </div>
-                                    <div class="price">
-                                        4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
-                                    </div>
-                                    <div class="raiting-wrapper">
-                                        <div class="star-wrapper">
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star none">														
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="star-count">
-                                            (8)
-                                        </div>
-                                    </div>
-                                </div>	
-                                <div class="cart">
-                                    <img src="{{ 'assets/images/Cart-icon.svg' | theme }}" alt="">										
-                                </div>	
-                                <div class="badje">
-                                    <div class="content">
-                                        15%
-                                    </div>
-                                </div>							
-                            </div>
-                            <div class="product-card">
-                                <div class="card-img-wrapper">
-                                    <a href="product-single.html">
-                                        <img src="{{ 'assets/images/dest/1/37416640299.jpg' | theme }}" alt="" class="card-img-top">
-                                    </a>										
-                                </div>
-                                <div class="card-content-wrapper">
-                                    <div class="product-title">
-                                        <a href="">
-                                            <h4>Джемпер структурной вязки</h4>
-                                        </a>											
-                                    </div>
-                                    <div class="price">
-                                        4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
-                                    </div>
-                                    <div class="raiting-wrapper">
-                                        <div class="star-wrapper">
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star">														
-                                                </div>
-                                            </a>
-                                            <a href="#">
-                                                <div class="star none">														
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="star-count">
-                                            (8)
-                                        </div>
-                                    </div>
-                                </div>	
-                                <div class="cart">
-                                    <img src="{{ 'assets/images/Cart-icon.svg' | theme }}" alt="">										
-                                </div>	
-                                <div class="badje">
-                                    <div class="content">
-                                        15%
-                                    </div>
-                                </div>							
-                            </div>
+                            {% partial 'product/catalog/product-list' obActiveCategory=obCategory %}
                         </div>
                     </div>
                 </div>   
