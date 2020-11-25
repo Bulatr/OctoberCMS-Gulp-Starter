@@ -30,7 +30,7 @@ class __TwigTemplate_0c26b869ba790f9b8de79fade092412c9e6e08ad9471d4e3ef6378bf4c5
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
         $tags = array();
-        $filters = array("theme" => 7);
+        $filters = array("theme" => 8);
         $functions = array();
 
         try {
@@ -58,7 +58,7 @@ class __TwigTemplate_0c26b869ba790f9b8de79fade092412c9e6e08ad9471d4e3ef6378bf4c5
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 1
+        // line 2
         echo "<div class=\"microcart\">
 \t\t<div class=\"cart-dialog\">
 \t\t\t<div class=\"cart-content\">
@@ -66,7 +66,7 @@ class __TwigTemplate_0c26b869ba790f9b8de79fade092412c9e6e08ad9471d4e3ef6378bf4c5
 \t\t\t\t\t<div></div>
 \t\t\t\t\t<div class=\"close\">
 \t\t\t\t\t\t<img src=\"";
-        // line 7
+        // line 8
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Close-circle.svg");
         echo "\" alt=\"\">
 \t\t\t\t\t</div>
@@ -75,7 +75,7 @@ class __TwigTemplate_0c26b869ba790f9b8de79fade092412c9e6e08ad9471d4e3ef6378bf4c5
 \t\t\t\t\t<div class=\"cart-empty show\">
 \t\t\t\t\t\t<div class=\"empty-image\">
 \t\t\t\t\t\t\t<img src=\"";
-        // line 13
+        // line 14
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/empty cart image.svg");
         echo "\" alt=\"\">
 \t\t\t\t\t\t</div>
@@ -92,27 +92,36 @@ class __TwigTemplate_0c26b869ba790f9b8de79fade092412c9e6e08ad9471d4e3ef6378bf4c5
 \t\t\t\t\t\t<div class=\"cart-items\">
 \t\t\t\t\t\t\t<div class=\"collected-product\">
 \t\t\t\t\t\t\t\t<div class=\"collected-product__image-wrapper\">
-\t\t\t\t\t\t\t\t\t<div class=\"collected-product__image-wrapper-image\"><img src=\"images/dest/1/37416640299.jpg\" alt=\"\"></div>
+\t\t\t\t\t\t\t\t\t<div class=\"collected-product__image-wrapper-image\"><img src=\"";
+        // line 29
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/dest/1/37416640299.jpg");
+        echo "\" alt=\"\"></div>
 \t\t\t\t\t\t\t\t\t<div class=\"collected-product__image-wrapper-count-wrap-collected\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"count-wrap\">
+\t\t\t\t\t\t\t\t\t\t<div class=\"count-wrap\" id=\"product-123\">
 \t\t\t\t\t\t\t\t\t\t\t<div class=\"count-up\">+</div>
-\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"count-microcart-1\" placeholder=\"1\" value=\"1\">
+\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control amount-product\" id=\"count-1\" placeholder=\"1\" value=\"1\">
 \t\t\t\t\t\t\t\t\t\t\t<div class=\"count-down\">-</div>
 \t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t<div class=\"collected-product__content\">
 \t\t\t\t\t\t\t\t\t<div class=\"collected-product__content-delete-product\">
-\t\t\t\t\t\t\t\t\t\t<img src=\"images/small_close.svg\" alt=\"\">
+\t\t\t\t\t\t\t\t\t\t<img src=\"";
+        // line 40
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/small_close.svg");
+        echo "\" alt=\"\">
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t<div class=\"collected-product__content-pr-title\">
 \t\t\t\t\t\t\t\t\t\tДжемпер вязки «косы» с воротником-стойкой
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t<div class=\"collected-product__content-pr-price-wrap\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"old-price\">5999<span class=\"rub\"><img src=\"images/Rub.svg\" alt=\"\"></span></div>
+\t\t\t\t\t\t\t\t\t\t<div class=\"old-price\">5999<span class=\"rub\"><img src=\"";
+        // line 46
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Rub.svg");
+        echo "\" alt=\"\"></span></div>
 \t\t\t\t\t\t\t\t\t\t<div class=\"today-price\">
 \t\t\t\t\t\t\t\t\t\t\t4800 <span class=\"rub\"><img src=\"";
-        // line 47
+        // line 48
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Rub.svg");
         echo "\" alt=\"\"></span>
 \t\t\t\t\t\t\t\t\t\t</div>
@@ -131,26 +140,38 @@ class __TwigTemplate_0c26b869ba790f9b8de79fade092412c9e6e08ad9471d4e3ef6378bf4c5
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"collected-product\">
 \t\t\t\t\t\t\t\t<div class=\"collected-product__image-wrapper\">
-\t\t\t\t\t\t\t\t\t<div class=\"collected-product__image-wrapper-image\"><img src=\"images/dest/1/37416640299.jpg\" alt=\"\"></div>
+\t\t\t\t\t\t\t\t\t<div class=\"collected-product__image-wrapper-image\"><img src=\"";
+        // line 65
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/dest/1/37416640299.jpg");
+        echo "\" alt=\"\"></div>
 \t\t\t\t\t\t\t\t\t<div class=\"collected-product__image-wrapper-count-wrap-collected\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"count-wrap\">
+\t\t\t\t\t\t\t\t\t\t<div class=\"count-wrap\" id=\"product-123\">
 \t\t\t\t\t\t\t\t\t\t\t<div class=\"count-up\">+</div>
-\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"count-microcart-2\" placeholder=\"1\" value=\"1\">
+\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control amount-product\" id=\"count-2\" placeholder=\"1\" value=\"1\">
 \t\t\t\t\t\t\t\t\t\t\t<div class=\"count-down\">-</div>
 \t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t<div class=\"collected-product__content\">
 \t\t\t\t\t\t\t\t\t<div class=\"collected-product__content-delete-product\">
-\t\t\t\t\t\t\t\t\t\t<img src=\"images/small_close.svg\" alt=\"\">
+\t\t\t\t\t\t\t\t\t\t<img src=\"";
+        // line 76
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/small_close.svg");
+        echo "\" alt=\"\">
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t<div class=\"collected-product__content-pr-title\">
 \t\t\t\t\t\t\t\t\t\tДжемпер вязки «косы» с воротником-стойкой
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t<div class=\"collected-product__content-pr-price-wrap\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"old-price\">5999<span class=\"rub\"><img src=\"images/Rub.svg\" alt=\"\"></span></div>
+\t\t\t\t\t\t\t\t\t\t<div class=\"old-price\">5999<span class=\"rub\"><img src=\"";
+        // line 82
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Rub.svg");
+        echo "\" alt=\"\"></span></div>
 \t\t\t\t\t\t\t\t\t\t<div class=\"today-price\">
-\t\t\t\t\t\t\t\t\t\t\t4800 <span class=\"rub\"><img src=\"images/Rub.svg\" alt=\"\"></span>
+\t\t\t\t\t\t\t\t\t\t\t4800 <span class=\"rub\"><img src=\"";
+        // line 84
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Rub.svg");
+        echo "\" alt=\"\"></span>
 \t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t<div class=\"collected-product__content-options\">
@@ -173,23 +194,38 @@ class __TwigTemplate_0c26b869ba790f9b8de79fade092412c9e6e08ad9471d4e3ef6378bf4c5
 \t\t\t\t\t\t<div class=\"summary\">
 \t\t\t\t\t\t\t<div class=\"summary__item\">
 \t\t\t\t\t\t\t\t<div class=\"summary-label\">Стоимость</div>
-\t\t\t\t\t\t\t\t<div class=\"summary-value\">4800<span class=\"rub\"><img src=\"images/Rub.svg\" alt=\"\"></span></div>
+\t\t\t\t\t\t\t\t<div class=\"summary-value\">4800<span class=\"rub\"><img src=\"";
+        // line 107
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Rub.svg");
+        echo "\" alt=\"\"></span></div>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"summary__item\">
 \t\t\t\t\t\t\t\t<div class=\"summary-label\">НДС</div>
-\t\t\t\t\t\t\t\t<div class=\"summary-value\">0<span class=\"rub\"><img src=\"images/Rub.svg\" alt=\"\"></span></div>
+\t\t\t\t\t\t\t\t<div class=\"summary-value\">0<span class=\"rub\"><img src=\"";
+        // line 111
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Rub.svg");
+        echo "\" alt=\"\"></span></div>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"summary__item\">
 \t\t\t\t\t\t\t\t<div class=\"summary-label\">Скидка</div>
-\t\t\t\t\t\t\t\t<div class=\"summary-value\">0<span class=\"rub\"><img src=\"images/Rub.svg\" alt=\"\"></span></div>
+\t\t\t\t\t\t\t\t<div class=\"summary-value\">0<span class=\"rub\"><img src=\"";
+        // line 115
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Rub.svg");
+        echo "\" alt=\"\"></span></div>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"summary__item\">
 \t\t\t\t\t\t\t\t<div class=\"summary-label\">Скидка по купону</div>
-\t\t\t\t\t\t\t\t<div class=\"summary-value\">0<span class=\"rub\"><img src=\"images/Rub.svg\" alt=\"\"></span></div>
+\t\t\t\t\t\t\t\t<div class=\"summary-value\">0<span class=\"rub\"><img src=\"";
+        // line 119
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Rub.svg");
+        echo "\" alt=\"\"></span></div>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"summary__item summ\">
 \t\t\t\t\t\t\t\t<div class=\"summary-label\">Итого стоимость</div>
-\t\t\t\t\t\t\t\t<div class=\"summary-value\">4800<span class=\"rub\"><img src=\"images/Rub.svg\" alt=\"\"></span></div>
+\t\t\t\t\t\t\t\t<div class=\"summary-value\">4800<span class=\"rub\"><img src=\"";
+        // line 123
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Rub.svg");
+        echo "\" alt=\"\"></span></div>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
@@ -217,12 +253,13 @@ class __TwigTemplate_0c26b869ba790f9b8de79fade092412c9e6e08ad9471d4e3ef6378bf4c5
 
     public function getDebugInfo()
     {
-        return array (  116 => 47,  79 => 13,  70 => 7,  62 => 1,);
+        return array (  227 => 123,  220 => 119,  213 => 115,  206 => 111,  199 => 107,  173 => 84,  168 => 82,  159 => 76,  145 => 65,  125 => 48,  120 => 46,  111 => 40,  97 => 29,  79 => 14,  70 => 8,  62 => 2,);
     }
 
     public function getSourceContext()
     {
-        return new Source("<div class=\"microcart\">
+        return new Source("{##}
+<div class=\"microcart\">
 \t\t<div class=\"cart-dialog\">
 \t\t\t<div class=\"cart-content\">
 \t\t\t\t<div class=\"cart-header\">
@@ -249,24 +286,24 @@ class __TwigTemplate_0c26b869ba790f9b8de79fade092412c9e6e08ad9471d4e3ef6378bf4c5
 \t\t\t\t\t\t<div class=\"cart-items\">
 \t\t\t\t\t\t\t<div class=\"collected-product\">
 \t\t\t\t\t\t\t\t<div class=\"collected-product__image-wrapper\">
-\t\t\t\t\t\t\t\t\t<div class=\"collected-product__image-wrapper-image\"><img src=\"images/dest/1/37416640299.jpg\" alt=\"\"></div>
+\t\t\t\t\t\t\t\t\t<div class=\"collected-product__image-wrapper-image\"><img src=\"{{ 'assets/images/dest/1/37416640299.jpg' | theme }}\" alt=\"\"></div>
 \t\t\t\t\t\t\t\t\t<div class=\"collected-product__image-wrapper-count-wrap-collected\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"count-wrap\">
+\t\t\t\t\t\t\t\t\t\t<div class=\"count-wrap\" id=\"product-123\">
 \t\t\t\t\t\t\t\t\t\t\t<div class=\"count-up\">+</div>
-\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"count-microcart-1\" placeholder=\"1\" value=\"1\">
+\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control amount-product\" id=\"count-1\" placeholder=\"1\" value=\"1\">
 \t\t\t\t\t\t\t\t\t\t\t<div class=\"count-down\">-</div>
 \t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t<div class=\"collected-product__content\">
 \t\t\t\t\t\t\t\t\t<div class=\"collected-product__content-delete-product\">
-\t\t\t\t\t\t\t\t\t\t<img src=\"images/small_close.svg\" alt=\"\">
+\t\t\t\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/small_close.svg' | theme }}\" alt=\"\">
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t<div class=\"collected-product__content-pr-title\">
 \t\t\t\t\t\t\t\t\t\tДжемпер вязки «косы» с воротником-стойкой
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t<div class=\"collected-product__content-pr-price-wrap\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"old-price\">5999<span class=\"rub\"><img src=\"images/Rub.svg\" alt=\"\"></span></div>
+\t\t\t\t\t\t\t\t\t\t<div class=\"old-price\">5999<span class=\"rub\"><img src=\"{{ 'assets/images/Rub.svg' | theme }}\" alt=\"\"></span></div>
 \t\t\t\t\t\t\t\t\t\t<div class=\"today-price\">
 \t\t\t\t\t\t\t\t\t\t\t4800 <span class=\"rub\"><img src=\"{{'assets/images/Rub.svg' | theme }}\" alt=\"\"></span>
 \t\t\t\t\t\t\t\t\t\t</div>
@@ -285,26 +322,26 @@ class __TwigTemplate_0c26b869ba790f9b8de79fade092412c9e6e08ad9471d4e3ef6378bf4c5
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"collected-product\">
 \t\t\t\t\t\t\t\t<div class=\"collected-product__image-wrapper\">
-\t\t\t\t\t\t\t\t\t<div class=\"collected-product__image-wrapper-image\"><img src=\"images/dest/1/37416640299.jpg\" alt=\"\"></div>
+\t\t\t\t\t\t\t\t\t<div class=\"collected-product__image-wrapper-image\"><img src=\"{{ 'assets/images/dest/1/37416640299.jpg' | theme }}\" alt=\"\"></div>
 \t\t\t\t\t\t\t\t\t<div class=\"collected-product__image-wrapper-count-wrap-collected\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"count-wrap\">
+\t\t\t\t\t\t\t\t\t\t<div class=\"count-wrap\" id=\"product-123\">
 \t\t\t\t\t\t\t\t\t\t\t<div class=\"count-up\">+</div>
-\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"count-microcart-2\" placeholder=\"1\" value=\"1\">
+\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control amount-product\" id=\"count-2\" placeholder=\"1\" value=\"1\">
 \t\t\t\t\t\t\t\t\t\t\t<div class=\"count-down\">-</div>
 \t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t<div class=\"collected-product__content\">
 \t\t\t\t\t\t\t\t\t<div class=\"collected-product__content-delete-product\">
-\t\t\t\t\t\t\t\t\t\t<img src=\"images/small_close.svg\" alt=\"\">
+\t\t\t\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/small_close.svg' | theme }}\" alt=\"\">
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t<div class=\"collected-product__content-pr-title\">
 \t\t\t\t\t\t\t\t\t\tДжемпер вязки «косы» с воротником-стойкой
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t<div class=\"collected-product__content-pr-price-wrap\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"old-price\">5999<span class=\"rub\"><img src=\"images/Rub.svg\" alt=\"\"></span></div>
+\t\t\t\t\t\t\t\t\t\t<div class=\"old-price\">5999<span class=\"rub\"><img src=\"{{ 'assets/images/Rub.svg' |theme }}\" alt=\"\"></span></div>
 \t\t\t\t\t\t\t\t\t\t<div class=\"today-price\">
-\t\t\t\t\t\t\t\t\t\t\t4800 <span class=\"rub\"><img src=\"images/Rub.svg\" alt=\"\"></span>
+\t\t\t\t\t\t\t\t\t\t\t4800 <span class=\"rub\"><img src=\"{{ 'assets/images/Rub.svg' | theme }}\" alt=\"\"></span>
 \t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t<div class=\"collected-product__content-options\">
@@ -327,23 +364,23 @@ class __TwigTemplate_0c26b869ba790f9b8de79fade092412c9e6e08ad9471d4e3ef6378bf4c5
 \t\t\t\t\t\t<div class=\"summary\">
 \t\t\t\t\t\t\t<div class=\"summary__item\">
 \t\t\t\t\t\t\t\t<div class=\"summary-label\">Стоимость</div>
-\t\t\t\t\t\t\t\t<div class=\"summary-value\">4800<span class=\"rub\"><img src=\"images/Rub.svg\" alt=\"\"></span></div>
+\t\t\t\t\t\t\t\t<div class=\"summary-value\">4800<span class=\"rub\"><img src=\"{{ 'assets/images/Rub.svg' | theme }}\" alt=\"\"></span></div>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"summary__item\">
 \t\t\t\t\t\t\t\t<div class=\"summary-label\">НДС</div>
-\t\t\t\t\t\t\t\t<div class=\"summary-value\">0<span class=\"rub\"><img src=\"images/Rub.svg\" alt=\"\"></span></div>
+\t\t\t\t\t\t\t\t<div class=\"summary-value\">0<span class=\"rub\"><img src=\"{{ 'assets/images/Rub.svg' | theme }}\" alt=\"\"></span></div>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"summary__item\">
 \t\t\t\t\t\t\t\t<div class=\"summary-label\">Скидка</div>
-\t\t\t\t\t\t\t\t<div class=\"summary-value\">0<span class=\"rub\"><img src=\"images/Rub.svg\" alt=\"\"></span></div>
+\t\t\t\t\t\t\t\t<div class=\"summary-value\">0<span class=\"rub\"><img src=\"{{ 'assets/images/Rub.svg' | theme }}\" alt=\"\"></span></div>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"summary__item\">
 \t\t\t\t\t\t\t\t<div class=\"summary-label\">Скидка по купону</div>
-\t\t\t\t\t\t\t\t<div class=\"summary-value\">0<span class=\"rub\"><img src=\"images/Rub.svg\" alt=\"\"></span></div>
+\t\t\t\t\t\t\t\t<div class=\"summary-value\">0<span class=\"rub\"><img src=\"{{ 'assets/images/Rub.svg' | theme }}\" alt=\"\"></span></div>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"summary__item summ\">
 \t\t\t\t\t\t\t\t<div class=\"summary-label\">Итого стоимость</div>
-\t\t\t\t\t\t\t\t<div class=\"summary-value\">4800<span class=\"rub\"><img src=\"images/Rub.svg\" alt=\"\"></span></div>
+\t\t\t\t\t\t\t\t<div class=\"summary-value\">4800<span class=\"rub\"><img src=\"{{ 'assets/images/Rub.svg' | theme }}\" alt=\"\"></span></div>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>

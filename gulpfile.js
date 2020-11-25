@@ -10,10 +10,11 @@ let paths = {
 
 	plugins: {
 		src: [
-			// 'node_modules/jquery/dist/jquery.min.js', // npm vendor example (npm i --save-dev jquery)
-			// 'themes/' + theme + '/assets/vendor/lazyload/lazyload.js', // Vendor script plugin example
-			// 'modules/system/assets/js/framework.js', // {% framework extras %}
-			// 'modules/system/assets/js/framework.extras.js', // {% framework extras %}
+			 	'node_modules/jquery/dist/jquery.min.js', // npm vendor example (npm i --save-dev jquery)
+			 	'node_modules/bootstrap/dist/js/bootstrap.min.js',
+			 	'node_modules/lazyload/lazyload.min.js', // 
+				'modules/system/assets/js/framework.js', // {% framework extras %}
+				'modules/system/assets/js/framework.extras.js', // {% framework extras %}
 			// 'plugins/nms/plugin/assets/js/plugin.js', // Plugin script example
 		]
 	},
@@ -41,6 +42,8 @@ let paths = {
 			'themes/' + theme + '/assets/' + preprocessor,
 		],
 	},
+	cssOutputName: 'hatan.min.css',
+	jsOutputName:  'hatan.min.js',
 
 }
 
@@ -91,15 +94,15 @@ function scripts() {
 		'themes/' + theme + '/assets/js/_tmp/plugins.tmp.js',
 		'themes/' + theme + '/assets/js/_tmp/userscripts.tmp.js'
 	])
-	.pipe(concat('theme.min.js'))
+	.pipe(concat(paths.jsOutputName))
 	.pipe(uglify())
 	.pipe(dest('themes/' + theme + '/assets/js'))
 }
 
 function styles() {
-	return src('themes/' + theme + '/assets/' + preprocessor + '/theme.*')
+	return src('themes/' + theme + '/assets/' + preprocessor + '/main.*')
 	.pipe(eval(preprocessor)())
-	.pipe(concat('theme.min.css'))
+	.pipe(concat(paths.cssOutputName))
 	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
 	.pipe(cleancss({ level: { 1: { specialComments: 0 } },/* format: 'beautify' */ }))
 	.pipe(dest('themes/' + theme + '/assets/css'))

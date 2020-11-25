@@ -58,7 +58,7 @@ class __TwigTemplate_8d1484476275be691b0484ff2530e085e195aa94507a1b7bda28dbb65ea
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 1
+        // line 2
         echo "<div class=\"top-bar\">
 \t<div class=\"container\">
 \t\t<div class=\"row\">
@@ -89,12 +89,13 @@ class __TwigTemplate_8d1484476275be691b0484ff2530e085e195aa94507a1b7bda28dbb65ea
 
     public function getDebugInfo()
     {
-        return array (  62 => 1,);
+        return array (  62 => 2,);
     }
 
     public function getSourceContext()
     {
-        return new Source("<div class=\"top-bar\">
+        return new Source("{##}
+<div class=\"top-bar\">
 \t<div class=\"container\">
 \t\t<div class=\"row\">
 \t\t\t<div class=\"col\">

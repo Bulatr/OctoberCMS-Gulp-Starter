@@ -29,13 +29,13 @@ class __TwigTemplate_8a11e69f1359f4e4ebcacaa53b1104d9e509246934826eaae5e40ee7aaa
         $this->blocks = [
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
-        $tags = array("framework" => 125, "scripts" => 126);
-        $filters = array("theme" => 97);
+        $tags = array("scripts" => 125);
+        $filters = array("theme" => 98);
         $functions = array();
 
         try {
             $this->sandbox->checkSecurity(
-                ['framework', 'scripts'],
+                ['scripts'],
                 ['theme'],
                 []
             );
@@ -58,7 +58,7 @@ class __TwigTemplate_8a11e69f1359f4e4ebcacaa53b1104d9e509246934826eaae5e40ee7aaa
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 1
+        // line 2
         echo "<div class=\"footer\">
 \t\t<div class=\"container\">
 \t\t\t<div class=\"row\">
@@ -156,7 +156,7 @@ class __TwigTemplate_8a11e69f1359f4e4ebcacaa53b1104d9e509246934826eaae5e40ee7aaa
 \t\t\t\t\t\t\t\t\t<li class=\"footer-submenu-item\">
 \t\t\t\t\t\t\t\t\t\t<a href=\"\" class=\"footer-submenu-item-link\">
 \t\t\t\t\t\t\t\t\t\t\t<img src=\"";
-        // line 97
+        // line 98
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/icons8-instagram.svg");
         echo "\" alt=\"instagram\">
 \t\t\t\t\t\t\t\t\t\t</a>
@@ -164,7 +164,7 @@ class __TwigTemplate_8a11e69f1359f4e4ebcacaa53b1104d9e509246934826eaae5e40ee7aaa
 \t\t\t\t\t\t\t\t\t<li class=\"footer-submenu-item\">
 \t\t\t\t\t\t\t\t\t\t<a href=\"\" class=\"footer-submenu-item-link\">
 \t\t\t\t\t\t\t\t\t\t\t<img src=\"";
-        // line 102
+        // line 103
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/icons8-facebook.svg");
         echo "\" alt=\"facebook\">
 \t\t\t\t\t\t\t\t\t\t</a>
@@ -172,7 +172,7 @@ class __TwigTemplate_8a11e69f1359f4e4ebcacaa53b1104d9e509246934826eaae5e40ee7aaa
 \t\t\t\t\t\t\t\t\t<li class=\"footer-submenu-item\">
 \t\t\t\t\t\t\t\t\t\t<a href=\"\" class=\"footer-submenu-item-link\">
 \t\t\t\t\t\t\t\t\t\t\t<img src=\"";
-        // line 107
+        // line 108
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/icons8-vkontakte.svg");
         echo "\" alt=\"VK\">
 \t\t\t\t\t\t\t\t\t\t</a>
@@ -180,7 +180,7 @@ class __TwigTemplate_8a11e69f1359f4e4ebcacaa53b1104d9e509246934826eaae5e40ee7aaa
 \t\t\t\t\t\t\t\t\t<li class=\"footer-submenu-item\">
 \t\t\t\t\t\t\t\t\t\t<a href=\"\" class=\"footer-submenu-item-link\">
 \t\t\t\t\t\t\t\t\t\t\t<img src=\"";
-        // line 112
+        // line 113
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/icons8-youtube-squared.svg");
         echo "\" alt=\"youtube\">
 \t\t\t\t\t\t\t\t\t\t</a>
@@ -194,27 +194,14 @@ class __TwigTemplate_8a11e69f1359f4e4ebcacaa53b1104d9e509246934826eaae5e40ee7aaa
 \t\t</div>
 \t</div>
 \t<script src=\"";
-        // line 123
-        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/js/app.min.js");
-        echo "\"></script>
-
+        // line 124
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/js/hatan.min.js");
+        echo "\"></script>\t
 \t";
         // line 125
-        $_minify = System\Classes\CombineAssets::instance()->useMinify;
-        if ($_minify) {
-            echo '<script src="' . Request::getBasePath() . '/modules/system/assets/js/framework.combined-min.js"></script>'.PHP_EOL;
-        }
-        else {
-            echo '<script src="' . Request::getBasePath() . '/modules/system/assets/js/framework.js"></script>'.PHP_EOL;
-            echo '<script src="' . Request::getBasePath() . '/modules/system/assets/js/framework.extras.js"></script>'.PHP_EOL;
-        }
-        echo '<link rel="stylesheet" property="stylesheet" href="' . Request::getBasePath() .'/modules/system/assets/css/framework.extras'.($_minify ? '-min' : '').'.css">'.PHP_EOL;
-        unset($_minify);
-        // line 126
-        echo "\t";
         echo $this->env->getExtension('Cms\Twig\Extension')->assetsFunction('js');
         echo $this->env->getExtension('Cms\Twig\Extension')->displayBlock('scripts');
-        // line 127
+        // line 126
         echo "\t
 </body>
 </html>";
@@ -232,12 +219,13 @@ class __TwigTemplate_8a11e69f1359f4e4ebcacaa53b1104d9e509246934826eaae5e40ee7aaa
 
     public function getDebugInfo()
     {
-        return array (  218 => 127,  214 => 126,  203 => 125,  198 => 123,  184 => 112,  176 => 107,  168 => 102,  160 => 97,  62 => 1,);
+        return array (  205 => 126,  202 => 125,  198 => 124,  184 => 113,  176 => 108,  168 => 103,  160 => 98,  62 => 2,);
     }
 
     public function getSourceContext()
     {
-        return new Source("<div class=\"footer\">
+        return new Source("{##}
+<div class=\"footer\">
 \t\t<div class=\"container\">
 \t\t\t<div class=\"row\">
 \t\t\t\t<div class=\"col\">
@@ -359,9 +347,7 @@ class __TwigTemplate_8a11e69f1359f4e4ebcacaa53b1104d9e509246934826eaae5e40ee7aaa
 \t\t\t</div>
 \t\t</div>
 \t</div>
-\t<script src=\"{{ 'assets/js/app.min.js' | theme }}\"></script>
-
-\t{% framework extras %}
+\t<script src=\"{{ 'assets/js/hatan.min.js' | theme }}\"></script>\t
 \t{% scripts %}
 \t
 </body>

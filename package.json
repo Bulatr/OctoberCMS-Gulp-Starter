@@ -32,5 +32,11 @@
     "gulp-stylus": "^2.7.0",
     "gulp-uglify": "^3.0.2",
     "less": "3.12.2"
+  },
+  "dependencies": {
+    "bootstrap": "^5.0.0-alpha3",
+    "help": "^3.0.2",
+    "jquery": "^3.5.1",
+    "lazyload": "^2.0.0-rc.2"
   }
 }

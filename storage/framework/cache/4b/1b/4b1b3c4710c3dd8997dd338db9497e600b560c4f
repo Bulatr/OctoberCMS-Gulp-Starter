@@ -1,4 +1,4 @@
-1606229840a:1:{s:11:"default.htm";a:5:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:107:"{% partial 'header' class='myclass' %}
+1606285341a:1:{s:11:"default.htm";a:5:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:107:"{% partial 'header' class='myclass' %}
 
 	<section>
 		{% page %}

@@ -1,5 +1,7 @@
+;;
 description = "Корзина"
 ==
+{##}
 <div class="microcart">
 		<div class="cart-dialog">
 			<div class="cart-content">
@@ -27,24 +29,24 @@ description = "Корзина"
 						<div class="cart-items">
 							<div class="collected-product">
 								<div class="collected-product__image-wrapper">
-									<div class="collected-product__image-wrapper-image"><img src="images/dest/1/37416640299.jpg" alt=""></div>
+									<div class="collected-product__image-wrapper-image"><img src="{{ 'assets/images/dest/1/37416640299.jpg' | theme }}" alt=""></div>
 									<div class="collected-product__image-wrapper-count-wrap-collected">
-										<div class="count-wrap">
+										<div class="count-wrap" id="product-123">
 											<div class="count-up">+</div>
-											<input type="text" class="form-control" id="count-microcart-1" placeholder="1" value="1">
+											<input type="text" class="form-control amount-product" id="count-1" placeholder="1" value="1">
 											<div class="count-down">-</div>
 										</div>
 									</div>
 								</div>
 								<div class="collected-product__content">
 									<div class="collected-product__content-delete-product">
-										<img src="images/small_close.svg" alt="">
+										<img src="{{ 'assets/images/small_close.svg' | theme }}" alt="">
 									</div>
 									<div class="collected-product__content-pr-title">
 										Джемпер вязки «косы» с воротником-стойкой
 									</div>
 									<div class="collected-product__content-pr-price-wrap">
-										<div class="old-price">5999<span class="rub"><img src="images/Rub.svg" alt=""></span></div>
+										<div class="old-price">5999<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span></div>
 										<div class="today-price">
 											4800 <span class="rub"><img src="{{'assets/images/Rub.svg' | theme }}" alt=""></span>
 										</div>
@@ -63,26 +65,26 @@ description = "Корзина"
 							</div>
 							<div class="collected-product">
 								<div class="collected-product__image-wrapper">
-									<div class="collected-product__image-wrapper-image"><img src="images/dest/1/37416640299.jpg" alt=""></div>
+									<div class="collected-product__image-wrapper-image"><img src="{{ 'assets/images/dest/1/37416640299.jpg' | theme }}" alt=""></div>
 									<div class="collected-product__image-wrapper-count-wrap-collected">
-										<div class="count-wrap">
+										<div class="count-wrap" id="product-123">
 											<div class="count-up">+</div>
-											<input type="text" class="form-control" id="count-microcart-2" placeholder="1" value="1">
+											<input type="text" class="form-control amount-product" id="count-2" placeholder="1" value="1">
 											<div class="count-down">-</div>
 										</div>
 									</div>
 								</div>
 								<div class="collected-product__content">
 									<div class="collected-product__content-delete-product">
-										<img src="images/small_close.svg" alt="">
+										<img src="{{ 'assets/images/small_close.svg' | theme }}" alt="">
 									</div>
 									<div class="collected-product__content-pr-title">
 										Джемпер вязки «косы» с воротником-стойкой
 									</div>
 									<div class="collected-product__content-pr-price-wrap">
-										<div class="old-price">5999<span class="rub"><img src="images/Rub.svg" alt=""></span></div>
+										<div class="old-price">5999<span class="rub"><img src="{{ 'assets/images/Rub.svg' |theme }}" alt=""></span></div>
 										<div class="today-price">
-											4800 <span class="rub"><img src="images/Rub.svg" alt=""></span>
+											4800 <span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
 										</div>
 									</div>
 									<div class="collected-product__content-options">
@@ -105,23 +107,23 @@ description = "Корзина"
 						<div class="summary">
 							<div class="summary__item">
 								<div class="summary-label">Стоимость</div>
-								<div class="summary-value">4800<span class="rub"><img src="images/Rub.svg" alt=""></span></div>
+								<div class="summary-value">4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span></div>
 							</div>
 							<div class="summary__item">
 								<div class="summary-label">НДС</div>
-								<div class="summary-value">0<span class="rub"><img src="images/Rub.svg" alt=""></span></div>
+								<div class="summary-value">0<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span></div>
 							</div>
 							<div class="summary__item">
 								<div class="summary-label">Скидка</div>
-								<div class="summary-value">0<span class="rub"><img src="images/Rub.svg" alt=""></span></div>
+								<div class="summary-value">0<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span></div>
 							</div>
 							<div class="summary__item">
 								<div class="summary-label">Скидка по купону</div>
-								<div class="summary-value">0<span class="rub"><img src="images/Rub.svg" alt=""></span></div>
+								<div class="summary-value">0<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span></div>
 							</div>
 							<div class="summary__item summ">
 								<div class="summary-label">Итого стоимость</div>
-								<div class="summary-value">4800<span class="rub"><img src="images/Rub.svg" alt=""></span></div>
+								<div class="summary-value">4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span></div>
 							</div>
 						</div>
 					</div>

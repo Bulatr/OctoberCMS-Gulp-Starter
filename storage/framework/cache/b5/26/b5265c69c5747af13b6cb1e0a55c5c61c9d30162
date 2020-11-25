@@ -1,5 +1,7 @@
-1606229840a:1:{s:10:"header.htm";a:6:{s:8:"fileName";s:10:"header.htm";s:7:"content";s:843:"description = "Default layout"
+1606285100a:1:{s:10:"header.htm";a:6:{s:8:"fileName";s:10:"header.htm";s:7:"content";s:855:";;
+description = "Default layout"
 ==
+{##}
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -11,7 +13,7 @@
 	{% else %}<meta name="description" content="{{ this.page.meta_description }}">{% endif %}
 	<meta name="viewport" content="width=device-width">
 	<link rel="icon" href="{{ 'assets/images/october.png' | theme }}">
-	<link href="{{ 'assets/css/app.min.css' | theme }}" rel="stylesheet">
+	<link href="{{ 'assets/css/hatan.min.css' | theme }}" rel="stylesheet">
 	{% styles %}
 	
 
@@ -25,7 +27,8 @@
 
 {% partial "top-bar" %}
 
-{% partial "header-site" %}";s:5:"mtime";i:1606227539;s:6:"markup";s:807:"<!DOCTYPE html>
+{% partial "header-site" %}";s:5:"mtime";i:1606283885;s:6:"markup";s:815:"{##}
+<!DOCTYPE html>
 <html lang="ru">
 
 <head>
@@ -36,7 +39,7 @@
 	{% else %}<meta name="description" content="{{ this.page.meta_description }}">{% endif %}
 	<meta name="viewport" content="width=device-width">
 	<link rel="icon" href="{{ 'assets/images/october.png' | theme }}">
-	<link href="{{ 'assets/css/app.min.css' | theme }}" rel="stylesheet">
+	<link href="{{ 'assets/css/hatan.min.css' | theme }}" rel="stylesheet">
 	{% styles %}
 	
 

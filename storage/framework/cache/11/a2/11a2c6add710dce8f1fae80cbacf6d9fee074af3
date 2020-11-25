@@ -1,4 +1,5 @@
-1606229840a:1:{s:10:"footer.htm";a:6:{s:8:"fileName";s:10:"footer.htm";s:7:"content";s:4072:"==
+1606285100a:1:{s:10:"footer.htm";a:6:{s:8:"fileName";s:10:"footer.htm";s:7:"content";s:4054:"==
+{##}
 <div class="footer">
 		<div class="container">
 			<div class="row">
@@ -121,13 +122,12 @@
 			</div>
 		</div>
 	</div>
-	<script src="{{ 'assets/js/app.min.js' | theme }}"></script>
-
-	{% framework extras %}
+	<script src="{{ 'assets/js/hatan.min.js' | theme }}"></script>	
 	{% scripts %}
 	
 </body>
-</html>";s:5:"mtime";i:1606225719;s:6:"markup";s:4068:"<div class="footer">
+</html>";s:5:"mtime";i:1606283854;s:6:"markup";s:4050:"{##}
+<div class="footer">
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -249,9 +249,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="{{ 'assets/js/app.min.js' | theme }}"></script>
-
-	{% framework extras %}
+	<script src="{{ 'assets/js/hatan.min.js' | theme }}"></script>	
 	{% scripts %}
 	
 </body>

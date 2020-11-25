@@ -29,8 +29,8 @@ class __TwigTemplate_1c2f434f8b4dda4612fbe5ea674d556026451f0e336f1fc5fa29e7c185a
         $this->blocks = [
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
-        $tags = array("partial" => 12);
-        $filters = array("theme" => 8);
+        $tags = array("partial" => 13);
+        $filters = array("theme" => 9);
         $functions = array();
 
         try {
@@ -58,7 +58,7 @@ class __TwigTemplate_1c2f434f8b4dda4612fbe5ea674d556026451f0e336f1fc5fa29e7c185a
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 1
+        // line 2
         echo "<div class=\"header\">
 \t\t<div class=\"container\" style=\"position: relative;\">
 \t\t\t<div class=\"row\">
@@ -67,24 +67,24 @@ class __TwigTemplate_1c2f434f8b4dda4612fbe5ea674d556026451f0e336f1fc5fa29e7c185a
 \t\t\t\t\t\t<div class=\"logo\">
 \t\t\t\t\t\t\t<a href=\"#\">
 \t\t\t\t\t\t\t\t<img src=\"";
-        // line 8
+        // line 9
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/a-logo.svg");
         echo "\" alt=\"\">
 \t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
 \t\t\t\t\t";
-        // line 12
+        // line 13
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("menu/main-menu-wrapper"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 13
+        // line 14
         echo "\t\t\t\t\t<div class=\"search-wrapper\">
 \t\t\t\t\t\t<form class=\"form-inline custom d-flex\">
 \t\t\t\t\t\t\t<input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Поиск\" aria-label=\"Search\">
 \t\t\t\t\t\t\t<div class=\"icon-search\">
 \t\t\t\t\t\t\t\t<img src=\"";
-        // line 17
+        // line 18
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Search.svg");
         echo "\" alt=\"\">
 \t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t
@@ -95,7 +95,7 @@ class __TwigTemplate_1c2f434f8b4dda4612fbe5ea674d556026451f0e336f1fc5fa29e7c185a
 \t\t\t\t\t\t<div class=\"icons account-icon\">
 \t\t\t\t\t\t\t<a href=\"#\">
 \t\t\t\t\t\t\t\t<img src=\"";
-        // line 25
+        // line 26
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Account.svg");
         echo "\" alt=\"Личный кабинет\">
 \t\t\t\t\t\t\t</a>
@@ -103,7 +103,7 @@ class __TwigTemplate_1c2f434f8b4dda4612fbe5ea674d556026451f0e336f1fc5fa29e7c185a
 \t\t\t\t\t\t<div class=\"icons heart-icon\">
 \t\t\t\t\t\t\t<a href=\"#\">
 \t\t\t\t\t\t\t\t<img src=\"";
-        // line 30
+        // line 31
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Outline.svg");
         echo "\" alt=\"Избранное\">
 \t\t\t\t\t\t\t</a>
@@ -111,19 +111,19 @@ class __TwigTemplate_1c2f434f8b4dda4612fbe5ea674d556026451f0e336f1fc5fa29e7c185a
 \t\t\t\t\t\t<div class=\"icons cart-icon\" data-cartfilled=\"no\">
 \t\t\t\t\t\t\t<a href=\"#\" class=\"cart empty show\">
 \t\t\t\t\t\t\t\t<img src=\"";
-        // line 35
+        // line 36
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Empty Cart.svg");
         echo "\" alt=\"\">
 \t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t<a href=\"#\" class=\"cart filled\">
 \t\t\t\t\t\t\t\t<img src=\"";
-        // line 38
+        // line 39
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Added to Cart.svg");
         echo "\" alt=\"\">
 \t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t<a href=\"#\" class=\"cart added\">
 \t\t\t\t\t\t\t\t<img src=\"";
-        // line 41
+        // line 42
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Add to Cart.svg");
         echo "\" alt=\"\">
 \t\t\t\t\t\t\t</a>\t\t\t\t\t\t\t
@@ -132,11 +132,11 @@ class __TwigTemplate_1c2f434f8b4dda4612fbe5ea674d556026451f0e336f1fc5fa29e7c185a
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t\t";
-        // line 47
+        // line 48
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("menu/mega-menu"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 48
+        // line 49
         echo "\t\t</div>
     </div>";
     }
@@ -153,12 +153,13 @@ class __TwigTemplate_1c2f434f8b4dda4612fbe5ea674d556026451f0e336f1fc5fa29e7c185a
 
     public function getDebugInfo()
     {
-        return array (  140 => 48,  136 => 47,  127 => 41,  121 => 38,  115 => 35,  107 => 30,  99 => 25,  88 => 17,  82 => 13,  78 => 12,  71 => 8,  62 => 1,);
+        return array (  140 => 49,  136 => 48,  127 => 42,  121 => 39,  115 => 36,  107 => 31,  99 => 26,  88 => 18,  82 => 14,  78 => 13,  71 => 9,  62 => 2,);
     }
 
     public function getSourceContext()
     {
-        return new Source("<div class=\"header\">
+        return new Source("{##}
+<div class=\"header\">
 \t\t<div class=\"container\" style=\"position: relative;\">
 \t\t\t<div class=\"row\">
 \t\t\t\t<div class=\"col d-flex justify-content-between\">

@@ -1,0 +1,133 @@
+1606274546a:1:{s:15:"main-banner.htm";a:6:{s:8:"fileName";s:15:"main-banner.htm";s:7:"content";s:2259:"description = "Главные баннеры"
+==
+<div class="main-banners">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+				<div class="banner type-f">
+					<img src="{{ 'assets/images/dest/bannerF.jpg' | theme }}" alt="Бонусы по акции">
+					<div class="content-banner">
+						<div class="subtitle">
+							Акции
+						</div>
+						<div class="title">
+							<h2>Бонусы по акции</h2>
+						</div>
+						<div class="content">
+							<p>
+								Оплатите до 30% стоимости товара бонусами. Торопитесь оплатить бонусами
+							</p>
+						</div>
+						<a href="#" class="btn btn-primary secondary">Подробнее</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-4 col-lg-6 col-xl-6 col-xxl-6">
+				<div class="banner type-e dark">
+					<img src="{{ 'assets/images/dest/bannerE.jpg' | theme }}" alt="Бонусы по акции">
+					<div class="content-banner">
+						<div class="subtitle">
+							Акции
+						</div>
+						<div class="title">
+							<h2>Всемирный день шопинга</h2>
+						</div>
+						<div class="content">
+							<p>
+								11.11 Всемирный день шопинга. Соберите корзину уже сейчас
+							</p>
+						</div>
+						<a href="#" class="btn btn-primary secondary">Начать шопинг</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+				<div class="banner type-f small">
+					<a href=""><img src="{{ 'assets/images/dest/bannerE_small.jpg' | theme }}" alt="Бонусы по акции"></a>						
+					<div class="content-banner">
+						
+						<div class="title">
+							<h2>Для нее</h2>
+						</div>
+						
+					</div>
+				</div>
+				<div class="banner type-f small dark">
+					<a href=""><img src="{{ 'assets/images/dest/bannerF_small.jpg' | theme }}" alt="Бонусы по акции"></a>
+					<div class="content-banner">
+						
+						<div class="title">
+							<h2>Для него</h2>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>";s:5:"mtime";i:1606270449;s:6:"markup";s:2208:"<div class="main-banners">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+				<div class="banner type-f">
+					<img src="{{ 'assets/images/dest/bannerF.jpg' | theme }}" alt="Бонусы по акции">
+					<div class="content-banner">
+						<div class="subtitle">
+							Акции
+						</div>
+						<div class="title">
+							<h2>Бонусы по акции</h2>
+						</div>
+						<div class="content">
+							<p>
+								Оплатите до 30% стоимости товара бонусами. Торопитесь оплатить бонусами
+							</p>
+						</div>
+						<a href="#" class="btn btn-primary secondary">Подробнее</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-4 col-lg-6 col-xl-6 col-xxl-6">
+				<div class="banner type-e dark">
+					<img src="{{ 'assets/images/dest/bannerE.jpg' | theme }}" alt="Бонусы по акции">
+					<div class="content-banner">
+						<div class="subtitle">
+							Акции
+						</div>
+						<div class="title">
+							<h2>Всемирный день шопинга</h2>
+						</div>
+						<div class="content">
+							<p>
+								11.11 Всемирный день шопинга. Соберите корзину уже сейчас
+							</p>
+						</div>
+						<a href="#" class="btn btn-primary secondary">Начать шопинг</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+				<div class="banner type-f small">
+					<a href=""><img src="{{ 'assets/images/dest/bannerE_small.jpg' | theme }}" alt="Бонусы по акции"></a>						
+					<div class="content-banner">
+						
+						<div class="title">
+							<h2>Для нее</h2>
+						</div>
+						
+					</div>
+				</div>
+				<div class="banner type-f small dark">
+					<a href=""><img src="{{ 'assets/images/dest/bannerF_small.jpg' | theme }}" alt="Бонусы по акции"></a>
+					<div class="content-banner">
+						
+						<div class="title">
+							<h2>Для него</h2>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>";s:4:"code";N;s:11:"description";s:29:"Главные баннеры";}}

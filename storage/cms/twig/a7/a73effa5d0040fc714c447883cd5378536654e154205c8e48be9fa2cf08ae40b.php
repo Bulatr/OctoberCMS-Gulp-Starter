@@ -29,9 +29,9 @@ class __TwigTemplate_6ff9cbd2aa757bd96091080c6872c6f5c8bd24bc233add56c9ef713ee01
         $this->blocks = [
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
-        $tags = array("if" => 8, "styles" => 13, "partial" => 20);
-        $filters = array("escape" => 7, "striptags" => 8, "theme" => 11);
-        $functions = array("str_limit" => 8);
+        $tags = array("if" => 9, "styles" => 14, "partial" => 21);
+        $filters = array("escape" => 8, "striptags" => 9, "theme" => 12);
+        $functions = array("str_limit" => 9);
 
         try {
             $this->sandbox->checkSecurity(
@@ -58,7 +58,7 @@ class __TwigTemplate_6ff9cbd2aa757bd96091080c6872c6f5c8bd24bc233add56c9ef713ee01
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 1
+        // line 2
         echo "<!DOCTYPE html>
 <html lang=\"ru\">
 
@@ -66,65 +66,65 @@ class __TwigTemplate_6ff9cbd2aa757bd96091080c6872c6f5c8bd24bc233add56c9ef713ee01
 
 \t<meta charset=\"utf-8\">
 \t<title>";
-        // line 7
-        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, true, 7), "title", [], "any", false, false, true, 7), 7, $this->source), "html", null, true);
+        // line 8
+        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, true, 8), "title", [], "any", false, false, true, 8), 8, $this->source), "html", null, true);
         echo " | Хатан - интернет магазин одежды</title>
 \t";
-        // line 8
-        if ((twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "description", [], "any", false, false, true, 8) != null)) {
+        // line 9
+        if ((twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "description", [], "any", false, false, true, 9) != null)) {
             echo "<meta name=\"description\" content=\"";
-            echo call_user_func_array($this->env->getFunction('str_limit')->getCallable(), ["limit", strip_tags($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "description", [], "any", false, false, true, 8), 8, $this->source)), 120]);
+            echo call_user_func_array($this->env->getFunction('str_limit')->getCallable(), ["limit", strip_tags($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "description", [], "any", false, false, true, 9), 9, $this->source)), 120]);
             echo "\">
 \t";
         } else {
-            // line 9
+            // line 10
             echo "<meta name=\"description\" content=\"";
-            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, true, 9), "meta_description", [], "any", false, false, true, 9), 9, $this->source), "html", null, true);
+            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, true, 10), "meta_description", [], "any", false, false, true, 10), 10, $this->source), "html", null, true);
             echo "\">";
         }
-        // line 10
+        // line 11
         echo "\t<meta name=\"viewport\" content=\"width=device-width\">
 \t<link rel=\"icon\" href=\"";
-        // line 11
+        // line 12
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/october.png");
         echo "\">
 \t<link href=\"";
-        // line 12
-        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/css/app.min.css");
+        // line 13
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/css/hatan.min.css");
         echo "\" rel=\"stylesheet\">
 \t";
-        // line 13
+        // line 14
         echo $this->env->getExtension('Cms\Twig\Extension')->assetsFunction('css');
         echo $this->env->getExtension('Cms\Twig\Extension')->displayBlock('styles');
-        // line 14
+        // line 15
         echo "\t
 
 </head>
 
 <body class=\"is_";
-        // line 18
-        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, true, 18), "id", [], "any", false, false, true, 18), 18, $this->source), "html", null, true);
+        // line 19
+        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, true, 19), "id", [], "any", false, false, true, 19), 19, $this->source), "html", null, true);
         ((($context["class"] ?? null)) ? (print (twig_escape_filter($this->env, (" " . ($context["class"] ?? null)), "html", null, true))) : (print ("")));
         echo "\">
 
 ";
-        // line 20
+        // line 21
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("modal-microcart"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 21
+        // line 22
         echo "
 <div class=\"modal-overlay\"></div>
 
 ";
-        // line 24
+        // line 25
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("top-bar"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 25
+        // line 26
         echo "
 ";
-        // line 26
+        // line 27
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("header-site"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
@@ -142,12 +142,13 @@ class __TwigTemplate_6ff9cbd2aa757bd96091080c6872c6f5c8bd24bc233add56c9ef713ee01
 
     public function getDebugInfo()
     {
-        return array (  128 => 26,  125 => 25,  121 => 24,  116 => 21,  112 => 20,  106 => 18,  100 => 14,  97 => 13,  93 => 12,  89 => 11,  86 => 10,  81 => 9,  74 => 8,  70 => 7,  62 => 1,);
+        return array (  128 => 27,  125 => 26,  121 => 25,  116 => 22,  112 => 21,  106 => 19,  100 => 15,  97 => 14,  93 => 13,  89 => 12,  86 => 11,  81 => 10,  74 => 9,  70 => 8,  62 => 2,);
     }
 
     public function getSourceContext()
     {
-        return new Source("<!DOCTYPE html>
+        return new Source("{##}
+<!DOCTYPE html>
 <html lang=\"ru\">
 
 <head>
@@ -158,7 +159,7 @@ class __TwigTemplate_6ff9cbd2aa757bd96091080c6872c6f5c8bd24bc233add56c9ef713ee01
 \t{% else %}<meta name=\"description\" content=\"{{ this.page.meta_description }}\">{% endif %}
 \t<meta name=\"viewport\" content=\"width=device-width\">
 \t<link rel=\"icon\" href=\"{{ 'assets/images/october.png' | theme }}\">
-\t<link href=\"{{ 'assets/css/app.min.css' | theme }}\" rel=\"stylesheet\">
+\t<link href=\"{{ 'assets/css/hatan.min.css' | theme }}\" rel=\"stylesheet\">
 \t{% styles %}
 \t
 
