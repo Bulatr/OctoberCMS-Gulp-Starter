@@ -1,0 +1,21 @@
+1606362893a:1:{s:17:"order_success.htm";a:10:{s:8:"fileName";s:17:"order_success.htm";s:7:"content";s:330:"title = "Order success"
+url = "/order/:key"
+layout = "main"
+is_hidden = 0
+
+[OrderPage]
+slug = "{{ :key }}"
+slug_required = 1
+==
+{% set obOrder = OrderPage.get() %}
+<div class="uk-section">
+    <h1 class="uk-text-center">
+        Your order number is <span class="uk-text-danger">{{ obOrder.order_number }}</span>
+    </h1>
+</div>
+";s:5:"mtime";i:1549486316;s:6:"markup";s:201:"{% set obOrder = OrderPage.get() %}
+<div class="uk-section">
+    <h1 class="uk-text-center">
+        Your order number is <span class="uk-text-danger">{{ obOrder.order_number }}</span>
+    </h1>
+</div>";s:4:"code";N;s:5:"title";s:13:"Order success";s:3:"url";s:11:"/order/:key";s:6:"layout";s:4:"main";s:9:"is_hidden";s:1:"0";s:9:"OrderPage";a:2:{s:4:"slug";s:10:"{{ :key }}";s:13:"slug_required";s:1:"1";}}}

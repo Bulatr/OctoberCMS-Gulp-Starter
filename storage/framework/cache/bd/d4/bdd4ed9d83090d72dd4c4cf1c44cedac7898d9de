@@ -1,0 +1,145 @@
+1606362893a:1:{s:16:"product_list.htm";a:17:{s:8:"fileName";s:16:"product_list.htm";s:7:"content";s:3296:"title = "Product list"
+url = "/catalog/:parent/:slug"
+layout = "main"
+meta_title = "Product list"
+is_hidden = 0
+
+[CategoryPage]
+slug = "{{ :slug }}"
+slug_required = 1
+smart_url_check = 1
+
+[CategoryPage ParentCategoryPage]
+slug = "{{ :parent }}"
+slug_required = 1
+smart_url_check = 0
+
+[CatalogBreadcrumbs]
+
+[ProductList]
+sorting = "new"
+
+[ProductData]
+
+[BrandList]
+
+[Pagination]
+available_count_per_page = "5,10,15"
+count_per_page = 4
+pagination_limit = 5
+active_class = "uk-active"
+button_list = "prev,first,first-more,main,last-more,last,next"
+first_button_name = "First"
+first_button_limit = 3
+first-more_button_name = "..."
+first-more_button_limit = 3
+prev_button_name = "Prev"
+prev_button_limit = 1
+prev-more_button_name = "..."
+prev-more_button_limit = 1
+next-more_button_name = "..."
+next-more_button_limit = 1
+next_button_name = "Next"
+next_button_limit = 1
+last-more_button_name = "..."
+last-more_button_limit = 3
+last_button_name = "Last"
+last_button_limit = 3
+==
+<?php
+function onInit()
+{
+    $this['bHasPopularityPlugin'] = \System\Classes\PluginManager::instance()->hasPlugin('Lovata.PopularityShopaholic') && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.PopularityShopaholic');
+    $this['bHasFilterPlugin'] = \System\Classes\PluginManager::instance()->hasPlugin('Lovata.FilterShopaholic') && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.FilterShopaholic');
+    $this['bHasReviewsPlugin'] = \System\Classes\PluginManager::instance()->hasPlugin('Lovata.ReviewsShopaholic') && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.ReviewsShopaholic');
+}
+?>
+==
+{# Get parent category item #}
+{% set obParentCategory = ParentCategoryPage.get() %}
+
+{# Get category item #}
+{% set obCategory = CategoryPage.get() %}
+
+{# Get breadcrumbs #}
+{% set arBreadcrumbs = CatalogBreadcrumbs.getByCategoryID(obCategory.id) %}
+
+{# Get product collection, apply sorting and filters by active, category #}
+{% set obProductList =  ProductList.make().sort(ProductList.getSorting()).active().category(obCategory.id) %}
+
+<div class="uk-grid uk-margin-remove-left ">
+    <div class="uk-width-expand">
+        {% partial 'breadcrumbs/catalog' arBreadcrumbs=arBreadcrumbs %}
+        {% partial 'category/category_info' obCategory=obCategory %}
+
+        <div class="uk-grid">
+            <div class="uk-width-1-5">
+                {% partial 'section/filter_pannel' obProductList=obProductList obCategory=obCategory %}
+            </div>
+            <div class="uk-width-4-5">
+                <div class="uk-child-width-1-1@m product_list_wrapper" uk-grid>
+                    {% partial 'ajax/ajax_product_list' obCategory=obCategory obProductList=obProductList %}
+                </div>
+            </div>
+        </div>
+
+        {% partial 'category/category_description' obCategory=obCategory %}
+    </div>
+    <div class="right-panel_width">
+        {% partial 'right_panel/product_list_page' %}
+    </div>
+</div>
+
+<!-- This is the modal with the outside close button -->
+<div class="uk-flex-top _modal_product uk-modal-container" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+        <button class="uk-modal-close-outside" type="button" uk-close></button>
+        <div class="_modal_product_wrapper"></div>
+    </div>
+</div>";s:5:"mtime";i:1549486316;s:6:"markup";s:1680:"{# Get parent category item #}
+{% set obParentCategory = ParentCategoryPage.get() %}
+
+{# Get category item #}
+{% set obCategory = CategoryPage.get() %}
+
+{# Get breadcrumbs #}
+{% set arBreadcrumbs = CatalogBreadcrumbs.getByCategoryID(obCategory.id) %}
+
+{# Get product collection, apply sorting and filters by active, category #}
+{% set obProductList =  ProductList.make().sort(ProductList.getSorting()).active().category(obCategory.id) %}
+
+<div class="uk-grid uk-margin-remove-left ">
+    <div class="uk-width-expand">
+        {% partial 'breadcrumbs/catalog' arBreadcrumbs=arBreadcrumbs %}
+        {% partial 'category/category_info' obCategory=obCategory %}
+
+        <div class="uk-grid">
+            <div class="uk-width-1-5">
+                {% partial 'section/filter_pannel' obProductList=obProductList obCategory=obCategory %}
+            </div>
+            <div class="uk-width-4-5">
+                <div class="uk-child-width-1-1@m product_list_wrapper" uk-grid>
+                    {% partial 'ajax/ajax_product_list' obCategory=obCategory obProductList=obProductList %}
+                </div>
+            </div>
+        </div>
+
+        {% partial 'category/category_description' obCategory=obCategory %}
+    </div>
+    <div class="right-panel_width">
+        {% partial 'right_panel/product_list_page' %}
+    </div>
+</div>
+
+<!-- This is the modal with the outside close button -->
+<div class="uk-flex-top _modal_product uk-modal-container" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+        <button class="uk-modal-close-outside" type="button" uk-close></button>
+        <div class="_modal_product_wrapper"></div>
+    </div>
+</div>";s:4:"code";s:630:"function onInit()
+{
+    $this['bHasPopularityPlugin'] = \System\Classes\PluginManager::instance()->hasPlugin('Lovata.PopularityShopaholic') && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.PopularityShopaholic');
+    $this['bHasFilterPlugin'] = \System\Classes\PluginManager::instance()->hasPlugin('Lovata.FilterShopaholic') && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.FilterShopaholic');
+    $this['bHasReviewsPlugin'] = \System\Classes\PluginManager::instance()->hasPlugin('Lovata.ReviewsShopaholic') && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.ReviewsShopaholic');
+}";s:5:"title";s:12:"Product list";s:3:"url";s:22:"/catalog/:parent/:slug";s:6:"layout";s:4:"main";s:10:"meta_title";s:12:"Product list";s:9:"is_hidden";s:1:"0";s:12:"CategoryPage";a:3:{s:4:"slug";s:11:"{{ :slug }}";s:13:"slug_required";s:1:"1";s:15:"smart_url_check";s:1:"1";}s:31:"CategoryPage ParentCategoryPage";a:3:{s:4:"slug";s:13:"{{ :parent }}";s:13:"slug_required";s:1:"1";s:15:"smart_url_check";s:1:"0";}s:18:"CatalogBreadcrumbs";a:0:{}s:11:"ProductList";a:1:{s:7:"sorting";s:3:"new";}s:11:"ProductData";a:0:{}s:9:"BrandList";a:0:{}s:10:"Pagination";a:21:{s:24:"available_count_per_page";s:7:"5,10,15";s:14:"count_per_page";s:1:"4";s:16:"pagination_limit";s:1:"5";s:12:"active_class";s:9:"uk-active";s:11:"button_list";s:46:"prev,first,first-more,main,last-more,last,next";s:17:"first_button_name";s:5:"First";s:18:"first_button_limit";s:1:"3";s:22:"first-more_button_name";s:3:"...";s:23:"first-more_button_limit";s:1:"3";s:16:"prev_button_name";s:4:"Prev";s:17:"prev_button_limit";s:1:"1";s:21:"prev-more_button_name";s:3:"...";s:22:"prev-more_button_limit";s:1:"1";s:21:"next-more_button_name";s:3:"...";s:22:"next-more_button_limit";s:1:"1";s:16:"next_button_name";s:4:"Next";s:17:"next_button_limit";s:1:"1";s:21:"last-more_button_name";s:3:"...";s:22:"last-more_button_limit";s:1:"3";s:16:"last_button_name";s:4:"Last";s:17:"last_button_limit";s:1:"3";}}}

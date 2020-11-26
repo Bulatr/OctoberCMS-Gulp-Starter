@@ -1,0 +1,265 @@
+1606362929a:1:{s:18:"menu/mega-menu.htm";a:6:{s:8:"fileName";s:18:"menu/mega-menu.htm";s:7:"content";s:5227:"description = "Mega menu for main menu"
+==
+<div id="item1" data-menuid="1" class="megamenu">
+	<div class="block-menu">
+		<ul class="nav-megamenu">
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Одежда</span>
+				<div class="overlay-menu-links">
+					<a href="" class="nav-item-link">Верхняя одежда</a>
+					<a href="" class="nav-item-link">Джемперы</a>
+					<a href="" class="nav-item-link">Рубашки</a>
+					<a href="" class="nav-item-link">Брюки</a>
+					<a href="" class="nav-item-link">Джинсы</a>
+					<a href="" class="nav-item-link">Нижнее белье</a>
+				</div>							
+			</li>
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Обувь</span>
+				<div class="overlay-menu-links">
+					<a href="" class="nav-item-link">Кроссовки</a>
+					<a href="" class="nav-item-link">Туфли</a>
+					<a href="" class="nav-item-link">Сапоги</a>
+					<a href="" class="nav-item-link">Ботинки</a>
+				</div>							
+			</li>
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Аксессуары</span>
+				<div class="overlay-menu-links">
+					<a href="" class="nav-item-link">Ремни</a>
+					<a href="" class="nav-item-link">Сумки</a>
+				</div>							
+			</li>
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Акции</span>
+				<div class="banner-wrapper">
+					<div class="banner square small">
+						<img src="{{ 'assets/images/dest/Banner1.png' | theme }}" alt="">
+					</div>
+					<div class="banner square small">
+						<img src="{{ 'assets/images/dest/Bannerbig.png' | theme }}" alt="">
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>				
+</div>
+<div id="item2" data-menuid="2" class="megamenu">
+	<div class="block-menu">
+		<ul class="nav-megamenu">
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Одежда</span>
+				<div class="overlay-menu-links">
+					<a href="" class="nav-item-link">Верхняя одежда</a>
+					<a href="" class="nav-item-link">Джемперы</a>
+					<a href="" class="nav-item-link">Рубашки</a>
+					<a href="" class="nav-item-link">Брюки</a>
+					<a href="" class="nav-item-link">Джинсы</a>
+					<a href="" class="nav-item-link">Нижнее белье</a>
+				</div>							
+			</li>
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Обувь</span>
+				<div class="overlay-menu-links">
+					<a href="" class="nav-item-link">Кроссовки</a>
+					<a href="" class="nav-item-link">Туфли</a>
+					<a href="" class="nav-item-link">Сапоги</a>
+					<a href="" class="nav-item-link">Ботинки</a>
+				</div>							
+			</li>
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Аксессуары</span>
+				<div class="overlay-menu-links">
+					<a href="" class="nav-item-link">Ремни</a>
+					<a href="" class="nav-item-link">Сумки</a>
+				</div>							
+			</li>
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Акции</span>
+				<div class="banner-wrapper">
+					<div class="banner square small">
+						<img src="{{ 'assets/images/dest/Banner1.png' | theme }}" alt="">
+					</div>
+					<div class="banner square small">
+						<img src="{{ 'assets/images/dest/Bannerbig.png' | theme }}" alt="">
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>				
+</div>
+<div id="item3" data-menuid="3" class="megamenu">
+	<div class="block-menu">
+		<ul class="nav-megamenu">
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Одежда</span>
+				<div class="overlay-menu-links">
+					<a href="" class="nav-item-link">Верхняя одежда</a>
+					<a href="" class="nav-item-link">Джемперы</a>
+					<a href="" class="nav-item-link">Рубашки</a>
+					<a href="" class="nav-item-link">Брюки</a>
+					<a href="" class="nav-item-link">Джинсы</a>
+					<a href="" class="nav-item-link">Нижнее белье</a>
+				</div>							
+			</li>
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Обувь</span>
+				<div class="overlay-menu-links">
+					<a href="" class="nav-item-link">Кроссовки</a>
+					<a href="" class="nav-item-link">Туфли</a>
+					<a href="" class="nav-item-link">Сапоги</a>
+					<a href="" class="nav-item-link">Ботинки</a>
+				</div>							
+			</li>
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Аксессуары</span>
+				<div class="overlay-menu-links">
+					<a href="" class="nav-item-link">Ремни</a>
+					<a href="" class="nav-item-link">Сумки</a>
+				</div>							
+			</li>
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Акции</span>
+				<div class="banner-wrapper">
+					<div class="banner square small">
+						<img src="{{ 'assets/images/dest/Banner1.png' | theme }}" alt="">
+					</div>
+					<div class="banner square small">
+						<img src="{{ 'assets/images/dest/Bannerbig.png' | theme }}" alt="">
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>				
+</div>";s:5:"mtime";i:1606228492;s:6:"markup";s:5182:"<div id="item1" data-menuid="1" class="megamenu">
+	<div class="block-menu">
+		<ul class="nav-megamenu">
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Одежда</span>
+				<div class="overlay-menu-links">
+					<a href="" class="nav-item-link">Верхняя одежда</a>
+					<a href="" class="nav-item-link">Джемперы</a>
+					<a href="" class="nav-item-link">Рубашки</a>
+					<a href="" class="nav-item-link">Брюки</a>
+					<a href="" class="nav-item-link">Джинсы</a>
+					<a href="" class="nav-item-link">Нижнее белье</a>
+				</div>							
+			</li>
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Обувь</span>
+				<div class="overlay-menu-links">
+					<a href="" class="nav-item-link">Кроссовки</a>
+					<a href="" class="nav-item-link">Туфли</a>
+					<a href="" class="nav-item-link">Сапоги</a>
+					<a href="" class="nav-item-link">Ботинки</a>
+				</div>							
+			</li>
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Аксессуары</span>
+				<div class="overlay-menu-links">
+					<a href="" class="nav-item-link">Ремни</a>
+					<a href="" class="nav-item-link">Сумки</a>
+				</div>							
+			</li>
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Акции</span>
+				<div class="banner-wrapper">
+					<div class="banner square small">
+						<img src="{{ 'assets/images/dest/Banner1.png' | theme }}" alt="">
+					</div>
+					<div class="banner square small">
+						<img src="{{ 'assets/images/dest/Bannerbig.png' | theme }}" alt="">
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>				
+</div>
+<div id="item2" data-menuid="2" class="megamenu">
+	<div class="block-menu">
+		<ul class="nav-megamenu">
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Одежда</span>
+				<div class="overlay-menu-links">
+					<a href="" class="nav-item-link">Верхняя одежда</a>
+					<a href="" class="nav-item-link">Джемперы</a>
+					<a href="" class="nav-item-link">Рубашки</a>
+					<a href="" class="nav-item-link">Брюки</a>
+					<a href="" class="nav-item-link">Джинсы</a>
+					<a href="" class="nav-item-link">Нижнее белье</a>
+				</div>							
+			</li>
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Обувь</span>
+				<div class="overlay-menu-links">
+					<a href="" class="nav-item-link">Кроссовки</a>
+					<a href="" class="nav-item-link">Туфли</a>
+					<a href="" class="nav-item-link">Сапоги</a>
+					<a href="" class="nav-item-link">Ботинки</a>
+				</div>							
+			</li>
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Аксессуары</span>
+				<div class="overlay-menu-links">
+					<a href="" class="nav-item-link">Ремни</a>
+					<a href="" class="nav-item-link">Сумки</a>
+				</div>							
+			</li>
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Акции</span>
+				<div class="banner-wrapper">
+					<div class="banner square small">
+						<img src="{{ 'assets/images/dest/Banner1.png' | theme }}" alt="">
+					</div>
+					<div class="banner square small">
+						<img src="{{ 'assets/images/dest/Bannerbig.png' | theme }}" alt="">
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>				
+</div>
+<div id="item3" data-menuid="3" class="megamenu">
+	<div class="block-menu">
+		<ul class="nav-megamenu">
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Одежда</span>
+				<div class="overlay-menu-links">
+					<a href="" class="nav-item-link">Верхняя одежда</a>
+					<a href="" class="nav-item-link">Джемперы</a>
+					<a href="" class="nav-item-link">Рубашки</a>
+					<a href="" class="nav-item-link">Брюки</a>
+					<a href="" class="nav-item-link">Джинсы</a>
+					<a href="" class="nav-item-link">Нижнее белье</a>
+				</div>							
+			</li>
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Обувь</span>
+				<div class="overlay-menu-links">
+					<a href="" class="nav-item-link">Кроссовки</a>
+					<a href="" class="nav-item-link">Туфли</a>
+					<a href="" class="nav-item-link">Сапоги</a>
+					<a href="" class="nav-item-link">Ботинки</a>
+				</div>							
+			</li>
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Аксессуары</span>
+				<div class="overlay-menu-links">
+					<a href="" class="nav-item-link">Ремни</a>
+					<a href="" class="nav-item-link">Сумки</a>
+				</div>							
+			</li>
+			<li class="nav-item-megamenu">
+				<span class="main-link-megamenu">Акции</span>
+				<div class="banner-wrapper">
+					<div class="banner square small">
+						<img src="{{ 'assets/images/dest/Banner1.png' | theme }}" alt="">
+					</div>
+					<div class="banner square small">
+						<img src="{{ 'assets/images/dest/Bannerbig.png' | theme }}" alt="">
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>				
+</div>";s:4:"code";N;s:11:"description";s:23:"Mega menu for main menu";}}

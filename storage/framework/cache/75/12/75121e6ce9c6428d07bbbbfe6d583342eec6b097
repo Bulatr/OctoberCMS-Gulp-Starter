@@ -1,0 +1,74 @@
+1606362893a:1:{s:8:"cart.htm";a:12:{s:8:"fileName";s:8:"cart.htm";s:7:"content";s:1310:"title = "Cart"
+url = "/cart"
+layout = "main"
+is_hidden = 0
+
+[ShippingTypeList]
+
+[PaymentMethodList]
+
+[MakeOrder]
+mode = "ajax"
+flash_on = 0
+redirect_on = 1
+redirect_page = "order_success"
+==
+<div class="uk-grid uk-margin-remove-left">
+    <div class="uk-width-5-6">
+        {% partial 'breadcrumbs/simple_breadcrumbs' %}
+        {% partial 'common/page_title' sPageTitle=this.page.title %}
+
+        <div class="_cart_item_list">
+            {% partial 'cart/cart_item_list' %}
+        </div>
+        <div class="uk-child-width-1-2" uk-grid>
+            <div class="uk-margin-small-top">
+                {% partial 'cart/cart_form' %}
+            </div>
+            <div class="uk-text-large">
+                <div class="uk-grid-small" uk-grid>
+                    <div class="uk-width-expand" uk-leader><strong>Total price:</strong></div>
+                    <div>
+                        <span class="uk-text-danger">
+                            <strong class="_cart_total_cost">
+                                {% partial 'cart/cart_total_cost' %}
+                            </strong>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="uk-width-1-6">
+        {% partial 'right_panel/cart_page' %}
+    </div>
+</div>";s:5:"mtime";i:1549486316;s:6:"markup";s:1119:"<div class="uk-grid uk-margin-remove-left">
+    <div class="uk-width-5-6">
+        {% partial 'breadcrumbs/simple_breadcrumbs' %}
+        {% partial 'common/page_title' sPageTitle=this.page.title %}
+
+        <div class="_cart_item_list">
+            {% partial 'cart/cart_item_list' %}
+        </div>
+        <div class="uk-child-width-1-2" uk-grid>
+            <div class="uk-margin-small-top">
+                {% partial 'cart/cart_form' %}
+            </div>
+            <div class="uk-text-large">
+                <div class="uk-grid-small" uk-grid>
+                    <div class="uk-width-expand" uk-leader><strong>Total price:</strong></div>
+                    <div>
+                        <span class="uk-text-danger">
+                            <strong class="_cart_total_cost">
+                                {% partial 'cart/cart_total_cost' %}
+                            </strong>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="uk-width-1-6">
+        {% partial 'right_panel/cart_page' %}
+    </div>
+</div>";s:4:"code";N;s:5:"title";s:4:"Cart";s:3:"url";s:5:"/cart";s:6:"layout";s:4:"main";s:9:"is_hidden";s:1:"0";s:16:"ShippingTypeList";a:0:{}s:17:"PaymentMethodList";a:0:{}s:9:"MakeOrder";a:4:{s:4:"mode";s:4:"ajax";s:8:"flash_on";s:1:"0";s:11:"redirect_on";s:1:"1";s:13:"redirect_page";s:13:"order_success";}}}
