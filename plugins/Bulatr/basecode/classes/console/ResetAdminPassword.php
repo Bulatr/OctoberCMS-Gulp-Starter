@@ -1,4 +1,4 @@
-<?php namespace Bulatt\BaseCode\Classes\Console;
+<?php namespace Bulatr\BaseCode\Classes\Console;
 
 use Backend\Models\User;
 use Illuminate\Console\Command;

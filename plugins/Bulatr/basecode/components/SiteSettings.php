@@ -15,8 +15,8 @@ class SiteSettings extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'Bulatr.basecode::lang.component.site_settings_title',
-            'description' => 'Bulatr.basecode::lang.component.site_settings_description'
+            'name'        => 'bulatr.basecode::lang.component.site_settings_title',
+            'description' => 'bulatr.basecode::lang.component.site_settings_description'
         ];
     }
 

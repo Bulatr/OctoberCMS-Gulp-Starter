@@ -1,8 +1,13 @@
 <?php namespace Bulatr\BaseCode;
 
+use Event;
 use System\Classes\PluginBase;
 //Console commands
 use Bulatr\BaseCode\Classes\Console\ResetAdminPassword;
+use Bulatr\BaseCode\Classes\Event\Product\ExtendProductFieldsHandler;
+use Bulatr\BaseCode\Classes\Event\Product\ExtendProductModel;
+use Bulatr\BaseCode\Classes\Event\Product\ExtendProductCollection;
+use Bulatr\PropertiesProduct\Controllers\PropertiesProducts;
 
 /**
  * Class Plugin
@@ -48,6 +53,9 @@ class Plugin extends PluginBase
     public function boot()
     {
         $this->addEventListener();
+        Event::subscribe(ExtendProductFieldsHandler::class);
+        Event::subscribe(ExtendProductModel::class);
+        Event::subscribe(ExtendProductCollection::class);
     }
 
     public function register()
@@ -70,4 +78,6 @@ class Plugin extends PluginBase
     {
         ///
     }
+
+    
 }

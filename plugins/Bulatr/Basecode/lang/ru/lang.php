@@ -16,6 +16,9 @@
     ],
     'field'      => [
         'popular_category_list' => 'Популярные категории',
+        'popular_prоduct' => 'Популярность товара',
+        'properties_product' => 'Характеристики товара',
+        'properties' => 'Характеристики'
     ],
     'permission' => [
         'settings' => 'Настройки сайта',

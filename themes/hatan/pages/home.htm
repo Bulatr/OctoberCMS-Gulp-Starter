@@ -2,7 +2,15 @@ title = "Index"
 url = "/"
 layout = "default"
 is_hidden = 0
+
+[SiteSettings]
+
+[ProductList]
+sorting = "no"
 ==
+
+{% set obPopularProductList = ProductList.make().active().popularityItems().take(8) %}
+<pre>{{obPopularProductList|var_dump()}}</pre>
 <div class="carousel-wrapper">
 	<div class="container">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
