@@ -13,8 +13,7 @@ class ExtendProductModel
         Product::extend(function ($obProduct) {
             /** @var Product $obProduct */
             $obProduct->fillable[] = 'popularity';
-            $obProduct->fillable[] = 'properties';
-            $obProduct->addCachedField(['popularity','properties']);
+            $obProduct->addCachedField(['popularity']);
 
             
         });

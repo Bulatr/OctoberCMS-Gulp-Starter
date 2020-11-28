@@ -24,13 +24,7 @@ class ExtendProductFieldsHandler extends AbstractBackendFieldHandler
                 'type'    => 'number',
                 'default' => 0,
             ],
-            'properties' => [
-                'label' => 'bulatr.basecode::lang.field.properties_product',
-                'tab' => 'bulatr.basecode::lang.field.properties',
-                'type' => 'repeater',
-                'titleFrom' => 'bulatr.basecode::lang.field.properties_product',
-                
-            ]
+            
         ];
 
         $obWidget->addTabFields($arAdditionFields);
