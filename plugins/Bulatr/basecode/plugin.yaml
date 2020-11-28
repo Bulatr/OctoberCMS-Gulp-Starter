@@ -1,10 +1,6 @@
 plugin:
     name: 'bulatr.basecode::lang.plugin.name'
     description: 'bulatr.basecode::lang.plugin.description'
-    author: Bulatr
-    icon: oc-icon-magic
+    author: bulatR
+    icon: oc-icon-file-code-o
     homepage: ''
-permissions:
-    lovata-site-settings:
-        label: 'bulatr.basecode::lang.permission.settings'
-        tab: 'bulatr.basecode::lang.tab.permissions'
