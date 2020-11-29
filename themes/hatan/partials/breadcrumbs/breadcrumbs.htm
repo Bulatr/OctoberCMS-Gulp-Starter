@@ -1,0 +1,12 @@
+
+<ul class="breadcrumbs">
+    {% for item in arBreadcrumbs %}
+        {% if item.name is not empty and item.url is not empty %}
+            {% if item.active %}
+                <li class="item-breadcrumbs active">{{ item.name }}</li>                
+            {% else %}
+                <li class="item-breadcrumbs"><a href="{{ item.url }}">{{ item.name }}</a> </li>                
+            {% endif %}
+        {% endif %}
+    {% endfor %}  
+</ul>

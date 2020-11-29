@@ -867,6 +867,7 @@ button.btn
 		text-align: center
 
 .sidebar__content	
+	padding-right: 16px
 
 .main-container	
 	width: 100%
@@ -881,12 +882,14 @@ button.btn
 
 .menu-nav__item
 	font-size: 18px
+	margin-bottom: 13px
 
 .menu-nav__item--main
 	font-family: $raleway
 	font-weight: 500
 	line-height: 120%
-	margin-bottom: 5px
+	display: block
+	margin-bottom: 13px
 	a
 		text-decoration: none
 		color: $textcolor
@@ -905,8 +908,9 @@ button.btn
 	font-size: 16px
 	font-weight: 400
 	text-decoration: none
+	line-height: 1.2
 	margin-top: 3px
-	margin-bottom: 3px
+	margin-bottom: 5px
 	&:hover
 		color: $accent
 
@@ -2030,10 +2034,13 @@ button.btn
 			content: "|"
 			top: 0
 			right: 0
-		&:last-child
-			color: $textcolor
+		&:last-child			
 			&::after
 				content: ""
+		&.active
+			color: $textcolor
+			font-weight: 500
+
 
 .product-overlay
 	padding-left: 80px
@@ -2042,6 +2049,8 @@ button.btn
 	margin-bottom: 20px
 	h2
 		font-size: 26px
+	h4
+		font-size: 14px
 
 .product-short
 	display: flex

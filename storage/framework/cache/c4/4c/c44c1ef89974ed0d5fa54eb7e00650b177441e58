@@ -1,0 +1,48 @@
+1606638874a:1:{s:40:"category/category-tree/category-tree.htm";a:6:{s:8:"fileName";s:40:"category/category-tree/category-tree.htm";s:7:"content";s:1137:"[CategoryList]
+==
+{# @var obCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
+{# Get category list#}
+{% set obCategoryList = CategoryList.make().tree() %}
+
+{% if obCategoryList.isNotEmpty() %}    
+    <ul class="menu-nav">
+        {% for obParentCategory in obCategoryList if obParentCategory.product_count > 0 %}
+        <li class="menu-nav__item" data-id="{{ obCategory.id }}">
+            <span class="menu-nav__item--main"><a href="{{ obParentCategory.getPageUrl('catalog') }}">{{ obParentCategory.name }}</a></span>
+             {% if obParentCategory.children.isNotEmpty() %}
+            <div class="menu-nav__item-submenu">
+                {% for obChildCategory in obParentCategory.children if obChildCategory.product_count > 0 %}
+                <a href="{{ obChildCategory.getPageUrl('catalog') }}" class="item-submenu__link">{{ obChildCategory.name }}</a>
+                <pre>
+                    {{obChildCategory|var_dump}}
+                </pre>
+                {% endfor %}
+            </div>	
+            {% endif %}						
+        </li>
+        {% endfor %}        
+    </ul>
+{% endif %}
+";s:5:"mtime";i:1606638270;s:6:"markup";s:1115:"{# @var obCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
+{# Get category list#}
+{% set obCategoryList = CategoryList.make().tree() %}
+
+{% if obCategoryList.isNotEmpty() %}    
+    <ul class="menu-nav">
+        {% for obParentCategory in obCategoryList if obParentCategory.product_count > 0 %}
+        <li class="menu-nav__item" data-id="{{ obCategory.id }}">
+            <span class="menu-nav__item--main"><a href="{{ obParentCategory.getPageUrl('catalog') }}">{{ obParentCategory.name }}</a></span>
+             {% if obParentCategory.children.isNotEmpty() %}
+            <div class="menu-nav__item-submenu">
+                {% for obChildCategory in obParentCategory.children if obChildCategory.product_count > 0 %}
+                <a href="{{ obChildCategory.getPageUrl('catalog') }}" class="item-submenu__link">{{ obChildCategory.name }}</a>
+                <pre>
+                    {{obChildCategory|var_dump}}
+                </pre>
+                {% endfor %}
+            </div>	
+            {% endif %}						
+        </li>
+        {% endfor %}        
+    </ul>
+{% endif %}";s:4:"code";N;s:12:"CategoryList";a:0:{}}}

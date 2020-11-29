@@ -1,0 +1,24 @@
+
+==
+
+{# @var obActiveCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
+{# Get category list#}
+
+
+{% if obActiveCategory.children.isNotEmpty() %}    
+    <ul class="menu-nav">
+        {% for obParentCategory in obActiveCategory.children if obParentCategory.product_count > 0 %}
+        <li class="menu-nav__item" data-id="{{ obParentCategory.id }}">
+            <span class="menu-nav__item--main"><a href="{{ obParentCategory.getPageUrl('catalog') }}">{{ obParentCategory.name }}</a></span>
+             {% if obParentCategory.children.isNotEmpty() %}
+            <div class="menu-nav__item-submenu">
+                {% for obChildCategory in obParentCategory.children if obChildCategory.product_count > 0 %}
+                <a href="{{ obChildCategory.getPageUrl('catalog') }}" class="item-submenu__link">{{ obChildCategory.name }}</a>
+                
+                {% endfor %}
+            </div>	
+            {% endif %}						
+        </li>
+        {% endfor %}        
+    </ul>
+{% endif %}

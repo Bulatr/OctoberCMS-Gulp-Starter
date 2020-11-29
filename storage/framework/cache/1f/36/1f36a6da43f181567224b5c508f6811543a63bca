@@ -1,0 +1,215 @@
+1606653879a:1:{s:16:"filter-modal.htm";a:6:{s:8:"fileName";s:16:"filter-modal.htm";s:7:"content";s:3899:"description = "Фильтр товаров"
+==
+{##}
+<div class="filter-modal">
+		<div class="close"><img src="{{ 'assets/images/Close-circle.svg' | theme }}" alt=""></div>
+		<div class="filter-modal__col">
+			<!--Color-->
+			<div class="color-radio column" id="color-radio">
+				<div class="label-radio">Цвет</div>
+				<div class="wrapper-radio">
+					<label><span style="background:blue"></span><input type="radio" value="blue" name="same" />
+					</label>
+					<label><span style="background:green"></span><input type="radio" value="green" name="same" />
+					</label>
+					<label><span style="background:red"></span><input type="radio" value="red" name="same" />
+					</label>
+				</div>	
+			</div>
+			<!--Size-->
+			<div class="modal-options">
+				<div class="modal-options__label">
+					<h3>Размер</h3>
+				</div>
+				<div class="modal-options__wrap">
+					<div class="modal-options__checkout">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="size" value="size-M" id="size-filter-m">
+							<label class="form-check-label" for="size-filter-m">
+								M
+							</label>
+						</div>
+						<div class="modal-options-checkout__value" id="size-filter-m">
+							10
+						</div>					
+					</div>
+					<div class="modal-options__checkout">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="size" value="size-S" id="size-filter-s">
+							<label class="form-check-label" for="size-filter-s">
+								S
+							</label>
+						</div>
+						<div class="modal-options-checkout__value" id="size-filter-s">
+							10
+						</div>					
+					</div>
+					<div class="modal-options__checkout">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="size" value="size-l" id="size-filter-l">
+							<label class="form-check-label" for="size-filter-l">
+								L
+							</label>
+						</div>
+						<div class="modal-options-checkout__value" id="size-filter-l">
+							10
+						</div>					
+					</div>
+				</div>	
+			</div>
+			<!--Price-->
+			<div class="modal-options">
+				<div class="modal-options__label">
+					<h3>Стоимость</h3>
+				</div>
+				<div class="modal-options__wrap">
+					<div class="modal-options__checkout">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="price" value="price-low" id="price-filter-low">
+							<label class="form-check-label" for="price-filter-low">
+								до 1500 руб
+							</label>
+						</div>
+						<div class="modal-options-checkout__value" id="price-filter-low">
+							18
+						</div>					
+					</div>
+					<div class="modal-options__checkout">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="price" value="price-middle" id="price-filter-middle">
+							<label class="form-check-label" for="price-filter-middle">
+								от 1500 до 5000 руб
+							</label>
+						</div>
+						<div class="modal-options-checkout__value" id="price-filter-middle">
+							10
+						</div>					
+					</div>
+					<div class="modal-options__checkout">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="price" value="price-hight" id="price-filter-hight">
+							<label class="form-check-label" for="price-filter-hight">
+								от 5000 руб
+							</label>
+						</div>
+						<div class="modal-options-checkout__value" id="price-filter-hight">
+							8
+						</div>					
+					</div>
+				</div>	
+			</div>
+
+		</div>
+		<div class="filter-modal__col">
+			<div class="filter-modal-buttons">
+				<a href="#" id="show" class="btn btn-primary">Показать результаты</a>
+				<a href="#" id="clear" class="btn btn-primary secondary">Очистить фильтр</a>
+			</div>
+		</div>
+	</div>";s:5:"mtime";i:1606284136;s:6:"markup";s:3850:"{##}
+<div class="filter-modal">
+		<div class="close"><img src="{{ 'assets/images/Close-circle.svg' | theme }}" alt=""></div>
+		<div class="filter-modal__col">
+			<!--Color-->
+			<div class="color-radio column" id="color-radio">
+				<div class="label-radio">Цвет</div>
+				<div class="wrapper-radio">
+					<label><span style="background:blue"></span><input type="radio" value="blue" name="same" />
+					</label>
+					<label><span style="background:green"></span><input type="radio" value="green" name="same" />
+					</label>
+					<label><span style="background:red"></span><input type="radio" value="red" name="same" />
+					</label>
+				</div>	
+			</div>
+			<!--Size-->
+			<div class="modal-options">
+				<div class="modal-options__label">
+					<h3>Размер</h3>
+				</div>
+				<div class="modal-options__wrap">
+					<div class="modal-options__checkout">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="size" value="size-M" id="size-filter-m">
+							<label class="form-check-label" for="size-filter-m">
+								M
+							</label>
+						</div>
+						<div class="modal-options-checkout__value" id="size-filter-m">
+							10
+						</div>					
+					</div>
+					<div class="modal-options__checkout">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="size" value="size-S" id="size-filter-s">
+							<label class="form-check-label" for="size-filter-s">
+								S
+							</label>
+						</div>
+						<div class="modal-options-checkout__value" id="size-filter-s">
+							10
+						</div>					
+					</div>
+					<div class="modal-options__checkout">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="size" value="size-l" id="size-filter-l">
+							<label class="form-check-label" for="size-filter-l">
+								L
+							</label>
+						</div>
+						<div class="modal-options-checkout__value" id="size-filter-l">
+							10
+						</div>					
+					</div>
+				</div>	
+			</div>
+			<!--Price-->
+			<div class="modal-options">
+				<div class="modal-options__label">
+					<h3>Стоимость</h3>
+				</div>
+				<div class="modal-options__wrap">
+					<div class="modal-options__checkout">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="price" value="price-low" id="price-filter-low">
+							<label class="form-check-label" for="price-filter-low">
+								до 1500 руб
+							</label>
+						</div>
+						<div class="modal-options-checkout__value" id="price-filter-low">
+							18
+						</div>					
+					</div>
+					<div class="modal-options__checkout">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="price" value="price-middle" id="price-filter-middle">
+							<label class="form-check-label" for="price-filter-middle">
+								от 1500 до 5000 руб
+							</label>
+						</div>
+						<div class="modal-options-checkout__value" id="price-filter-middle">
+							10
+						</div>					
+					</div>
+					<div class="modal-options__checkout">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="price" value="price-hight" id="price-filter-hight">
+							<label class="form-check-label" for="price-filter-hight">
+								от 5000 руб
+							</label>
+						</div>
+						<div class="modal-options-checkout__value" id="price-filter-hight">
+							8
+						</div>					
+					</div>
+				</div>	
+			</div>
+
+		</div>
+		<div class="filter-modal__col">
+			<div class="filter-modal-buttons">
+				<a href="#" id="show" class="btn btn-primary">Показать результаты</a>
+				<a href="#" id="clear" class="btn btn-primary secondary">Очистить фильтр</a>
+			</div>
+		</div>
+	</div>";s:4:"code";N;s:11:"description";s:27:"Фильтр товаров";}}

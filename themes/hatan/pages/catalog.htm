@@ -4,12 +4,31 @@ layout = "default"
 description = "Каталог магазина"
 is_hidden = 0
 
-[CategoryPage]
-slug = "{{ :slug }}"
+[CategoryPage MainCategoryPage]
+slug = "{{ :category }}"
 slug_required = 1
 smart_url_check = 1
-has_wildcard = 0
+has_wildcard = 1
 skip_error = 0
+
+[CategoryPage]
+slug = "{{ :slug }}"
+slug_required = 0
+smart_url_check = 1
+has_wildcard = 0
+skip_error = 1
+
+[ProductPage]
+slug = "{{ :slug }}"
+slug_required = 0
+smart_url_check = 1
+skip_error = 1
+
+[BrandPage]
+slug = "{{ :slug }}"
+slug_required = 0
+smart_url_check = 0
+skip_error = 1
 
 [ProductList]
 sorting = "new"
@@ -38,12 +57,63 @@ last_button_name = "Last"
 last_button_limit = 3
 last_button_number = 1
 ==
+function onInit() {
+    // делаем проверку, если мы не нашли категорию и не нашли товар в параметре последнего слага :category*/:slug?
+    // то нужно отобразить 404 ошибку
+    $obProductItem = $this->ProductPage->get();
+    $obBrandItem = $this->BrandPage->get();
+    $obCategoryItem = $this->CategoryPage->get();
+    $obMainCategoryItem = $this->MainCategoryPage->get();
+    if (!empty($this->param('slug')) && empty($obProductItem) && empty($obBrandItem) && empty($obCategoryItem)) {
+        return $this->ProductPage->getErrorResponse(); // используем компонент ProductPage и его метод getErrorResponse - он вернет 404 ошибку
+    }
+    $obActiveCategoryItem = !empty($obCategoryItem) ? $obCategoryItem : $obMainCategoryItem;
+    $arBreadcrumbs = [];
+   
+    if (!empty($obProductItem)) {
+        $arBreadcrumbs[] = [
+            'name' => $obProductItem->name, 
+            'url' => $obProductItem->getPageUrl('catalog'),
+            'active'    =>  true
+            ];
+    }
+
+    if (!empty($obBrandItem)) {
+        $arBreadcrumbs[] = [
+            'name' => $obBrandItem->name, 
+            'url' => $obBrandItem->getPageUrl('catalog'),
+            'active'    =>  true
+            ];
+    }
+
+    if (!empty($obActiveCategoryItem)) {
+        $obCurrentCategory = $obActiveCategoryItem;
+        while($obCurrentCategory->isNotEmpty()) {
+            
+            $arBreadcrumbs[] = [
+                'name' => $obCurrentCategory->name, 
+                'url' => $obCurrentCategory->getPageUrl('catalog', ['slug']),
+                'active'    =>  $obCurrentCategory->id == $obActiveCategoryItem->id
+                ];
+            $obCurrentCategory = $obCurrentCategory->parent;
+        }
+    }
+     $arBreadcrumbs[] = [
+        'name' => 'Главная',
+        'url'   =>  \Cms\Classes\Page::url('home'),
+        'active'    =>  false
+    ];
+    $arBreadcrumbs = array_reverse($arBreadcrumbs);
+    $this['obProduct'] = $obProductItem;
+    $this['obBrand'] = $obBrandItem;
+    $this['obActiveCategory'] = $obActiveCategoryItem; // Текущая активна категория которую отправляем в партиал product-list
+    $this['arBreadcrumbs'] = $arBreadcrumbs;
+}
+==
 {##}
 
 {# @var obCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
 {# Get category item #}
-{% set obCategory = CategoryPage.get() %}
-
 {% partial "filter-modal" %}
 
 <!-- Category-->
@@ -51,20 +121,15 @@ last_button_number = 1
     <div class="container">
         <div class="row">
             <div class="col">
-                <ul class="breadcrumbs">
-                    <li class="item-breadcrumbs"><a href="">Женщинам</a></li>
-                    <li class="item-breadcrumbs"><a href="">Одежда</a> </li>
-                    <li class="item-breadcrumbs"><a href="">Джемперы и кардиганы</a> </li>
-                    <li class="item-breadcrumbs main"><a href=""></a> Джемпер с воротником и стойкой</li>
-                </ul>
+                {% partial "breadcrumbs/breadcrumbs" arBreadcrumbs=arBreadcrumbs %}                
                 <div class="category__row">
                     <div class="sidebar">
                         <div class="sidebar__title">
-                            <h3>{{ obCategory.name }}</h3>
+                            <h3>{{ obActiveCategory.name }}</h3>
                         </div>
                         <div class="sidebar__content">
                             <div class="sidebar__menu">
-                                {% partial "category/category-tree/category-tree" %}
+                                {% partial "category/category-tree/category-list" obActiveCategory = obActiveCategory %}
                             </div>
                             <div class="sidebar__filter">
                                 <div class="sidebar-filter-item">
@@ -99,7 +164,7 @@ last_button_number = 1
                             <div class="filter-bar-col-small">
                                 <div class="filter-icon">
                                     <div class="filter-icon__image">
-                                        <img src="images/Filter.svg" alt="">
+                                        <img src="{{'assets/images/Filter.svg' | theme }}" alt="">
                                     </div>									
                                     <div class="filter-icon__label">
                                         Фильтр
@@ -125,7 +190,7 @@ last_button_number = 1
                             </div>
                         </div>
                         <div class="wrapper-overlay card-container">
-                            {% partial 'product/catalog/product-list' obActiveCategory=obCategory %}
+                            {% partial 'product/catalog/product-list' obActiveCategory = obActiveCategory %}
                         </div>
                     </div>
                 </div>   

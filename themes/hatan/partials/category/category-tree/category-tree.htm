@@ -3,15 +3,17 @@
 {# @var obCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
 {# Get category list#}
 {% set obCategoryList = CategoryList.make().tree() %}
+
 {% if obCategoryList.isNotEmpty() %}    
     <ul class="menu-nav">
-        {% for obCategory in obCategoryList if obCategory.product_count > 0 %}
+        {% for obParentCategory in obCategoryList if obParentCategory.product_count > 0 %}
         <li class="menu-nav__item" data-id="{{ obCategory.id }}">
-            <span class="menu-nav__item--main"><a href="{{ obCategory.getPageUrl('catalog') }}">{{ obCategory.name }}</a></span>
-             {% if obCategory.children.isNotEmpty() %}
+            <span class="menu-nav__item--main"><a href="{{ obParentCategory.getPageUrl('catalog') }}">{{ obParentCategory.name }}</a></span>
+             {% if obParentCategory.children.isNotEmpty() %}
             <div class="menu-nav__item-submenu">
-                {% for obChildCategory in obCategory.children if obChildCategory.product_count > 0 %}
+                {% for obChildCategory in obParentCategory.children if obChildCategory.product_count > 0 %}
                 <a href="{{ obChildCategory.getPageUrl('catalog') }}" class="item-submenu__link">{{ obChildCategory.name }}</a>
+                
                 {% endfor %}
             </div>	
             {% endif %}						
