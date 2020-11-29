@@ -1,4 +1,4 @@
-1606653879a:1:{s:16:"product-page.htm";a:11:{s:8:"fileName";s:16:"product-page.htm";s:7:"content";s:14713:"title = "product-page"
+1606663251a:1:{s:16:"product-page.htm";a:11:{s:8:"fileName";s:16:"product-page.htm";s:7:"content";s:14713:"title = "product-page"
 url = "/product-page/:slug"
 layout = "default"
 description = "Страница товара"

@@ -1,4 +1,4 @@
-1606653879a:1:{s:11:"catalog.htm";a:16:{s:8:"fileName";s:11:"catalog.htm";s:7:"content";s:8533:"title = "Каталог товаров"
+1606663317a:1:{s:11:"catalog.htm";a:16:{s:8:"fileName";s:11:"catalog.htm";s:7:"content";s:9284:"title = "Каталог товаров"
 url = "/:category*/:slug?"
 layout = "default"
 description = "Каталог магазина"
@@ -61,13 +61,17 @@ function onInit() {
     // делаем проверку, если мы не нашли категорию и не нашли товар в параметре последнего слага :category*/:slug?
     // то нужно отобразить 404 ошибку
     $obProductItem = $this->ProductPage->get();
+    $obProductList = $this->ProductList->make()->active();
     $obBrandItem = $this->BrandPage->get();
-    $obCategoryItem = $this->CategoryPage->get();
+    $obCategoryItem = $this->CategoryPage->get();    
     $obMainCategoryItem = $this->MainCategoryPage->get();
+    $sActiveSort = $this->ProductList->getSorting();
+    
     if (!empty($this->param('slug')) && empty($obProductItem) && empty($obBrandItem) && empty($obCategoryItem)) {
         return $this->ProductPage->getErrorResponse(); // используем компонент ProductPage и его метод getErrorResponse - он вернет 404 ошибку
     }
     $obActiveCategoryItem = !empty($obCategoryItem) ? $obCategoryItem : $obMainCategoryItem;
+    $obProductList = $this->ProductList->make()->active()->category($obActiveCategoryItem->id, true);
     $arBreadcrumbs = [];
    
     if (!empty($obProductItem)) {
@@ -104,10 +108,14 @@ function onInit() {
         'active'    =>  false
     ];
     $arBreadcrumbs = array_reverse($arBreadcrumbs);
+
+    // Передача в шаблон
     $this['obProduct'] = $obProductItem;
+    $this['obProductList'] = $obProductList;
     $this['obBrand'] = $obBrandItem;
     $this['obActiveCategory'] = $obActiveCategoryItem; // Текущая активна категория которую отправляем в партиал product-list
     $this['arBreadcrumbs'] = $arBreadcrumbs;
+    $this['sActiveSort'] = $sActiveSort;
 }
 ==
 {##}
@@ -132,6 +140,7 @@ function onInit() {
                                 {% partial "category/category-tree/category-list" obActiveCategory = obActiveCategory %}
                             </div>
                             <div class="sidebar__filter">
+                                
                                 <div class="sidebar-filter-item">
                                     <div class="sidebar-filter-item__label">
                                         <a href="#">Посмотреть все</a>
@@ -172,19 +181,21 @@ function onInit() {
                                 </div>
                             </div>
                             <div class="filter-bar-col">
+                                <!-- Sort -->
                                 <div class="filter-sort">
                                     <div class="filter-sort__label">Сортировка</div>
                                     <div class="filter-sort__select">
                                         <select class="sort-select" name="sort-product" id="sort-product">
-                                            <option value="priceup">Возрастанию цены</option>
-                                            <option value="pricedown">Убыванию цены</option>
-                                            <option value="news">Новизне</option>
+                                            <option {% if sActiveSort == 'no' %} selected {% endif %} value="no">По популярности</option>
+                                            <option {% if sActiveSort == 'price|asc' %} selected {% endif %} value="price|asc">Дешевые</option>
+                                            <option {% if sActiveSort == 'price|desc' %} selected {% endif %} value="price|desc">Дорогие</option>
+                                            <option {% if sActiveSort == 'new' %} selected {% endif %} value="new">Новые</option>
                                         </select>
                                     </div>										
                                 </div>
                                 <div class="kol-item">
                                     <div class="kol-item__label">Товаров</div>
-                                    <div class="kol-item__value">25</div>
+                                    <div class="kol-item__value">{{obProductList.count()}}</div>
                                     
                                 </div>
                             </div>
@@ -203,7 +214,7 @@ function onInit() {
 
 {% partial "banners/banner-1" %}
 
-{% partial "lookbook" %}";s:5:"mtime";i:1606643340;s:6:"markup";s:4888:"{##}
+{% partial "lookbook" %}";s:5:"mtime";i:1606662069;s:6:"markup";s:5281:"{##}
 
 {# @var obCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
 {# Get category item #}
@@ -225,6 +236,7 @@ function onInit() {
                                 {% partial "category/category-tree/category-list" obActiveCategory = obActiveCategory %}
                             </div>
                             <div class="sidebar__filter">
+                                
                                 <div class="sidebar-filter-item">
                                     <div class="sidebar-filter-item__label">
                                         <a href="#">Посмотреть все</a>
@@ -265,19 +277,21 @@ function onInit() {
                                 </div>
                             </div>
                             <div class="filter-bar-col">
+                                <!-- Sort -->
                                 <div class="filter-sort">
                                     <div class="filter-sort__label">Сортировка</div>
                                     <div class="filter-sort__select">
                                         <select class="sort-select" name="sort-product" id="sort-product">
-                                            <option value="priceup">Возрастанию цены</option>
-                                            <option value="pricedown">Убыванию цены</option>
-                                            <option value="news">Новизне</option>
+                                            <option {% if sActiveSort == 'no' %} selected {% endif %} value="no">По популярности</option>
+                                            <option {% if sActiveSort == 'price|asc' %} selected {% endif %} value="price|asc">Дешевые</option>
+                                            <option {% if sActiveSort == 'price|desc' %} selected {% endif %} value="price|desc">Дорогие</option>
+                                            <option {% if sActiveSort == 'new' %} selected {% endif %} value="new">Новые</option>
                                         </select>
                                     </div>										
                                 </div>
                                 <div class="kol-item">
                                     <div class="kol-item__label">Товаров</div>
-                                    <div class="kol-item__value">25</div>
+                                    <div class="kol-item__value">{{obProductList.count()}}</div>
                                     
                                 </div>
                             </div>
@@ -296,17 +310,21 @@ function onInit() {
 
 {% partial "banners/banner-1" %}
 
-{% partial "lookbook" %}";s:4:"code";s:2389:"function onInit() {
+{% partial "lookbook" %}";s:4:"code";s:2747:"function onInit() {
     // делаем проверку, если мы не нашли категорию и не нашли товар в параметре последнего слага :category*/:slug?
     // то нужно отобразить 404 ошибку
     $obProductItem = $this->ProductPage->get();
+    $obProductList = $this->ProductList->make()->active();
     $obBrandItem = $this->BrandPage->get();
-    $obCategoryItem = $this->CategoryPage->get();
+    $obCategoryItem = $this->CategoryPage->get();    
     $obMainCategoryItem = $this->MainCategoryPage->get();
+    $sActiveSort = $this->ProductList->getSorting();
+    
     if (!empty($this->param('slug')) && empty($obProductItem) && empty($obBrandItem) && empty($obCategoryItem)) {
         return $this->ProductPage->getErrorResponse(); // используем компонент ProductPage и его метод getErrorResponse - он вернет 404 ошибку
     }
     $obActiveCategoryItem = !empty($obCategoryItem) ? $obCategoryItem : $obMainCategoryItem;
+    $obProductList = $this->ProductList->make()->active()->category($obActiveCategoryItem->id, true);
     $arBreadcrumbs = [];
    
     if (!empty($obProductItem)) {
@@ -343,8 +361,12 @@ function onInit() {
         'active'    =>  false
     ];
     $arBreadcrumbs = array_reverse($arBreadcrumbs);
+
+    // Передача в шаблон
     $this['obProduct'] = $obProductItem;
+    $this['obProductList'] = $obProductList;
     $this['obBrand'] = $obBrandItem;
     $this['obActiveCategory'] = $obActiveCategoryItem; // Текущая активна категория которую отправляем в партиал product-list
     $this['arBreadcrumbs'] = $arBreadcrumbs;
+    $this['sActiveSort'] = $sActiveSort;
 }";s:5:"title";s:29:"Каталог товаров";s:3:"url";s:18:"/:category*/:slug?";s:6:"layout";s:7:"default";s:11:"description";s:31:"Каталог магазина";s:9:"is_hidden";s:1:"0";s:29:"CategoryPage MainCategoryPage";a:5:{s:4:"slug";s:15:"{{ :category }}";s:13:"slug_required";s:1:"1";s:15:"smart_url_check";s:1:"1";s:12:"has_wildcard";s:1:"1";s:10:"skip_error";s:1:"0";}s:12:"CategoryPage";a:5:{s:4:"slug";s:11:"{{ :slug }}";s:13:"slug_required";s:1:"0";s:15:"smart_url_check";s:1:"1";s:12:"has_wildcard";s:1:"0";s:10:"skip_error";s:1:"1";}s:11:"ProductPage";a:4:{s:4:"slug";s:11:"{{ :slug }}";s:13:"slug_required";s:1:"0";s:15:"smart_url_check";s:1:"1";s:10:"skip_error";s:1:"1";}s:9:"BrandPage";a:4:{s:4:"slug";s:11:"{{ :slug }}";s:13:"slug_required";s:1:"0";s:15:"smart_url_check";s:1:"0";s:10:"skip_error";s:1:"1";}s:11:"ProductList";a:1:{s:7:"sorting";s:3:"new";}s:10:"Pagination";a:22:{s:14:"count_per_page";s:2:"15";s:16:"pagination_limit";s:1:"5";s:12:"active_class";s:0:"";s:11:"button_list";s:36:"first,first-more,main,last-more,last";s:17:"first_button_name";s:5:"First";s:18:"first_button_limit";s:1:"3";s:19:"first_button_number";s:1:"1";s:22:"first-more_button_name";s:3:"...";s:23:"first-more_button_limit";s:1:"4";s:16:"prev_button_name";s:4:"Prev";s:17:"prev_button_limit";s:1:"1";s:21:"prev-more_button_name";s:3:"...";s:22:"prev-more_button_limit";s:1:"1";s:21:"next-more_button_name";s:3:"...";s:22:"next-more_button_limit";s:1:"1";s:16:"next_button_name";s:4:"Next";s:17:"next_button_limit";s:1:"1";s:21:"last-more_button_name";s:3:"...";s:22:"last-more_button_limit";s:1:"4";s:16:"last_button_name";s:4:"Last";s:17:"last_button_limit";s:1:"3";s:18:"last_button_number";s:1:"1";}}}

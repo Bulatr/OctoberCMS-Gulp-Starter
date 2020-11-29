@@ -406,4 +406,7 @@
   'Lovata\\PropertiesShopaholic\\Classes\\Helper\\CommonPropertyHelper' => 'plugins\\lovata\\propertiesshopaholic\\classes\\helper\\CommonPropertyHelper.php',
   'Bulatr\\BaseCode\\Classes\\Event\\Category\\CategoryModelHandler' => 'plugins\\bulatr\\basecode\\classes\\event\\category\\CategoryModelHandler.php',
   'Bulatr\\BaseCode\\Classes\\Event\\Category\\ExtendCategoryFieldsHandler' => 'plugins\\bulatr\\basecode\\classes\\event\\category\\ExtendCategoryFieldsHandler.php',
+  'Lovata\\Shopaholic\\Classes\\Store\\OfferListStore' => 'plugins\\lovata\\shopaholic\\classes\\store\\OfferListStore.php',
+  'Lovata\\Shopaholic\\Classes\\Store\\Offer\\SortingListStore' => 'plugins\\lovata\\shopaholic\\classes\\store\\offer\\SortingListStore.php',
+  'Lovata\\Shopaholic\\Classes\\Store\\Offer\\ActiveListStore' => 'plugins\\lovata\\shopaholic\\classes\\store\\offer\\ActiveListStore.php',
 );

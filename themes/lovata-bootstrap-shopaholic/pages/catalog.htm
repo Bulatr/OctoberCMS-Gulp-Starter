@@ -60,6 +60,8 @@ function onInit() {
     $obBrandItem = $this->BrandPage->get();
     $obCategoryItem = $this->CategoryPage->get();
     $obMainCategoryItem = $this->MainCategoryPage->get();
+    $sActiveSort = $this->ProductList->getSorting();
+
     if (!empty($this->param('slug')) && empty($obProductItem) && empty($obBrandItem) && empty($obCategoryItem)) {
         return $this->ProductPage->getErrorResponse();
     }
@@ -84,7 +86,7 @@ function onInit() {
 
     $arBreadcrumbs[] = ['name' => 'Home', 'url' => \Cms\Classes\Page::url('index')];
     $arBreadcrumbs = array_reverse($arBreadcrumbs);
-
+    
     $this['obProduct'] = $obProductItem;
     $this['obBrand'] = $obBrandItem;
     $this['obActiveCategory'] = $obActiveCategoryItem;

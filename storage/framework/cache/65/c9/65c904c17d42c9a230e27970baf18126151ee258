@@ -1,4 +1,4 @@
-1606653879a:1:{s:32:"product/catalog/product-list.htm";a:5:{s:8:"fileName";s:32:"product/catalog/product-list.htm";s:7:"content";s:835:"{##}
+1606663272a:1:{s:32:"product/catalog/product-list.htm";a:5:{s:8:"fileName";s:32:"product/catalog/product-list.htm";s:7:"content";s:877:"{##}
 {# Get product collection #}
 {% set obProductList = ProductList.make().sort(ProductList.getSorting()).active().category(obActiveCategory.id, true) %}
 
@@ -16,13 +16,15 @@
             {% partial 'product/product-card/product-card' obProduct=obProduct %}
         {% endfor %}
     
-
+    {{obProductList.count()|var_dump}}
     {% partial 'pagination/pagination' iCount=iCount iPage=iPage %}
 {% else %}
     <div>
         Products not found
     </div>
-{% endif %}";s:5:"mtime";i:1606304270;s:6:"markup";s:835:"{##}
+{% endif %}
+
+";s:5:"mtime";i:1606657307;s:6:"markup";s:873:"{##}
 {# Get product collection #}
 {% set obProductList = ProductList.make().sort(ProductList.getSorting()).active().category(obActiveCategory.id, true) %}
 
@@ -40,7 +42,7 @@
             {% partial 'product/product-card/product-card' obProduct=obProduct %}
         {% endfor %}
     
-
+    {{obProductList.count()|var_dump}}
     {% partial 'pagination/pagination' iCount=iCount iPage=iPage %}
 {% else %}
     <div>

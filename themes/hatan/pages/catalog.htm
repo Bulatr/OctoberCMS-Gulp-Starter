@@ -61,13 +61,17 @@ function onInit() {
     // делаем проверку, если мы не нашли категорию и не нашли товар в параметре последнего слага :category*/:slug?
     // то нужно отобразить 404 ошибку
     $obProductItem = $this->ProductPage->get();
+    $obProductList = $this->ProductList->make()->active();
     $obBrandItem = $this->BrandPage->get();
-    $obCategoryItem = $this->CategoryPage->get();
+    $obCategoryItem = $this->CategoryPage->get();    
     $obMainCategoryItem = $this->MainCategoryPage->get();
+    $sActiveSort = $this->ProductList->getSorting();
+    
     if (!empty($this->param('slug')) && empty($obProductItem) && empty($obBrandItem) && empty($obCategoryItem)) {
         return $this->ProductPage->getErrorResponse(); // используем компонент ProductPage и его метод getErrorResponse - он вернет 404 ошибку
     }
     $obActiveCategoryItem = !empty($obCategoryItem) ? $obCategoryItem : $obMainCategoryItem;
+    $obProductList = $this->ProductList->make()->active()->category($obActiveCategoryItem->id, true);
     $arBreadcrumbs = [];
    
     if (!empty($obProductItem)) {
@@ -104,10 +108,14 @@ function onInit() {
         'active'    =>  false
     ];
     $arBreadcrumbs = array_reverse($arBreadcrumbs);
+
+    // Передача в шаблон
     $this['obProduct'] = $obProductItem;
+    $this['obProductList'] = $obProductList;
     $this['obBrand'] = $obBrandItem;
     $this['obActiveCategory'] = $obActiveCategoryItem; // Текущая активна категория которую отправляем в партиал product-list
     $this['arBreadcrumbs'] = $arBreadcrumbs;
+    $this['sActiveSort'] = $sActiveSort;
 }
 ==
 {##}
@@ -132,6 +140,7 @@ function onInit() {
                                 {% partial "category/category-tree/category-list" obActiveCategory = obActiveCategory %}
                             </div>
                             <div class="sidebar__filter">
+                                
                                 <div class="sidebar-filter-item">
                                     <div class="sidebar-filter-item__label">
                                         <a href="#">Посмотреть все</a>
@@ -172,19 +181,21 @@ function onInit() {
                                 </div>
                             </div>
                             <div class="filter-bar-col">
+                                <!-- Sort -->
                                 <div class="filter-sort">
                                     <div class="filter-sort__label">Сортировка</div>
                                     <div class="filter-sort__select">
                                         <select class="sort-select" name="sort-product" id="sort-product">
-                                            <option value="priceup">Возрастанию цены</option>
-                                            <option value="pricedown">Убыванию цены</option>
-                                            <option value="news">Новизне</option>
+                                            <option {% if sActiveSort == 'no' %} selected {% endif %} value="no">По популярности</option>
+                                            <option {% if sActiveSort == 'price|asc' %} selected {% endif %} value="price|asc">Дешевые</option>
+                                            <option {% if sActiveSort == 'price|desc' %} selected {% endif %} value="price|desc">Дорогие</option>
+                                            <option {% if sActiveSort == 'new' %} selected {% endif %} value="new">Новые</option>
                                         </select>
                                     </div>										
                                 </div>
                                 <div class="kol-item">
                                     <div class="kol-item__label">Товаров</div>
-                                    <div class="kol-item__value">25</div>
+                                    <div class="kol-item__value">{{obProductList.count()}}</div>
                                     
                                 </div>
                             </div>

@@ -30,13 +30,13 @@ class __TwigTemplate_45477d61899c281ebfbba1cb79ac5db4fdf1820588b64ab4918f6d3f583
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
         $tags = array("set" => 3, "if" => 12, "for" => 15, "partial" => 16);
-        $filters = array();
+        $filters = array("var_dump" => 19);
         $functions = array();
 
         try {
             $this->sandbox->checkSecurity(
                 ['set', 'if', 'for', 'partial'],
-                [],
+                ['var_dump'],
                 []
             );
         } catch (SecurityError $e) {
@@ -100,7 +100,10 @@ class __TwigTemplate_45477d61899c281ebfbba1cb79ac5db4fdf1820588b64ab4918f6d3f583
             $context = array_intersect_key($context, $_parent) + $_parent;
             // line 18
             echo "    
-
+    ";
+            // line 19
+            echo call_user_func_array($this->env->getFilter('var_dump')->getCallable(), [$this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obProductList"] ?? null), "count", [], "method", false, false, true, 19), 19, $this->source)]);
+            echo "
     ";
             // line 20
             $context['__cms_partial_params'] = [];
@@ -129,7 +132,7 @@ class __TwigTemplate_45477d61899c281ebfbba1cb79ac5db4fdf1820588b64ab4918f6d3f583
 
     public function getDebugInfo()
     {
-        return array (  113 => 22,  106 => 20,  102 => 18,  96 => 17,  90 => 16,  86 => 15,  83 => 14,  81 => 13,  79 => 12,  76 => 11,  74 => 10,  71 => 8,  69 => 7,  67 => 6,  64 => 4,  62 => 3,);
+        return array (  116 => 22,  109 => 20,  105 => 19,  102 => 18,  96 => 17,  90 => 16,  86 => 15,  83 => 14,  81 => 13,  79 => 12,  76 => 11,  74 => 10,  71 => 8,  69 => 7,  67 => 6,  64 => 4,  62 => 3,);
     }
 
     public function getSourceContext()
@@ -152,7 +155,7 @@ class __TwigTemplate_45477d61899c281ebfbba1cb79ac5db4fdf1820588b64ab4918f6d3f583
             {% partial 'product/product-card/product-card' obProduct=obProduct %}
         {% endfor %}
     
-
+    {{obProductList.count()|var_dump}}
     {% partial 'pagination/pagination' iCount=iCount iPage=iPage %}
 {% else %}
     <div>

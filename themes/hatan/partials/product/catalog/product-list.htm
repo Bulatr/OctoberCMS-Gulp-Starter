@@ -16,10 +16,11 @@
             {% partial 'product/product-card/product-card' obProduct=obProduct %}
         {% endfor %}
     
-
+    {{obProductList.count()|var_dump}}
     {% partial 'pagination/pagination' iCount=iCount iPage=iPage %}
 {% else %}
     <div>
         Products not found
     </div>
 {% endif %}
+
