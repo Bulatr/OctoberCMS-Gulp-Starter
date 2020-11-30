@@ -1,0 +1,106 @@
+description = "Фильтр товаров"
+
+[FilterPanel]
+==
+{##}
+{# var #}
+{# Get products proeprty list for property sets with code 'main', enabled how filters #}
+{% set obPropertyList = FilterPanel.getOfferPropertyList(['main','shoes'], obProductList) %}
+
+<div class="filter-modal">
+		<div class="close"><img src="{{ 'assets/images/Close-circle.svg' | theme }}" alt=""></div>
+		<div class="filter-modal__col">
+			<div class="modal-options">
+				{% for obProperty in obPropertyList if obProperty.hasValue() %}
+
+					{# Render filter name #}
+					<div class="modal-options__label">
+						<h3>{{ obProperty.filter_name }}</h3>
+					</div>
+					
+
+					{# Get filter type #}
+					{% set sFilterType = obProperty.filter_type %}
+
+					{# Get proeprty value list #}
+					{% set obPropertyValueList = obProperty.property_value.sort() %}
+					<div class="modal-options__wrap">	
+						{# Render filtre with type == checkbox #}
+						
+							{% if sFilterType == 'checkbox' %}
+								
+									{% for obValue in obPropertyValueList %}	
+										<div class="modal-options__checkout">						
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" id="{{ obValue.arModelData.id }}" value="{{ obValue.slug }}">
+												<label class="form-check-label" for=""{{ obValue.arModelData.id }}"">{{ obValue.value }}</label>
+											</div>
+										</div>
+									{% endfor%}
+								
+							{% endif %}
+
+							{# Render filtre with type == select #}
+							{% if sFilterType == 'select' %}
+								<select>
+									{% for obValue in obPropertyValueList %}
+										<option value="{{ obValue.slug }}">{{ obValue.value }}</option>
+									{% endfor%}
+								</select>
+							{% endif %}
+						
+						
+					</div>
+				{% endfor %}
+			</div>
+			
+			<!--Price-->
+			<div class="modal-options">
+				<div class="modal-options__label">
+					<h3>Стоимость</h3>
+				</div>
+				<div class="modal-options__wrap">
+					<div class="modal-options__checkout">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="price" value="price-low" id="price-filter-low">
+							<label class="form-check-label" for="price-filter-low">
+								до 1500 руб
+							</label>
+						</div>
+						<div class="modal-options-checkout__value" id="price-filter-low">
+							18
+						</div>					
+					</div>
+					<div class="modal-options__checkout">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="price" value="price-middle" id="price-filter-middle">
+							<label class="form-check-label" for="price-filter-middle">
+								от 1500 до 5000 руб
+							</label>
+						</div>
+						<div class="modal-options-checkout__value" id="price-filter-middle">
+							10
+						</div>					
+					</div>
+					<div class="modal-options__checkout">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="price" value="price-hight" id="price-filter-hight">
+							<label class="form-check-label" for="price-filter-hight">
+								от 5000 руб
+							</label>
+						</div>
+						<div class="modal-options-checkout__value" id="price-filter-hight">
+							8
+						</div>					
+					</div>
+				</div>	
+			</div>
+
+		</div>
+		<div class="filter-modal__col">
+			<div class="filter-modal-buttons">
+				<a href="#" id="show" class="btn btn-primary">Показать результаты</a>
+				<a href="#" id="clear" class="btn btn-primary secondary">Очистить фильтр</a>
+			</div>
+		</div>
+	</div>

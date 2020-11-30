@@ -3,9 +3,22 @@
 
 {# Render pagination buttons #}
 {% if arPaginationList is not empty %}
+    <div class="pagination">
+    
+    {% if iPage > 1 %}
+        <a href="#" class="pagination-item _shopaholic-pagination" data-page="{{ iPage-1 }}">
+            <img src="{{ 'assets/images/Direction-Left.svg' | theme }}" alt="">
+        </a>
+    {% endif %}
     {% for arPagination in arPaginationList %}
-        <a href="{{ url_current() }}?page={{ arPagination.value }}" class="{{ arPagination.class }}" data-code="{{ arPagination.code }}">
+        <a href="{{ url_current() }}?page={{ arPagination.value }}" class="pagination-item {{ arPagination.code }} {{ arPagination.class }} _shopaholic-pagination" data-page="{{ arPagination.value }}">
             {{ arPagination.name }}
         </a>
     {% endfor %}
+    {% if iPage > iMaxPage %}
+        <a href="#" class="pagination-item _shopaholic-pagination" data-page="{{ iPage+1 }}">
+            <img src="{{ 'assets/images/Direction-Right.svg' | theme }}" alt="">
+        </a>
+    {% endif %}
+    </div>
 {% endif %}

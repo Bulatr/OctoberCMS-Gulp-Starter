@@ -409,4 +409,10 @@
   'Lovata\\Shopaholic\\Classes\\Store\\OfferListStore' => 'plugins\\lovata\\shopaholic\\classes\\store\\OfferListStore.php',
   'Lovata\\Shopaholic\\Classes\\Store\\Offer\\SortingListStore' => 'plugins\\lovata\\shopaholic\\classes\\store\\offer\\SortingListStore.php',
   'Lovata\\Shopaholic\\Classes\\Store\\Offer\\ActiveListStore' => 'plugins\\lovata\\shopaholic\\classes\\store\\offer\\ActiveListStore.php',
+  'Lovata\\FilterShopaholic\\Components\\FilterPanel' => 'plugins\\lovata\\filtershopaholic\\components\\FilterPanel.php',
+  'Lovata\\PropertiesShopaholic\\Classes\\Collection\\PropertyCollection' => 'plugins\\lovata\\propertiesshopaholic\\classes\\collection\\PropertyCollection.php',
+  'Lovata\\FilterShopaholic\\Classes\\Collection\\FilterPropertyCollection' => 'plugins\\lovata\\filtershopaholic\\classes\\collection\\FilterPropertyCollection.php',
+  'Lovata\\PropertiesShopaholic\\Classes\\Collection\\PropertyValueCollection' => 'plugins\\lovata\\propertiesshopaholic\\classes\\collection\\PropertyValueCollection.php',
+  'lovata\\propertiesshopaholic\\Controllers\\propertyvalues' => 'plugins\\lovata\\propertiesshopaholic\\controllers\\propertyvalues.php',
+  'Lovata\\PropertiesShopaholic\\Classes\\Collection\\GroupCollection' => 'plugins\\lovata\\propertiesshopaholic\\classes\\collection\\GroupCollection.php',
 );

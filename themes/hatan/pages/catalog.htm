@@ -34,13 +34,13 @@ skip_error = 1
 sorting = "new"
 
 [Pagination]
-count_per_page = 15
+count_per_page = 1
 pagination_limit = 5
-active_class = ""
-button_list = "first,first-more,main,last-more,last"
+active_class = "active"
+button_list = "main"
 first_button_name = "First"
 first_button_limit = 3
-first_button_number = 1
+first_button_number = 4
 first-more_button_name = "..."
 first-more_button_limit = 4
 prev_button_name = "Prev"
@@ -56,30 +56,42 @@ last-more_button_limit = 4
 last_button_name = "Last"
 last_button_limit = 3
 last_button_number = 1
+
+
 ==
+<?php
 function onInit() {
     // делаем проверку, если мы не нашли категорию и не нашли товар в параметре последнего слага :category*/:slug?
     // то нужно отобразить 404 ошибку
     $obProductItem = $this->ProductPage->get();
-    $obProductList = $this->ProductList->make()->active();
     $obBrandItem = $this->BrandPage->get();
     $obCategoryItem = $this->CategoryPage->get();    
     $obMainCategoryItem = $this->MainCategoryPage->get();
     $sActiveSort = $this->ProductList->getSorting();
+    $iPage = $this->Pagination->getPageFromRequest(); // НОмер текущей страницы
     
     if (!empty($this->param('slug')) && empty($obProductItem) && empty($obBrandItem) && empty($obCategoryItem)) {
         return $this->ProductPage->getErrorResponse(); // используем компонент ProductPage и его метод getErrorResponse - он вернет 404 ошибку
     }
     $obActiveCategoryItem = !empty($obCategoryItem) ? $obCategoryItem : $obMainCategoryItem;
     $obProductList = $this->ProductList->make()->active()->category($obActiveCategoryItem->id, true);
+    $arProductList = $obProductList->page($iPage, $this->Pagination->getCountPerPage());
+    $iMaxPage = $this->Pagination->getMaxPage($obProductList->count());
+    
+
     $arBreadcrumbs = [];
+
+     if (empty($obProductItem)) {
+         $obProductList = $this->ProductList->make()->active()->sort($sActiveSort)->category([$obActiveCategoryItem->id], true);
+     }
+
    
     if (!empty($obProductItem)) {
         $arBreadcrumbs[] = [
             'name' => $obProductItem->name, 
             'url' => $obProductItem->getPageUrl('catalog'),
             'active'    =>  true
-            ];
+            ];        
     }
 
     if (!empty($obBrandItem)) {
@@ -116,13 +128,15 @@ function onInit() {
     $this['obActiveCategory'] = $obActiveCategoryItem; // Текущая активна категория которую отправляем в партиал product-list
     $this['arBreadcrumbs'] = $arBreadcrumbs;
     $this['sActiveSort'] = $sActiveSort;
+    $this['iMaxPage'] = $iMaxPage;
 }
+?>
 ==
 {##}
 
 {# @var obCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
 {# Get category item #}
-{% partial "filter-modal" %}
+{% partial "filters/filter-modal" obProductList = obProductList %}
 
 <!-- Category-->
 <div class="category" data-id="{{ obCategory.id }}" itemscope itemtype="http://schema.org/Category">
@@ -137,7 +151,7 @@ function onInit() {
                         </div>
                         <div class="sidebar__content">
                             <div class="sidebar__menu">
-                                {% partial "category/category-tree/category-list" obActiveCategory = obActiveCategory %}
+                                {% partial "category/category-tree/category-list" obActiveCategory = obActiveCategory  %}
                             </div>
                             <div class="sidebar__filter">
                                 
@@ -185,7 +199,7 @@ function onInit() {
                                 <div class="filter-sort">
                                     <div class="filter-sort__label">Сортировка</div>
                                     <div class="filter-sort__select">
-                                        <select class="sort-select" name="sort-product" id="sort-product">
+                                        <select class="sort-select _shopaholic-sorting" name="sort-product" id="sort-product">
                                             <option {% if sActiveSort == 'no' %} selected {% endif %} value="no">По популярности</option>
                                             <option {% if sActiveSort == 'price|asc' %} selected {% endif %} value="price|asc">Дешевые</option>
                                             <option {% if sActiveSort == 'price|desc' %} selected {% endif %} value="price|desc">Дорогие</option>
@@ -200,8 +214,8 @@ function onInit() {
                                 </div>
                             </div>
                         </div>
-                        <div class="wrapper-overlay card-container">
-                            {% partial 'product/catalog/product-list' obActiveCategory = obActiveCategory %}
+                        <div class="wrapper-overlay card-container catalog-wrapper">
+                            {% partial 'product/catalog/product-list' obActiveCategory=obActiveCategory  %}
                         </div>
                     </div>
                 </div>   

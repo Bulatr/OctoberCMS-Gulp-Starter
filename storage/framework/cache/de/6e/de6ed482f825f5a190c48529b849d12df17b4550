@@ -1,0 +1,274 @@
+1606750557a:1:{s:19:"modal-microcart.htm";a:6:{s:8:"fileName";s:19:"modal-microcart.htm";s:7:"content";s:6500:";;
+description = "Корзина"
+==
+{##}
+<div class="microcart">
+		<div class="cart-dialog">
+			<div class="cart-content">
+				<div class="cart-header">
+					<div></div>
+					<div class="close">
+						<img src="{{'assets/images/Close-circle.svg' | theme }}" alt="">
+					</div>
+				</div>
+				<div class="cart-body">
+					<div class="cart-empty show">
+						<div class="empty-image">
+							<img src="{{ 'assets/images/empty cart image.svg' | theme }}" alt="">
+						</div>
+						<div class="empty-content">
+							<div class="title-empty">
+								Ваша корзина пуста
+							</div>
+							<div class="subtitle-empty">
+								Выберите понравившиеся товары и добавьте в корзину. Если сейчас не готовы купить, можете рассмотреть товары в корзине позднее
+							</div>
+						</div>
+					</div>
+					<div class="cart-filled">
+						<div class="cart-items">
+							<div class="collected-product">
+								<div class="collected-product__image-wrapper">
+									<div class="collected-product__image-wrapper-image"><img src="{{ 'assets/images/dest/1/37416640299.jpg' | theme }}" alt=""></div>
+									<div class="collected-product__image-wrapper-count-wrap-collected">
+										<div class="count-wrap" id="product-123">
+											<div class="count-up">+</div>
+											<input type="text" class="form-control amount-product" id="count-1" placeholder="1" value="1">
+											<div class="count-down">-</div>
+										</div>
+									</div>
+								</div>
+								<div class="collected-product__content">
+									<div class="collected-product__content-delete-product">
+										<img src="{{ 'assets/images/small_close.svg' | theme }}" alt="">
+									</div>
+									<div class="collected-product__content-pr-title">
+										Джемпер вязки «косы» с воротником-стойкой
+									</div>
+									<div class="collected-product__content-pr-price-wrap">
+										<div class="old-price">5999<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span></div>
+										<div class="today-price">
+											4800 <span class="rub"><img src="{{'assets/images/Rub.svg' | theme }}" alt=""></span>
+										</div>
+									</div>
+									<div class="collected-product__content-options">
+										<div class="option__item">
+											<div class="option__item-label-option">Размер</div>
+											<div class="option__value-option">L</div>
+										</div>
+										<div class="option__item">
+											<div class="option__item-label-option">Цвет</div>
+											<div class="option__value-option">Голубой</div>											
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="collected-product">
+								<div class="collected-product__image-wrapper">
+									<div class="collected-product__image-wrapper-image"><img src="{{ 'assets/images/dest/1/37416640299.jpg' | theme }}" alt=""></div>
+									<div class="collected-product__image-wrapper-count-wrap-collected">
+										<div class="count-wrap" id="product-123">
+											<div class="count-up">+</div>
+											<input type="text" class="form-control amount-product" id="count-2" placeholder="1" value="1">
+											<div class="count-down">-</div>
+										</div>
+									</div>
+								</div>
+								<div class="collected-product__content">
+									<div class="collected-product__content-delete-product">
+										<img src="{{ 'assets/images/small_close.svg' | theme }}" alt="">
+									</div>
+									<div class="collected-product__content-pr-title">
+										Джемпер вязки «косы» с воротником-стойкой
+									</div>
+									<div class="collected-product__content-pr-price-wrap">
+										<div class="old-price">5999<span class="rub"><img src="{{ 'assets/images/Rub.svg' |theme }}" alt=""></span></div>
+										<div class="today-price">
+											4800 <span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
+										</div>
+									</div>
+									<div class="collected-product__content-options">
+										<div class="option__item">
+											<div class="option__item-label-option">Размер</div>
+											<div class="option__value-option">L</div>
+										</div>
+										<div class="option__item">
+											<div class="option__item-label-option">Цвет</div>
+											<div class="option__value-option">Голубой</div>											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="cupon-input">
+							<label for="cupon">Ввести код купона</label>
+							<input id="cupon" class="input__cupon" name="cupon" type="text">
+						</div>
+						<div class="summary">
+							<div class="summary__item">
+								<div class="summary-label">Стоимость</div>
+								<div class="summary-value">4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span></div>
+							</div>
+							<div class="summary__item">
+								<div class="summary-label">НДС</div>
+								<div class="summary-value">0<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span></div>
+							</div>
+							<div class="summary__item">
+								<div class="summary-label">Скидка</div>
+								<div class="summary-value">0<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span></div>
+							</div>
+							<div class="summary__item">
+								<div class="summary-label">Скидка по купону</div>
+								<div class="summary-value">0<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span></div>
+							</div>
+							<div class="summary__item summ">
+								<div class="summary-label">Итого стоимость</div>
+								<div class="summary-value">4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="cart-footer">
+					<div class="cart-footer--center">
+						<a href="#" id="empty-cart" class="btn btn-primary secondary cartevent show">Начать покупки</a>
+						<a href="#" id="filled-cart" class="btn btn-primary secondary cartevent">Оформить покупку</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>";s:5:"mtime";i:1606283869;s:6:"markup";s:6460:"{##}
+<div class="microcart">
+		<div class="cart-dialog">
+			<div class="cart-content">
+				<div class="cart-header">
+					<div></div>
+					<div class="close">
+						<img src="{{'assets/images/Close-circle.svg' | theme }}" alt="">
+					</div>
+				</div>
+				<div class="cart-body">
+					<div class="cart-empty show">
+						<div class="empty-image">
+							<img src="{{ 'assets/images/empty cart image.svg' | theme }}" alt="">
+						</div>
+						<div class="empty-content">
+							<div class="title-empty">
+								Ваша корзина пуста
+							</div>
+							<div class="subtitle-empty">
+								Выберите понравившиеся товары и добавьте в корзину. Если сейчас не готовы купить, можете рассмотреть товары в корзине позднее
+							</div>
+						</div>
+					</div>
+					<div class="cart-filled">
+						<div class="cart-items">
+							<div class="collected-product">
+								<div class="collected-product__image-wrapper">
+									<div class="collected-product__image-wrapper-image"><img src="{{ 'assets/images/dest/1/37416640299.jpg' | theme }}" alt=""></div>
+									<div class="collected-product__image-wrapper-count-wrap-collected">
+										<div class="count-wrap" id="product-123">
+											<div class="count-up">+</div>
+											<input type="text" class="form-control amount-product" id="count-1" placeholder="1" value="1">
+											<div class="count-down">-</div>
+										</div>
+									</div>
+								</div>
+								<div class="collected-product__content">
+									<div class="collected-product__content-delete-product">
+										<img src="{{ 'assets/images/small_close.svg' | theme }}" alt="">
+									</div>
+									<div class="collected-product__content-pr-title">
+										Джемпер вязки «косы» с воротником-стойкой
+									</div>
+									<div class="collected-product__content-pr-price-wrap">
+										<div class="old-price">5999<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span></div>
+										<div class="today-price">
+											4800 <span class="rub"><img src="{{'assets/images/Rub.svg' | theme }}" alt=""></span>
+										</div>
+									</div>
+									<div class="collected-product__content-options">
+										<div class="option__item">
+											<div class="option__item-label-option">Размер</div>
+											<div class="option__value-option">L</div>
+										</div>
+										<div class="option__item">
+											<div class="option__item-label-option">Цвет</div>
+											<div class="option__value-option">Голубой</div>											
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="collected-product">
+								<div class="collected-product__image-wrapper">
+									<div class="collected-product__image-wrapper-image"><img src="{{ 'assets/images/dest/1/37416640299.jpg' | theme }}" alt=""></div>
+									<div class="collected-product__image-wrapper-count-wrap-collected">
+										<div class="count-wrap" id="product-123">
+											<div class="count-up">+</div>
+											<input type="text" class="form-control amount-product" id="count-2" placeholder="1" value="1">
+											<div class="count-down">-</div>
+										</div>
+									</div>
+								</div>
+								<div class="collected-product__content">
+									<div class="collected-product__content-delete-product">
+										<img src="{{ 'assets/images/small_close.svg' | theme }}" alt="">
+									</div>
+									<div class="collected-product__content-pr-title">
+										Джемпер вязки «косы» с воротником-стойкой
+									</div>
+									<div class="collected-product__content-pr-price-wrap">
+										<div class="old-price">5999<span class="rub"><img src="{{ 'assets/images/Rub.svg' |theme }}" alt=""></span></div>
+										<div class="today-price">
+											4800 <span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
+										</div>
+									</div>
+									<div class="collected-product__content-options">
+										<div class="option__item">
+											<div class="option__item-label-option">Размер</div>
+											<div class="option__value-option">L</div>
+										</div>
+										<div class="option__item">
+											<div class="option__item-label-option">Цвет</div>
+											<div class="option__value-option">Голубой</div>											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="cupon-input">
+							<label for="cupon">Ввести код купона</label>
+							<input id="cupon" class="input__cupon" name="cupon" type="text">
+						</div>
+						<div class="summary">
+							<div class="summary__item">
+								<div class="summary-label">Стоимость</div>
+								<div class="summary-value">4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span></div>
+							</div>
+							<div class="summary__item">
+								<div class="summary-label">НДС</div>
+								<div class="summary-value">0<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span></div>
+							</div>
+							<div class="summary__item">
+								<div class="summary-label">Скидка</div>
+								<div class="summary-value">0<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span></div>
+							</div>
+							<div class="summary__item">
+								<div class="summary-label">Скидка по купону</div>
+								<div class="summary-value">0<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span></div>
+							</div>
+							<div class="summary__item summ">
+								<div class="summary-label">Итого стоимость</div>
+								<div class="summary-value">4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="cart-footer">
+					<div class="cart-footer--center">
+						<a href="#" id="empty-cart" class="btn btn-primary secondary cartevent show">Начать покупки</a>
+						<a href="#" id="filled-cart" class="btn btn-primary secondary cartevent">Оформить покупку</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>";s:4:"code";N;s:11:"description";s:14:"Корзина";}}

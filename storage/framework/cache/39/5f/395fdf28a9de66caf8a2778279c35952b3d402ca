@@ -1,0 +1,47 @@
+1606750556a:1:{s:25:"pagination/pagination.htm";a:5:{s:8:"fileName";s:25:"pagination/pagination.htm";s:7:"content";s:990:"{##}
+{% set arPaginationList = Pagination.get(iPage, iCount) %}
+
+{# Render pagination buttons #}
+{% if arPaginationList is not empty %}
+    <div class="pagination">
+    
+    {% if iPage > 1 %}
+        <a href="#" class="pagination-item _shopaholic-pagination" data-page="{{ iPage-1 }}">
+            <img src="{{ 'assets/images/Direction-Left.svg' | theme }}" alt="">
+        </a>
+    {% endif %}
+    {% for arPagination in arPaginationList %}
+        <a href="{{ url_current() }}?page={{ arPagination.value }}" class="pagination-item {{ arPagination.code }} {{ arPagination.class }} _shopaholic-pagination" data-page="{{ arPagination.value }}">
+            {{ arPagination.name }}
+        </a>
+    {% endfor %}
+    {% if iPage > iMaxPage %}
+        <a href="#" class="pagination-item _shopaholic-pagination" data-page="{{ iPage+1 }}">
+            <img src="{{ 'assets/images/Direction-Right.svg' | theme }}" alt="">
+        </a>
+    {% endif %}
+    </div>
+{% endif %}";s:5:"mtime";i:1606749947;s:6:"markup";s:990:"{##}
+{% set arPaginationList = Pagination.get(iPage, iCount) %}
+
+{# Render pagination buttons #}
+{% if arPaginationList is not empty %}
+    <div class="pagination">
+    
+    {% if iPage > 1 %}
+        <a href="#" class="pagination-item _shopaholic-pagination" data-page="{{ iPage-1 }}">
+            <img src="{{ 'assets/images/Direction-Left.svg' | theme }}" alt="">
+        </a>
+    {% endif %}
+    {% for arPagination in arPaginationList %}
+        <a href="{{ url_current() }}?page={{ arPagination.value }}" class="pagination-item {{ arPagination.code }} {{ arPagination.class }} _shopaholic-pagination" data-page="{{ arPagination.value }}">
+            {{ arPagination.name }}
+        </a>
+    {% endfor %}
+    {% if iPage > iMaxPage %}
+        <a href="#" class="pagination-item _shopaholic-pagination" data-page="{{ iPage+1 }}">
+            <img src="{{ 'assets/images/Direction-Right.svg' | theme }}" alt="">
+        </a>
+    {% endif %}
+    </div>
+{% endif %}";s:4:"code";N;}}

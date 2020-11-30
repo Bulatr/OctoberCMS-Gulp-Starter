@@ -232,7 +232,7 @@ button.btn
 				display: flex
 				flex-direction: column
 				justify-content: center    
-				align-items: start				
+				align-items: flex-start				
 				.img-slide
 					position: absolute
 					z-index: 0
@@ -920,6 +920,7 @@ button.btn
 	display: flex
 	flex-direction: column
 	padding-right: 16px
+	margin-top: 30px
 
 .sidebar-filter-item
 	display: flex
@@ -2466,6 +2467,7 @@ input[type="checkbox"]
 		display: flex
 		flex-direction: row
 		justify-content: flex-start
+		text-transform: capitalize
 
 	input.form-radio-input
 		
@@ -2573,9 +2575,12 @@ input.filled
 	.close
 		position: absolute
 		top: 30px
-		right: -24px
+		right: 20px
 	&.show
 		transform: translateX(0)
+		overflow-y: scroll
+	&::-webkit-scrollbar
+		width: 0
 
 
 .filter-modal__col
@@ -2585,6 +2590,7 @@ input.filled
 
 .modal-options__label
 	margin-bottom: 18px
+	margin-top: 30px
 	h3
 		font-family: $raleway
 		font-weight: 600
@@ -2612,6 +2618,31 @@ input.filled
 	.btn
 		margin-bottom: 10px
 		text-align: center
+
+.pagination
+	width: 100%
+	height: 50px
+	display: flex
+	flex-direction: row
+	justify-content: center
+	align-items: center	
+	margin-top: 40px
+	border-top: 1px solid $light-var
+	border-bottom: 1px solid $light-var
+.pagination-item
+	padding-left: 4px
+	padding-right: 4px
+	color: $text-mutted
+	font-size: 18px
+	text-decoration: none
+	font-family: $roboto
+	font-weight: 400
+	&.act
+		color: $textcolor
+		font-weight: 500
+	&:hover
+		color: $accent
+
 
 
 // animation

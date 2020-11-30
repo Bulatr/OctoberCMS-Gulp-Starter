@@ -1,6 +1,23 @@
+import ShopaholicProductList from "@lovata/shopaholic-product-list/shopaholic-product-list";
+import ShopaholicSorting from "@lovata/shopaholic-product-list/shopaholic-sorting";
+import ShopaholicPagination from "@lovata/shopaholic-product-list/shopaholic-pagination";
+
+const obListHelper = new ShopaholicProductList();
+obListHelper.setAjaxRequestCallback((obRequestData) => {
+	obRequestData.update = {
+		'product/catalog/product-list': `.catalog_wrapper`
+	};
+	return obRequestData;
+});
+const obSortingHelper = new ShopaholicSorting(obListHelper);
+const obPaginationHelper = new ShopaholicPagination(obListHelper);
+obPaginationHelper.init();
+obSortingHelper.init();
 document.addEventListener("DOMContentLoaded", function() {
 
 	// Custom JS
+	
+
 	var myCarousel = document.querySelector('#myCarousel');
 	
 	$( ".product-card" ).hover(
@@ -28,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		function(e) {			
 			$(this).removeClass("bounceIn")
 		}
-	)
+	);
 
 	// nav
 	$(".main-menu-wrapper .nav-item .nav-link").click(function() {
@@ -52,7 +69,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		var clk = $('input:checked', '#myForm').val();
 		$('.color-radio .wrapper-radio').find('label').removeClass('input-checked');
 		$(this).parent('label').addClass('input-checked');
-		$('#test').html('clciked on '+clk);
 	});
 
 	// show collapse form
@@ -75,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	$(".table-container.hovered .table-container__row").on("mouseout", function() {
 		$(this).removeClass("active");
-	})
+	});
 
 	// add to cart
 
@@ -103,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		setTimeout(function(){
 			$(".icons.cart-icon .cart.filled").addClass("show")
 		},3000);		
-	})
+	});
 	// Click to cart
 
 	$(".icons.cart-icon").click(function(){
@@ -231,12 +247,12 @@ document.addEventListener("DOMContentLoaded", function() {
 		$(".microcart").removeClass("show");
 		$(".microcart").removeClass("slideInRight");
 		$(".microcart").addClass("slideOutRight");
-	})
+	});
 
 	$(".modal-header .close").click(function() {
 		$(".modal-overlay").removeClass("active");
 		$(".modal").removeClass("show");
-	})
+	});
 
 	function getidimages() {
 		let element = document.querySelectorAll(".modal-wrap-images");
@@ -324,7 +340,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		var var_count = Number($(input_col).val());
 		var_count = var_count+1;
 		input_col.value = var_count;
-	})
+	});
 	
 	$(".count-wrap .count-down").on("click", function(e){
 		let input_col = e.target.previousElementSibling;
@@ -332,29 +348,30 @@ document.addEventListener("DOMContentLoaded", function() {
 		var_count = var_count-1;
 		if (var_count == 0) {var_count = 1}
 		input_col.value = var_count;
-	})
+	});
 
+	$(".search-wrapper").mouseup(function (e){ // событие клика по веб-документу
+		var div = $(".icon-search"); // тут указываем ID элемента
+		var inp = $(".search-wrapper .form-inline.custom input.form-control");
+		if (!div.is(e.target) // если клик был не по нашему блоку
+			&& div.has(e.target).length === 0 && !inp.is(e.target)) { // и не по его дочерним элементам
+			$(".search-wrapper").removeClass("show"); // скрываем его
+			//console.log(e.target);
+		} else {
+			$(".search-wrapper").addClass("show");
+		}
+		var div_tg = $(".icons-toggle"); // тут указываем ID элемента
+		if (!div_tg.is(e.target) // если клик был не по нашему блоку
+			&& div_tg.has(e.target).length === 0 ) { // и не по его дочерним элементам
+			$(".icons-wrapper").removeClass("show"); // скрываем его
+			//console.log(e.target);
+		} else {
+			$(".icons-wrapper").addClass("show");
+		}
+	});
 	
 });
 
 
 
-$(".search-wrapper").mouseup(function (e){ // событие клика по веб-документу
-	var div = $(".icon-search"); // тут указываем ID элемента
-	var inp = $(".search-wrapper .form-inline.custom input.form-control");
-	if (!div.is(e.target) // если клик был не по нашему блоку
-		&& div.has(e.target).length === 0 && !inp.is(e.target)) { // и не по его дочерним элементам
-		$(".search-wrapper").removeClass("show"); // скрываем его
-		//console.log(e.target);
-	} else {
-		$(".search-wrapper").addClass("show");
-	}
-	var div_tg = $(".icons-toggle"); // тут указываем ID элемента
-	if (!div_tg.is(e.target) // если клик был не по нашему блоку
-		&& div_tg.has(e.target).length === 0 ) { // и не по его дочерним элементам
-		$(".icons-wrapper").removeClass("show"); // скрываем его
-		//console.log(e.target);
-	} else {
-		$(".icons-wrapper").addClass("show");
-	}
-});
+
