@@ -29,7 +29,7 @@ class __TwigTemplate_d162eb68792f8bcf1c9507e18b16951200f11d562d9508a1fc8f666468f
         $this->blocks = [
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
-        $tags = array("partial" => 1, "page" => 4);
+        $tags = array("partial" => 2, "page" => 5);
         $filters = array();
         $functions = array();
 
@@ -58,22 +58,22 @@ class __TwigTemplate_d162eb68792f8bcf1c9507e18b16951200f11d562d9508a1fc8f666468f
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 1
+        // line 2
         $context['__cms_partial_params'] = [];
         $context['__cms_partial_params']['class'] = "myclass"        ;
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("header"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 2
+        // line 3
         echo "
 \t<section>
 \t\t";
-        // line 4
-        echo $this->env->getExtension('Cms\Twig\Extension')->pageFunction();
         // line 5
+        echo $this->env->getExtension('Cms\Twig\Extension')->pageFunction();
+        // line 6
         echo "\t</section>
 
 ";
-        // line 7
+        // line 8
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("footer"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
@@ -91,12 +91,13 @@ class __TwigTemplate_d162eb68792f8bcf1c9507e18b16951200f11d562d9508a1fc8f666468f
 
     public function getDebugInfo()
     {
-        return array (  77 => 7,  73 => 5,  71 => 4,  67 => 2,  62 => 1,);
+        return array (  77 => 8,  73 => 6,  71 => 5,  67 => 3,  62 => 2,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% partial 'header' class='myclass' %}
+        return new Source("{##}
+{% partial 'header' class='myclass' %}
 
 \t<section>
 \t\t{% page %}

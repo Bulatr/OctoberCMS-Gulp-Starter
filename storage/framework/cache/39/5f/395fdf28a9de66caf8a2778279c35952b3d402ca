@@ -1,4 +1,4 @@
-1606750556a:1:{s:25:"pagination/pagination.htm";a:5:{s:8:"fileName";s:25:"pagination/pagination.htm";s:7:"content";s:990:"{##}
+1606878461a:1:{s:25:"pagination/pagination.htm";a:5:{s:8:"fileName";s:25:"pagination/pagination.htm";s:7:"content";s:990:"{##}
 {% set arPaginationList = Pagination.get(iPage, iCount) %}
 
 {# Render pagination buttons #}
@@ -15,13 +15,13 @@
             {{ arPagination.name }}
         </a>
     {% endfor %}
-    {% if iPage > iMaxPage %}
+    {% if iPage < iMaxPage %}
         <a href="#" class="pagination-item _shopaholic-pagination" data-page="{{ iPage+1 }}">
             <img src="{{ 'assets/images/Direction-Right.svg' | theme }}" alt="">
         </a>
     {% endif %}
     </div>
-{% endif %}";s:5:"mtime";i:1606749947;s:6:"markup";s:990:"{##}
+{% endif %}";s:5:"mtime";i:1606826486;s:6:"markup";s:990:"{##}
 {% set arPaginationList = Pagination.get(iPage, iCount) %}
 
 {# Render pagination buttons #}
@@ -38,7 +38,7 @@
             {{ arPagination.name }}
         </a>
     {% endfor %}
-    {% if iPage > iMaxPage %}
+    {% if iPage < iMaxPage %}
         <a href="#" class="pagination-item _shopaholic-pagination" data-page="{{ iPage+1 }}">
             <img src="{{ 'assets/images/Direction-Right.svg' | theme }}" alt="">
         </a>

@@ -63,7 +63,7 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
 ";
         // line 5
         $context['__cms_partial_params'] = [];
-        $context['__cms_partial_params']['obProductList'] = ($context["obProductList"] ?? null)        ;
+        $context['__cms_partial_params']['obPropertyList'] = ($context["obFilterProductPropertyList"] ?? null)        ;
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("filters/filter-modal"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
         // line 6
@@ -79,7 +79,7 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
                 ";
         // line 12
         $context['__cms_partial_params'] = [];
-        $context['__cms_partial_params']['arBreadcrumbs'] = ($context["arBreadcrumbs"] ?? null)        ;
+        $context['__cms_partial_params']['arBreadcrumbs'] = twig_get_attribute($this->env, $this->source, ($context["Catalog"] ?? null), "getBreadcrumbs", [], "method", false, false, true, 12)        ;
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("breadcrumbs/breadcrumbs"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
         echo "                
@@ -162,13 +162,13 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
         if ((($context["sActiveSort"] ?? null) == "price|asc")) {
             echo " selected ";
         }
-        echo " value=\"price|asc\">Дешевые</option>
+        echo " value=\"price|asc\">По возрастанию цены</option>
                                             <option ";
         // line 71
         if ((($context["sActiveSort"] ?? null) == "price|desc")) {
             echo " selected ";
         }
-        echo " value=\"price|desc\">Дорогие</option>
+        echo " value=\"price|desc\">По убыванию цены</option>
                                             <option ";
         // line 72
         if ((($context["sActiveSort"] ?? null) == "new")) {
@@ -246,14 +246,14 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
 
 {# @var obCategory \\Lovata\\Shopaholic\\Classes\\Item\\CategoryItem #}
 {# Get category item #}
-{% partial \"filters/filter-modal\" obProductList = obProductList %}
+{% partial \"filters/filter-modal\" obPropertyList = obFilterProductPropertyList %}
 
 <!-- Category-->
 <div class=\"category\" data-id=\"{{ obCategory.id }}\" itemscope itemtype=\"http://schema.org/Category\">
     <div class=\"container\">
         <div class=\"row\">
             <div class=\"col\">
-                {% partial \"breadcrumbs/breadcrumbs\" arBreadcrumbs=arBreadcrumbs %}                
+                {% partial \"breadcrumbs/breadcrumbs\" arBreadcrumbs=Catalog.getBreadcrumbs() %}                
                 <div class=\"category__row\">
                     <div class=\"sidebar\">
                         <div class=\"sidebar__title\">
@@ -311,8 +311,8 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
                                     <div class=\"filter-sort__select\">
                                         <select class=\"sort-select _shopaholic-sorting\" name=\"sort-product\" id=\"sort-product\">
                                             <option {% if sActiveSort == 'no' %} selected {% endif %} value=\"no\">По популярности</option>
-                                            <option {% if sActiveSort == 'price|asc' %} selected {% endif %} value=\"price|asc\">Дешевые</option>
-                                            <option {% if sActiveSort == 'price|desc' %} selected {% endif %} value=\"price|desc\">Дорогие</option>
+                                            <option {% if sActiveSort == 'price|asc' %} selected {% endif %} value=\"price|asc\">По возрастанию цены</option>
+                                            <option {% if sActiveSort == 'price|desc' %} selected {% endif %} value=\"price|desc\">По убыванию цены</option>
                                             <option {% if sActiveSort == 'new' %} selected {% endif %} value=\"new\">Новые</option>
                                         </select>
                                     </div>\t\t\t\t\t\t\t\t\t\t

@@ -1,4 +1,4 @@
-
+[ProductList]
 ==
 {##}
 {# Get product collection #}
@@ -14,16 +14,15 @@
 
 {% if arProductList is not empty %}
     {# Render product list #}
-   
+    
         {% for obProduct in arProductList %}
             {% partial 'product/product-card/product-card' obProduct=obProduct %}
-        {% endfor %}
-    
+        {% endfor %}        
     
     {% partial 'pagination/pagination' iCount=iCount iPage=iPage iMaxPage=iMaxPage %}
 {% else %}
     <div>
-        Products not found
+        Товаров не найдено
     </div>
 {% endif %}
 

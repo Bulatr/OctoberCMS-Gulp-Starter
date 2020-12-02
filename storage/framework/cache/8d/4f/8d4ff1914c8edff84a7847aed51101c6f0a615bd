@@ -1,4 +1,4 @@
-1606750556a:1:{s:32:"product/catalog/product-list.htm";a:6:{s:8:"fileName";s:32:"product/catalog/product-list.htm";s:7:"content";s:922:"
+1606878461a:1:{s:32:"product/catalog/product-list.htm";a:6:{s:8:"fileName";s:32:"product/catalog/product-list.htm";s:7:"content";s:954:"[ProductList]
 ==
 {##}
 {# Get product collection #}
@@ -14,20 +14,19 @@
 
 {% if arProductList is not empty %}
     {# Render product list #}
-   
+    
         {% for obProduct in arProductList %}
             {% partial 'product/product-card/product-card' obProduct=obProduct %}
-        {% endfor %}
-    
+        {% endfor %}        
     
     {% partial 'pagination/pagination' iCount=iCount iPage=iPage iMaxPage=iMaxPage %}
 {% else %}
     <div>
-        Products not found
+        Товаров не найдено
     </div>
 {% endif %}
 
-";s:5:"mtime";i:1606746624;s:6:"markup";s:912:"{##}
+";s:5:"mtime";i:1606808795;s:6:"markup";s:931:"{##}
 {# Get product collection #}
 {% set obProductList = ProductList.make().sort(ProductList.getSorting()).active().category(obActiveCategory.id, true) %}
 
@@ -41,15 +40,14 @@
 
 {% if arProductList is not empty %}
     {# Render product list #}
-   
+    
         {% for obProduct in arProductList %}
             {% partial 'product/product-card/product-card' obProduct=obProduct %}
-        {% endfor %}
-    
+        {% endfor %}        
     
     {% partial 'pagination/pagination' iCount=iCount iPage=iPage iMaxPage=iMaxPage %}
 {% else %}
     <div>
-        Products not found
+        Товаров не найдено
     </div>
-{% endif %}";s:4:"code";N;s:17:"_PARSER_ERROR_INI";s:0:"";}}
+{% endif %}";s:4:"code";N;s:11:"ProductList";a:0:{}}}

@@ -91,9 +91,19 @@ function plugins() {
 
 function userscripts() {
 	return src(paths.userscripts.src)
-	.pipe(webpackStream({output: {
+	.pipe(webpackStream(
+		{
+		watch: false,
+		output: {
 		filename: 'userscripts.tmp.js',
-	  }}),webpack)
+			},
+		module: {  // where we defined file patterns and their loaders
+			rules: [ 
+			]
+		},
+		mode: "development"
+		}
+	),webpack)
 	.pipe(babel({ presets: ["@babel/env"] }))
 	.pipe(concat('userscripts.tmp.js'))
 	.pipe(dest('themes/' + theme + '/assets/js/_tmp'))
@@ -142,10 +152,19 @@ function startwatch() {
 	watch(['themes/'  + theme + '/assets/js/**/*.js', '!themes/' + theme + '/assets/js/**/*.min.js', '!themes/' + theme + '/assets/js/**/*.tmp.js', 'themes/'  + theme + '/assets/vendor/**/*.js'], {usePolling: true}, series(plugins, userscripts, scripts)).on('change', browserSync.reload);
 }
 
+function scriptwatch() {
+	watch(
+			['themes/'  + theme + '/assets/js/**/*.js', '!themes/' + theme + '/assets/js/**/*.min.js', '!themes/' + theme + '/assets/js/**/*.tmp.js', 'themes/'  + theme + '/assets/vendor/**/*.js'], 
+			{usePolling: true}, 
+			series(plugins, userscripts, scripts)
+		)
+}
+
 function watchstyles() {
 	watch('themes/' + theme + '/assets/' + preprocessor + '/**/*', {usePolling: true}, styles);
 }
 
+exports.scriptwatch = scriptwatch;
 exports.browsersync = browsersync;
 exports.scripts     = series(plugins, userscripts, scripts);
 exports.assets      = parallel(styles, plugins, userscripts, scripts);

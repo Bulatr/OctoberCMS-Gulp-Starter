@@ -1,18 +1,20 @@
 description = "Фильтр товаров"
 
-[FilterPanel]
+
 ==
 {##}
-{# var #}
+{# @var obActiveCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
 {# Get products proeprty list for property sets with code 'main', enabled how filters #}
-{% set obPropertyList = FilterPanel.getOfferPropertyList(['main','shoes'], obProductList) %}
+
 
 <div class="filter-modal">
-		<div class="close"><img src="{{ 'assets/images/Close-circle.svg' | theme }}" alt=""></div>
+	
+	<div class="close"><img src="{{ 'assets/images/Close-circle.svg' | theme }}" alt=""></div>
+	
 		<div class="filter-modal__col">
-			<div class="modal-options">
-				{% for obProperty in obPropertyList if obProperty.hasValue() %}
-
+			<div class="modal-options property">
+				{% for obProperty in obPropertyList  %}
+					
 					{# Render filter name #}
 					<div class="modal-options__label">
 						<h3>{{ obProperty.filter_name }}</h3>
@@ -24,38 +26,38 @@ description = "Фильтр товаров"
 
 					{# Get proeprty value list #}
 					{% set obPropertyValueList = obProperty.property_value.sort() %}
-					<div class="modal-options__wrap">	
-						{# Render filtre with type == checkbox #}
-						
-							{% if sFilterType == 'checkbox' %}
-								
-									{% for obValue in obPropertyValueList %}	
-										<div class="modal-options__checkout">						
-											<div class="form-check">
-												<input class="form-check-input" type="checkbox" id="{{ obValue.arModelData.id }}" value="{{ obValue.slug }}">
-												<label class="form-check-label" for=""{{ obValue.arModelData.id }}"">{{ obValue.value }}</label>
+						<div class="modal-options__wrap _shopaholic-filter-wrapper" data-filter-type="{{obProperty.filter_type}}" data-property-id="{{obProperty.id}}">	
+							{# Render filtre with type == checkbox #}
+							
+								{% if sFilterType == 'checkbox' %}
+									
+										{% for obValue in obPropertyValueList %}	
+											<div class="modal-options__checkout">						
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" id="{{ obValue.arModelData.id }}" value="{{ obValue.slug }}">
+													<label class="form-check-label" for=""{{ obValue.arModelData.id }}"">{{ obValue.value }}</label>
+												</div>
 											</div>
-										</div>
-									{% endfor%}
-								
-							{% endif %}
+										{% endfor%}
+									
+								{% endif %}
 
-							{# Render filtre with type == select #}
-							{% if sFilterType == 'select' %}
-								<select>
-									{% for obValue in obPropertyValueList %}
-										<option value="{{ obValue.slug }}">{{ obValue.value }}</option>
-									{% endfor%}
-								</select>
-							{% endif %}
-						
-						
-					</div>
+								{# Render filtre with type == select #}
+								{% if sFilterType == 'select' %}
+									<select>
+										{% for obValue in obPropertyValueList %}
+											<option value="{{ obValue.slug }}">{{ obValue.value }}</option>
+										{% endfor%}
+									</select>
+								{% endif %}
+							
+							
+						</div>
 				{% endfor %}
 			</div>
 			
 			<!--Price-->
-			<div class="modal-options">
+			<div class="modal-options price _shopaholic-price-filter">
 				<div class="modal-options__label">
 					<h3>Стоимость</h3>
 				</div>
@@ -103,4 +105,5 @@ description = "Фильтр товаров"
 				<a href="#" id="clear" class="btn btn-primary secondary">Очистить фильтр</a>
 			</div>
 		</div>
-	</div>
+	
+</div>

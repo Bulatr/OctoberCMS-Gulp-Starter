@@ -111,7 +111,7 @@ class __TwigTemplate_f1ac5b69d0245f3473c6fd805a638d7e7842ea3fa3d7ae9fca1b071db4d
             $context = array_intersect_key($context, $_parent) + $_parent;
             // line 18
             echo "    ";
-            if ((($context["iPage"] ?? null) > ($context["iMaxPage"] ?? null))) {
+            if ((($context["iPage"] ?? null) < ($context["iMaxPage"] ?? null))) {
                 // line 19
                 echo "        <a href=\"#\" class=\"pagination-item _shopaholic-pagination\" data-page=\"";
                 echo twig_escape_filter($this->env, (($context["iPage"] ?? null) + 1), "html", null, true);
@@ -163,7 +163,7 @@ class __TwigTemplate_f1ac5b69d0245f3473c6fd805a638d7e7842ea3fa3d7ae9fca1b071db4d
             {{ arPagination.name }}
         </a>
     {% endfor %}
-    {% if iPage > iMaxPage %}
+    {% if iPage < iMaxPage %}
         <a href=\"#\" class=\"pagination-item _shopaholic-pagination\" data-page=\"{{ iPage+1 }}\">
             <img src=\"{{ 'assets/images/Direction-Right.svg' | theme }}\" alt=\"\">
         </a>

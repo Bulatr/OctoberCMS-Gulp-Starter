@@ -415,4 +415,6 @@
   'Lovata\\PropertiesShopaholic\\Classes\\Collection\\PropertyValueCollection' => 'plugins\\lovata\\propertiesshopaholic\\classes\\collection\\PropertyValueCollection.php',
   'lovata\\propertiesshopaholic\\Controllers\\propertyvalues' => 'plugins\\lovata\\propertiesshopaholic\\controllers\\propertyvalues.php',
   'Lovata\\PropertiesShopaholic\\Classes\\Collection\\GroupCollection' => 'plugins\\lovata\\propertiesshopaholic\\classes\\collection\\GroupCollection.php',
+  'Bulatr\\BaseCode\\Components\\Catalog' => 'plugins\\bulatr\\basecode\\components\\Catalog.php',
+  'Lovata\\Shopaholic\\Classes\\Collection\\BrandCollection' => 'plugins\\lovata\\shopaholic\\classes\\collection\\BrandCollection.php',
 );

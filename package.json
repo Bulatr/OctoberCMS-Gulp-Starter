@@ -46,6 +46,7 @@
     "gulp-sourcemaps": "^3.0.0",
     "help": "^3.0.2",
     "jquery": "^3.5.1",
-    "lazyload": "^2.0.0-rc.2"
+    "lazyload": "^2.0.0-rc.2",
+    "oc-request": "^1.0.0"
   }
 }

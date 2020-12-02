@@ -1,358 +1,356 @@
 "use strict";
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-!function (t) {
-  var e = {};
+/******/
+(function (modules) {
+  // webpackBootstrap
 
-  function a(s) {
-    if (e[s]) return e[s].exports;
-    var o = e[s] = {
-      i: s,
-      l: !1,
+  /******/
+  // The module cache
+
+  /******/
+  var installedModules = {};
+  /******/
+
+  /******/
+  // The require function
+
+  /******/
+
+  function __webpack_require__(moduleId) {
+    /******/
+
+    /******/
+    // Check if module is in cache
+
+    /******/
+    if (installedModules[moduleId]) {
+      /******/
+      return installedModules[moduleId].exports;
+      /******/
+    }
+    /******/
+    // Create a new module (and put it into the cache)
+
+    /******/
+
+
+    var module = installedModules[moduleId] = {
+      /******/
+      i: moduleId,
+
+      /******/
+      l: false,
+
+      /******/
       exports: {}
+      /******/
+
     };
-    return t[s].call(o.exports, o, o.exports, a), o.l = !0, o.exports;
+    /******/
+
+    /******/
+    // Execute the module function
+
+    /******/
+
+    modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+    /******/
+
+    /******/
+    // Flag the module as loaded
+
+    /******/
+
+    module.l = true;
+    /******/
+
+    /******/
+    // Return the exports of the module
+
+    /******/
+
+    return module.exports;
+    /******/
   }
+  /******/
 
-  a.m = t, a.c = e, a.d = function (t, e, s) {
-    a.o(t, e) || Object.defineProperty(t, e, {
-      enumerable: !0,
-      get: s
-    });
-  }, a.r = function (t) {
-    "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(t, Symbol.toStringTag, {
-      value: "Module"
-    }), Object.defineProperty(t, "__esModule", {
-      value: !0
-    });
-  }, a.t = function (t, e) {
-    if (1 & e && (t = a(t)), 8 & e) return t;
-    if (4 & e && "object" == _typeof(t) && t && t.__esModule) return t;
-    var s = Object.create(null);
-    if (a.r(s), Object.defineProperty(s, "default", {
-      enumerable: !0,
-      value: t
-    }), 2 & e && "string" != typeof t) for (var o in t) {
-      a.d(s, o, function (e) {
-        return t[e];
-      }.bind(null, o));
+  /******/
+
+  /******/
+  // expose the modules object (__webpack_modules__)
+
+  /******/
+
+
+  __webpack_require__.m = modules;
+  /******/
+
+  /******/
+  // expose the module cache
+
+  /******/
+
+  __webpack_require__.c = installedModules;
+  /******/
+
+  /******/
+  // define getter function for harmony exports
+
+  /******/
+
+  __webpack_require__.d = function (exports, name, getter) {
+    /******/
+    if (!__webpack_require__.o(exports, name)) {
+      /******/
+      Object.defineProperty(exports, name, {
+        enumerable: true,
+        get: getter
+      });
+      /******/
     }
-    return s;
-  }, a.n = function (t) {
-    var e = t && t.__esModule ? function () {
-      return t["default"];
-    } : function () {
-      return t;
+    /******/
+
+  };
+  /******/
+
+  /******/
+  // define __esModule on exports
+
+  /******/
+
+
+  __webpack_require__.r = function (exports) {
+    /******/
+    if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+      /******/
+      Object.defineProperty(exports, Symbol.toStringTag, {
+        value: 'Module'
+      });
+      /******/
+    }
+    /******/
+
+
+    Object.defineProperty(exports, '__esModule', {
+      value: true
+    });
+    /******/
+  };
+  /******/
+
+  /******/
+  // create a fake namespace object
+
+  /******/
+  // mode & 1: value is a module id, require it
+
+  /******/
+  // mode & 2: merge all properties of value into the ns
+
+  /******/
+  // mode & 4: return value when already ns object
+
+  /******/
+  // mode & 8|1: behave like require
+
+  /******/
+
+
+  __webpack_require__.t = function (value, mode) {
+    /******/
+    if (mode & 1) value = __webpack_require__(value);
+    /******/
+
+    if (mode & 8) return value;
+    /******/
+
+    if (mode & 4 && _typeof(value) === 'object' && value && value.__esModule) return value;
+    /******/
+
+    var ns = Object.create(null);
+    /******/
+
+    __webpack_require__.r(ns);
+    /******/
+
+
+    Object.defineProperty(ns, 'default', {
+      enumerable: true,
+      value: value
+    });
+    /******/
+
+    if (mode & 2 && typeof value != 'string') for (var key in value) {
+      __webpack_require__.d(ns, key, function (key) {
+        return value[key];
+      }.bind(null, key));
+    }
+    /******/
+
+    return ns;
+    /******/
+  };
+  /******/
+
+  /******/
+  // getDefaultExport function for compatibility with non-harmony modules
+
+  /******/
+
+
+  __webpack_require__.n = function (module) {
+    /******/
+    var getter = module && module.__esModule ?
+    /******/
+    function getDefault() {
+      return module['default'];
+    } :
+    /******/
+    function getModuleExports() {
+      return module;
     };
-    return a.d(e, "a", e), e;
-  }, a.o = function (t, e) {
-    return Object.prototype.hasOwnProperty.call(t, e);
-  }, a.p = "", a(a.s = 0);
-}([function (t, e, a) {
-  "use strict";
+    /******/
 
-  a.r(e);
-  var s = new ( /*#__PURE__*/function () {
-    function _class() {
-      _classCallCheck(this, _class);
+    __webpack_require__.d(getter, 'a', getter);
+    /******/
 
-      this.sBaseURL = "".concat(location.origin).concat(location.pathname), this.init();
-    }
 
-    _createClass(_class, [{
-      key: "init",
-      value: function init() {
-        var _this = this;
+    return getter;
+    /******/
+  };
+  /******/
 
-        this.sSearchString = window.location.search.substring(1), this.obParamList = {}, this.sSearchString.split("&").forEach(function (t) {
-          var e = t.indexOf("=");
-          if (e < 0) return;
-          var a = t.substring(0, e),
-              s = t.substring(e + 1);
-          (a || s) && (_this.obParamList[a] = s.split("|"));
-        });
-      }
-    }, {
-      key: "clear",
-      value: function clear() {
-        this.obParamList = {}, history.pushState(null, null, "" + this.sBaseURL);
-      }
-    }, {
-      key: "update",
-      value: function update() {
-        this.generateSearchString(), Object.keys(this.obParamList).length > 0 ? history.pushState(null, null, "".concat(this.sBaseURL, "?").concat(this.sSearchString)) : history.pushState(null, null, "" + this.sBaseURL);
-      }
-    }, {
-      key: "generateSearchString",
-      value: function generateSearchString() {
-        var _this2 = this;
+  /******/
+  // Object.prototype.hasOwnProperty.call
 
-        var t = Object.keys(this.obParamList);
-        this.sSearchString = "", t.forEach(function (t) {
-          _this2.sSearchString.length > 0 && (_this2.sSearchString += "&"), _this2.sSearchString += "".concat(t, "=").concat(_this2.obParamList[t].join("|"));
-        });
-      }
-    }, {
-      key: "set",
-      value: function set(t, e) {
-        t && e && ("string" == typeof e && (e = [e]), this.obParamList[t] = e);
-      }
-    }, {
-      key: "remove",
-      value: function remove(t) {
-        t && this.obParamList.hasOwnProperty(t) && delete this.obParamList[t];
-      }
-    }]);
+  /******/
 
-    return _class;
-  }())();
-  var o = new ( /*#__PURE__*/function () {
-    function _class2() {
-      _classCallCheck(this, _class2);
 
-      this.sComponentMethod = "onAjax", this.obAjaxRequestCallback = null;
-    }
+  __webpack_require__.o = function (object, property) {
+    return Object.prototype.hasOwnProperty.call(object, property);
+  };
+  /******/
 
-    _createClass(_class2, [{
-      key: "send",
-      value: function send() {
-        var t = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-        null !== this.obAjaxRequestCallback && (t = this.obAjaxRequestCallback(t)), $.request(this.sComponentMethod, t);
-      }
-    }, {
-      key: "setAjaxRequestCallback",
-      value: function setAjaxRequestCallback(t) {
-        return this.obAjaxRequestCallback = t, this;
-      }
-    }]);
+  /******/
+  // __webpack_public_path__
 
-    return _class2;
-  }())();
-  o.setAjaxRequestCallback(function (t) {
-    return t.update = {
-      "product/catalog/product-list": ".catalog_wrapper"
-    }, t;
-  });
-  var i = new ( /*#__PURE__*/function () {
-    function _class3() {
-      var t = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  /******/
 
-      _classCallCheck(this, _class3);
 
-      this.obProductListHelper = t, this.sEventType = "change", this.sFiledName = "sort", this.sDefaultSelectClass = "_shopaholic-sorting", this.sSelectSelector = "." + this.sDefaultSelectClass;
-    }
+  __webpack_require__.p = "";
+  /******/
 
-    _createClass(_class3, [{
-      key: "init",
-      value: function init() {
-        var _this3 = this;
+  /******/
 
-        $(document).on(this.sEventType, this.sSelectSelector, function (t) {
-          var e = $(t.currentTarget).val();
-          s.init(), s.set(_this3.sFiledName, [e]), s.update(), _this3.obProductListHelper && _this3.obProductListHelper.send();
-        });
-      }
-    }]);
+  /******/
+  // Load entry module and return exports
 
-    return _class3;
-  }())(o);
-  new ( /*#__PURE__*/function () {
-    function _class4() {
-      var t = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  /******/
 
-      _classCallCheck(this, _class4);
+  return __webpack_require__(__webpack_require__.s = "./themes/hatan/assets/js/app.js");
+  /******/
+})(
+/************************************************************************/
 
-      this.obProductListHelper = t, this.sEventType = "click", this.sFiledName = "page", this.sAttributeName = "data-page", this.sDefaultButtonClass = "_shopaholic-pagination", this.sButtonSelector = "." + this.sDefaultButtonClass;
-    }
+/******/
+{
+  /***/
+  "./node_modules/@lovata/shopaholic-filter-panel/shopaholic-filter-panel.js":
+  /*!*********************************************************************************!*\
+    !*** ./node_modules/@lovata/shopaholic-filter-panel/shopaholic-filter-panel.js ***!
+    \*********************************************************************************/
 
-    _createClass(_class4, [{
-      key: "init",
-      value: function init() {
-        var _this4 = this;
+  /*! exports provided: default */
 
-        $(document).on(this.sEventType, this.sButtonSelector, function (t) {
-          t.preventDefault(), t.stopPropagation();
-          var e = $(t.currentTarget).attr(_this4.sAttributeName);
-          s.init(), 1 == e ? s.remove(_this4.sFiledName) : s.set(_this4.sFiledName, [e]), s.update(), _this4.obProductListHelper && _this4.obProductListHelper.send();
-        });
-      }
-    }, {
-      key: "setButtonSelector",
-      value: function setButtonSelector(t) {
-        return this.sButtonSelector = t, this;
-      }
-    }]);
+  /***/
+  function node_modulesLovataShopaholicFilterPanelShopaholicFilterPanelJs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
 
-    return _class4;
-  }())(o).init(), i.init(), document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector("#myCarousel");
+    eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return ShopaholicFilterPanel; });\n/* harmony import */ var _lovata_url_generation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lovata/url-generation */ \"./node_modules/@lovata/url-generation/url-generation.js\");\n\n\n/**\n * @author  Andrey Kharanenka, a.khoronenko@lovata.com, LOVATA Group\n */\nclass ShopaholicFilterPanel {\n  /**\n   * @param {ShopaholicProductList} obProductListHelper\n   */\n  constructor(obProductListHelper = null) {\n    this.obProductListHelper = obProductListHelper;\n    this.sEventType = 'change';\n    this.sFiledName = 'property';\n    this.sFilterType = 'data-filter-type';\n    this.sPropertyIDAttribute = 'data-property-id';\n\n    this.sDefaultWrapperClass = '_shopaholic-filter-wrapper';\n    this.sWrapperSelector = `.${this.sDefaultWrapperClass}`;\n  }\n\n  /**\n   * Init event handlers\n   */\n  init() {\n    $(document).on(this.sEventType, this.sWrapperSelector, () => {\n      _lovata_url_generation__WEBPACK_IMPORTED_MODULE_0__[\"default\"].init();\n      this.prepareRequestData();\n\n      _lovata_url_generation__WEBPACK_IMPORTED_MODULE_0__[\"default\"].remove('page');\n      _lovata_url_generation__WEBPACK_IMPORTED_MODULE_0__[\"default\"].update();\n      if (!this.obProductListHelper) {\n        return;\n      }\n\n      this.obProductListHelper.send();\n    });\n  }\n\n  prepareRequestData() {\n    const obFilterList = $(this.sWrapperSelector);\n    if (obFilterList.length == 0) {\n      return;\n    }\n\n    obFilterList.each((iNumber) => {\n      //Get filter type\n      const obWrapper = $(obFilterList[iNumber]),\n        sFilterType = obWrapper.attr(this.sFilterType),\n        iPropertyID = obWrapper.attr(this.sPropertyIDAttribute);\n\n      let sFieldName = `${this.sFiledName}`;\n      if (!sFilterType) {\n        return;\n      }\n\n      if (iPropertyID) {\n        sFieldName += `[${iPropertyID}]`;\n      }\n\n      let obInputList = null,\n        arValueList = [];\n\n      if (sFilterType == 'between') {\n        obInputList = obWrapper.find('input');\n      } else if (sFilterType == 'checkbox' || sFilterType == 'switch') {\n        obInputList = obWrapper.find('input[type=\"checkbox\"]:checked');\n      } else if (sFilterType == 'select' || sFilterType == 'select_between') {\n        obInputList = obWrapper.find('select');\n      } else if (sFilterType == 'radio') {\n        obInputList = obWrapper.find('input[type=\"radio\"]:checked');\n      }\n\n      if (!obInputList || obInputList.length == 0) {\n        _lovata_url_generation__WEBPACK_IMPORTED_MODULE_0__[\"default\"].remove(sFieldName);\n        return;\n      }\n\n      obInputList.each((iInputNumber) => {\n        const sValue = $(obInputList[iInputNumber]).val();\n        if (!sValue) {\n          return;\n        }\n\n        arValueList.push(sValue);\n      });\n\n      if (!arValueList || arValueList.length == 0) {\n        _lovata_url_generation__WEBPACK_IMPORTED_MODULE_0__[\"default\"].remove(sFieldName);\n      } else {\n        _lovata_url_generation__WEBPACK_IMPORTED_MODULE_0__[\"default\"].set(sFieldName, arValueList);\n      }\n    });\n  }\n\n  /**\n   * Redeclare default selector of filter input\n   * Default value is \"_shopaholic-filter-wrapper\"\n   *\n   * @param {string} sWrapperSelector\n   * @returns {ShopaholicFilterPanel}\n   */\n  setWrapperSelector(sWrapperSelector) {\n    this.sWrapperSelector = sWrapperSelector;\n\n    return this;\n  }\n\n  /**\n   * Redeclare default event type\n   * Default value is \"change\"\n   *\n   * @param {string} sEventType\n   * @returns {ShopaholicFilterPanel}\n   */\n  setEventType(sEventType) {\n    this.sEventType = sEventType;\n\n    return this;\n  }\n\n  /**\n   * Redeclare default URL filed name\n   * Default value is \"property\"\n   *\n   * @param {string} sFieldName\n   * @returns {ShopaholicFilterPanel}\n   */\n  setFieldName(sFieldName) {\n    this.sFiledName = sFieldName;\n\n    return this;\n  }\n}\n\n\n//# sourceURL=webpack:///./node_modules/@lovata/shopaholic-filter-panel/shopaholic-filter-panel.js?");
+    /***/
+  },
 
-    function t() {
-      var t = document.querySelectorAll(".modal-wrap-images"),
-          e = [],
-          a = [];
+  /***/
+  "./node_modules/@lovata/shopaholic-product-list/shopaholic-pagination.js":
+  /*!*******************************************************************************!*\
+    !*** ./node_modules/@lovata/shopaholic-product-list/shopaholic-pagination.js ***!
+    \*******************************************************************************/
 
-      var _iterator = _createForOfIteratorHelper(t),
-          _step;
+  /*! exports provided: default */
 
-      try {
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          var _a = _step.value;
-          e = _a.children;
-        }
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
-      }
+  /***/
+  function node_modulesLovataShopaholicProductListShopaholicPaginationJs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
 
-      var _iterator2 = _createForOfIteratorHelper(e),
-          _step2;
+    eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return ShopaholicPagination; });\n/* harmony import */ var _lovata_url_generation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lovata/url-generation */ \"./node_modules/@lovata/url-generation/url-generation.js\");\n\n\n/**\n * @author  Andrey Kharanenka, a.khoronenko@lovata.com, LOVATA Group\n */\nclass ShopaholicPagination {\n  /**\n   * @param {ShopaholicProductList} obProductListHelper\n   */\n  constructor(obProductListHelper = null) {\n    this.obProductListHelper = obProductListHelper;\n    this.sEventType = 'click';\n    this.sFiledName = 'page';\n    this.sAttributeName = 'data-page';\n\n    this.sDefaultButtonClass = '_shopaholic-pagination';\n    this.sButtonSelector = `.${this.sDefaultButtonClass}`;\n  };\n\n  /**\n   * Init event handlers\n   */\n  init() {\n    $(document).on(this.sEventType, this.sButtonSelector, (obEvent) => {\n      obEvent.preventDefault();\n      obEvent.stopPropagation();\n\n      const obButton = $(obEvent.currentTarget),\n        iPage = obButton.attr(this.sAttributeName);\n\n      _lovata_url_generation__WEBPACK_IMPORTED_MODULE_0__[\"default\"].init();\n      if (iPage == 1) {\n        _lovata_url_generation__WEBPACK_IMPORTED_MODULE_0__[\"default\"].remove(this.sFiledName);\n      } else {\n        _lovata_url_generation__WEBPACK_IMPORTED_MODULE_0__[\"default\"].set(this.sFiledName, [iPage]);\n      }\n\n      _lovata_url_generation__WEBPACK_IMPORTED_MODULE_0__[\"default\"].update();\n      if (!this.obProductListHelper) {\n        return;\n      }\n\n      this.obProductListHelper.send();\n    });\n  }\n\n  /**\n   * Redeclare default selector of pagination button\n   * Default value is \"_shopaholic-pagination\"\n   *\n   * @param {string} sButtonSelector\n   * @returns {ShopaholicPagination}\n   */\n  setButtonSelector(sButtonSelector) {\n    this.sButtonSelector = sButtonSelector;\n\n    return this;\n  }\n}\n\n//# sourceURL=webpack:///./node_modules/@lovata/shopaholic-product-list/shopaholic-pagination.js?");
+    /***/
+  },
 
-      try {
-        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-          var _t = _step2.value;
-          a.push($(_t).attr("id"));
-        }
-      } catch (err) {
-        _iterator2.e(err);
-      } finally {
-        _iterator2.f();
-      }
+  /***/
+  "./node_modules/@lovata/shopaholic-product-list/shopaholic-product-list.js":
+  /*!*********************************************************************************!*\
+    !*** ./node_modules/@lovata/shopaholic-product-list/shopaholic-product-list.js ***!
+    \*********************************************************************************/
 
-      return a;
-    }
+  /*! exports provided: default */
 
-    $(".product-card").hover(function () {
-      $(this).addClass("active");
-    }, function () {
-      $(this).removeClass("active");
-    }), $(".card-gallery").hover(function () {
-      $(this).addClass("active");
-    }, function () {
-      $(this).removeClass("active");
-    }), $(".wishlist .hearth img").hover(function (t) {
-      $(this).addClass("bounceIn");
-    }, function (t) {
-      $(this).removeClass("bounceIn");
-    }), $(".main-menu-wrapper .nav-item .nav-link").click(function () {
-      $(".megamenu").removeClass("show"), $(".navbar .navbar-nav .nav-item.active").removeClass("active");
-      var t = $(this).data("mainmenuitem");
-      console.log(t);
-      $("#" + t).addClass("show");
-      console.log($(this).closest("li")), $(this).closest("li").addClass("active");
-    }), $("#color-radio input").on("click", function () {
-      $("input:checked", "#myForm").val();
-      $(".color-radio .wrapper-radio").find("label").removeClass("input-checked"), $(this).parent("label").addClass("input-checked");
-    }), $("#show-sposob-oplaty").on("click", function (t) {
-      t.preventDefault(), $(".form-collapse").addClass("show");
-    }), $("#remove-sposob-oplaty").on("click", function (t) {
-      t.preventDefault(), $(".form-collapse").removeClass("show");
-    }), $(".table-container.hovered .table-container__row").on("mouseover", function () {
-      $(this).addClass("active");
-    }), $(".table-container.hovered .table-container__row").on("mouseout", function () {
-      $(this).removeClass("active");
-    }), $("#addtocart").click(function (t) {
-      t.preventDefault(), $(".icons.cart-icon").attr("data-cartfilled", "yes"), $(".icons.cart-icon .cart.show").removeClass("show"), $(".icons.cart-icon .cart.added").addClass("show").addClass("bounce").addClass("animated"), setTimeout(function () {
-        $(".icons.cart-icon .cart.added").removeClass("show");
-      }, 3e3), setTimeout(function () {
-        $(".icons.cart-icon .cart.filled").addClass("show");
-      }, 3e3);
-    }), $(".product-card .cart").click(function (t) {
-      t.preventDefault(), $(".icons.cart-icon").attr("data-cartfilled", "yes"), $(".icons.cart-icon .cart.show").removeClass("show"), $(".icons.cart-icon .cart.added").addClass("show").addClass("bounce").addClass("animated"), setTimeout(function () {
-        $(".icons.cart-icon .cart.added").removeClass("show");
-      }, 3e3), setTimeout(function () {
-        $(".icons.cart-icon .cart.filled").addClass("show");
-      }, 3e3);
-    }), $(".icons.cart-icon").click(function () {
-      var t = $(this).attr("data-cartfilled");
-      console.log(t), "yes" == t ? ($(".microcart .cart-empty").removeClass("show"), $(".microcart .cart-filled").addClass("show")) : ($(".microcart .cart-empty").addClass("show"), $(".microcart .cart-filled").removeClass("show")), $(".modal-overlay").addClass("active"), $(".microcart").addClass("show slideInRight"), $(".microcart").removeClass("slideOutRight");
-    }), $(".filter-icon__image img").on("click", function () {
-      $(".modal-overlay").addClass("active"), $(".filter-modal").addClass("show slideInLeft"), $(".filter-modal").removeClass("slideOutLeft");
-    }), $(".collected-product").hover(function () {
-      $(this).find(".collected-product__content-delete-product").addClass("show");
-    }, function () {
-      $(this).find(".collected-product__content-delete-product").removeClass("show");
-    }), $(".microcart .cart-header .close").click(function () {
-      $(".modal-overlay").removeClass("active"), $(".microcart").removeClass("show"), $(".microcart").removeClass("slideInRight"), $(".microcart").addClass("slideOutRight");
-    }), $(".filter-modal .close").on("click", function () {
-      $(".modal-overlay").removeClass("active"), $(".filter-modal").removeClass("show"), $(".filter-modal").removeClass("slideInLeft"), $(".filter-modal").addClass("slideOutLeft");
-    }), $(".read-more a.button.text").click(function (t) {
-      t.preventDefault(), $(".review-all-collapse").toggleClass("show"), "open" == $(this).data("eventclick") ? ($(".read-more a.button.text").html("Свернуть"), $(".read-more a.button.text").data("eventclick", "close")) : ($(".read-more a.button.text").html("Читать далее"), $(".read-more a.button.text").data("eventclick", "open"));
-    }), $(".megamenu").hover(function () {}, function () {
-      $(this).removeClass("show");
-    }), $(".product-gallery-trumbnail").hover(function () {
-      $(".product-gallery-trumbnail.active").removeClass("active");
-      var t = $(this).data("trumbid");
-      $(this).addClass("active"), $(".product-main").removeClass("active"), $(".modal-image").removeClass("show"), $("#" + t + ".product-main").addClass("active");
-    }, function () {}), $(".product-gallery-trumbnail").click(function () {
-      $(".product-gallery-trumbnail.active").removeClass("active");
-      var t = $(this).data("trumbid");
-      $(this).addClass("active"), $(".product-main").removeClass("active"), $("#" + t + ".product-main").addClass("active");
-    }), $(".product-gallery .product-gallery-wrapper .product-main").click(function (t) {
-      var e = $(this).attr("id");
-      console.log("#" + e + ".modal-image"), $(".modal-image.show").removeClass("show"), $("#" + e + ".modal-image").addClass("show"), $(".modal-overlay").addClass("active"), $(".modal").addClass("show");
-    }), $(".modal-overlay").click(function () {
-      $(".modal-overlay").removeClass("active"), $(".modal").removeClass("show"), $(".filter-modal").removeClass("show"), $(".filter-modal").removeClass("slideInLeft"), $(".filter-modal").addClass("slideOutLeft"), $(".microcart").removeClass("show"), $(".microcart").removeClass("slideInRight"), $(".microcart").addClass("slideOutRight");
-    }), $(".modal-header .close").click(function () {
-      $(".modal-overlay").removeClass("active"), $(".modal").removeClass("show");
-    }), $("#modal-image-left").click(function () {
-      var e = t(),
-          a = 0,
-          s = $(".modal-image.show").attr("id"),
-          o = e.length;
-      e.forEach(function (t, e, i) {
-        t == s && (a = Number(e) - 1, a < 0 && (a = o - 1), $(".modal-image.show").removeClass("show"), $("#" + i[a] + ".modal-image").addClass("show"));
-      });
-    }), $("#modal-image-right").click(function () {
-      var e = t(),
-          a = 0,
-          s = $(".modal-image.show").attr("id"),
-          o = e.length;
-      e.forEach(function (t, e, i) {
-        t == s && (a = Number(e) + 1, a > o - 1 && (a = 0), $(".modal-image.show").removeClass("show"), $("#" + i[a] + ".modal-image").addClass("show"));
-      });
-    }), $(".modal-thumb-image").hover(function () {
-      var t = $(this).attr("id");
-      $(".modal-image").removeClass("show"), $("#" + t + ".modal-image").addClass("show");
-    }, function () {
-      $(this).removeClass("active");
-    }), $(".navbar .navbar-toggler .navbar-toggler-icon").click(function () {
-      $(".megamenu").removeClass("show");
-    }), $(".tab-item").click(function (t) {
-      t.preventDefault();
-      var e = t.currentTarget,
-          a = $(e).data("tab");
-      $(".tab-item").removeClass("active"), $(e).addClass("active");
-      var s = $("#" + a + ".tab-content-item");
-      $(".tab-content-item").removeClass("show"), s.addClass("show"), console.log($(t.currentTarget).data("tab")), console.log(a), console.log("tab_content " + s);
-    }), $(".count-wrap .count-up").on("click", function (t) {
-      var e = t.target.nextElementSibling;
-      var a = Number($(e).val());
-      a += 1, e.value = a;
-    }), $(".count-wrap .count-down").on("click", function (t) {
-      var e = t.target.previousElementSibling;
-      var a = Number($(e).val());
-      0 == (a -= 1) && (a = 1), e.value = a;
-    }), $(".search-wrapper").mouseup(function (t) {
-      var e = $(".icon-search"),
-          a = $(".search-wrapper .form-inline.custom input.form-control");
-      e.is(t.target) || 0 !== e.has(t.target).length || a.is(t.target) ? $(".search-wrapper").addClass("show") : $(".search-wrapper").removeClass("show");
-      var s = $(".icons-toggle");
-      s.is(t.target) || 0 !== s.has(t.target).length ? $(".icons-wrapper").addClass("show") : $(".icons-wrapper").removeClass("show");
-    });
-  });
-}]);
+  /***/
+  function node_modulesLovataShopaholicProductListShopaholicProductListJs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return ShopaholicProductList; });\n/**\n * @author  Andrey Kharanenka, a.khoronenko@lovata.com, LOVATA Group\n */\nclass ShopaholicProductList {\n  constructor() {\n    this.sComponentMethod = 'onAjax';\n    this.obAjaxRequestCallback = null;\n  }\n\n  /**\n   * Add product to wish list\n   * @param {int} iProductID\n   * @param obButton\n   */\n  send(obRequestData = {}) {\n\n    if (this.obAjaxRequestCallback !== null) {\n      obRequestData = this.obAjaxRequestCallback(obRequestData);\n    }\n\n    $.request(this.sComponentMethod, obRequestData);\n  }\n\n  /**\n   * Set ajax request callback\n   *\n   * @param {function} obCallback\n   * @returns {ShopaholicProductList}\n   */\n  setAjaxRequestCallback(obCallback) {\n    this.obAjaxRequestCallback = obCallback;\n\n    return this;\n  }\n};\n\n\n//# sourceURL=webpack:///./node_modules/@lovata/shopaholic-product-list/shopaholic-product-list.js?");
+    /***/
+  },
+
+  /***/
+  "./node_modules/@lovata/shopaholic-product-list/shopaholic-sorting.js":
+  /*!****************************************************************************!*\
+    !*** ./node_modules/@lovata/shopaholic-product-list/shopaholic-sorting.js ***!
+    \****************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesLovataShopaholicProductListShopaholicSortingJs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return ShopaholicSorting; });\n/* harmony import */ var _lovata_url_generation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lovata/url-generation */ \"./node_modules/@lovata/url-generation/url-generation.js\");\n\n\n/**\n * @author  Andrey Kharanenka, a.khoronenko@lovata.com, LOVATA Group\n */\nclass ShopaholicSorting {\n  /**\n   * @param {ShopaholicProductList} obProductListHelper\n   */\n  constructor(obProductListHelper = null) {\n    this.obProductListHelper = obProductListHelper;\n    this.sEventType = 'change';\n    this.sFiledName = 'sort';\n\n    this.sDefaultSelectClass = '_shopaholic-sorting';\n    this.sSelectSelector = `.${this.sDefaultSelectClass}`;\n  }\n\n  /**\n   * Init event handlers\n   */\n  init() {\n    $(document).on(this.sEventType, this.sSelectSelector, (obEvent) => {\n      const obSelect = $(obEvent.currentTarget),\n        sSorting = obSelect.val();\n\n      _lovata_url_generation__WEBPACK_IMPORTED_MODULE_0__[\"default\"].init();\n      _lovata_url_generation__WEBPACK_IMPORTED_MODULE_0__[\"default\"].set(this.sFiledName, [sSorting]);\n      _lovata_url_generation__WEBPACK_IMPORTED_MODULE_0__[\"default\"].update();\n      if (!this.obProductListHelper) {\n        return;\n      }\n\n      this.obProductListHelper.send();\n    });\n  }\n}\n\n//# sourceURL=webpack:///./node_modules/@lovata/shopaholic-product-list/shopaholic-sorting.js?");
+    /***/
+  },
+
+  /***/
+  "./node_modules/@lovata/url-generation/url-generation.js":
+  /*!***************************************************************!*\
+    !*** ./node_modules/@lovata/url-generation/url-generation.js ***!
+    \***************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesLovataUrlGenerationUrlGenerationJs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    eval("__webpack_require__.r(__webpack_exports__);\n/**\n * @author  Andrey Kharanenka, a.khoronenko@lovata.com, LOVATA Group\n */\n/* harmony default export */ __webpack_exports__[\"default\"] = (new class UrlGeneration {\n  constructor() {\n    this.sBaseURL = `${location.origin}${location.pathname}`;\n    this.init();\n  }\n\n  init() {\n    this.sSearchString = window.location.search.substring(1);\n    this.obParamList = {};\n    let arPartList = this.sSearchString.split('&');\n    arPartList.forEach((sParam) => {\n      let iPosition = sParam.indexOf(\"=\");\n      if (iPosition < 0) {\n        return;\n      }\n\n      let sFiled = sParam.substring(0, iPosition),\n        sValue = sParam.substring(iPosition + 1);\n      if (!sFiled && !sValue) {\n        return;\n      }\n\n      this.obParamList[sFiled] = sValue.split('|');\n    });\n  }\n\n  clear() {\n    this.obParamList = {};\n\n    history.pushState(null, null, `${this.sBaseURL}`);\n  }\n\n  update() {\n    this.generateSearchString();\n\n    if (Object.keys(this.obParamList).length > 0) {\n      history.pushState(null, null, `${this.sBaseURL}?${this.sSearchString}`);\n    } else {\n      history.pushState(null, null, `${this.sBaseURL}`);\n    }\n  }\n\n  generateSearchString() {\n    let arFieldList = Object.keys(this.obParamList);\n\n    this.sSearchString = '';\n    arFieldList.forEach((sField) => {\n      if (this.sSearchString.length > 0) {\n        this.sSearchString += '&'\n      }\n\n      this.sSearchString += `${sField}=${this.obParamList[sField].join('|')}`;\n    });\n  }\n\n  /**\n   * Set field value in URL\n   * @param sFiled\n   * @param obValue\n   */\n  set(sFiled, obValue) {\n    if (!sFiled || !obValue) {\n      return;\n    }\n\n    if (typeof obValue == 'string') {\n      obValue = [obValue];\n    }\n\n    this.obParamList[sFiled] = obValue;\n  }\n\n  /**\n   * Remove field value from URL\n   * @param {string} sFiled\n   */\n  remove(sFiled) {\n    if (!sFiled || !this.obParamList.hasOwnProperty(sFiled)) {\n      return;\n    }\n\n    delete this.obParamList[sFiled];\n  }\n});\n\n//# sourceURL=webpack:///./node_modules/@lovata/url-generation/url-generation.js?");
+    /***/
+  },
+
+  /***/
+  "./themes/hatan/assets/js/app.js":
+  /*!***************************************!*\
+    !*** ./themes/hatan/assets/js/app.js ***!
+    \***************************************/
+
+  /*! no exports provided */
+
+  /***/
+  function themesHatanAssetsJsAppJs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _lovata_shopaholic_product_list_shopaholic_product_list__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lovata/shopaholic-product-list/shopaholic-product-list */ \"./node_modules/@lovata/shopaholic-product-list/shopaholic-product-list.js\");\n/* harmony import */ var _lovata_shopaholic_product_list_shopaholic_sorting__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @lovata/shopaholic-product-list/shopaholic-sorting */ \"./node_modules/@lovata/shopaholic-product-list/shopaholic-sorting.js\");\n/* harmony import */ var _lovata_shopaholic_product_list_shopaholic_pagination__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @lovata/shopaholic-product-list/shopaholic-pagination */ \"./node_modules/@lovata/shopaholic-product-list/shopaholic-pagination.js\");\n/* harmony import */ var _lovata_shopaholic_filter_panel_shopaholic_filter_panel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @lovata/shopaholic-filter-panel/shopaholic-filter-panel */ \"./node_modules/@lovata/shopaholic-filter-panel/shopaholic-filter-panel.js\");\n\r\n\r\n\r\n\r\n\r\ndocument.addEventListener(\"DOMContentLoaded\", function() {\r\n\r\n\t// Custom JS\r\n\tconst obListHelper = new _lovata_shopaholic_product_list_shopaholic_product_list__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\r\n\t\r\n\tobListHelper.setAjaxRequestCallback((obRequestData) => {\r\n\t\t$('.card-container').request('ProductList::onAjaxRequest', {\r\n\t\t\t'update': {'product/catalog/product-list': '.catalog-wrapper'}\r\n\t\t});\r\n\t\t\r\n\t\tobRequestData.update = {\r\n\t\t\t'product/catalog/product-list': `.catalog_wrapper`\r\n\t\t};\r\n\t\t\r\n\t\treturn obRequestData;\r\n\t});\r\n\r\n\t//obListHelper.send(obListHelper);\r\n\t\t\r\n\tconst obSortingHelper = new _lovata_shopaholic_product_list_shopaholic_sorting__WEBPACK_IMPORTED_MODULE_1__[\"default\"](obListHelper);\r\n\tconst obPaginationHelper = new _lovata_shopaholic_product_list_shopaholic_pagination__WEBPACK_IMPORTED_MODULE_2__[\"default\"](obListHelper);\r\n\tconst obFilterPanel = new _lovata_shopaholic_filter_panel_shopaholic_filter_panel__WEBPACK_IMPORTED_MODULE_3__[\"default\"](obListHelper);\r\n\t\r\n\tobFilterPanel.init();\r\n\tobPaginationHelper.init();\r\n\tobSortingHelper.init();\r\n\t\r\n\t/*\r\n\t//Ajax filtration\r\n\t$('body').on('change', 'input.form-check-input', function (e) {\r\n\t\tconsole.log(e);\r\n\t\t$('.wrapper-overlay.card-container').request('ProductList::onAjaxRequest', {\r\n\t\t\t'update': {'product/catalog/product-list': '.catalog-wrapper'}\r\n\t\t});\r\n\t});\r\n\t\r\n\t//Ajax pagination (product list)\r\n\t$('body').on('click', '.pagination a._shopaholic-pagination', function (e) {\r\n\r\n\t\te.preventDefault();\r\n\t\tvar _this = $(e.currentTarget),\r\n\t\t\tiPage = _this.attr('data-page');\r\n\r\n\t\t$('.card-container').request('ProductList::onAjaxRequest', {\r\n\t\t\t'data': {'page': iPage},\r\n\t\t\t'update': {'product/catalog/product-list': '.catalog-wrapper'}\r\n\t\t});\r\n\t});\r\n\r\n\t//Ajax filtration and sorting\r\n\t$('body').on('change', 'select.sort-select', function (e) {\r\n\t\tconsole.log(e);\r\n\t\t$('.card-container').request('ProductList::onAjaxRequest', {\r\n\t\t\t'update': {'product/catalog/product-list': '.catalog-wrapper'}\r\n\t\t});\r\n\t});\r\n\t*/\r\n\tvar myCarousel = document.querySelector('#myCarousel');\r\n\t\r\n\t$( \".product-card\" ).hover(\r\n\t\tfunction() {\r\n\t\t$( this ).addClass(\"active\") ;\t\t\r\n\t\t}, function() {\r\n\t\t$( this ).removeClass(\"active\") ;\r\n\t\t}\r\n\t);\r\n\r\n\t$( \".card-gallery\" ).hover(\r\n\t\tfunction() {\r\n\t\t$( this ).addClass(\"active\") ;\t\t\r\n\t\t}, function() {\r\n\t\t$( this ).removeClass(\"active\") ;\r\n\t\t}\r\n\t);\r\n\r\n\t// wishlist\r\n\r\n\t$(\".wishlist .hearth img\").hover(\r\n\t\tfunction(e){\t\t\t\r\n\t\t\t$(this).addClass(\"bounceIn\")\r\n\t\t},\r\n\t\tfunction(e) {\t\t\t\r\n\t\t\t$(this).removeClass(\"bounceIn\")\r\n\t\t}\r\n\t);\r\n\r\n\t// nav\r\n\t$(\".main-menu-wrapper .nav-item .nav-link\").click(function() {\r\n\t\t// Убираем класс show у Megamenu\r\n\t\t$(\".megamenu\").removeClass(\"show\");\r\n\t\t// Убираем нижнию черту у активного элемента\r\n\t\t$(\".navbar .navbar-nav .nav-item.active\").removeClass(\"active\");\r\n\r\n\t\tlet mainItem = $(this).data('mainmenuitem');\r\n\t\tconsole.log(mainItem);\r\n\t\t// add class show megamenu\r\n\t\tlet megaitem = $(\"#\"+mainItem).addClass(\"show\");\r\n\r\n\t\tconsole.log($(this).closest('li'));\r\n\t\t// add class active nav-item\r\n\t\t$(this).closest('li').addClass(\"active\");\r\n\t\t\r\n\t});\r\n\r\n\t$('#color-radio input').on('click', function() {\r\n\t\tvar clk = $('input:checked', '#myForm').val();\r\n\t\t$('.color-radio .wrapper-radio').find('label').removeClass('input-checked');\r\n\t\t$(this).parent('label').addClass('input-checked');\r\n\t});\r\n\r\n\t// show collapse form\r\n\r\n\t$(\"#show-sposob-oplaty\").on(\"click\", function(e){\r\n\t\te.preventDefault();\r\n\t\t$(\".form-collapse\").addClass(\"show\");\r\n\t});\r\n\r\n\t$(\"#remove-sposob-oplaty\").on(\"click\", function(e){\r\n\t\te.preventDefault();\r\n\t\t$(\".form-collapse\").removeClass(\"show\");\r\n\t});\r\n\r\n\t// hover table\r\n\r\n\t$(\".table-container.hovered .table-container__row\").on(\"mouseover\", function() {\r\n\t\t$(this).addClass(\"active\");\r\n\t});\r\n\r\n\t$(\".table-container.hovered .table-container__row\").on(\"mouseout\", function() {\r\n\t\t$(this).removeClass(\"active\");\r\n\t});\r\n\r\n\t// add to cart\r\n\r\n\t$(\"#addtocart\").click(function(e){\r\n\t\te.preventDefault();\r\n\t\t$(\".icons.cart-icon\").attr(\"data-cartfilled\",\"yes\");\r\n\t\t$(\".icons.cart-icon .cart.show\").removeClass(\"show\");\r\n\t\t$(\".icons.cart-icon .cart.added\").addClass(\"show\").addClass(\"bounce\").addClass(\"animated\");\r\n\t\tsetTimeout(function(){\r\n\t\t\t$(\".icons.cart-icon .cart.added\").removeClass(\"show\")\r\n\t\t},3000);\r\n\t\tsetTimeout(function(){\r\n\t\t\t$(\".icons.cart-icon .cart.filled\").addClass(\"show\")\r\n\t\t},3000);\t\t\r\n\t}); \r\n\r\n\t$(\".product-card .cart\").click(function(e){\r\n\t\te.preventDefault();\r\n\t\t$(\".icons.cart-icon\").attr(\"data-cartfilled\",\"yes\");\r\n\t\t$(\".icons.cart-icon .cart.show\").removeClass(\"show\");\r\n\t\t$(\".icons.cart-icon .cart.added\").addClass(\"show\").addClass(\"bounce\").addClass(\"animated\");\r\n\t\tsetTimeout(function(){\r\n\t\t\t$(\".icons.cart-icon .cart.added\").removeClass(\"show\")\r\n\t\t},3000);\r\n\t\tsetTimeout(function(){\r\n\t\t\t$(\".icons.cart-icon .cart.filled\").addClass(\"show\")\r\n\t\t},3000);\t\t\r\n\t});\r\n\t// Click to cart\r\n\r\n\t$(\".icons.cart-icon\").click(function(){\r\n\t\t// Проверяем заполнена ли корзина\r\n\t\tlet filled = $(this).attr(\"data-cartfilled\");\r\n\t\tconsole.log(filled);\r\n\t\t// Если заполнена\r\n\t\tif (filled == \"yes\") {\r\n\t\t\t$(\".microcart .cart-empty\").removeClass(\"show\");\r\n\t\t\t$(\".microcart .cart-filled\").addClass(\"show\");\r\n\r\n\t\t} else {\r\n\t\t\t// не заполнена\r\n\t\t\t$(\".microcart .cart-empty\").addClass(\"show\");\r\n\t\t\t$(\".microcart .cart-filled\").removeClass(\"show\");\r\n\t\t}\r\n\t\t$(\".modal-overlay\").addClass(\"active\");\r\n\t\t$(\".microcart\").addClass(\"show slideInRight\");\r\n\t\t$(\".microcart\").removeClass(\"slideOutRight\");\r\n\t\t\r\n\t});\r\n\r\n\t// click to filter\r\n\r\n\t$(\".filter-icon__image img\").on(\"click\", function(){\r\n\t\t$(\".modal-overlay\").addClass(\"active\");\r\n\t\t$(\".filter-modal\").addClass(\"show slideInLeft\");\r\n\t\t$(\".filter-modal\").removeClass(\"slideOutLeft\");\r\n\t});\r\n\r\n\t// Microcart\r\n\r\n\t$(\".collected-product\").hover(function(){\r\n\t\t$(this).find(\".collected-product__content-delete-product\").addClass(\"show\")\r\n\t},\r\n\tfunction(){\r\n\t\t$(this).find(\".collected-product__content-delete-product\").removeClass(\"show\")\r\n\t});\r\n\r\n\t// close Microcard\r\n\r\n\t$(\".microcart .cart-header .close\").click(function(){\r\n\t\t$(\".modal-overlay\").removeClass(\"active\");\r\n\t\t$(\".microcart\").removeClass(\"show\");\r\n\t\t$(\".microcart\").removeClass(\"slideInRight\");\r\n\t\t$(\".microcart\").addClass(\"slideOutRight\");\r\n\t});\r\n\r\n\t// close filter\r\n\r\n\t$(\".filter-modal .close\").on(\"click\", function(){\r\n\t\t$(\".modal-overlay\").removeClass(\"active\");\r\n\t\t$(\".filter-modal\").removeClass(\"show\");\r\n\t\t$(\".filter-modal\").removeClass(\"slideInLeft\");\r\n\t\t$(\".filter-modal\").addClass(\"slideOutLeft\");\r\n\t});\r\n\t// Readmore\r\n\r\n\t\r\n\t$(\".read-more a.button.text\").click(function(e) {\r\n\t\te.preventDefault();\r\n\t\t$(\".review-all-collapse\").toggleClass(\"show\");\r\n\t\tlet data_event = $(this).data(\"eventclick\");\r\n\t\tif (data_event == \"open\") {\r\n\t\t\t$(\".read-more a.button.text\").html(\"Свернуть\");\r\n\t\t\t$(\".read-more a.button.text\").data(\"eventclick\",\"close\");\r\n\t\t} else {\r\n\t\t\t$(\".read-more a.button.text\").html(\"Читать далее\");\r\n\t\t\t$(\".read-more a.button.text\").data(\"eventclick\",\"open\");\r\n\t\t}\r\n\t\t\r\n\t});\r\n\r\n\t\r\n\t//Megamenu\r\n\r\n\t$( \".megamenu\" ).hover(\r\n\t\tfunction() {\r\n\t\t//$( this ).addClass(\"show\") ;\r\n\t\t}, function() {\r\n\t\t$( this ).removeClass(\"show\") ;\r\n\t\t}\r\n\t);\r\n\t\r\n\t// product thumbnail\r\n\r\n\t$(\".product-gallery-trumbnail\").hover(\r\n\t\tfunction() {\r\n\t\t\t$(\".product-gallery-trumbnail.active\").removeClass(\"active\");\r\n\t\t\tlet thumb_id = $(this).data(\"trumbid\");\r\n\t\t\t$(this).addClass(\"active\");\r\n\t\t\t$(\".product-main\").removeClass(\"active\");\r\n\t\t\t$(\".modal-image\").removeClass(\"show\");\r\n\t\t\t$(\"#\"+thumb_id+\".product-main\").addClass(\"active\");\r\n\t\t},\r\n\t\tfunction() {\r\n\t\t\t//$(this).removeClass(\"active\");\r\n\t\t}\r\n\t);\r\n\r\n\t$(\".product-gallery-trumbnail\").click(function() {\r\n\t\t$(\".product-gallery-trumbnail.active\").removeClass(\"active\");\r\n\t\t\tlet thumb_id = $(this).data(\"trumbid\");\r\n\t\t\t$(this).addClass(\"active\");\r\n\t\t\t$(\".product-main\").removeClass(\"active\");\r\n\t\t\t$(\"#\"+thumb_id+\".product-main\").addClass(\"active\");\r\n\t});\r\n\r\n\t// modal\r\n\t$(\".product-gallery .product-gallery-wrapper .product-main\").click(function(el) {\r\n\t\tlet idimg = $(this).attr(\"id\");\r\n\t\tconsole.log(\"#\"+idimg+\".modal-image\")\r\n\t\t$(\".modal-image.show\").removeClass(\"show\");\r\n\t\t$(\"#\"+idimg+\".modal-image\").addClass(\"show\");\r\n\t\t$(\".modal-overlay\").addClass(\"active\");\r\n\t\t$(\".modal\").addClass(\"show\");\r\n\t});\r\n\t\r\n\t$(\".modal-overlay\").click(function() {\r\n\t\t$(\".modal-overlay\").removeClass(\"active\");\r\n\t\t$(\".modal\").removeClass(\"show\");\r\n\t\t$(\".filter-modal\").removeClass(\"show\");\r\n\t\t$(\".filter-modal\").removeClass(\"slideInLeft\");\r\n\t\t$(\".filter-modal\").addClass(\"slideOutLeft\");\r\n\t\t$(\".microcart\").removeClass(\"show\");\r\n\t\t$(\".microcart\").removeClass(\"slideInRight\");\r\n\t\t$(\".microcart\").addClass(\"slideOutRight\");\r\n\t});\r\n\r\n\t$(\".modal-header .close\").click(function() {\r\n\t\t$(\".modal-overlay\").removeClass(\"active\");\r\n\t\t$(\".modal\").removeClass(\"show\");\r\n\t});\r\n\r\n\tfunction getidimages() {\r\n\t\tlet element = document.querySelectorAll(\".modal-wrap-images\");\r\n\t\tlet images = [];\r\n\t\tlet images_id = [];\r\n\t\tfor (let elem of element) {\r\n\t\t\timages = elem.children;\r\n\t\t}\r\n\t\tfor (let img of images) {\r\n\t\t\timages_id.push($(img).attr(\"id\"))\t\t\t\r\n\t\t}\r\n\t\treturn images_id // Возвращает массив id\r\n\t};\r\n\r\n\t\r\n\r\n\t$(\"#modal-image-left\").click(function(){\r\n\t\t\r\n\t\tlet id_elem = getidimages();\r\n\t\tlet indx = 0;\r\n\t\tlet active_id = $(\".modal-image.show\").attr(\"id\");\r\n\t\tlet lenght_id_elem = id_elem.length;\r\n\t\tid_elem.forEach(function(item, i, id_elem) {\t\t\t\r\n\t\t\tif (item == active_id) {\r\n\t\t\t\tindx = Number(i)-1;\r\n\t\t\t\tif (indx < 0) { \r\n\t\t\t\t\tindx = lenght_id_elem-1;\r\n\t\t\t\t}\r\n\t\t\t\t$(\".modal-image.show\").removeClass(\"show\");\r\n\t\t\t\t$(\"#\"+id_elem[indx]+\".modal-image\").addClass(\"show\");\r\n\t\t\t}\r\n\t\t});\t\t\r\n\t});\r\n\t$(\"#modal-image-right\").click(function(){\r\n\t\tlet id_elem = getidimages();\r\n\t\tlet indx = 0;\r\n\t\tlet active_id = $(\".modal-image.show\").attr(\"id\");\r\n\t\tlet lenght_id_elem = id_elem.length;\r\n\t\tid_elem.forEach(function(item, i, id_elem) {\t\t\t\r\n\t\t\tif (item == active_id) {\r\n\t\t\t\tindx = Number(i)+1;\r\n\t\t\t\tif (indx > lenght_id_elem-1) { \r\n\t\t\t\t\tindx = 0;\r\n\t\t\t\t}\r\n\t\t\t\t$(\".modal-image.show\").removeClass(\"show\");\r\n\t\t\t\t$(\"#\"+id_elem[indx]+\".modal-image\").addClass(\"show\");\r\n\t\t\t}\r\n\t\t});\t\r\n\t});\r\n\r\n\t$(\".modal-thumb-image\").hover(\r\n\t\tfunction() {\r\n\t\t\tlet thumb_id = $(this).attr(\"id\");\r\n\t\t\t$(\".modal-image\").removeClass(\"show\");\r\n\t\t\t$(\"#\"+thumb_id+\".modal-image\").addClass(\"show\")\r\n\t\t},\r\n\t\tfunction() {\r\n\t\t\t$(this).removeClass(\"active\");\r\n\t\t}\r\n\t);\r\n\r\n\t\r\n\t$(\".navbar .navbar-toggler .navbar-toggler-icon\").click(function() {\r\n\t\t$(\".megamenu\").removeClass(\"show\");\t\t\r\n\t});\r\n\r\n\t$(\".tab-item\").click(function(e) {\r\n\t\te.preventDefault();\r\n\t\tlet target = e.currentTarget;\r\n\t\tlet this_tab = $(target).data(\"tab\");\r\n\t\t$(\".tab-item\").removeClass(\"active\");\r\n\t\t$(target).addClass(\"active\");\r\n\t\tlet tab_content = $(\"#\"+this_tab+\".tab-content-item\");\r\n\t\t$(\".tab-content-item\").removeClass(\"show\");\r\n\t\ttab_content.addClass(\"show\");\r\n\t\tconsole.log($(e.currentTarget).data(\"tab\"));\r\n\t\tconsole.log(this_tab);\r\n\t\tconsole.log(\"tab_content \"+tab_content);\r\n\t});\r\n\r\n\t// Изменение количества товара\r\n\t\r\n\t$(\".count-wrap .count-up\").on(\"click\", function(e){\r\n\t\tlet input_col = e.target.nextElementSibling;\r\n\t\tvar var_count = Number($(input_col).val());\r\n\t\tvar_count = var_count+1;\r\n\t\tinput_col.value = var_count;\r\n\t});\r\n\t\r\n\t$(\".count-wrap .count-down\").on(\"click\", function(e){\r\n\t\tlet input_col = e.target.previousElementSibling;\r\n\t\tvar var_count = Number($(input_col).val());\r\n\t\tvar_count = var_count-1;\r\n\t\tif (var_count == 0) {var_count = 1}\r\n\t\tinput_col.value = var_count;\r\n\t});\r\n\r\n\t$(\".search-wrapper\").mouseup(function (e){ // событие клика по веб-документу\r\n\t\tvar div = $(\".icon-search\"); // тут указываем ID элемента\r\n\t\tvar inp = $(\".search-wrapper .form-inline.custom input.form-control\");\r\n\t\tif (!div.is(e.target) // если клик был не по нашему блоку\r\n\t\t\t&& div.has(e.target).length === 0 && !inp.is(e.target)) { // и не по его дочерним элементам\r\n\t\t\t$(\".search-wrapper\").removeClass(\"show\"); // скрываем его\r\n\t\t\t//console.log(e.target);\r\n\t\t} else {\r\n\t\t\t$(\".search-wrapper\").addClass(\"show\");\r\n\t\t}\r\n\t\tvar div_tg = $(\".icons-toggle\"); // тут указываем ID элемента\r\n\t\tif (!div_tg.is(e.target) // если клик был не по нашему блоку\r\n\t\t\t&& div_tg.has(e.target).length === 0 ) { // и не по его дочерним элементам\r\n\t\t\t$(\".icons-wrapper\").removeClass(\"show\"); // скрываем его\r\n\t\t\t//console.log(e.target);\r\n\t\t} else {\r\n\t\t\t$(\".icons-wrapper\").addClass(\"show\");\r\n\t\t}\r\n\t});\r\n\t\r\n});\r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./themes/hatan/assets/js/app.js?");
+    /***/
+  }
+  /******/
+
+});

@@ -15,7 +15,7 @@
             {{ arPagination.name }}
         </a>
     {% endfor %}
-    {% if iPage > iMaxPage %}
+    {% if iPage < iMaxPage %}
         <a href="#" class="pagination-item _shopaholic-pagination" data-page="{{ iPage+1 }}">
             <img src="{{ 'assets/images/Direction-Right.svg' | theme }}" alt="">
         </a>

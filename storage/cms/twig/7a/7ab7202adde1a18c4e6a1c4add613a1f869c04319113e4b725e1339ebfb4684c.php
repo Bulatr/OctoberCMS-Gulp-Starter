@@ -29,13 +29,13 @@ class __TwigTemplate_b1328bcc627173276d400a7734bdda2d21da7789975a18e15dc439d7217
         $this->blocks = [
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
-        $tags = array("set" => 4, "for" => 10, "if" => 26);
-        $filters = array("theme" => 7, "escape" => 14);
+        $tags = array("for" => 12, "set" => 21, "if" => 28);
+        $filters = array("theme" => 8, "escape" => 16);
         $functions = array();
 
         try {
             $this->sandbox->checkSecurity(
-                ['set', 'for', 'if'],
+                ['for', 'set', 'if'],
                 ['theme', 'escape'],
                 []
             );
@@ -59,128 +59,131 @@ class __TwigTemplate_b1328bcc627173276d400a7734bdda2d21da7789975a18e15dc439d7217
     {
         $macros = $this->macros;
         // line 4
-        $context["obPropertyList"] = twig_get_attribute($this->env, $this->source, ($context["FilterPanel"] ?? null), "getOfferPropertyList", [0 => [0 => "main", 1 => "shoes"], 1 => ($context["obProductList"] ?? null)], "method", false, false, true, 4);
-        // line 5
         echo "
+
 <div class=\"filter-modal\">
-\t\t<div class=\"close\"><img src=\"";
-        // line 7
+\t
+\t<div class=\"close\"><img src=\"";
+        // line 8
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Close-circle.svg");
         echo "\" alt=\"\"></div>
+\t
 \t\t<div class=\"filter-modal__col\">
-\t\t\t<div class=\"modal-options\">
+\t\t\t<div class=\"modal-options property\">
 \t\t\t\t";
-        // line 10
+        // line 12
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["obPropertyList"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["obProperty"]) {
-            if (twig_get_attribute($this->env, $this->source, $context["obProperty"], "hasValue", [], "method", false, false, true, 10)) {
-                // line 11
-                echo "
+            // line 13
+            echo "\t\t\t\t\t
 \t\t\t\t\t";
-                // line 13
-                echo "\t\t\t\t\t<div class=\"modal-options__label\">
+            // line 15
+            echo "\t\t\t\t\t<div class=\"modal-options__label\">
 \t\t\t\t\t\t<h3>";
-                // line 14
-                echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obProperty"], "filter_name", [], "any", false, false, true, 14), 14, $this->source), "html", null, true);
-                echo "</h3>
+            // line 16
+            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obProperty"], "filter_name", [], "any", false, false, true, 16), 16, $this->source), "html", null, true);
+            echo "</h3>
 \t\t\t\t\t</div>
 \t\t\t\t\t
 
 \t\t\t\t\t";
-                // line 19
-                echo "\t\t\t\t\t";
-                $context["sFilterType"] = twig_get_attribute($this->env, $this->source, $context["obProperty"], "filter_type", [], "any", false, false, true, 19);
-                // line 20
-                echo "
+            // line 21
+            echo "\t\t\t\t\t";
+            $context["sFilterType"] = twig_get_attribute($this->env, $this->source, $context["obProperty"], "filter_type", [], "any", false, false, true, 21);
+            // line 22
+            echo "
 \t\t\t\t\t";
-                // line 22
-                echo "\t\t\t\t\t";
-                $context["obPropertyValueList"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["obProperty"], "property_value", [], "any", false, false, true, 22), "sort", [], "method", false, false, true, 22);
-                // line 23
-                echo "\t\t\t\t\t<div class=\"modal-options__wrap\">\t
-\t\t\t\t\t\t";
-                // line 25
-                echo "\t\t\t\t\t\t
+            // line 24
+            echo "\t\t\t\t\t";
+            $context["obPropertyValueList"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["obProperty"], "property_value", [], "any", false, false, true, 24), "sort", [], "method", false, false, true, 24);
+            // line 25
+            echo "\t\t\t\t\t\t<div class=\"modal-options__wrap _shopaholic-filter-wrapper\" data-filter-type=\"";
+            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obProperty"], "filter_type", [], "any", false, false, true, 25), 25, $this->source), "html", null, true);
+            echo "\" data-property-id=\"";
+            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obProperty"], "id", [], "any", false, false, true, 25), 25, $this->source), "html", null, true);
+            echo "\">\t
 \t\t\t\t\t\t\t";
-                // line 26
-                if ((($context["sFilterType"] ?? null) == "checkbox")) {
-                    // line 27
-                    echo "\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t";
-                    // line 28
-                    $context['_parent'] = $context;
-                    $context['_seq'] = twig_ensure_traversable(($context["obPropertyValueList"] ?? null));
-                    foreach ($context['_seq'] as $context["_key"] => $context["obValue"]) {
-                        echo "\t
-\t\t\t\t\t\t\t\t\t\t<div class=\"modal-options__checkout\">\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check\">
-\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-check-input\" type=\"checkbox\" id=\"";
-                        // line 31
-                        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["obValue"], "arModelData", [], "any", false, false, true, 31), "id", [], "any", false, false, true, 31), 31, $this->source), "html", null, true);
-                        echo "\" value=\"";
-                        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obValue"], "slug", [], "any", false, false, true, 31), 31, $this->source), "html", null, true);
-                        echo "\">
-\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label\" for=\"\"";
-                        // line 32
-                        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["obValue"], "arModelData", [], "any", false, false, true, 32), "id", [], "any", false, false, true, 32), 32, $this->source), "html", null, true);
-                        echo "\"\">";
-                        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obValue"], "value", [], "any", false, false, true, 32), 32, $this->source), "html", null, true);
-                        echo "</label>
+            // line 27
+            echo "\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t\t";
+            // line 28
+            if ((($context["sFilterType"] ?? null) == "checkbox")) {
+                // line 29
+                echo "\t\t\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t\t\t\t";
+                // line 30
+                $context['_parent'] = $context;
+                $context['_seq'] = twig_ensure_traversable(($context["obPropertyValueList"] ?? null));
+                foreach ($context['_seq'] as $context["_key"] => $context["obValue"]) {
+                    echo "\t
+\t\t\t\t\t\t\t\t\t\t\t<div class=\"modal-options__checkout\">\t\t\t\t\t\t
+\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-check-input\" type=\"checkbox\" id=\"";
+                    // line 33
+                    echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["obValue"], "arModelData", [], "any", false, false, true, 33), "id", [], "any", false, false, true, 33), 33, $this->source), "html", null, true);
+                    echo "\" value=\"";
+                    echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obValue"], "slug", [], "any", false, false, true, 33), 33, $this->source), "html", null, true);
+                    echo "\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label\" for=\"\"";
+                    // line 34
+                    echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["obValue"], "arModelData", [], "any", false, false, true, 34), "id", [], "any", false, false, true, 34), 34, $this->source), "html", null, true);
+                    echo "\"\">";
+                    echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obValue"], "value", [], "any", false, false, true, 34), 34, $this->source), "html", null, true);
+                    echo "</label>
+\t\t\t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t";
-                    }
-                    $_parent = $context['_parent'];
-                    unset($context['_seq'], $context['_iterated'], $context['_key'], $context['obValue'], $context['_parent'], $context['loop']);
-                    $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 36
-                    echo "\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t";
+\t\t\t\t\t\t\t\t\t\t";
                 }
+                $_parent = $context['_parent'];
+                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['obValue'], $context['_parent'], $context['loop']);
+                $context = array_intersect_key($context, $_parent) + $_parent;
                 // line 38
-                echo "
-\t\t\t\t\t\t\t";
-                // line 40
-                echo "\t\t\t\t\t\t\t";
-                if ((($context["sFilterType"] ?? null) == "select")) {
-                    // line 41
-                    echo "\t\t\t\t\t\t\t\t<select>
-\t\t\t\t\t\t\t\t\t";
-                    // line 42
-                    $context['_parent'] = $context;
-                    $context['_seq'] = twig_ensure_traversable(($context["obPropertyValueList"] ?? null));
-                    foreach ($context['_seq'] as $context["_key"] => $context["obValue"]) {
-                        // line 43
-                        echo "\t\t\t\t\t\t\t\t\t\t<option value=\"";
-                        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obValue"], "slug", [], "any", false, false, true, 43), 43, $this->source), "html", null, true);
-                        echo "\">";
-                        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obValue"], "value", [], "any", false, false, true, 43), 43, $this->source), "html", null, true);
-                        echo "</option>
-\t\t\t\t\t\t\t\t\t";
-                    }
-                    $_parent = $context['_parent'];
-                    unset($context['_seq'], $context['_iterated'], $context['_key'], $context['obValue'], $context['_parent'], $context['loop']);
-                    $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 45
-                    echo "\t\t\t\t\t\t\t\t</select>
-\t\t\t\t\t\t\t";
-                }
-                // line 47
-                echo "\t\t\t\t\t\t
-\t\t\t\t\t\t
-\t\t\t\t\t</div>
-\t\t\t\t";
+                echo "\t\t\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t\t";
             }
+            // line 40
+            echo "
+\t\t\t\t\t\t\t\t";
+            // line 42
+            echo "\t\t\t\t\t\t\t\t";
+            if ((($context["sFilterType"] ?? null) == "select")) {
+                // line 43
+                echo "\t\t\t\t\t\t\t\t\t<select>
+\t\t\t\t\t\t\t\t\t\t";
+                // line 44
+                $context['_parent'] = $context;
+                $context['_seq'] = twig_ensure_traversable(($context["obPropertyValueList"] ?? null));
+                foreach ($context['_seq'] as $context["_key"] => $context["obValue"]) {
+                    // line 45
+                    echo "\t\t\t\t\t\t\t\t\t\t\t<option value=\"";
+                    echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obValue"], "slug", [], "any", false, false, true, 45), 45, $this->source), "html", null, true);
+                    echo "\">";
+                    echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obValue"], "value", [], "any", false, false, true, 45), 45, $this->source), "html", null, true);
+                    echo "</option>
+\t\t\t\t\t\t\t\t\t\t";
+                }
+                $_parent = $context['_parent'];
+                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['obValue'], $context['_parent'], $context['loop']);
+                $context = array_intersect_key($context, $_parent) + $_parent;
+                // line 47
+                echo "\t\t\t\t\t\t\t\t\t</select>
+\t\t\t\t\t\t\t\t";
+            }
+            // line 49
+            echo "\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t
+\t\t\t\t\t\t</div>
+\t\t\t\t";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['obProperty'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 51
+        // line 53
         echo "\t\t\t</div>
 \t\t\t
 \t\t\t<!--Price-->
-\t\t\t<div class=\"modal-options\">
+\t\t\t<div class=\"modal-options price _shopaholic-price-filter\">
 \t\t\t\t<div class=\"modal-options__label\">
 \t\t\t\t\t<h3>Стоимость</h3>
 \t\t\t\t</div>
@@ -228,7 +231,8 @@ class __TwigTemplate_b1328bcc627173276d400a7734bdda2d21da7789975a18e15dc439d7217
 \t\t\t\t<a href=\"#\" id=\"clear\" class=\"btn btn-primary secondary\">Очистить фильтр</a>
 \t\t\t</div>
 \t\t</div>
-\t</div>";
+\t
+</div>";
     }
 
     public function getTemplateName()
@@ -243,22 +247,24 @@ class __TwigTemplate_b1328bcc627173276d400a7734bdda2d21da7789975a18e15dc439d7217
 
     public function getDebugInfo()
     {
-        return array (  180 => 51,  170 => 47,  166 => 45,  155 => 43,  151 => 42,  148 => 41,  145 => 40,  142 => 38,  138 => 36,  126 => 32,  120 => 31,  112 => 28,  109 => 27,  107 => 26,  104 => 25,  101 => 23,  98 => 22,  95 => 20,  92 => 19,  85 => 14,  82 => 13,  79 => 11,  74 => 10,  68 => 7,  64 => 5,  62 => 4,);
+        return array (  183 => 53,  174 => 49,  170 => 47,  159 => 45,  155 => 44,  152 => 43,  149 => 42,  146 => 40,  142 => 38,  130 => 34,  124 => 33,  116 => 30,  113 => 29,  111 => 28,  108 => 27,  101 => 25,  98 => 24,  95 => 22,  92 => 21,  85 => 16,  82 => 15,  79 => 13,  75 => 12,  68 => 8,  62 => 4,);
     }
 
     public function getSourceContext()
     {
         return new Source("{##}
-{# var #}
+{# @var obActiveCategory \\Lovata\\Shopaholic\\Classes\\Item\\CategoryItem #}
 {# Get products proeprty list for property sets with code 'main', enabled how filters #}
-{% set obPropertyList = FilterPanel.getOfferPropertyList(['main','shoes'], obProductList) %}
+
 
 <div class=\"filter-modal\">
-\t\t<div class=\"close\"><img src=\"{{ 'assets/images/Close-circle.svg' | theme }}\" alt=\"\"></div>
+\t
+\t<div class=\"close\"><img src=\"{{ 'assets/images/Close-circle.svg' | theme }}\" alt=\"\"></div>
+\t
 \t\t<div class=\"filter-modal__col\">
-\t\t\t<div class=\"modal-options\">
-\t\t\t\t{% for obProperty in obPropertyList if obProperty.hasValue() %}
-
+\t\t\t<div class=\"modal-options property\">
+\t\t\t\t{% for obProperty in obPropertyList  %}
+\t\t\t\t\t
 \t\t\t\t\t{# Render filter name #}
 \t\t\t\t\t<div class=\"modal-options__label\">
 \t\t\t\t\t\t<h3>{{ obProperty.filter_name }}</h3>
@@ -270,38 +276,38 @@ class __TwigTemplate_b1328bcc627173276d400a7734bdda2d21da7789975a18e15dc439d7217
 
 \t\t\t\t\t{# Get proeprty value list #}
 \t\t\t\t\t{% set obPropertyValueList = obProperty.property_value.sort() %}
-\t\t\t\t\t<div class=\"modal-options__wrap\">\t
-\t\t\t\t\t\t{# Render filtre with type == checkbox #}
-\t\t\t\t\t\t
-\t\t\t\t\t\t\t{% if sFilterType == 'checkbox' %}
-\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t{% for obValue in obPropertyValueList %}\t
-\t\t\t\t\t\t\t\t\t\t<div class=\"modal-options__checkout\">\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check\">
-\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-check-input\" type=\"checkbox\" id=\"{{ obValue.arModelData.id }}\" value=\"{{ obValue.slug }}\">
-\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label\" for=\"\"{{ obValue.arModelData.id }}\"\">{{ obValue.value }}</label>
+\t\t\t\t\t\t<div class=\"modal-options__wrap _shopaholic-filter-wrapper\" data-filter-type=\"{{obProperty.filter_type}}\" data-property-id=\"{{obProperty.id}}\">\t
+\t\t\t\t\t\t\t{# Render filtre with type == checkbox #}
+\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t\t{% if sFilterType == 'checkbox' %}
+\t\t\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t\t\t\t{% for obValue in obPropertyValueList %}\t
+\t\t\t\t\t\t\t\t\t\t\t<div class=\"modal-options__checkout\">\t\t\t\t\t\t
+\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-check-input\" type=\"checkbox\" id=\"{{ obValue.arModelData.id }}\" value=\"{{ obValue.slug }}\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label\" for=\"\"{{ obValue.arModelData.id }}\"\">{{ obValue.value }}</label>
+\t\t\t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t{% endfor%}
-\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t{% endif %}
+\t\t\t\t\t\t\t\t\t\t{% endfor%}
+\t\t\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t\t{% endif %}
 
-\t\t\t\t\t\t\t{# Render filtre with type == select #}
-\t\t\t\t\t\t\t{% if sFilterType == 'select' %}
-\t\t\t\t\t\t\t\t<select>
-\t\t\t\t\t\t\t\t\t{% for obValue in obPropertyValueList %}
-\t\t\t\t\t\t\t\t\t\t<option value=\"{{ obValue.slug }}\">{{ obValue.value }}</option>
-\t\t\t\t\t\t\t\t\t{% endfor%}
-\t\t\t\t\t\t\t\t</select>
-\t\t\t\t\t\t\t{% endif %}
-\t\t\t\t\t\t
-\t\t\t\t\t\t
-\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t{# Render filtre with type == select #}
+\t\t\t\t\t\t\t\t{% if sFilterType == 'select' %}
+\t\t\t\t\t\t\t\t\t<select>
+\t\t\t\t\t\t\t\t\t\t{% for obValue in obPropertyValueList %}
+\t\t\t\t\t\t\t\t\t\t\t<option value=\"{{ obValue.slug }}\">{{ obValue.value }}</option>
+\t\t\t\t\t\t\t\t\t\t{% endfor%}
+\t\t\t\t\t\t\t\t\t</select>
+\t\t\t\t\t\t\t\t{% endif %}
+\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t
+\t\t\t\t\t\t</div>
 \t\t\t\t{% endfor %}
 \t\t\t</div>
 \t\t\t
 \t\t\t<!--Price-->
-\t\t\t<div class=\"modal-options\">
+\t\t\t<div class=\"modal-options price _shopaholic-price-filter\">
 \t\t\t\t<div class=\"modal-options__label\">
 \t\t\t\t\t<h3>Стоимость</h3>
 \t\t\t\t</div>
@@ -349,6 +355,7 @@ class __TwigTemplate_b1328bcc627173276d400a7734bdda2d21da7789975a18e15dc439d7217
 \t\t\t\t<a href=\"#\" id=\"clear\" class=\"btn btn-primary secondary\">Очистить фильтр</a>
 \t\t\t</div>
 \t\t</div>
-\t</div>", "Z:\\domains\\hatan.loc/themes/hatan/partials/filters/filter-modal.htm", "");
+\t
+</div>", "Z:\\domains\\hatan.loc/themes/hatan/partials/filters/filter-modal.htm", "");
     }
 }

@@ -1,23 +1,65 @@
 import ShopaholicProductList from "@lovata/shopaholic-product-list/shopaholic-product-list";
 import ShopaholicSorting from "@lovata/shopaholic-product-list/shopaholic-sorting";
 import ShopaholicPagination from "@lovata/shopaholic-product-list/shopaholic-pagination";
+import ShopaholicFilterPanel from "@lovata/shopaholic-filter-panel/shopaholic-filter-panel";
 
-const obListHelper = new ShopaholicProductList();
-obListHelper.setAjaxRequestCallback((obRequestData) => {
-	obRequestData.update = {
-		'product/catalog/product-list': `.catalog_wrapper`
-	};
-	return obRequestData;
-});
-const obSortingHelper = new ShopaholicSorting(obListHelper);
-const obPaginationHelper = new ShopaholicPagination(obListHelper);
-obPaginationHelper.init();
-obSortingHelper.init();
 document.addEventListener("DOMContentLoaded", function() {
 
 	// Custom JS
+	const obListHelper = new ShopaholicProductList();
 	
+	obListHelper.setAjaxRequestCallback((obRequestData) => {
+		$('.card-container').request('ProductList::onAjaxRequest', {
+			'update': {'product/catalog/product-list': '.catalog-wrapper'}
+		});
+		
+		obRequestData.update = {
+			'product/catalog/product-list': `.catalog_wrapper`
+		};
+		
+		return obRequestData;
+	});
 
+	//obListHelper.send(obListHelper);
+		
+	const obSortingHelper = new ShopaholicSorting(obListHelper);
+	const obPaginationHelper = new ShopaholicPagination(obListHelper);
+	const obFilterPanel = new ShopaholicFilterPanel(obListHelper);
+	
+	obFilterPanel.init();
+	obPaginationHelper.init();
+	obSortingHelper.init();
+	
+	/*
+	//Ajax filtration
+	$('body').on('change', 'input.form-check-input', function (e) {
+		console.log(e);
+		$('.wrapper-overlay.card-container').request('ProductList::onAjaxRequest', {
+			'update': {'product/catalog/product-list': '.catalog-wrapper'}
+		});
+	});
+	
+	//Ajax pagination (product list)
+	$('body').on('click', '.pagination a._shopaholic-pagination', function (e) {
+
+		e.preventDefault();
+		var _this = $(e.currentTarget),
+			iPage = _this.attr('data-page');
+
+		$('.card-container').request('ProductList::onAjaxRequest', {
+			'data': {'page': iPage},
+			'update': {'product/catalog/product-list': '.catalog-wrapper'}
+		});
+	});
+
+	//Ajax filtration and sorting
+	$('body').on('change', 'select.sort-select', function (e) {
+		console.log(e);
+		$('.card-container').request('ProductList::onAjaxRequest', {
+			'update': {'product/catalog/product-list': '.catalog-wrapper'}
+		});
+	});
+	*/
 	var myCarousel = document.querySelector('#myCarousel');
 	
 	$( ".product-card" ).hover(

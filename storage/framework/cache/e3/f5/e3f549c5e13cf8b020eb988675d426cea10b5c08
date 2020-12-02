@@ -1,14 +1,19 @@
-1606750556a:1:{s:11:"default.htm";a:5:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:107:"{% partial 'header' class='myclass' %}
+1606878461a:1:{s:11:"default.htm";a:6:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:135:"[CategoryList]
+
+==
+{##}
+{% partial 'header' class='myclass' %}
 
 	<section>
 		{% page %}
 	</section>
 
 {% partial 'footer' %}
-";s:5:"mtime";i:1606216272;s:6:"markup";s:105:"{% partial 'header' class='myclass' %}
+";s:5:"mtime";i:1606804979;s:6:"markup";s:111:"{##}
+{% partial 'header' class='myclass' %}
 
 	<section>
 		{% page %}
 	</section>
 
-{% partial 'footer' %}";s:4:"code";N;}}
+{% partial 'footer' %}";s:4:"code";N;s:12:"CategoryList";a:0:{}}}

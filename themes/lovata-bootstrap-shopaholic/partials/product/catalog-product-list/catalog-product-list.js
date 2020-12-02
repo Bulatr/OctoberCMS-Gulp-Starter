@@ -1,7 +1,11 @@
-export default new class CatalogProductList {
+
+/**
+ * @author  Andrey Kharanenka, a.khoronenko@lovata.com, LOVATA Group
+ */
+export default class CatalogProductList {
   constructor() {
-    this.sortingSelector = 'select[name="sorting"]';
-    this.ajaxWrapper = '_ajax_catalog_wrapper';
+    this.sortingSelector = 'select[name="sort-product"]';
+    this.ajaxWrapper = 'catalog-wrapper';
     this.requestData = {
       'sort': '',
       'page': 1
@@ -53,4 +57,4 @@ export default new class CatalogProductList {
 
     window.history.pushState(null, null, `${location.origin}${location.pathname}${sResult}`);
   }
-}();
+};
