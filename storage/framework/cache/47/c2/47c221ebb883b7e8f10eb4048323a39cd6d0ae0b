@@ -1,19 +1,21 @@
-1606878052a:1:{s:24:"filters/filter-modal.htm";a:6:{s:8:"fileName";s:24:"filters/filter-modal.htm";s:7:"content";s:3755:"description = "Фильтр товаров"
+1606978970a:1:{s:24:"filters/filter-modal.htm";a:6:{s:8:"fileName";s:24:"filters/filter-modal.htm";s:7:"content";s:4273:"description = "Фильтр товаров"
 
 
 ==
 {##}
 {# @var obActiveCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
 {# Get products proeprty list for property sets with code 'main', enabled how filters #}
-
-
+{% set obGroupList = obFilterProductPropertyList.groupList() %}
+{% set obOdezhdaList = obGroupList.getByCode('odezhda') %}
+{% set obObuvList = obGroupList.getByCode('obuv') %}
+{% set arFilterPropertyList = Catalog.getFilterPropertyList() %}
 <div class="filter-modal">
 	
 	<div class="close"><img src="{{ 'assets/images/Close-circle.svg' | theme }}" alt=""></div>
 	
 		<div class="filter-modal__col">
 			<div class="modal-options property">
-				{% for obProperty in obPropertyList  %}
+				{% for obProperty in obPropertyList  if obProperty.hasValue() %}
 					
 					{# Render filter name #}
 					<div class="modal-options__label">
@@ -34,7 +36,13 @@
 										{% for obValue in obPropertyValueList %}	
 											<div class="modal-options__checkout">						
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox" id="{{ obValue.arModelData.id }}" value="{{ obValue.slug }}">
+													{% set bChecked = arFilterPropertyList[obProperty.id] is not empty and obValue.slug in arFilterPropertyList[obProperty.id] %}
+													<input 
+													class="form-check-input" 
+													type="checkbox" 
+													{% if bChecked %} checked {% endif %}
+													id="{{ obValue.arModelData.id }}" 
+													value="{{ obValue.slug }}">
 													<label class="form-check-label" for=""{{ obValue.arModelData.id }}"">{{ obValue.value }}</label>
 												</div>
 											</div>
@@ -106,18 +114,20 @@
 			</div>
 		</div>
 	
-</div>";s:5:"mtime";i:1606877436;s:6:"markup";s:3702:"{##}
+</div>";s:5:"mtime";i:1606900753;s:6:"markup";s:4220:"{##}
 {# @var obActiveCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
 {# Get products proeprty list for property sets with code 'main', enabled how filters #}
-
-
+{% set obGroupList = obFilterProductPropertyList.groupList() %}
+{% set obOdezhdaList = obGroupList.getByCode('odezhda') %}
+{% set obObuvList = obGroupList.getByCode('obuv') %}
+{% set arFilterPropertyList = Catalog.getFilterPropertyList() %}
 <div class="filter-modal">
 	
 	<div class="close"><img src="{{ 'assets/images/Close-circle.svg' | theme }}" alt=""></div>
 	
 		<div class="filter-modal__col">
 			<div class="modal-options property">
-				{% for obProperty in obPropertyList  %}
+				{% for obProperty in obPropertyList  if obProperty.hasValue() %}
 					
 					{# Render filter name #}
 					<div class="modal-options__label">
@@ -138,7 +148,13 @@
 										{% for obValue in obPropertyValueList %}	
 											<div class="modal-options__checkout">						
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox" id="{{ obValue.arModelData.id }}" value="{{ obValue.slug }}">
+													{% set bChecked = arFilterPropertyList[obProperty.id] is not empty and obValue.slug in arFilterPropertyList[obProperty.id] %}
+													<input 
+													class="form-check-input" 
+													type="checkbox" 
+													{% if bChecked %} checked {% endif %}
+													id="{{ obValue.arModelData.id }}" 
+													value="{{ obValue.slug }}">
 													<label class="form-check-label" for=""{{ obValue.arModelData.id }}"">{{ obValue.value }}</label>
 												</div>
 											</div>

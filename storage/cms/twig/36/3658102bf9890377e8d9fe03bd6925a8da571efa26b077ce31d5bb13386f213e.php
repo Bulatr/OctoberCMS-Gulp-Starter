@@ -178,24 +178,23 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
                                         </select>
                                     </div>\t\t\t\t\t\t\t\t\t\t
                                 </div>
-                                <div class=\"kol-item\">
-                                    <div class=\"kol-item__label\">Товаров</div>
-                                    <div class=\"kol-item__value\">";
-        // line 78
-        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obProductList"] ?? null), "count", [], "method", false, false, true, 78), 78, $this->source), "html", null, true);
-        echo "</div>
-                                    
-                                </div>
-                            </div>
+                                ";
+        // line 76
+        $context['__cms_partial_params'] = [];
+        $context['__cms_partial_params']['obFilteredProductList'] = ($context["obFilteredProductList"] ?? null)        ;
+        echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("product-count"        , $context['__cms_partial_params']        , true        );
+        unset($context['__cms_partial_params']);
+        // line 77
+        echo "                            </div>
                         </div>
                         <div class=\"wrapper-overlay card-container catalog-wrapper\">
                             ";
-        // line 84
+        // line 80
         $context['__cms_partial_params'] = [];
-        $context['__cms_partial_params']['obActiveCategory'] = ($context["obActiveCategory"] ?? null)        ;
+        $context['__cms_partial_params']['arProductList'] = ($context["arProductList"] ?? null)        ;
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("product/catalog/product-list"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 85
+        // line 81
         echo "                        </div>
                     </div>
                 </div>   
@@ -205,21 +204,21 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
 </div>
 
 ";
-        // line 93
+        // line 89
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("related-products"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 94
+        // line 90
         echo "
 ";
-        // line 95
+        // line 91
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("banners/banner-1"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 96
+        // line 92
         echo "
 ";
-        // line 97
+        // line 93
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("lookbook"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
@@ -237,7 +236,7 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
 
     public function getDebugInfo()
     {
-        return array (  223 => 97,  220 => 96,  216 => 95,  213 => 94,  209 => 93,  199 => 85,  194 => 84,  185 => 78,  174 => 72,  168 => 71,  162 => 70,  156 => 69,  140 => 56,  103 => 21,  98 => 20,  91 => 16,  81 => 12,  74 => 8,  70 => 6,  65 => 5,  62 => 2,);
+        return array (  222 => 93,  219 => 92,  215 => 91,  212 => 90,  208 => 89,  198 => 81,  193 => 80,  188 => 77,  183 => 76,  174 => 72,  168 => 71,  162 => 70,  156 => 69,  140 => 56,  103 => 21,  98 => 20,  91 => 16,  81 => 12,  74 => 8,  70 => 6,  65 => 5,  62 => 2,);
     }
 
     public function getSourceContext()
@@ -317,15 +316,11 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
                                         </select>
                                     </div>\t\t\t\t\t\t\t\t\t\t
                                 </div>
-                                <div class=\"kol-item\">
-                                    <div class=\"kol-item__label\">Товаров</div>
-                                    <div class=\"kol-item__value\">{{obProductList.count()}}</div>
-                                    
-                                </div>
+                                {% partial \"product-count\" obFilteredProductList = obFilteredProductList%}
                             </div>
                         </div>
                         <div class=\"wrapper-overlay card-container catalog-wrapper\">
-                            {% partial 'product/catalog/product-list' obActiveCategory=obActiveCategory  %}
+                            {% partial 'product/catalog/product-list' arProductList = arProductList  %}
                         </div>
                     </div>
                 </div>   

@@ -69,7 +69,7 @@ class __TwigTemplate_0adf140d80424b61485004c3ccd6f21275c3d1d2c36b401358aab8cffed
 \t\t\t\t\t\t<a href=\"#\" class=\"btn text\">
 \t\t\t\t\t\t\t\tУлан-Удэ
 \t\t\t\t\t\t</a>
-\t\t\t\t\t\t<a href=\"#\" class=\"btn text pl-3\">Изменить город</a>
+\t\t\t\t\t\t
 \t\t\t\t\t</div>
 \t\t\t\t\t<a href=\"tel:+79247702321\" class=\"bar-phone\">+7(924) 770-2321</a>
 \t\t\t\t\t<div class=\"help-wrapper\">
@@ -105,7 +105,7 @@ class __TwigTemplate_0adf140d80424b61485004c3ccd6f21275c3d1d2c36b401358aab8cffed
 \t\t\t\t\t\t<a href=\"#\" class=\"btn text\">
 \t\t\t\t\t\t\t\tУлан-Удэ
 \t\t\t\t\t\t</a>
-\t\t\t\t\t\t<a href=\"#\" class=\"btn text pl-3\">Изменить город</a>
+\t\t\t\t\t\t
 \t\t\t\t\t</div>
 \t\t\t\t\t<a href=\"tel:+79247702321\" class=\"bar-phone\">+7(924) 770-2321</a>
 \t\t\t\t\t<div class=\"help-wrapper\">

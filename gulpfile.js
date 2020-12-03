@@ -164,6 +164,15 @@ function watchstyles() {
 	watch('themes/' + theme + '/assets/' + preprocessor + '/**/*', {usePolling: true}, styles);
 }
 
+function watchonlyscriptsandstyles() {
+	watch(
+		['themes/'  + theme + '/assets/js/**/*.js', '!themes/' + theme + '/assets/js/**/*.min.js', '!themes/' + theme + '/assets/js/**/*.tmp.js', 'themes/'  + theme + '/assets/vendor/**/*.js'], 
+		{usePolling: true}, 
+		series(plugins, userscripts, scripts)
+	);
+	watch('themes/' + theme + '/assets/' + preprocessor + '/**/*', {usePolling: true}, styles);
+}
+
 exports.scriptwatch = scriptwatch;
 exports.browsersync = browsersync;
 exports.scripts     = series(plugins, userscripts, scripts);
@@ -172,3 +181,5 @@ exports.styles      = styles;
 exports.deploy      = deploy;
 exports.default     = series(plugins, userscripts, scripts, styles, parallel(browsersync, startwatch));
 exports.startstyles	=	series(styles,parallel(browsersync,watchstyles));
+exports.startwatch 	= startwatch;
+exports.watchonlyscriptsandstyles = watchonlyscriptsandstyles;

@@ -2,15 +2,10 @@
 ==
 {##}
 {# Get product collection #}
-{% set obProductList = ProductList.make().sort(ProductList.getSorting()).active().category(obActiveCategory.id, true) %}
+
 
 {# Get array with pagination buttons #}
-{% set iPage = Pagination.getPageFromRequest() %}
-{% set iCount = obProductList.count() %}
-{% set iMaxPage = obProductList.getMaxPage(iCount) %}
 
-{# Apply pagination to product collection and get array with product items #}
-{% set arProductList = obProductList.page(iPage, Pagination.getCountPerPage()) %}
 
 {% if arProductList is not empty %}
     {# Render product list #}

@@ -1,16 +1,11 @@
-1606878461a:1:{s:32:"product/catalog/product-list.htm";a:6:{s:8:"fileName";s:32:"product/catalog/product-list.htm";s:7:"content";s:954:"[ProductList]
+1606978970a:1:{s:32:"product/catalog/product-list.htm";a:6:{s:8:"fileName";s:32:"product/catalog/product-list.htm";s:7:"content";s:524:"[ProductList]
 ==
 {##}
 {# Get product collection #}
-{% set obProductList = ProductList.make().sort(ProductList.getSorting()).active().category(obActiveCategory.id, true) %}
+
 
 {# Get array with pagination buttons #}
-{% set iPage = Pagination.getPageFromRequest() %}
-{% set iCount = obProductList.count() %}
-{% set iMaxPage = obProductList.getMaxPage(iCount) %}
 
-{# Apply pagination to product collection and get array with product items #}
-{% set arProductList = obProductList.page(iPage, Pagination.getCountPerPage()) %}
 
 {% if arProductList is not empty %}
     {# Render product list #}
@@ -26,17 +21,12 @@
     </div>
 {% endif %}
 
-";s:5:"mtime";i:1606808795;s:6:"markup";s:931:"{##}
+";s:5:"mtime";i:1606918463;s:6:"markup";s:501:"{##}
 {# Get product collection #}
-{% set obProductList = ProductList.make().sort(ProductList.getSorting()).active().category(obActiveCategory.id, true) %}
+
 
 {# Get array with pagination buttons #}
-{% set iPage = Pagination.getPageFromRequest() %}
-{% set iCount = obProductList.count() %}
-{% set iMaxPage = obProductList.getMaxPage(iCount) %}
 
-{# Apply pagination to product collection and get array with product items #}
-{% set arProductList = obProductList.page(iPage, Pagination.getCountPerPage()) %}
 
 {% if arProductList is not empty %}
     {# Render product list #}

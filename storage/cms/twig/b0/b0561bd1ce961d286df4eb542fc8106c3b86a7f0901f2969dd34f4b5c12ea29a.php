@@ -29,7 +29,7 @@ class __TwigTemplate_d162eb68792f8bcf1c9507e18b16951200f11d562d9508a1fc8f666468f
         $this->blocks = [
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
-        $tags = array("partial" => 2, "page" => 5);
+        $tags = array("partial" => 2, "page" => 7);
         $filters = array();
         $functions = array();
 
@@ -65,15 +65,17 @@ class __TwigTemplate_d162eb68792f8bcf1c9507e18b16951200f11d562d9508a1fc8f666468f
         unset($context['__cms_partial_params']);
         // line 3
         echo "
-\t<section>
+\t<section id=\"body-site\">
+\t\t<div class=\"mega-menu-wrapper\">
+\t\t</div>
 \t\t";
-        // line 5
+        // line 7
         echo $this->env->getExtension('Cms\Twig\Extension')->pageFunction();
-        // line 6
+        // line 8
         echo "\t</section>
 
 ";
-        // line 8
+        // line 10
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("footer"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
@@ -91,7 +93,7 @@ class __TwigTemplate_d162eb68792f8bcf1c9507e18b16951200f11d562d9508a1fc8f666468f
 
     public function getDebugInfo()
     {
-        return array (  77 => 8,  73 => 6,  71 => 5,  67 => 3,  62 => 2,);
+        return array (  79 => 10,  75 => 8,  73 => 7,  67 => 3,  62 => 2,);
     }
 
     public function getSourceContext()
@@ -99,7 +101,9 @@ class __TwigTemplate_d162eb68792f8bcf1c9507e18b16951200f11d562d9508a1fc8f666468f
         return new Source("{##}
 {% partial 'header' class='myclass' %}
 
-\t<section>
+\t<section id=\"body-site\">
+\t\t<div class=\"mega-menu-wrapper\">
+\t\t</div>
 \t\t{% page %}
 \t</section>
 

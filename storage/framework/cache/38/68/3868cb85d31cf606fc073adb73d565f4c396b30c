@@ -1,4 +1,4 @@
-1606878461a:1:{s:11:"catalog.htm";a:18:{s:8:"fileName";s:11:"catalog.htm";s:7:"content";s:9001:"title = "Каталог товаров"
+1606978607a:1:{s:11:"catalog.htm";a:18:{s:8:"fileName";s:11:"catalog.htm";s:7:"content";s:9182:"title = "Каталог товаров"
 url = "/:category*/:slug?"
 layout = "default"
 description = "Каталог магазина"
@@ -34,7 +34,7 @@ skip_error = 1
 sorting = "new"
 
 [Pagination]
-count_per_page = 10
+count_per_page = 12
 pagination_limit = 5
 active_class = "active"
 button_list = "main"
@@ -85,12 +85,16 @@ function onInit() {
         $iPage = $this->Pagination->getPageFromRequest(); // Номер текущей страницы        
         $this->Catalog->initCatalogData($sActiveSort, $iPage);
         $obProductList = $this->Catalog->getProductList();
+        $obFilteredProductList = $this->Catalog->getFilteredProductList();
         $obBrandList = $this->Catalog->getBrandList();
         $iMaxPage = $this->Pagination->getMaxPage($obProductList->count());
         $obActiveCategory = $this->Catalog->getActiveCategory();
         $arProductList = $this->Catalog->getProductListWithPagination($this->Pagination->getCountPerPage());
-        $obFilterProductPropertyList = $this->FilterPanel->getOfferPropertyList(['cloches','shoes'], $obProductList);
+        $obFilterProductPropertyList = $this->Catalog->getFilterProductPropertyList()->setCategory(null)->setProductList($obProductList);
+        //$this->FilterPanel->getOfferPropertyList(['cloches','shoes'], $obProductList);
         // Передача в шаблон
+        $this['iPage'] = $iPage;
+        $this['iCount'] = $obFilteredProductList->count();
         $this['obProduct'] = $obProductItem;
         $this['obProductList'] = $obProductList;
         $this['obBrandList'] = $obBrandList;
@@ -98,6 +102,8 @@ function onInit() {
         $this['obFilterProductPropertyList'] = $obFilterProductPropertyList;
         $this['sActiveSort'] = $sActiveSort;
         $this['iMaxPage'] = $iMaxPage;
+        $this['obFilteredProductList'] = $obFilteredProductList;
+        $this['arProductList'] = $arProductList;
     }
 
     $this['obActiveCategory'] = $obActiveCategory; // Текущая активна категория которую отправляем в партиал product-list
@@ -179,15 +185,11 @@ function onInit() {
                                         </select>
                                     </div>										
                                 </div>
-                                <div class="kol-item">
-                                    <div class="kol-item__label">Товаров</div>
-                                    <div class="kol-item__value">{{obProductList.count()}}</div>
-                                    
-                                </div>
+                                {% partial "product-count" obFilteredProductList = obFilteredProductList%}
                             </div>
                         </div>
                         <div class="wrapper-overlay card-container catalog-wrapper">
-                            {% partial 'product/catalog/product-list' obActiveCategory=obActiveCategory  %}
+                            {% partial 'product/catalog/product-list' arProductList = arProductList  %}
                         </div>
                     </div>
                 </div>   
@@ -200,7 +202,7 @@ function onInit() {
 
 {% partial "banners/banner-1" %}
 
-{% partial "lookbook" %}";s:5:"mtime";i:1606877858;s:6:"markup";s:5419:"{##}
+{% partial "lookbook" %}";s:5:"mtime";i:1606919911;s:6:"markup";s:5204:"{##}
 
 {# @var obCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
 {# Get category item #}
@@ -275,15 +277,11 @@ function onInit() {
                                         </select>
                                     </div>										
                                 </div>
-                                <div class="kol-item">
-                                    <div class="kol-item__label">Товаров</div>
-                                    <div class="kol-item__value">{{obProductList.count()}}</div>
-                                    
-                                </div>
+                                {% partial "product-count" obFilteredProductList = obFilteredProductList%}
                             </div>
                         </div>
                         <div class="wrapper-overlay card-container catalog-wrapper">
-                            {% partial 'product/catalog/product-list' obActiveCategory=obActiveCategory  %}
+                            {% partial 'product/catalog/product-list' arProductList = arProductList  %}
                         </div>
                     </div>
                 </div>   
@@ -296,7 +294,7 @@ function onInit() {
 
 {% partial "banners/banner-1" %}
 
-{% partial "lookbook" %}";s:4:"code";s:2311:"function onInit() {
+{% partial "lookbook" %}";s:4:"code";s:2707:"function onInit() {
     // делаем проверку, если мы не нашли категорию и не нашли товар в параметре последнего слага :category*/:slug?
     // то нужно отобразить 404 ошибку
     /**
@@ -319,12 +317,16 @@ function onInit() {
         $iPage = $this->Pagination->getPageFromRequest(); // Номер текущей страницы        
         $this->Catalog->initCatalogData($sActiveSort, $iPage);
         $obProductList = $this->Catalog->getProductList();
+        $obFilteredProductList = $this->Catalog->getFilteredProductList();
         $obBrandList = $this->Catalog->getBrandList();
         $iMaxPage = $this->Pagination->getMaxPage($obProductList->count());
         $obActiveCategory = $this->Catalog->getActiveCategory();
         $arProductList = $this->Catalog->getProductListWithPagination($this->Pagination->getCountPerPage());
-        $obFilterProductPropertyList = $this->FilterPanel->getOfferPropertyList(['cloches','shoes'], $obProductList);
+        $obFilterProductPropertyList = $this->Catalog->getFilterProductPropertyList()->setCategory(null)->setProductList($obProductList);
+        //$this->FilterPanel->getOfferPropertyList(['cloches','shoes'], $obProductList);
         // Передача в шаблон
+        $this['iPage'] = $iPage;
+        $this['iCount'] = $obFilteredProductList->count();
         $this['obProduct'] = $obProductItem;
         $this['obProductList'] = $obProductList;
         $this['obBrandList'] = $obBrandList;
@@ -332,7 +334,9 @@ function onInit() {
         $this['obFilterProductPropertyList'] = $obFilterProductPropertyList;
         $this['sActiveSort'] = $sActiveSort;
         $this['iMaxPage'] = $iMaxPage;
+        $this['obFilteredProductList'] = $obFilteredProductList;
+        $this['arProductList'] = $arProductList;
     }
 
     $this['obActiveCategory'] = $obActiveCategory; // Текущая активна категория которую отправляем в партиал product-list
-}";s:5:"title";s:29:"Каталог товаров";s:3:"url";s:18:"/:category*/:slug?";s:6:"layout";s:7:"default";s:11:"description";s:31:"Каталог магазина";s:9:"is_hidden";s:1:"0";s:29:"CategoryPage MainCategoryPage";a:5:{s:4:"slug";s:15:"{{ :category }}";s:13:"slug_required";s:1:"1";s:15:"smart_url_check";s:1:"1";s:12:"has_wildcard";s:1:"1";s:10:"skip_error";s:1:"0";}s:12:"CategoryPage";a:5:{s:4:"slug";s:11:"{{ :slug }}";s:13:"slug_required";s:1:"0";s:15:"smart_url_check";s:1:"1";s:12:"has_wildcard";s:1:"0";s:10:"skip_error";s:1:"1";}s:11:"ProductPage";a:4:{s:4:"slug";s:11:"{{ :slug }}";s:13:"slug_required";s:1:"0";s:15:"smart_url_check";s:1:"1";s:10:"skip_error";s:1:"1";}s:9:"BrandPage";a:4:{s:4:"slug";s:11:"{{ :slug }}";s:13:"slug_required";s:1:"0";s:15:"smart_url_check";s:1:"0";s:10:"skip_error";s:1:"1";}s:11:"ProductList";a:1:{s:7:"sorting";s:3:"new";}s:10:"Pagination";a:22:{s:14:"count_per_page";s:2:"10";s:16:"pagination_limit";s:1:"5";s:12:"active_class";s:6:"active";s:11:"button_list";s:4:"main";s:17:"first_button_name";s:5:"First";s:18:"first_button_limit";s:1:"3";s:19:"first_button_number";s:1:"4";s:22:"first-more_button_name";s:3:"...";s:23:"first-more_button_limit";s:1:"4";s:16:"prev_button_name";s:4:"Prev";s:17:"prev_button_limit";s:1:"1";s:21:"prev-more_button_name";s:3:"...";s:22:"prev-more_button_limit";s:1:"1";s:21:"next-more_button_name";s:3:"...";s:22:"next-more_button_limit";s:1:"1";s:16:"next_button_name";s:4:"Next";s:17:"next_button_limit";s:1:"1";s:21:"last-more_button_name";s:3:"...";s:22:"last-more_button_limit";s:1:"4";s:16:"last_button_name";s:4:"Last";s:17:"last_button_limit";s:1:"3";s:18:"last_button_number";s:1:"1";}s:7:"Catalog";a:0:{}s:11:"FilterPanel";a:0:{}}}
+}";s:5:"title";s:29:"Каталог товаров";s:3:"url";s:18:"/:category*/:slug?";s:6:"layout";s:7:"default";s:11:"description";s:31:"Каталог магазина";s:9:"is_hidden";s:1:"0";s:29:"CategoryPage MainCategoryPage";a:5:{s:4:"slug";s:15:"{{ :category }}";s:13:"slug_required";s:1:"1";s:15:"smart_url_check";s:1:"1";s:12:"has_wildcard";s:1:"1";s:10:"skip_error";s:1:"0";}s:12:"CategoryPage";a:5:{s:4:"slug";s:11:"{{ :slug }}";s:13:"slug_required";s:1:"0";s:15:"smart_url_check";s:1:"1";s:12:"has_wildcard";s:1:"0";s:10:"skip_error";s:1:"1";}s:11:"ProductPage";a:4:{s:4:"slug";s:11:"{{ :slug }}";s:13:"slug_required";s:1:"0";s:15:"smart_url_check";s:1:"1";s:10:"skip_error";s:1:"1";}s:9:"BrandPage";a:4:{s:4:"slug";s:11:"{{ :slug }}";s:13:"slug_required";s:1:"0";s:15:"smart_url_check";s:1:"0";s:10:"skip_error";s:1:"1";}s:11:"ProductList";a:1:{s:7:"sorting";s:3:"new";}s:10:"Pagination";a:22:{s:14:"count_per_page";s:2:"12";s:16:"pagination_limit";s:1:"5";s:12:"active_class";s:6:"active";s:11:"button_list";s:4:"main";s:17:"first_button_name";s:5:"First";s:18:"first_button_limit";s:1:"3";s:19:"first_button_number";s:1:"4";s:22:"first-more_button_name";s:3:"...";s:23:"first-more_button_limit";s:1:"4";s:16:"prev_button_name";s:4:"Prev";s:17:"prev_button_limit";s:1:"1";s:21:"prev-more_button_name";s:3:"...";s:22:"prev-more_button_limit";s:1:"1";s:21:"next-more_button_name";s:3:"...";s:22:"next-more_button_limit";s:1:"1";s:16:"next_button_name";s:4:"Next";s:17:"next_button_limit";s:1:"1";s:21:"last-more_button_name";s:3:"...";s:22:"last-more_button_limit";s:1:"4";s:16:"last_button_name";s:4:"Last";s:17:"last_button_limit";s:1:"3";s:18:"last_button_number";s:1:"1";}s:7:"Catalog";a:0:{}s:11:"FilterPanel";a:0:{}}}

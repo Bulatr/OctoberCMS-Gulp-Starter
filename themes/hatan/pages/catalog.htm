@@ -34,7 +34,7 @@ skip_error = 1
 sorting = "new"
 
 [Pagination]
-count_per_page = 10
+count_per_page = 12
 pagination_limit = 5
 active_class = "active"
 button_list = "main"
@@ -85,12 +85,16 @@ function onInit() {
         $iPage = $this->Pagination->getPageFromRequest(); // Номер текущей страницы        
         $this->Catalog->initCatalogData($sActiveSort, $iPage);
         $obProductList = $this->Catalog->getProductList();
+        $obFilteredProductList = $this->Catalog->getFilteredProductList();
         $obBrandList = $this->Catalog->getBrandList();
         $iMaxPage = $this->Pagination->getMaxPage($obProductList->count());
         $obActiveCategory = $this->Catalog->getActiveCategory();
         $arProductList = $this->Catalog->getProductListWithPagination($this->Pagination->getCountPerPage());
-        $obFilterProductPropertyList = $this->FilterPanel->getOfferPropertyList(['cloches','shoes'], $obProductList);
+        $obFilterProductPropertyList = $this->Catalog->getFilterProductPropertyList()->setCategory(null)->setProductList($obProductList);
+        //$this->FilterPanel->getOfferPropertyList(['cloches','shoes'], $obProductList);
         // Передача в шаблон
+        $this['iPage'] = $iPage;
+        $this['iCount'] = $obFilteredProductList->count();
         $this['obProduct'] = $obProductItem;
         $this['obProductList'] = $obProductList;
         $this['obBrandList'] = $obBrandList;
@@ -98,6 +102,8 @@ function onInit() {
         $this['obFilterProductPropertyList'] = $obFilterProductPropertyList;
         $this['sActiveSort'] = $sActiveSort;
         $this['iMaxPage'] = $iMaxPage;
+        $this['obFilteredProductList'] = $obFilteredProductList;
+        $this['arProductList'] = $arProductList;
     }
 
     $this['obActiveCategory'] = $obActiveCategory; // Текущая активна категория которую отправляем в партиал product-list
@@ -179,15 +185,11 @@ function onInit() {
                                         </select>
                                     </div>										
                                 </div>
-                                <div class="kol-item">
-                                    <div class="kol-item__label">Товаров</div>
-                                    <div class="kol-item__value">{{obProductList.count()}}</div>
-                                    
-                                </div>
+                                {% partial "product-count" obFilteredProductList = obFilteredProductList%}
                             </div>
                         </div>
                         <div class="wrapper-overlay card-container catalog-wrapper">
-                            {% partial 'product/catalog/product-list' obActiveCategory=obActiveCategory  %}
+                            {% partial 'product/catalog/product-list' arProductList = arProductList  %}
                         </div>
                     </div>
                 </div>   

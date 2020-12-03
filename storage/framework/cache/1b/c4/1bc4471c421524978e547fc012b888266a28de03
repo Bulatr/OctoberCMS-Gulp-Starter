@@ -1,4 +1,4 @@
-1606878461a:1:{s:11:"top-bar.htm";a:6:{s:8:"fileName";s:11:"top-bar.htm";s:7:"content";s:616:"==
+1606978970a:1:{s:11:"top-bar.htm";a:6:{s:8:"fileName";s:11:"top-bar.htm";s:7:"content";s:551:"==
 {##}
 <div class="top-bar">
 	<div class="container">
@@ -10,7 +10,7 @@
 						<a href="#" class="btn text">
 								Улан-Удэ
 						</a>
-						<a href="#" class="btn text pl-3">Изменить город</a>
+						
 					</div>
 					<a href="tel:+79247702321" class="bar-phone">+7(924) 770-2321</a>
 					<div class="help-wrapper">
@@ -20,7 +20,7 @@
 			</div>
 		</div>
 	</div>		
-</div>";s:5:"mtime";i:1606283926;s:6:"markup";s:612:"{##}
+</div>";s:5:"mtime";i:1606974905;s:6:"markup";s:547:"{##}
 <div class="top-bar">
 	<div class="container">
 		<div class="row">
@@ -31,7 +31,7 @@
 						<a href="#" class="btn text">
 								Улан-Удэ
 						</a>
-						<a href="#" class="btn text pl-3">Изменить город</a>
+						
 					</div>
 					<a href="tel:+79247702321" class="bar-phone">+7(924) 770-2321</a>
 					<div class="help-wrapper">

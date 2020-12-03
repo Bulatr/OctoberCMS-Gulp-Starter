@@ -60,85 +60,79 @@ class __TwigTemplate_901fa2bb68174a77854f327a2f034c8176134815f9fd7de2dcbb511eba8
         $macros = $this->macros;
         // line 2
         echo "<div class=\"header\">
-\t\t<div class=\"container\" style=\"position: relative;\">
-\t\t\t<div class=\"row\">
-\t\t\t\t<div class=\"col d-flex justify-content-between\">
-\t\t\t\t\t<div class=\"logo-wrapper\">
-\t\t\t\t\t\t<div class=\"logo\">
-\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t<img src=\"";
+\t<div class=\"container\" style=\"position: relative;\">
+\t\t<div class=\"row\">
+\t\t\t<div class=\"col d-flex justify-content-between\">
+\t\t\t\t<div class=\"logo-wrapper\">
+\t\t\t\t\t<div class=\"logo\">
+\t\t\t\t\t\t<a href=\"#\">
+\t\t\t\t\t\t\t<img src=\"";
         // line 9
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/a-logo.svg");
         echo "\" alt=\"\">
-\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t</div>
+\t\t\t\t\t\t</a>
 \t\t\t\t\t</div>
-\t\t\t\t\t";
+\t\t\t\t</div>
+\t\t\t\t";
         // line 13
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("menu/main-menu-wrapper"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
         // line 14
-        echo "\t\t\t\t\t<div class=\"search-wrapper\">
-\t\t\t\t\t\t<form class=\"form-inline custom d-flex\">
-\t\t\t\t\t\t\t<input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Поиск\" aria-label=\"Search\">
-\t\t\t\t\t\t\t<div class=\"icon-search\">
-\t\t\t\t\t\t\t\t<img src=\"";
+        echo "\t\t\t\t<div class=\"search-wrapper\">
+\t\t\t\t\t<form class=\"form-inline custom d-flex\">
+\t\t\t\t\t\t<input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Поиск\" aria-label=\"Search\">
+\t\t\t\t\t\t<div class=\"icon-search\">
+\t\t\t\t\t\t\t<img src=\"";
         // line 18
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Search.svg");
         echo "\" alt=\"\">
-\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t
-\t\t\t\t\t\t</form>
-\t\t\t\t\t</div>
-\t\t\t\t\t<div class=\"icons-wrapper\">
-\t\t\t\t\t\t<div class=\"icons-toggle\"></div>
-\t\t\t\t\t\t<div class=\"icons account-icon\">
-\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t<img src=\"";
-        // line 26
+\t\t\t\t\t\t</div>\t\t\t\t\t\t\t
+\t\t\t\t\t</form>
+\t\t\t\t</div>
+\t\t\t\t<div class=\"icons-wrapper\">\t\t\t\t\t
+\t\t\t\t\t<div class=\"icons account-icon\">
+\t\t\t\t\t\t<a href=\"#\">
+\t\t\t\t\t\t\t<img src=\"";
+        // line 25
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Account.svg");
         echo "\" alt=\"Личный кабинет\">
-\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t\t<div class=\"icons heart-icon\">
-\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t<img src=\"";
-        // line 31
+\t\t\t\t\t\t</a>
+\t\t\t\t\t</div>
+\t\t\t\t\t<div class=\"icons heart-icon\">
+\t\t\t\t\t\t<a href=\"#\">
+\t\t\t\t\t\t\t<img src=\"";
+        // line 30
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Outline.svg");
         echo "\" alt=\"Избранное\">
-\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t\t<div class=\"icons cart-icon\" data-cartfilled=\"no\">
-\t\t\t\t\t\t\t<a href=\"#\" class=\"cart empty show\">
-\t\t\t\t\t\t\t\t<img src=\"";
-        // line 36
+\t\t\t\t\t\t</a>
+\t\t\t\t\t</div>
+\t\t\t\t\t<div class=\"icons cart-icon\" data-cartfilled=\"no\">
+\t\t\t\t\t\t<a href=\"#\" class=\"cart empty show\">
+\t\t\t\t\t\t\t<img src=\"";
+        // line 35
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Empty Cart.svg");
         echo "\" alt=\"\">
-\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t<a href=\"#\" class=\"cart filled\">
-\t\t\t\t\t\t\t\t<img src=\"";
-        // line 39
+\t\t\t\t\t\t</a>
+\t\t\t\t\t\t<a href=\"#\" class=\"cart filled\">
+\t\t\t\t\t\t\t<img src=\"";
+        // line 38
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Added to Cart.svg");
         echo "\" alt=\"\">
-\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t<a href=\"#\" class=\"cart added\">
-\t\t\t\t\t\t\t\t<img src=\"";
-        // line 42
+\t\t\t\t\t\t</a>
+\t\t\t\t\t\t<a href=\"#\" class=\"cart added\">
+\t\t\t\t\t\t\t<img src=\"";
+        // line 41
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Add to Cart.svg");
         echo "\" alt=\"\">
-\t\t\t\t\t\t\t</a>\t\t\t\t\t\t\t
-\t\t\t\t\t\t</div>
+\t\t\t\t\t\t</a>\t\t\t\t\t\t\t
 \t\t\t\t\t</div>
+\t\t\t\t\t<div class=\"icons-toggle\"></div>
 \t\t\t\t</div>
 \t\t\t</div>
-\t\t\t";
-        // line 48
-        $context['__cms_partial_params'] = [];
-        echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("menu/mega-menu"        , $context['__cms_partial_params']        , true        );
-        unset($context['__cms_partial_params']);
-        // line 49
-        echo "\t\t</div>
-    </div>";
+\t\t</div>\t\t\t\t\t
+\t</div>
+</div>";
     }
 
     public function getTemplateName()
@@ -153,60 +147,59 @@ class __TwigTemplate_901fa2bb68174a77854f327a2f034c8176134815f9fd7de2dcbb511eba8
 
     public function getDebugInfo()
     {
-        return array (  140 => 49,  136 => 48,  127 => 42,  121 => 39,  115 => 36,  107 => 31,  99 => 26,  88 => 18,  82 => 14,  78 => 13,  71 => 9,  62 => 2,);
+        return array (  126 => 41,  120 => 38,  114 => 35,  106 => 30,  98 => 25,  88 => 18,  82 => 14,  78 => 13,  71 => 9,  62 => 2,);
     }
 
     public function getSourceContext()
     {
         return new Source("{##}
 <div class=\"header\">
-\t\t<div class=\"container\" style=\"position: relative;\">
-\t\t\t<div class=\"row\">
-\t\t\t\t<div class=\"col d-flex justify-content-between\">
-\t\t\t\t\t<div class=\"logo-wrapper\">
-\t\t\t\t\t\t<div class=\"logo\">
-\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/a-logo.svg' | theme}}\" alt=\"\">
-\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t</div>
-\t\t\t\t\t{% partial \"menu/main-menu-wrapper\" %}
-\t\t\t\t\t<div class=\"search-wrapper\">
-\t\t\t\t\t\t<form class=\"form-inline custom d-flex\">
-\t\t\t\t\t\t\t<input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Поиск\" aria-label=\"Search\">
-\t\t\t\t\t\t\t<div class=\"icon-search\">
-\t\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Search.svg' | theme}}\" alt=\"\">
-\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t
-\t\t\t\t\t\t</form>
-\t\t\t\t\t</div>
-\t\t\t\t\t<div class=\"icons-wrapper\">
-\t\t\t\t\t\t<div class=\"icons-toggle\"></div>
-\t\t\t\t\t\t<div class=\"icons account-icon\">
-\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Account.svg' | theme}}\" alt=\"Личный кабинет\">
-\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t\t<div class=\"icons heart-icon\">
-\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Outline.svg' | theme}}\" alt=\"Избранное\">
-\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t\t<div class=\"icons cart-icon\" data-cartfilled=\"no\">
-\t\t\t\t\t\t\t<a href=\"#\" class=\"cart empty show\">
-\t\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Empty Cart.svg' | theme}}\" alt=\"\">
-\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t<a href=\"#\" class=\"cart filled\">
-\t\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Added to Cart.svg' | theme}}\" alt=\"\">
-\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t<a href=\"#\" class=\"cart added\">
-\t\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Add to Cart.svg' | theme}}\" alt=\"\">
-\t\t\t\t\t\t\t</a>\t\t\t\t\t\t\t
-\t\t\t\t\t\t</div>
+\t<div class=\"container\" style=\"position: relative;\">
+\t\t<div class=\"row\">
+\t\t\t<div class=\"col d-flex justify-content-between\">
+\t\t\t\t<div class=\"logo-wrapper\">
+\t\t\t\t\t<div class=\"logo\">
+\t\t\t\t\t\t<a href=\"#\">
+\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/a-logo.svg' | theme}}\" alt=\"\">
+\t\t\t\t\t\t</a>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
+\t\t\t\t{% partial \"menu/main-menu-wrapper\" %}
+\t\t\t\t<div class=\"search-wrapper\">
+\t\t\t\t\t<form class=\"form-inline custom d-flex\">
+\t\t\t\t\t\t<input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Поиск\" aria-label=\"Search\">
+\t\t\t\t\t\t<div class=\"icon-search\">
+\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Search.svg' | theme}}\" alt=\"\">
+\t\t\t\t\t\t</div>\t\t\t\t\t\t\t
+\t\t\t\t\t</form>
+\t\t\t\t</div>
+\t\t\t\t<div class=\"icons-wrapper\">\t\t\t\t\t
+\t\t\t\t\t<div class=\"icons account-icon\">
+\t\t\t\t\t\t<a href=\"#\">
+\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Account.svg' | theme}}\" alt=\"Личный кабинет\">
+\t\t\t\t\t\t</a>
+\t\t\t\t\t</div>
+\t\t\t\t\t<div class=\"icons heart-icon\">
+\t\t\t\t\t\t<a href=\"#\">
+\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Outline.svg' | theme}}\" alt=\"Избранное\">
+\t\t\t\t\t\t</a>
+\t\t\t\t\t</div>
+\t\t\t\t\t<div class=\"icons cart-icon\" data-cartfilled=\"no\">
+\t\t\t\t\t\t<a href=\"#\" class=\"cart empty show\">
+\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Empty Cart.svg' | theme}}\" alt=\"\">
+\t\t\t\t\t\t</a>
+\t\t\t\t\t\t<a href=\"#\" class=\"cart filled\">
+\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Added to Cart.svg' | theme}}\" alt=\"\">
+\t\t\t\t\t\t</a>
+\t\t\t\t\t\t<a href=\"#\" class=\"cart added\">
+\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Add to Cart.svg' | theme}}\" alt=\"\">
+\t\t\t\t\t\t</a>\t\t\t\t\t\t\t
+\t\t\t\t\t</div>
+\t\t\t\t\t<div class=\"icons-toggle\"></div>
+\t\t\t\t</div>
 \t\t\t</div>
-\t\t\t{% partial \"menu/mega-menu\" %}
-\t\t</div>
-    </div>", "Z:\\domains\\hatan.loc/themes/hatan/partials/header-site.htm", "");
+\t\t</div>\t\t\t\t\t
+\t</div>
+</div>", "Z:\\domains\\hatan.loc/themes/hatan/partials/header-site.htm", "");
     }
 }

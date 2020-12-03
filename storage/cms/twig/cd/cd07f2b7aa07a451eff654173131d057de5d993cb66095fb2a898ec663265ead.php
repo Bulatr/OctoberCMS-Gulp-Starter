@@ -29,13 +29,13 @@ class __TwigTemplate_668d6fad5561dfedd782e526b5a174d05dbdcef5f81ea4674919d8d16fd
         $this->blocks = [
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
-        $tags = array("set" => 3, "if" => 13, "for" => 16, "partial" => 17);
+        $tags = array("if" => 8, "for" => 11, "partial" => 12);
         $filters = array();
         $functions = array();
 
         try {
             $this->sandbox->checkSecurity(
-                ['set', 'if', 'for', 'partial'],
+                ['if', 'for', 'partial'],
                 [],
                 []
             );
@@ -59,42 +59,31 @@ class __TwigTemplate_668d6fad5561dfedd782e526b5a174d05dbdcef5f81ea4674919d8d16fd
     {
         $macros = $this->macros;
         // line 3
-        $context["obProductList"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["ProductList"] ?? null), "make", [], "method", false, false, true, 3), "sort", [0 => twig_get_attribute($this->env, $this->source, ($context["ProductList"] ?? null), "getSorting", [], "method", false, false, true, 3)], "method", false, false, true, 3), "active", [], "method", false, false, true, 3), "category", [0 => twig_get_attribute($this->env, $this->source, ($context["obActiveCategory"] ?? null), "id", [], "any", false, false, true, 3), 1 => true], "method", false, false, true, 3);
-        // line 4
         echo "
+
 ";
         // line 6
-        $context["iPage"] = twig_get_attribute($this->env, $this->source, ($context["Pagination"] ?? null), "getPageFromRequest", [], "method", false, false, true, 6);
-        // line 7
-        $context["iCount"] = twig_get_attribute($this->env, $this->source, ($context["obProductList"] ?? null), "count", [], "method", false, false, true, 7);
+        echo "
+
+";
         // line 8
-        $context["iMaxPage"] = twig_get_attribute($this->env, $this->source, ($context["obProductList"] ?? null), "getMaxPage", [0 => ($context["iCount"] ?? null)], "method", false, false, true, 8);
-        // line 9
-        echo "
-";
-        // line 11
-        $context["arProductList"] = twig_get_attribute($this->env, $this->source, ($context["obProductList"] ?? null), "page", [0 => ($context["iPage"] ?? null), 1 => twig_get_attribute($this->env, $this->source, ($context["Pagination"] ?? null), "getCountPerPage", [], "method", false, false, true, 11)], "method", false, false, true, 11);
-        // line 12
-        echo "
-";
-        // line 13
         if ( !twig_test_empty(($context["arProductList"] ?? null))) {
-            // line 14
+            // line 9
             echo "    ";
-            // line 15
+            // line 10
             echo "    
         ";
-            // line 16
+            // line 11
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["arProductList"] ?? null));
             foreach ($context['_seq'] as $context["_key"] => $context["obProduct"]) {
-                // line 17
+                // line 12
                 echo "            ";
                 $context['__cms_partial_params'] = [];
                 $context['__cms_partial_params']['obProduct'] = $context["obProduct"]                ;
                 echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("product/product-card/product-card"                , $context['__cms_partial_params']                , true                );
                 unset($context['__cms_partial_params']);
-                // line 18
+                // line 13
                 echo "        ";
             }
             $_parent = $context['_parent'];
@@ -103,7 +92,7 @@ class __TwigTemplate_668d6fad5561dfedd782e526b5a174d05dbdcef5f81ea4674919d8d16fd
             echo "        
     
     ";
-            // line 20
+            // line 15
             $context['__cms_partial_params'] = [];
             $context['__cms_partial_params']['iCount'] = ($context["iCount"] ?? null)            ;
             $context['__cms_partial_params']['iPage'] = ($context["iPage"] ?? null)            ;
@@ -111,7 +100,7 @@ class __TwigTemplate_668d6fad5561dfedd782e526b5a174d05dbdcef5f81ea4674919d8d16fd
             echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("pagination/pagination"            , $context['__cms_partial_params']            , true            );
             unset($context['__cms_partial_params']);
         } else {
-            // line 22
+            // line 17
             echo "    <div>
         Товаров не найдено
     </div>
@@ -131,22 +120,17 @@ class __TwigTemplate_668d6fad5561dfedd782e526b5a174d05dbdcef5f81ea4674919d8d16fd
 
     public function getDebugInfo()
     {
-        return array (  115 => 22,  107 => 20,  98 => 18,  92 => 17,  88 => 16,  85 => 15,  83 => 14,  81 => 13,  78 => 12,  76 => 11,  73 => 9,  71 => 8,  69 => 7,  67 => 6,  64 => 4,  62 => 3,);
+        return array (  104 => 17,  96 => 15,  87 => 13,  81 => 12,  77 => 11,  74 => 10,  72 => 9,  70 => 8,  66 => 6,  62 => 3,);
     }
 
     public function getSourceContext()
     {
         return new Source("{##}
 {# Get product collection #}
-{% set obProductList = ProductList.make().sort(ProductList.getSorting()).active().category(obActiveCategory.id, true) %}
+
 
 {# Get array with pagination buttons #}
-{% set iPage = Pagination.getPageFromRequest() %}
-{% set iCount = obProductList.count() %}
-{% set iMaxPage = obProductList.getMaxPage(iCount) %}
 
-{# Apply pagination to product collection and get array with product items #}
-{% set arProductList = obProductList.page(iPage, Pagination.getCountPerPage()) %}
 
 {% if arProductList is not empty %}
     {# Render product list #}

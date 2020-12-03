@@ -6,11 +6,28 @@ import ShopaholicFilterPanel from "@lovata/shopaholic-filter-panel/shopaholic-fi
 document.addEventListener("DOMContentLoaded", function() {
 
 	// Custom JS
+
+	/**
+	 * Загрузка меню
+	 * при при клике
+	 */
+	$('.main-menu-wrapper a.nav-link').on("click", function() {
+		$.request('onAjax', {
+			update: {'menu/mega-menu': '.mega-menu-wrapper'}
+			
+		});
+		
+	});
+	
+	// Конец блока меню
 	const obListHelper = new ShopaholicProductList();
 	
 	obListHelper.setAjaxRequestCallback((obRequestData) => {
-		$('.card-container').request('ProductList::onAjaxRequest', {
+		$.request('ProductList::onAjaxRequest', {
 			'update': {'product/catalog/product-list': '.catalog-wrapper'}
+		});
+		$.request('ProductList::onAjaxRequest', {
+			'update': {'product-count': '.kol-item'}
 		});
 		
 		obRequestData.update = {
@@ -30,15 +47,16 @@ document.addEventListener("DOMContentLoaded", function() {
 	obPaginationHelper.init();
 	obSortingHelper.init();
 	
-	/*
+	
 	//Ajax filtration
+		/*
 	$('body').on('change', 'input.form-check-input', function (e) {
 		console.log(e);
 		$('.wrapper-overlay.card-container').request('ProductList::onAjaxRequest', {
 			'update': {'product/catalog/product-list': '.catalog-wrapper'}
 		});
 	});
-	
+
 	//Ajax pagination (product list)
 	$('body').on('click', '.pagination a._shopaholic-pagination', function (e) {
 
@@ -89,23 +107,46 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	);
 
-	// nav
+	/**
+	 * Main menu
+	 */
 	$(".main-menu-wrapper .nav-item .nav-link").click(function() {
+		$(".mega-menu-wrapper").addClass("show");
+		
 		// Убираем класс show у Megamenu
-		$(".megamenu").removeClass("show");
+		$(".megamenu").removeClass("show").slideUp();
 		// Убираем нижнию черту у активного элемента
 		$(".navbar .navbar-nav .nav-item.active").removeClass("active");
 
 		let mainItem = $(this).data('mainmenuitem');
 		console.log(mainItem);
 		// add class show megamenu
-		let megaitem = $("#"+mainItem).addClass("show");
+		$("#"+mainItem).addClass("show");
 
 		console.log($(this).closest('li'));
 		// add class active nav-item
 		$(this).closest('li').addClass("active");
 		
 	});
+
+	//Megamenu
+
+	$(document).on("mouseover", function(e){
+		
+		let targetClass = $(e.target).attr('class');
+		
+		if (targetClass == "mega-menu-wrapper show") {
+			console.log("Baam");
+			$(".mega-menu-wrapper").removeClass("show");
+			$(".megamenu").removeClass("show");
+		}
+		
+		
+	});
+
+	/**
+	 * Properties
+	 */
 
 	$('#color-radio input').on('click', function() {
 		var clk = $('input:checked', '#myForm').val();
@@ -234,17 +275,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 		
 	});
-
-	
-	//Megamenu
-
-	$( ".megamenu" ).hover(
-		function() {
-		//$( this ).addClass("show") ;
-		}, function() {
-		$( this ).removeClass("show") ;
-		}
-	);
 	
 	// product thumbnail
 
@@ -392,25 +422,46 @@ document.addEventListener("DOMContentLoaded", function() {
 		input_col.value = var_count;
 	});
 
-	$(".search-wrapper").mouseup(function (e){ // событие клика по веб-документу
+	/**
+	 * Закрытие дополнительного меню
+	 */
+	$(document).mouseup(function (e){ // событие клика по веб-документу
 		var div = $(".icon-search"); // тут указываем ID элемента
 		var inp = $(".search-wrapper .form-inline.custom input.form-control");
+		var div_tg = $(".icons-toggle"); // тут указываем ID элемента
+		var targetClass = $(e.target).attr("class");
+		console.log(targetClass);
+		console.log(!div_tg.is(e.target));
+		console.log(div_tg.has(e.target).length);
+		console.log("-----------------");
 		if (!div.is(e.target) // если клик был не по нашему блоку
 			&& div.has(e.target).length === 0 && !inp.is(e.target)) { // и не по его дочерним элементам
 			$(".search-wrapper").removeClass("show"); // скрываем его
 			//console.log(e.target);
 		} else {
+			
 			$(".search-wrapper").addClass("show");
 		}
-		var div_tg = $(".icons-toggle"); // тут указываем ID элемента
+		
 		if (!div_tg.is(e.target) // если клик был не по нашему блоку
 			&& div_tg.has(e.target).length === 0 ) { // и не по его дочерним элементам
 			$(".icons-wrapper").removeClass("show"); // скрываем его
+			div_tg.removeClass('show');
 			//console.log(e.target);
 		} else {
-			$(".icons-wrapper").addClass("show");
+			console.log("click");
+			console.log("-----------------")
+			if (targetClass == "icons-toggle show") {
+				$(".icons-wrapper").removeClass("show");
+				div_tg.removeClass('show');
+			} else {
+				$(".icons-wrapper").addClass("show");
+				div_tg.addClass("show");
+			}
+			
 		}
 	});
+
 	
 });
 

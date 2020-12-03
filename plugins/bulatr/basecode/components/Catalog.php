@@ -1,10 +1,12 @@
 <?php namespace Bulatr\BaseCode\Components;
 
+use Input;
 use Cms\Classes\Page;
 use Cms\Classes\ComponentBase;
 use Lovata\Shopaholic\Classes\Collection\ProductCollection;
 use Lovata\Shopaholic\Classes\Collection\BrandCollection;
 use Lovata\Shopaholic\Classes\Item\CategoryItem;
+
 
 /**
  * Class Catalog
@@ -20,14 +22,25 @@ class Catalog extends ComponentBase
     protected $obActiveCategoryItem = null;
     /** @var null|\Lovata\Shopaholic\Classes\Item\BrandItem */
     protected $obBrandItem = null;
+
     /** @var null|\Lovata\Shopaholic\Classes\Collection\ProductCollection */
-    protected $obProductList = null;    
+    protected $obProductList = null;
+    
+    /** @var null|\Lovata\Shopaholic\Classes\Collection\ProductCollection */
+    protected $obFilteredProductList = null; 
     protected $sActiveSort = null;    
     protected $iPage = null;
     /** @var null|\Lovata\Shopaholic\Classes\Collection\ProductCollection */
     protected $arProductList = null;
     /** @var null|\Lovata\Shopaholic\Classes\Collection\BrandCollection */
     protected  $obBrandList = null;
+    protected $arFilterPropertyList = [];
+    protected $arFilterBrandList = [];
+    protected $arFilterCategoryList = [];
+    /** @var \Lovata\PropertiesShopaholic\Classes\Collection\FilterPropertyCollection */
+    protected $obFilterProductPropertyList;
+
+
     /**
      * @return array
      */
@@ -50,6 +63,15 @@ class Catalog extends ComponentBase
     }
 
     /** 
+     * Get product list width filter by brands and properties
+     * @return ProductCollection
+    */
+    public function getFilteredProductList() 
+    {
+        return $this->obFilteredProductList;
+    }
+
+    /** 
      * Get active category object
      * @return CategoryItem
     */
@@ -68,13 +90,49 @@ class Catalog extends ComponentBase
     }
 
     /** 
+     * Get brand ID list
+     * @return array
+    */
+    public function getFilterBrandList() 
+    {
+        return $this->arFilterBrandList;
+    }
+
+    /** 
+     * Get property list from request
+     * @return array
+    */
+    public function getFilterPropertyList() 
+    {
+        return $this->arFilterPropertyList;
+    }
+
+    /** 
+     * Get filter product property list
+     * @return \Lovata\PropertiesShopaholic\Classes\Collection\FilterPropertyCollection
+    */
+    public function getFilterProductPropertyList() 
+    {
+        return $this->obFilterProductPropertyList;
+    }
+
+    /** 
+     * Get category list fron request
+     * @return array
+    */
+    public function getFilterCategoryList() 
+    {
+        return $this->arFilterCategoryList;
+    }
+
+    /** 
      * Get product list width pagination
      * @param int $iCountPerPage
      * @return array
     */
     public function getProductListWithPagination($iCountPerPage) 
     {
-        $this->arProductList = $this->obProductList->page($this->iPage, $iCountPerPage);
+        $this->arProductList = $this->obFilteredProductList->page($this->iPage, $iCountPerPage);
         return $this->arProductList;
     }
 
@@ -150,6 +208,8 @@ class Catalog extends ComponentBase
         }
 
         $this->obBrandItem = $obBrandItem;
+
+        $this->obFilterProductPropertyList = $this->obActiveCategoryItem->offer_filter_property;
     }
     
     /**
@@ -163,10 +223,12 @@ class Catalog extends ComponentBase
         $this->iPage = $iPage;
         $this->initProductList();
         $this->initBrandList();
+        $this->initFilterPropertyList();
+        $this->initFilteredProductList();
     }
 
     /** Init product list object */
-    public function initProductList() 
+    protected function initProductList() 
     {
         $this->obProductList = ProductCollection::make()
         ->active()
@@ -174,13 +236,62 @@ class Catalog extends ComponentBase
         ->category([$this->obActiveCategoryItem->id], true);
     }
 
+    /** Init filtered product list object */
+    protected function initFilteredProductList() 
+    {
+        $this->obFilteredProductList = $this->obProductList->copy();
+        if (!empty($this->arFilterBrandList)) {
+            $this->obFilteredProductList->filterByBrandList($this->arFilterBrandList);
+        }
+        if (!empty($this->arFilterPropertyList)) {
+            $this->obFilteredProductList->filterByProperty($this->arFilterPropertyList, $this->obFilterProductPropertyList);
+        }
+    }
+
     /** Init brand list object */
-    public function initBrandList() 
+    protected function initBrandList() 
     {        
         $this->obBrandList = BrandCollection::make()
         ->active()
         ->sort()
         ->category($this->obActiveCategoryItem->id);
+        $sFilter = Input::get('brand');
+        if (empty($sFilter)) {
+            return;
+        }
+        $arFilterValue = explode("|", $sFilter);
+
+        /** @var \Lovata\Shopaholic\Classes\Item\BrandItem $obBrandItem */
+
+        foreach ($this->obBrandList as $obBrandItem) {
+            if (in_array($obBrandItem->slug, $arFilterValue)) {
+                $this->arFilterBrandList[]=$obBrandItem->id;
+            }
+        }
+    }
+
+    protected function initFilterPropertyList()
+    {
+        /** Получаем данные с URL */
+        $this->arFilterPropertyList = Input::get('property'); 
+        $this->arFilterPropertyList = $this->parseRequestValue($this->arFilterPropertyList);
+    }
+
+    /**
+     * Парсим Url c разделителем |
+     * Parse request array
+     * @param array $arValueList
+     * @return array
+     */
+    protected function parseRequestValue($arValueList)
+    {
+        if (empty($arValueList)) {
+            return [];
+        }
+        foreach ($arValueList as $iKey => $sValue) {
+            $arValueList[$iKey] = explode('|', $sValue);
+        }
+        return $arValueList;
     }
 
 }

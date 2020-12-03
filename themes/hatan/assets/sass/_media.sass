@@ -36,7 +36,7 @@
     
     .logo-wrapper
         padding-right: 0
-        margin-left: 60px
+        margin-left: 45px
     
     .icons-wrapper
         position: absolute
@@ -47,18 +47,30 @@
         z-index: 100
         background-color: $light
         transition: all 0.3s ease-out
+        margin-top: 0
+        margin-bottom: 0
+        padding-top: 24px
+        padding-bottom: 24px
         .icons
             display: none
         .icons-toggle
-            display: block   
+            display: block               
         &.show
             transition: all 0.3s ease-out
-            width: 162px
+            width: 100%
+            height: inherit
+            justify-content: flex-end
+            right: 0
+            padding-right: 16px
             .icons
                 display: block
             .icons-toggle
-                display: none
-
+                display: block
+                background-image: url(../images/Close-circle.svg)
+                background-size: cover
+                margin-left: 16px
+    .header
+        border-bottom: 1px solid $light-var
     .section
         margin-top: 64px
 
@@ -80,7 +92,7 @@
 
     .main-menu-wrapper
         position: absolute
-        width: 92%
+        width: initial
         .navbar      
             .navbar-toggler
                 display: flex      
@@ -94,13 +106,22 @@
                         z-index: 10000
                         position: absolute
                         left: -16px
-                        top: 66px
+                        top: 77px
+                        width: 100vw
+                        padding-bottom: 10px
             .navbar-nav 
                 .nav-item
                     &.active
                         &::after
                             bottom: 0
-    
+        &.show
+            width: 100%
+
+    .mega-menu-wrapper
+        z-index: -1
+        &.show
+            top: 304px
+
     .megamenu
         padding-top: 20px
         padding-right: 16px
@@ -109,7 +130,7 @@
                 padding-left: 16px
                 flex-direction: column
         &.show
-            top: 195px
+            top: 0
 
     .main-banners
         margin-top: 30px

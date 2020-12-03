@@ -63,32 +63,30 @@ class __TwigTemplate_eec34caad6fee05f203133a24bf724305fe7f52b71e4d1529017dbd32f8
 \t<nav class=\"navbar navbar-expand-lg\">
 \t\t
 \t\t<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
-\t\t  <span class=\"navbar-toggler-icon\"></span>
+\t\t\t<span class=\"navbar-toggler-icon\"></span>
 \t\t</button>
-\t  
+\t\t
 \t\t<div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">
-\t\t  <ul class=\"navbar-nav mr-auto\">
-\t\t\t<li class=\"nav-item active\">
-\t\t\t\t<a class=\"nav-link\" href=\"#\" data-mainmenuitem=\"item1\" >
-\t\t\t\t  Женщинам
-\t\t\t\t</a>\t\t\t\t\t\t\t\t\t
-\t\t\t</li>
-\t\t\t<li class=\"nav-item\">
-\t\t\t\t<a class=\"nav-link\" href=\"#\" data-mainmenuitem=\"item2\">
-\t\t\t\t  Мужчинам
-\t\t\t\t</a>
-\t\t\t\t
-\t\t\t</li>
-\t\t\t<li class=\"nav-item\">
-\t\t\t  <a class=\"nav-link\" href=\"#\" data-mainmenuitem=\"item3\">
-\t\t\t\tДетям
-\t\t\t  </a>\t\t\t\t\t\t\t\t  
-\t\t\t</li>
-\t\t\t
-\t\t  </ul>
-\t\t  
+\t\t\t<ul class=\"navbar-nav mr-auto\">
+\t\t\t\t<li class=\"nav-item active\">
+\t\t\t\t\t<a class=\"nav-link\" href=\"#\" data-mainmenuitem=\"item1\" >
+\t\t\t\t\t\tЖенщинам
+\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t
+\t\t\t\t</li>
+\t\t\t\t<li class=\"nav-item\">
+\t\t\t\t\t<a class=\"nav-link\" href=\"#\" data-mainmenuitem=\"item2\">
+\t\t\t\t\t\tМужчинам
+\t\t\t\t\t</a>
+\t\t\t\t\t
+\t\t\t\t</li>
+\t\t\t\t<li class=\"nav-item\">
+\t\t\t\t\t<a class=\"nav-link\" href=\"#\" data-mainmenuitem=\"item3\">
+\t\t\t\t\tПокупателю
+\t\t\t\t\t</a>\t\t\t\t\t\t\t\t  
+\t\t\t\t</li>\t\t\t
+\t\t\t</ul>
 \t\t</div>
-\t  </nav>
+\t</nav>
 </div>";
     }
 
@@ -108,32 +106,30 @@ class __TwigTemplate_eec34caad6fee05f203133a24bf724305fe7f52b71e4d1529017dbd32f8
 \t<nav class=\"navbar navbar-expand-lg\">
 \t\t
 \t\t<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
-\t\t  <span class=\"navbar-toggler-icon\"></span>
+\t\t\t<span class=\"navbar-toggler-icon\"></span>
 \t\t</button>
-\t  
+\t\t
 \t\t<div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">
-\t\t  <ul class=\"navbar-nav mr-auto\">
-\t\t\t<li class=\"nav-item active\">
-\t\t\t\t<a class=\"nav-link\" href=\"#\" data-mainmenuitem=\"item1\" >
-\t\t\t\t  Женщинам
-\t\t\t\t</a>\t\t\t\t\t\t\t\t\t
-\t\t\t</li>
-\t\t\t<li class=\"nav-item\">
-\t\t\t\t<a class=\"nav-link\" href=\"#\" data-mainmenuitem=\"item2\">
-\t\t\t\t  Мужчинам
-\t\t\t\t</a>
-\t\t\t\t
-\t\t\t</li>
-\t\t\t<li class=\"nav-item\">
-\t\t\t  <a class=\"nav-link\" href=\"#\" data-mainmenuitem=\"item3\">
-\t\t\t\tДетям
-\t\t\t  </a>\t\t\t\t\t\t\t\t  
-\t\t\t</li>
-\t\t\t
-\t\t  </ul>
-\t\t  
+\t\t\t<ul class=\"navbar-nav mr-auto\">
+\t\t\t\t<li class=\"nav-item active\">
+\t\t\t\t\t<a class=\"nav-link\" href=\"#\" data-mainmenuitem=\"item1\" >
+\t\t\t\t\t\tЖенщинам
+\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t
+\t\t\t\t</li>
+\t\t\t\t<li class=\"nav-item\">
+\t\t\t\t\t<a class=\"nav-link\" href=\"#\" data-mainmenuitem=\"item2\">
+\t\t\t\t\t\tМужчинам
+\t\t\t\t\t</a>
+\t\t\t\t\t
+\t\t\t\t</li>
+\t\t\t\t<li class=\"nav-item\">
+\t\t\t\t\t<a class=\"nav-link\" href=\"#\" data-mainmenuitem=\"item3\">
+\t\t\t\t\tПокупателю
+\t\t\t\t\t</a>\t\t\t\t\t\t\t\t  
+\t\t\t\t</li>\t\t\t
+\t\t\t</ul>
 \t\t</div>
-\t  </nav>
+\t</nav>
 </div>", "Z:\\domains\\hatan.loc/themes/hatan/partials/menu/main-menu-wrapper.htm", "");
     }
 }

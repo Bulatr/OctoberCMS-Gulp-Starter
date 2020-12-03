@@ -126,6 +126,19 @@ button.btn
 			background-repeat: no-repeat
 	.navbar-collapse 
 		&.collapse
+			&.show
+				width: 100%
+
+.mega-menu-wrapper
+	position: relative
+	&.show
+		display: block
+		position: absolute
+		left: 0
+		top: 117px
+		width: 100vw
+		height: 100vh
+		z-index: 100
 
 .megamenu    
 	display: none    
@@ -134,7 +147,7 @@ button.btn
 	background-color: $light
 	position: absolute
 	left: 0
-	top: 78px
+	top: 0
 	width: 100%
 	height: fit-content
 	padding-top: 42px
@@ -849,6 +862,7 @@ button.btn
 .category, .section-wrapper
 	.breadcrumbs
 		border-bottom: 1px solid $light-var
+		border-top: 1px solid $light-var
 		padding-bottom: 24px
 		margin-bottom: 0
 .category__row, .section__row
@@ -2020,9 +2034,9 @@ button.btn
 	display: flex
 	flex-direction: row
 	flex-wrap: wrap
-	font-size: 14px	
-	margin-top: 24px
-	margin-bottom: 24px
+	font-size: 12px	
+	padding-top: 24px
+	padding-bottom: 24px
 	.item-breadcrumbs
 		padding-right: 15px
 		padding-left: 15px
@@ -2450,6 +2464,9 @@ input[type="checkbox"]
 		left: 0
 		top: 0
 	&:checked
+		&+label
+			font-weight: 400
+			color: $textcolor
 		&::before
 			position: absolute
 			content: ""
@@ -2469,7 +2486,8 @@ input[type="checkbox"]
 	label.form-check-label
 		font-size: 14px
 		font-family: $roboto
-		font-weight: 400
+		font-weight: 300
+		color: $dark-var
 		display: flex
 		flex-direction: row
 		justify-content: flex-start
