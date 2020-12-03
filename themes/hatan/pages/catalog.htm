@@ -1,5 +1,5 @@
 title = "Каталог товаров"
-url = "/:category*/:slug?"
+url = "/catalog/:category*/:slug?"
 layout = "default"
 description = "Каталог магазина"
 is_hidden = 0
@@ -95,7 +95,6 @@ function onInit() {
         // Передача в шаблон
         $this['iPage'] = $iPage;
         $this['iCount'] = $obFilteredProductList->count();
-        $this['obProduct'] = $obProductItem;
         $this['obProductList'] = $obProductList;
         $this['obBrandList'] = $obBrandList;
         $this['obBrand'] = $obBrandItem;        
@@ -104,9 +103,12 @@ function onInit() {
         $this['iMaxPage'] = $iMaxPage;
         $this['obFilteredProductList'] = $obFilteredProductList;
         $this['arProductList'] = $arProductList;
+        $this['obActiveCategory'] = $obActiveCategory; // Текущая активна категория которую отправляем в партиал product-list
+    } else {
+        $this['obProduct'] = $obProductItem;
     }
 
-    $this['obActiveCategory'] = $obActiveCategory; // Текущая активна категория которую отправляем в партиал product-list
+    
 }
 ?>
 ==
@@ -114,92 +116,428 @@ function onInit() {
 
 {# @var obCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
 {# Get category item #}
-{% partial "filters/filter-modal" obPropertyList = obFilterProductPropertyList %}
-
-<!-- Category-->
-<div class="category" data-id="{{ obCategory.id }}" itemscope itemtype="http://schema.org/Category">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                {% partial "breadcrumbs/breadcrumbs" arBreadcrumbs=Catalog.getBreadcrumbs() %}                
-                <div class="category__row">
-                    <div class="sidebar">
-                        <div class="sidebar__title">
-                            <h3>{{ obActiveCategory.name }}</h3>
-                        </div>
-                        <div class="sidebar__content">
-                            <div class="sidebar__menu">
-                                {% partial "category/category-tree/category-list" obActiveCategory = obActiveCategory  %}
-                            </div>
-                            <div class="sidebar__filter">
-                                
-                                <div class="sidebar-filter-item">
-                                    <div class="sidebar-filter-item__label">
-                                        <a href="#">Посмотреть все</a>
-                                    </div>
-                                    <div class="sidebar-filter-item__value">
-                                        20
-                                    </div>										
-                                </div>
-                                <div class="sidebar-filter-item">
-                                    <div class="sidebar-filter-item__label">
-                                        <a href="#">Осень</a>
-                                    </div>
-                                    <div class="sidebar-filter-item__value">
-                                        10
-                                    </div>										
-                                </div>
-                                <div class="sidebar-filter-item">
-                                    <div class="sidebar-filter-item__label">
-                                        <a href="#">Зима</a>
-                                    </div>
-                                    <div class="sidebar-filter-item__value">
-                                        10
-                                    </div>										
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="main-container">
-                        <div class="filter-bar">								
-                            <div class="filter-bar-col-small">
-                                <div class="filter-icon">
-                                    <div class="filter-icon__image">
-                                        <img src="{{'assets/images/Filter.svg' | theme }}" alt="">
-                                    </div>									
-                                    <div class="filter-icon__label">
-                                        Фильтр
-                                    </div>									
-                                </div>
-                            </div>
-                            <div class="filter-bar-col">
-                                <!-- Sort -->
-                                <div class="filter-sort">
-                                    <div class="filter-sort__label">Сортировка</div>
-                                    <div class="filter-sort__select">
-                                        <select class="sort-select _shopaholic-sorting" name="sort-product" id="sort-product">
-                                            <option {% if sActiveSort == 'no' %} selected {% endif %} value="no">По популярности</option>
-                                            <option {% if sActiveSort == 'price|asc' %} selected {% endif %} value="price|asc">По возрастанию цены</option>
-                                            <option {% if sActiveSort == 'price|desc' %} selected {% endif %} value="price|desc">По убыванию цены</option>
-                                            <option {% if sActiveSort == 'new' %} selected {% endif %} value="new">Новые</option>
-                                        </select>
-                                    </div>										
-                                </div>
-                                {% partial "product-count" obFilteredProductList = obFilteredProductList%}
-                            </div>
-                        </div>
-                        <div class="wrapper-overlay card-container catalog-wrapper">
-                            {% partial 'product/catalog/product-list' arProductList = arProductList  %}
-                        </div>
-                    </div>
-                </div>   
+{% if obProduct.isNotEmpty() %}
+    {# Render product page #}
+    <div class="single-product" id="{{obProduct.id}}">
+    
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    {% partial "breadcrumbs/breadcrumbs" arBreadcrumbs=Catalog.getBreadcrumbs() %}
+                </div>
             </div>
-        </div>            
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-7 col-xl-7 col-xxl-7">
+                    {% partial "product/gallery/product-gallery" obProduct = obProduct %}
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 col-xxl-5">
+                    <div class="product-overlay">
+                        <div class="product-title">
+                            <h2>{{obProduct.name}}</h2>
+                        </div>
+                        <div class="product-short">
+                            {# Get first offer object #}
+                            {% set obOffer = obProduct.offer.sort('price|asc').first() %} 
+                            <div class="price">
+                                {% if obOffer.price < obOffer.old_price %}
+                                    <div class="old-price" > {{ obOffer.old_price }} </div>
+                                {% endif %}
+                                <div class="current-price" > {{ obOffer.price }}<span class="rub" itemprop="priceCurrency" content="{{ obOffer.currency_code }}">{{ obOffer.currency }}</span> </div>
+                            </div>
+                            <div class="raiting-overlay">
+                                <div class="raiting-wrapper">
+                                    <div class="star-wrapper">
+                                        <a href="#">
+                                            <div class="star">														
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="star">														
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="star">														
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="star">														
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="star none">														
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="star-count">
+                                        (8)
+                                    </div>
+                                </div>
+                                <div class="add-reviews">
+                                    <a href="">Добавить отзыв</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-text">
+                            {{obProduct.preview_text | raw}}								
+                                
+                        </div>
+                        <!--Параметры товара-->
+                        {# Get offer list #}
+                        {% set obOfferList = obProduct.offer %}
+                        
+                        <div class="product-options">
+                            <form id="formProperty-{{obProduct.id}}">
+                                {% if obOfferList.isNotEmpty() %}
+                                    <!--Выбор размера-->
+                                    <div class="form-group">
+                                        <label for="size">Размер</label>
+                                        <select class="form-control" id="size" name="size">
+                                            {% for obOffer in obOfferList %}
+                                                {% set obProperty = obOffer.property.getByCode("size_cloches") %}                                                
+                                                <option value="{{ obOffer.id }}">{{ obProperty.property_value.getValueString() }}</option>
+                                            {% endfor %}
+                                            
+                                            
+                                        </select>
+                                    </div>
+                                    
+                                
+
+                                <!--Выбор цвета-->
+                                <div class="color-radio" id="color-radio">
+                                    <div class="label-radio">Цвет</div>
+                                    <div class="wrapper-radio">
+                                        {% for obOffer in obOfferList %}
+                                            {% set obProperty = obOffer.property.getByCode("color") %}
+                                                <label>
+                                                    <span style="background:blue"></span>
+                                                    <input type="radio" value="{{ obProperty.property_value.getValueString() }}-{{ obOffer.id }}" name="color" />
+                                                </label>
+                                        {% endfor %}
+                                        
+                                    </div>	
+                                </div>
+                                {% endif %}
+                                <!-- Количество -->
+                                <div class="kol-wrapper">
+                                    <div class="group-kol">
+                                        <div class="form-group">
+                                            <div class="count-wrap" id="product-single-count">
+                                                <div class="count-up">+</div>
+                                                <input type="text" class="form-control amount-product" id="count" name="amount-product" placeholder="1" value="1">
+                                                <div class="count-down">-</div>
+                                            </div>								
+                                        </div>										
+                                    </div>
+                                    <!--Добавить в корзину-->
+                                    <button type="submit" id="addtocart" class="btn btn-primary">Добавить корзину</button>
+                                </div>
+                                <!-- Остаток -->
+                                <div class="ostatok">
+                                    <div class="label-ostatok">
+                                        Остаток:
+                                    </div>
+                                    <div class="value-ostatok">
+                                        25
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="reviews">
+                            <div class="tab">
+                                <ul>
+                                    <li class="tab-item" id="tab1" data-tab="tab1"><a href="#tab1">Описание</a></li>
+                                    <li class="tab-item active" id="tab2" data-tab="tab2"><a href="#tab2">Отзывы</a></li>
+                                </ul>
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-content-item" id="tab1" data-tabcontent="tab1">
+                                    <div class="product-text">
+                                        <p>Джемпер вязки «косы» с воротником-стойкой</p>
+                                        <p>- Джемпер выполнен из мягкой смесовой пряжи с содержанием шерсти<br>
+                                        - Длинные рукава</p>
+                                    </div>									
+                                </div>
+                                <div class="tab-content-item show" id="tab2" data-tabcontent="tab2">
+                                    <div class="title-wrap">
+                                        <div class="title">
+                                            <div class="count-r">2</div>
+                                            <h3>												
+                                                Отзыва
+                                            </h3>											
+                                        </div>
+                                        <div class="raiting-wrapper">
+                                            <div class="star-wrapper">
+                                                <a href="#">
+                                                    <div class="star">														
+                                                    </div>
+                                                </a>
+                                                <a href="#">
+                                                    <div class="star">														
+                                                    </div>
+                                                </a>
+                                                <a href="#">
+                                                    <div class="star">														
+                                                    </div>
+                                                </a>
+                                                <a href="#">
+                                                    <div class="star">														
+                                                    </div>
+                                                </a>
+                                                <a href="#">
+                                                    <div class="star none">														
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="star-count">
+                                                (8)
+                                            </div>
+                                        </div>										
+                                    </div>
+                                    <div class="review-content-wrap">
+                                        <div class="review">
+                                            <div class="review-title"><span><img src="{{ 'assets/images/Verified.svg' | theme }}" alt="" class="icon-verified"></span> Оксана</div>
+                                            <div class="raiting-wrapper">
+                                                <div class="star-wrapper">
+                                                    <a href="#">
+                                                        <div class="star">														
+                                                        </div>
+                                                    </a>
+                                                    <a href="#">
+                                                        <div class="star">														
+                                                        </div>
+                                                    </a>
+                                                    <a href="#">
+                                                        <div class="star">														
+                                                        </div>
+                                                    </a>
+                                                    <a href="#">
+                                                        <div class="star">														
+                                                        </div>
+                                                    </a>
+                                                    <a href="#">
+                                                        <div class="star none">														
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="star-count data-review">
+                                                    Декабрь 2020
+                                                </div>																								
+                                            </div>
+                                            <div class="review-content">
+                                                <p>Очень понравился этот джемпер вязки «косы». Мой любимый, безумно нежный цвет, поднимающий настроение. Теплый и уютный)) Качество супер и длина та, которую я люблю) Советую его всем приобрести, не пожалеете))))</p>
+                                            </div>
+                                        </div>
+                                        <div class="read-more"><a href="#" data-eventclick="open" class="button text">Читать далее</a></div>
+                                        <div class="review-all-collapse">
+                                            <div class="review">
+                                                <div class="review-title"><span><img src="{{ 'assets/images/Verified.svg' | theme }}" alt="" class="icon-verified"></span> Оксана</div>
+                                                <div class="raiting-wrapper">
+                                                    <div class="star-wrapper">
+                                                        <a href="#">
+                                                            <div class="star">														
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="star">														
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="star">														
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="star">														
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="star none">														
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="star-count data-review">
+                                                        Декабрь 2020
+                                                    </div>																									
+                                                </div>
+                                                <div class="review-content">
+                                                    <p>Очень понравился этот джемпер вязки «косы». Мой любимый, безумно нежный цвет, поднимающий настроение. Теплый и уютный)) Качество супер и длина та, которую я люблю) Советую его всем приобрести, не пожалеете))))</p>
+                                                </div>
+                                            </div>
+                                            <div class="review">
+                                                <div class="review-title"><span><img src="{{ 'assets/images/Verified.svg' | theme }}" alt="" class="icon-verified"></span> Оксана</div>
+                                                <div class="raiting-wrapper">
+                                                    <div class="star-wrapper">
+                                                        <a href="#">
+                                                            <div class="star">														
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="star">														
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="star">														
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="star">														
+                                                            </div>
+                                                        </a>
+                                                        <a href="#">
+                                                            <div class="star none">														
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="star-count data-review">
+                                                        Декабрь 2020
+                                                    </div>																									
+                                                </div>
+                                                <div class="review-content">
+                                                    <p>Очень понравился этот джемпер вязки «косы». Мой любимый, безумно нежный цвет, поднимающий настроение. Теплый и уютный)) Качество супер и длина та, которую я люблю) Советую его всем приобрести, не пожалеете))))</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>					
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 
-{% partial "related-products" %}
+    <!-- Modal images -->
+    <div class="modal" data-modal="1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div></div>
+                    <div class="close">
+                        <img src="{{ 'assets/images/Cross.svg' | theme }}" alt="">
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-icon left">
+                        <img id="modal-image-left" src="{{ 'assets/images/Direction-Left.svg' | theme }}" alt="">
+                    </div>
+                    <div class="modal-wrap-images">
+                        <img src="{{ 'assets/images/dest/1/37416640299.jpg' | theme }}" alt="" id="dataimage-1" data-modalimageid="modal-image-1" class="modal-image show">
+                        <img src="{{ 'assets/images/dest/1/37416650299.jpg' | theme }}" alt="" id="dataimage-2" data-modalimageid="modal-image-2" class="modal-image">
+                        <img src="{{ 'assets/images/dest/1/37416660299.jpg' | theme }}" alt="" id="dataimage-3" data-modalimageid="modal-image-3" class="modal-image">
+                        <img src="{{ 'assets/images/dest/1/37416670299.jpg' | theme }}" alt="" id="dataimage-4" data-modalimageid="modal-image-4" class="modal-image">
+                        
+                    </div>
+                    <div class="modal-icon right">
+                        <img id="modal-image-right" src="{{ 'assets/images/Direction-Right.svg' | theme }}" alt="">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="modal-images-thumbs">
+                        <img src="{{ 'assets/images/dest/1/37416640299.jpg' | theme }}" alt="" id="dataimage-1" data-modalimageid="1" class="modal-thumb-image">
+                        <img src="{{ 'assets/images/dest/1/37416650299.jpg' | theme }}" alt="" id="dataimage-2" data-modalimageid="2" class="modal-thumb-image">
+                        <img src="{{ 'assets/images/dest/1/37416660299.jpg' | theme }}" alt="" id="dataimage-3" data-modalimageid="3" class="modal-thumb-image">
+                        <img src="{{ 'assets/images/dest/1/37416670299.jpg' | theme }}" alt="" id="dataimage-4" data-modalimageid="4" class="modal-thumb-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-{% partial "banners/banner-1" %}
+    {% partial "similar-products" %}
 
-{% partial "lookbook" %}
+    {% partial "banners/banner-1" %}
+
+    {% partial "related-products" %}
+{% else %}
+    {# Render catalog page #}
+    {% partial "filters/filter-modal" obPropertyList = obFilterProductPropertyList %}
+
+    <!-- Category-->
+    <div class="category" data-id="{{ obCategory.id }}" itemscope itemtype="http://schema.org/Category">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    {% partial "breadcrumbs/breadcrumbs" arBreadcrumbs=Catalog.getBreadcrumbs() %}                
+                    <div class="category__row">
+                        <div class="sidebar">
+                            <div class="sidebar__title">
+                                <h3>{{ obActiveCategory.name }}</h3>
+                            </div>
+                            <div class="sidebar__content">
+                                <div class="sidebar__menu">
+                                    {% partial "category/category-tree/category-list" obActiveCategory = obActiveCategory  %}
+                                </div>
+                                <div class="sidebar__filter">
+                                    
+                                    <div class="sidebar-filter-item">
+                                        <div class="sidebar-filter-item__label">
+                                            <a href="#">Посмотреть все</a>
+                                        </div>
+                                        <div class="sidebar-filter-item__value">
+                                            20
+                                        </div>										
+                                    </div>
+                                    <div class="sidebar-filter-item">
+                                        <div class="sidebar-filter-item__label">
+                                            <a href="#">Осень</a>
+                                        </div>
+                                        <div class="sidebar-filter-item__value">
+                                            10
+                                        </div>										
+                                    </div>
+                                    <div class="sidebar-filter-item">
+                                        <div class="sidebar-filter-item__label">
+                                            <a href="#">Зима</a>
+                                        </div>
+                                        <div class="sidebar-filter-item__value">
+                                            10
+                                        </div>										
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-container">
+                            <div class="filter-bar">								
+                                <div class="filter-bar-col-small">
+                                    <div class="filter-icon">
+                                        <div class="filter-icon__image">
+                                            <img src="{{'assets/images/Filter.svg' | theme }}" alt="">
+                                        </div>									
+                                        <div class="filter-icon__label">
+                                            Фильтр
+                                        </div>									
+                                    </div>
+                                </div>
+                                <div class="filter-bar-col">
+                                    <!-- Sort -->
+                                    <div class="filter-sort">
+                                        <div class="filter-sort__label">Сортировка</div>
+                                        <div class="filter-sort__select">
+                                            <select class="sort-select _shopaholic-sorting" name="sort-product" id="sort-product">
+                                                <option {% if sActiveSort == 'no' %} selected {% endif %} value="no">По популярности</option>
+                                                <option {% if sActiveSort == 'price|asc' %} selected {% endif %} value="price|asc">По возрастанию цены</option>
+                                                <option {% if sActiveSort == 'price|desc' %} selected {% endif %} value="price|desc">По убыванию цены</option>
+                                                <option {% if sActiveSort == 'new' %} selected {% endif %} value="new">Новые</option>
+                                            </select>
+                                        </div>										
+                                    </div>
+                                    {% partial "product-count" obFilteredProductList = obFilteredProductList%}
+                                </div>
+                            </div>
+                            <div class="wrapper-overlay card-container catalog-wrapper">
+                                {% partial 'product/catalog/product-list' arProductList = arProductList  %}
+                            </div>
+                        </div>
+                    </div>   
+                </div>
+            </div>            
+        </div>
+    </div>
+
+    {% partial "related-products" %}
+
+    {% partial "banners/banner-1" %}
+
+    {% partial "lookbook" %}
+{% endif %}

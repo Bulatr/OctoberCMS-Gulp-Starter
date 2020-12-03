@@ -2,9 +2,10 @@
 {# @var obProduct \Lovata\Shopaholic\Classes\Item\ProductItem #}
 {# Get first offer object #}
 {% set obOffer = obProduct.offer.first() %}
+
 <div class="product-card" data-id="{{ obProduct.id }}">
     <div class="card-img-wrapper">
-        <a href="{{ obProduct.getPageUrl('product-page') }}">
+        <a href="{{ obProduct.getPageUrl('catalog') }}">
             {% if obProduct.preview_image is not empty %}
                 <img
                 class="card-img-top"
@@ -20,7 +21,7 @@
     </div>
     <div class="card-content-wrapper">
         <div class="product-title">
-            <a href="{{ obProduct.getPageUrl('product-page') }}">
+            <a href="{{ obProduct.getPageUrl('catalog') }}">
                 <h4>{{ obProduct.name }}</h4>
             </a>											
         </div>

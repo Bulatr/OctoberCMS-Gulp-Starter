@@ -145,9 +145,8 @@ class Catalog extends ComponentBase
         $arBreadcrumbs = [];
         $obCurrentCategory = $this->obActiveCategoryItem;
         $obProductItem = $this->obProductItem;
-        $obBrandItem = $this->obBrandItem;
-
-
+        $obBrandItem = $this->obBrandItem;   
+        
         if (!empty($obProductItem)) {
             $arBreadcrumbs[] = [
                 'name' => $obProductItem->name, 
@@ -164,15 +163,29 @@ class Catalog extends ComponentBase
                 ];
         }
 
-        while($obCurrentCategory->isNotEmpty()) {
+        if (!empty($obProductItem)) {
+            while($obCurrentCategory->isNotEmpty()) {
             
-            $arBreadcrumbs[] = [
-                'name' => $obCurrentCategory->name, 
-                'url' => $obCurrentCategory->getPageUrl('catalog', ['slug']),
-                'active'    =>  $obCurrentCategory->id == $this->obActiveCategoryItem->id
-                ];
-            $obCurrentCategory = $obCurrentCategory->parent;
+                $arBreadcrumbs[] = [
+                    'name' => $obCurrentCategory->name, 
+                    'url' => $obCurrentCategory->getPageUrl('catalog', ['slug']),
+                    'active' => false
+                    ];
+                $obCurrentCategory = $obCurrentCategory->parent;
+            }
+
+        } else {
+            while($obCurrentCategory->isNotEmpty()) {
+            
+                $arBreadcrumbs[] = [
+                    'name' => $obCurrentCategory->name, 
+                    'url' => $obCurrentCategory->getPageUrl('catalog', ['slug']),
+                    'active' => $obCurrentCategory->id == $this->obActiveCategoryItem->id
+                    ];
+                $obCurrentCategory = $obCurrentCategory->parent;
+            }
         }
+        
         
         $arBreadcrumbs[] = [
             'name' => 'Каталог',
@@ -205,6 +218,8 @@ class Catalog extends ComponentBase
         $this->obActiveCategoryItem = $obMainCategoryItem;
         if (!empty($obCategoryItem)) {
             $this->obActiveCategoryItem = $obCategoryItem;
+        } elseif ($this->obProductItem) {
+            $this->obActiveCategoryItem = $this->obProductItem->category;
         }
 
         $this->obBrandItem = $obBrandItem;

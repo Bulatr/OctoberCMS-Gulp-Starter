@@ -1,2 +1,7 @@
 1.0.0:
-    - 'Init plugin'
+    - 'Initialize plugin.'
+    - update_table_propertyvalues_1.php
+1.0.1:
+    - update_table_propertyvalues_1.php
+1.0.2:
+    - update_table_propertyvalues_1.php

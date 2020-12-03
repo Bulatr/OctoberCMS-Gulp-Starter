@@ -2,8 +2,14 @@
 
 ==
 {##}
-{% partial 'header' class='myclass' %}
-
+{% set sPageTitle = this.page.title %}
+{% if obProduct.isNotEmpty() %}
+{%  set sPageTitle = "Купить "~obProduct.name %}
+{% else %}
+{% set sPageTitle = obActiveCategory.name %}
+{% endif %}
+{% partial 'header' class='myclass' sPageTitle=sPageTitle %}
+	
 	<section id="body-site">
 		<div class="mega-menu-wrapper">
 		</div>

@@ -1965,8 +1965,7 @@ button.btn
 
 .rub
 	display: block
-	margin-left: 4px
-	transform: translateY(-2px)
+	margin-left: 5px
 
 .catalog-wrapper
 	
@@ -2011,22 +2010,29 @@ button.btn
 					opacity: 1
 					display: block
 
-	.product-gallery-trumb	
-		list-style: none
-		padding-left: 0			
-		.product-gallery-trumbnail
-			width: 170px
-			height: 160px
-			overflow: hidden
-			opacity: 0.5
-			transition: all 0.3s ease-out
-			img
-				width: 100%
-				height: auto
-				object-fit: cover
-			&.active
-				opacity: 1
+	ul
+		margin-bottom: 0
+		&.product-gallery-trumb	
+			list-style: none
+			padding-left: 0	
+			height: 657px
+			overflow-y: auto 	
+			&::-webkit-scrollbar
+				width: 0	
+			.product-gallery-trumbnail
+				width: 170px
+				height: 160px
+				overflow: hidden
+				opacity: 0.5
 				transition: all 0.3s ease-out
+				img
+					width: 100%
+					height: auto
+					object-fit: cover
+				&.active
+					opacity: 1
+					transition: all 0.3s ease-out
+	
 
 .breadcrumbs
 	list-style: none
@@ -2083,6 +2089,13 @@ button.btn
 	font-size: 18px
 	font-weight: 500
 	color: $textcolor
+	display: flex
+	flex-direction: row
+	align-items: center
+	.current-price
+		display: flex
+		flex-direction: row
+		align-items: center
 
 .product-text
 	font-size: 16px

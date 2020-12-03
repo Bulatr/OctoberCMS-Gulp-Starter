@@ -8,7 +8,7 @@ description = "Default layout"
 <head>
 
 	<meta charset="utf-8">
-	<title>{{ this.page.title }} | Хатан - интернет магазин одежды</title>
+	<title>{{ sPageTitle }} | Хатан - интернет магазин одежды</title>
 	{% if record.description != null %}<meta name="description" content="{{ str_limit(record.description | striptags , 120) }}">
 	{% else %}<meta name="description" content="{{ this.page.meta_description }}">{% endif %}
 	<meta name="viewport" content="width=device-width">

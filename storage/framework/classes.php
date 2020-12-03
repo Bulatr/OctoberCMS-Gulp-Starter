@@ -417,4 +417,8 @@
   'Lovata\\PropertiesShopaholic\\Classes\\Collection\\GroupCollection' => 'plugins\\lovata\\propertiesshopaholic\\classes\\collection\\GroupCollection.php',
   'Bulatr\\BaseCode\\Components\\Catalog' => 'plugins\\bulatr\\basecode\\components\\Catalog.php',
   'Lovata\\Shopaholic\\Classes\\Collection\\BrandCollection' => 'plugins\\lovata\\shopaholic\\classes\\collection\\BrandCollection.php',
+  'Bulatr\\BaseCode\\Classes\\Event\\Property\\ExtendPropertyFieldsHandler' => 'plugins\\bulatr\\basecode\\classes\\event\\property\\ExtendPropertyFieldsHandler.php',
+  'Bulatr\\BaseCode\\Classes\\Event\\Property\\ExtendPropertyModel' => 'plugins\\bulatr\\basecode\\classes\\event\\property\\ExtendPropertyModel.php',
+  'Bulatr\\BaseCode\\Classes\\Event\\PropertyValue\\ExtendPropertyValueFieldsHandler' => 'plugins\\bulatr\\basecode\\classes\\event\\propertyvalue\\ExtendPropertyValueFieldsHandler.php',
+  'Bulatr\\BaseCode\\Classes\\Event\\PropertyValue\\ExtendPropertyValueModel' => 'plugins\\bulatr\\basecode\\classes\\event\\propertyvalue\\ExtendPropertyValueModel.php',
 );

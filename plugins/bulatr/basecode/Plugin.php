@@ -1,7 +1,9 @@
 <?php namespace Bulatr\BaseCode;
 
+use Event;
 use System\Classes\PluginBase;
-
+use Bulatr\BaseCode\Classes\Event\PropertyValue\ExtendPropertyValueFieldsHandler;
+use Bulatr\BaseCode\Classes\Event\PropertyValue\ExtendPropertyValueModel;
 
 /**
  * Class Plugin
@@ -48,6 +50,8 @@ class Plugin extends PluginBase
     public function boot()
     {
         $this->addEventListener();
+        Event::subscribe(ExtendPropertyValueFieldsHandler::class);
+        Event::subscribe(ExtendPropertyValueModel::class);
     }
 
     public function register()
