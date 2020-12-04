@@ -27,7 +27,7 @@ skip_error = 1
 [BrandPage]
 slug = "{{ :slug }}"
 slug_required = 0
-smart_url_check = 0
+smart_url_check = 1
 skip_error = 1
 
 [ProductList]
@@ -107,7 +107,7 @@ function onInit() {
     } else {
         $this['obProduct'] = $obProductItem;
     }
-
+    $this['obMainCategoryItem'] = $obMainCategoryItem;
     
 }
 ?>
@@ -184,39 +184,36 @@ function onInit() {
                         <!--Параметры товара-->
                         {# Get offer list #}
                         {% set obOfferList = obProduct.offer %}
+
+                        {# Нужно сделать фильтр по офферам #}
+                        {# Get product collection #}
+                        {% set obItemProductList = ProductList.make([obProduct.id]) %}
+                        {% set arAppliedPropertyList = input('property') %}
+                        {# Get offer proeprties for property sets with code 'main', enabled how filters #}
+                        {% set obOfferPropertyList = obMainCategoryItem.offer_filter_property.setCategory(null).setProductList(obItemProductList) %}
                         
                         <div class="product-options">
                             <form id="formProperty-{{obProduct.id}}">
+                                {# Фильтр свойств товара #}
+                                {% if obOfferPropertyList.isNotEmpty() %}
+                                    {% partial "product/filter-panel/product-filter-panel" obPropertyList = obOfferPropertyList arAppliedPropertyList = arAppliedPropertyList %}
+                                {% endif %}
+                                {# Выводим офферы #}
+                                {# Get offer list #}
+                                {% set obOfferList = obProduct.offer %}
+                                {# Render select with offers #}
                                 {% if obOfferList.isNotEmpty() %}
-                                    <!--Выбор размера-->
-                                    <div class="form-group">
-                                        <label for="size">Размер</label>
-                                        <select class="form-control" id="size" name="size">
-                                            {% for obOffer in obOfferList %}
-                                                {% set obProperty = obOffer.property.getByCode("size_cloches") %}                                                
-                                                <option value="{{ obOffer.id }}">{{ obProperty.property_value.getValueString() }}</option>
+                                    <div class="form-group product-property" >  
+                                        <label class="property-values__label" for="offersProduct">Выберите предложение</label>
+                                        <select
+                                            class="form-control property-values__select"                                            
+                                            name="offer"
+                                            id="offersProduct">
+                                            {% for obOffer in obOfferList %}                                        
+                                                <option value="{{ obOffer.id }}" >{{ obOffer.name }}</option>
                                             {% endfor %}
-                                            
-                                            
                                         </select>
                                     </div>
-                                    
-                                
-
-                                <!--Выбор цвета-->
-                                <div class="color-radio" id="color-radio">
-                                    <div class="label-radio">Цвет</div>
-                                    <div class="wrapper-radio">
-                                        {% for obOffer in obOfferList %}
-                                            {% set obProperty = obOffer.property.getByCode("color") %}
-                                                <label>
-                                                    <span style="background:blue"></span>
-                                                    <input type="radio" value="{{ obProperty.property_value.getValueString() }}-{{ obOffer.id }}" name="color" />
-                                                </label>
-                                        {% endfor %}
-                                        
-                                    </div>	
-                                </div>
                                 {% endif %}
                                 <!-- Количество -->
                                 <div class="kol-wrapper">
@@ -253,9 +250,7 @@ function onInit() {
                             <div class="tab-content">
                                 <div class="tab-content-item" id="tab1" data-tabcontent="tab1">
                                     <div class="product-text">
-                                        <p>Джемпер вязки «косы» с воротником-стойкой</p>
-                                        <p>- Джемпер выполнен из мягкой смесовой пряжи с содержанием шерсти<br>
-                                        - Длинные рукава</p>
+                                        {{obProduct.description | raw}}
                                     </div>									
                                 </div>
                                 <div class="tab-content-item show" id="tab2" data-tabcontent="tab2">

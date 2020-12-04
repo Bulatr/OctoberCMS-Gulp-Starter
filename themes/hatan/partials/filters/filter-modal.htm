@@ -16,7 +16,12 @@ description = "Фильтр товаров"
 		<div class="filter-modal__col">
 			<div class="modal-options property">
 				{% for obProperty in obPropertyList  if obProperty.hasValue() %}
-					
+					{% set PropertyFilterName = obProperty.filter_name %}
+					{% if PropertyFilterName == "Цвет" %}
+						{% set inputType = false %}
+						{% else %}
+						{% set inputType = true %}
+					{% endif %} 
 					{# Render filter name #}
 					<div class="modal-options__label">
 						<h3>{{ obProperty.filter_name }}</h3>
@@ -28,26 +33,50 @@ description = "Фильтр товаров"
 
 					{# Get proeprty value list #}
 					{% set obPropertyValueList = obProperty.property_value.sort() %}
-						<div class="modal-options__wrap _shopaholic-filter-wrapper" data-filter-type="{{obProperty.filter_type}}" data-property-id="{{obProperty.id}}">	
+						<div class="modal-options__wrap">	
 							{# Render filtre with type == checkbox #}
 							
 								{% if sFilterType == 'checkbox' %}
-									
-										{% for obValue in obPropertyValueList %}	
-											<div class="modal-options__checkout">						
-												<div class="form-check">
-													{% set bChecked = arFilterPropertyList[obProperty.id] is not empty and obValue.slug in arFilterPropertyList[obProperty.id] %}
-													<input 
-													class="form-check-input" 
-													type="checkbox" 
-													{% if bChecked %} checked {% endif %}
-													id="{{ obValue.arModelData.id }}" 
-													value="{{ obValue.slug }}">
-													<label class="form-check-label" for=""{{ obValue.arModelData.id }}"">{{ obValue.value }}</label>
+									{% if inputType %}
+										<div class="_shopaholic-filter-wrapper" data-filter-type="{{obProperty.filter_type}}" data-property-id="{{obProperty.id}}" >  
+											{% for obValue in obPropertyValueList %}	
+												<div class="modal-options__checkout">						
+													<div class="form-check">
+														{% set bChecked = arFilterPropertyList[obProperty.id] is not empty and obValue.slug in arFilterPropertyList[obProperty.id] %}
+														<input 
+															class="form-check-input" 
+															type="checkbox" 
+															{% if bChecked %} checked {% endif %}
+															id="{{ obValue.arModelData.id }}" 
+															value="{{ obValue.slug }}">
+														<label class="form-check-label" for="{{ obValue.arModelData.id }}">{{ obValue.value }}</label>
+													</div>
 												</div>
-											</div>
-										{% endfor%}
-									
+											{% endfor %}
+										</div>									
+									{% else %}
+										<div class="color-radio" id="color-radio">											                       
+											<div class="wrapper-radio" data-filter-type="checkbox" data-property-id="{{obProperty.id}}" >
+												{% for obValue in obPropertyValueList %}
+													{% set bChecked = arFilterPropertyList[obProperty.id] is not empty and obValue.slug in arFilterPropertyList[obProperty.id] %}
+													{% set color_code = obValue.color_code %}
+													<label {% if bChecked %} class="input-checked" {% endif %} for="{{ obValue.arModelData.id }}">
+														<span style="background:{{color_code}}"></span>
+														<input
+															class="color-radio-input" 
+															type="radio" 
+															id = "{{ obValue.arModelData.id }}"
+															value="{{obValue.slug}}" 
+															name="property[{{ obValue.id }}][]" 
+															data-property-id="{{obProperty.id}}" 
+															{% if bChecked %}
+																"checked"
+															{% endif %} />
+													</label>                                    
+												{% endfor %}
+											</div>	
+										</div>
+									{% endif %}
 								{% endif %}
 
 								{# Render filtre with type == select #}
@@ -65,7 +94,7 @@ description = "Фильтр товаров"
 			</div>
 			
 			<!--Price-->
-			<div class="modal-options price _shopaholic-price-filter">
+			<div class="modal-options_shopaholic-price-filter">
 				<div class="modal-options__label">
 					<h3>Стоимость</h3>
 				</div>

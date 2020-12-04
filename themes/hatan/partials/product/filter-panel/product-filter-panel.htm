@@ -1,0 +1,67 @@
+{##}
+{% if obPropertyList.isNotEmpty() %}
+    {# Render proeprty list #}
+    <div class="property-wrapper" >  
+        {% for obProperty in obPropertyList if obProperty.hasValue() %}
+            {# Render property name #}
+            <div class="property-values-wrapper"> 
+                {% set PropertyFilterName = obProperty.filter_name %}
+                {% if PropertyFilterName == "Цвет" %}
+                    {% set inputType = false %}
+                    {% else %}
+                    {% set inputType = true %}
+                {% endif %}                
+                
+                {% if obProperty.filter_type == 'checkbox' %}
+                    {% if inputType %}
+                        
+                        <div class="form-group product-property" data-filter-type="select" data-property-id="{{obProperty.id}}">
+                            <label for="property-razmer"> {{ obProperty.filter_name }} </label>
+                            <select class="form-control property-values__select" id="property-razmer" name="property-razmer" data-property-id="{{obProperty.id}}">
+                                {% for obPropertyValue in obProperty.property_value %} 
+                                    <option {% if arAppliedPropertyList[obProperty.id] is not empty and obPropertyValue.slug in arAppliedPropertyList[obProperty.id] %}
+                                        selected="selected"
+                                    {% endif %} value="{{ obPropertyValue.slug }}">{{ obPropertyValue.value }}</option>                                
+                                {% endfor %}
+                            </select>
+                        </div>
+                        
+                    {% else %}
+                        <div class="color-radio" id="color-radio">
+                            <div class="property-title" >
+                                {{ obProperty.filter_name }}
+                            </div>                        
+                            <div class="wrapper-radio">
+                                {% for obPropertyValue in obProperty.property_value %}
+                                    {% set color_code = obPropertyValue.color_code %}
+                                    <label {% if arAppliedPropertyList[obProperty.id] is not empty and obPropertyValue.slug in arAppliedPropertyList[obProperty.id] %} class="input-checked" {% endif %} >
+                                        <span style="background:{{color_code}}"></span>
+                                        <input type="radio" value="{{obPropertyValue.slug}}" name="property[{{ obPropertyValue.id }}][]" data-property-id="{{obProperty.id}}" {% if arAppliedPropertyList[obProperty.id] is not empty and obPropertyValue.slug in arAppliedPropertyList[obProperty.id] %}
+                                        "checked"
+                                    {% endif %} />
+                                    </label>                                    
+                                {% endfor %}
+                            </div>	
+                        </div>
+                    {% endif %}
+                {% elseif obProperty.filter_type == 'select' %}
+                    <div class="property-values-wrapper__item">
+                        <select 
+                            class="property-values__select"
+                            name="property[{{ obProperty.id }}][]">
+                                {% for obPropertyValue in obProperty.property_value %}
+                                    <option
+                                        {% if arAppliedPropertyList[obProperty.id] is not empty and obPropertyValue.slug in arAppliedPropertyList[obProperty.id] %}
+                                            selected="selected"
+                                        {% endif %}
+                                        value="{{ obPropertyValue.slug }}">
+                                        {{ obPropertyValue.value }}
+                                    </option>
+                                {% endfor %}
+                        </select>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

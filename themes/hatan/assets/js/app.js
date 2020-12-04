@@ -37,16 +37,75 @@ document.addEventListener("DOMContentLoaded", function() {
 		return obRequestData;
 	});
 
+	
 	//obListHelper.send(obListHelper);
 		
 	const obSortingHelper = new ShopaholicSorting(obListHelper);
 	const obPaginationHelper = new ShopaholicPagination(obListHelper);
 	const obFilterPanel = new ShopaholicFilterPanel(obListHelper);
-	
+	const obProductFilterPanel = new ShopaholicFilterPanel(obListHelper);
+
+	obProductFilterPanel.setWrapperSelector('product-property');
+	obProductFilterPanel.init();
 	obFilterPanel.init();
 	obPaginationHelper.init();
 	obSortingHelper.init();
 	
+	const obColorFilterPanel = new ShopaholicFilterPanel(obListHelper);
+	obColorFilterPanel.setWrapperSelector('wrapper-radio').init();
+
+	const arValue = [];
+	arValue[0] = "";
+	arValue[1] = "";
+	let resultString = "";
+	let sBaseURL = `${location.origin}${location.pathname}`;
+	$(".property-values-wrapper").on("change", "select.property-values__select", function(e){
+		/** ! добавление в строку браузера параметров */
+		//history.pushState(null, null, `${this.sBaseURL}?${this.sSearchString}`);
+		let Value = $(e.target).val();
+		let idParam = $(e.target).data("propertyId");
+		arValue[0] = ("property["+idParam+"]="+Value);
+		if (arValue[1] == "") {
+			resultString = arValue[0];
+		} else {
+			resultString = arValue[0]+"&"+arValue[1];
+		}
+		history.pushState(null, null, `${sBaseURL}?${resultString}`);
+		console.log(arValue);
+		console.log(resultString);
+		
+	});
+
+	$(".property-values-wrapper").on("change", ".wrapper-radio input[type=radio]", function(e){
+		let Value = $(e.target).val();
+		let idParam = $(e.target).data("propertyId");
+		arValue[1] = ("property["+idParam+"]="+Value);
+		if (arValue[0] == "") {
+			resultString = arValue[1];
+		} else {
+			resultString = arValue[0]+"&"+arValue[1];
+		}
+		history.pushState(null, null, `${sBaseURL}?${resultString}`);
+		console.log(arValue);
+		console.log(resultString);
+	});
+
+	$("modal-options__wrap .color-radio label").on("click", function() {
+		//$("input[type=radio].color-radio-input").trigger("click");		
+	})
+
+	$(document).on("change","input[type=radio].color-radio-input", function(e){
+				
+		if ($(e.target).is(':checked')) {
+			let dataProperty = $(e.target).data('PropertyId');
+			console.log($(e.target).val());
+		}
+		//$('input[type=radio].color-radio-input').prop("checked", false);
+		
+		
+		
+		//$("input[type=radio].color-radio-input").prop('checked', true);
+	})
 	
 	//Ajax filtration
 		/*
@@ -119,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		$(".navbar .navbar-nav .nav-item.active").removeClass("active");
 
 		let mainItem = $(this).data('mainmenuitem');
-		console.log(mainItem);
+		
 		// add class show megamenu
 		$("#"+mainItem).addClass("show");
 
@@ -136,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		let targetClass = $(e.target).attr('class');
 		
 		if (targetClass == "mega-menu-wrapper show") {
-			console.log("Baam");
+			
 			$(".mega-menu-wrapper").removeClass("show");
 			$(".megamenu").removeClass("show");
 		}
@@ -208,7 +267,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	$(".icons.cart-icon").click(function(){
 		// Проверяем заполнена ли корзина
 		let filled = $(this).attr("data-cartfilled");
-		console.log(filled);
+		
 		// Если заполнена
 		if (filled == "yes") {
 			$(".microcart .cart-empty").removeClass("show");
@@ -430,10 +489,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		var inp = $(".search-wrapper .form-inline.custom input.form-control");
 		var div_tg = $(".icons-toggle"); // тут указываем ID элемента
 		var targetClass = $(e.target).attr("class");
-		console.log(targetClass);
-		console.log(!div_tg.is(e.target));
-		console.log(div_tg.has(e.target).length);
-		console.log("-----------------");
+		
 		if (!div.is(e.target) // если клик был не по нашему блоку
 			&& div.has(e.target).length === 0 && !inp.is(e.target)) { // и не по его дочерним элементам
 			$(".search-wrapper").removeClass("show"); // скрываем его
@@ -449,8 +505,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			div_tg.removeClass('show');
 			//console.log(e.target);
 		} else {
-			console.log("click");
-			console.log("-----------------")
+			
 			if (targetClass == "icons-toggle show") {
 				$(".icons-wrapper").removeClass("show");
 				div_tg.removeClass('show');

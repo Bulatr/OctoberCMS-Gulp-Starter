@@ -1,0 +1,258 @@
+1607103886a:1:{s:10:"footer.htm";a:6:{s:8:"fileName";s:10:"footer.htm";s:7:"content";s:4057:"==
+{##}
+<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="footer-menu-wrapper">
+						<ul class="nav-footer">
+							<li class="footer-menu-item">
+								<a href="" class="footer-menu-link">
+									О магазине
+								</a>
+								<ul class="footer-menu-item-submenu">
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											О нас
+										</a>
+									</li>
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											Защита данных
+										</a>
+									</li>
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											Права покупателей
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="footer-menu-item">
+								<a href="" class="footer-menu-link">
+									Магазин
+								</a>
+								<ul class="footer-menu-item-submenu">
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											Женщинам
+										</a>
+									</li>
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											Мужчинам
+										</a>
+									</li>
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											Детям
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="footer-menu-item">
+								<a href="" class="footer-menu-link">
+									Помощь
+								</a>
+								<ul class="footer-menu-item-submenu">
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											Обмен и возврат
+										</a>
+									</li>
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											Гарантии
+										</a>
+									</li>
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											Доставка
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="footer-menu-item">
+								<a href="" class="footer-menu-link">
+									Оплата
+								</a>
+								<ul class="footer-menu-item-submenu">
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											Способы оплаты
+										</a>
+									</li>
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											Публичная оферта
+										</a>
+									</li>									
+								</ul>
+							</li>
+							<li class="footer-menu-item">
+								<a href="" class="footer-menu-link">
+									Соцсети
+								</a>
+								<ul class="footer-menu-item-submenu icons">
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											<img src="{{ 'assets/images/icons8-instagram.svg'| theme }}" alt="instagram">
+										</a>
+									</li>
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											<img src="{{ 'assets/images/icons8-facebook.svg'| theme }}" alt="facebook">
+										</a>
+									</li>
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											<img src="{{ 'assets/images/icons8-vkontakte.svg'| theme }}" alt="VK">
+										</a>
+									</li>	
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											<img src="{{ 'assets/images/icons8-youtube-squared.svg'| theme }}" alt="youtube">
+										</a>
+									</li>								
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="{{ 'assets/js/hatan.min.js' | theme }}"></script>	
+	{% scripts %}
+	
+	
+</body>
+</html>";s:5:"mtime";i:1606749013;s:6:"markup";s:4053:"{##}
+<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="footer-menu-wrapper">
+						<ul class="nav-footer">
+							<li class="footer-menu-item">
+								<a href="" class="footer-menu-link">
+									О магазине
+								</a>
+								<ul class="footer-menu-item-submenu">
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											О нас
+										</a>
+									</li>
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											Защита данных
+										</a>
+									</li>
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											Права покупателей
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="footer-menu-item">
+								<a href="" class="footer-menu-link">
+									Магазин
+								</a>
+								<ul class="footer-menu-item-submenu">
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											Женщинам
+										</a>
+									</li>
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											Мужчинам
+										</a>
+									</li>
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											Детям
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="footer-menu-item">
+								<a href="" class="footer-menu-link">
+									Помощь
+								</a>
+								<ul class="footer-menu-item-submenu">
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											Обмен и возврат
+										</a>
+									</li>
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											Гарантии
+										</a>
+									</li>
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											Доставка
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="footer-menu-item">
+								<a href="" class="footer-menu-link">
+									Оплата
+								</a>
+								<ul class="footer-menu-item-submenu">
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											Способы оплаты
+										</a>
+									</li>
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											Публичная оферта
+										</a>
+									</li>									
+								</ul>
+							</li>
+							<li class="footer-menu-item">
+								<a href="" class="footer-menu-link">
+									Соцсети
+								</a>
+								<ul class="footer-menu-item-submenu icons">
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											<img src="{{ 'assets/images/icons8-instagram.svg'| theme }}" alt="instagram">
+										</a>
+									</li>
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											<img src="{{ 'assets/images/icons8-facebook.svg'| theme }}" alt="facebook">
+										</a>
+									</li>
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											<img src="{{ 'assets/images/icons8-vkontakte.svg'| theme }}" alt="VK">
+										</a>
+									</li>	
+									<li class="footer-submenu-item">
+										<a href="" class="footer-submenu-item-link">
+											<img src="{{ 'assets/images/icons8-youtube-squared.svg'| theme }}" alt="youtube">
+										</a>
+									</li>								
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="{{ 'assets/js/hatan.min.js' | theme }}"></script>	
+	{% scripts %}
+	
+	
+</body>
+</html>";s:4:"code";N;s:17:"_PARSER_ERROR_INI";s:0:"";}}

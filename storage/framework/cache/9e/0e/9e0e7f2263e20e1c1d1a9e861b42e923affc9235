@@ -1,0 +1,59 @@
+1607096402a:1:{s:35:"product/gallery/product-gallery.htm";a:5:{s:8:"fileName";s:35:"product/gallery/product-gallery.htm";s:7:"content";s:1239:"{##}
+<div class="product-gallery">
+    <div class="product-gallery-wrapper">
+        <div class="wishlist">
+            <div class="hearth outline show">
+                <img src="{{'assets/images/Hearth_Outline.svg' | theme }}" alt="">
+            </div>
+            <div class="hearth filled">
+                <img src="{{ 'assets/images/Hearth_Filled.svg' | theme }}" alt="">
+            </div>
+        </div>     
+       
+        {% if obProduct.images is not empty %}
+            {% for obImage in obProduct.images %}
+                <div class="product-main active" id="dataimage-{{obImage.id}}" data-imageid="{{obImage.id}}">
+                    <img src="{{ obImage.getPath() }}" alt="{{ obImage.description }}">
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <ul class="product-gallery-trumb">
+        {% if obProduct.images is not empty %}
+            {% for obImage in obProduct.images %}
+                <li class="product-gallery-trumbnail" data-trumbid="dataimage-{{obImage.id}}">
+                    <img src="{{ obImage.getPath() }}" alt="{{ obImage.description }}">
+                </li>
+            {% endfor %}
+        {% endif %}        
+    </ul>
+</div>";s:5:"mtime";i:1606990591;s:6:"markup";s:1239:"{##}
+<div class="product-gallery">
+    <div class="product-gallery-wrapper">
+        <div class="wishlist">
+            <div class="hearth outline show">
+                <img src="{{'assets/images/Hearth_Outline.svg' | theme }}" alt="">
+            </div>
+            <div class="hearth filled">
+                <img src="{{ 'assets/images/Hearth_Filled.svg' | theme }}" alt="">
+            </div>
+        </div>     
+       
+        {% if obProduct.images is not empty %}
+            {% for obImage in obProduct.images %}
+                <div class="product-main active" id="dataimage-{{obImage.id}}" data-imageid="{{obImage.id}}">
+                    <img src="{{ obImage.getPath() }}" alt="{{ obImage.description }}">
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <ul class="product-gallery-trumb">
+        {% if obProduct.images is not empty %}
+            {% for obImage in obProduct.images %}
+                <li class="product-gallery-trumbnail" data-trumbid="dataimage-{{obImage.id}}">
+                    <img src="{{ obImage.getPath() }}" alt="{{ obImage.description }}">
+                </li>
+            {% endfor %}
+        {% endif %}        
+    </ul>
+</div>";s:4:"code";N;}}
