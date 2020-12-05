@@ -1,7 +1,8 @@
 <?php 
-class Cms5fca55d09a748668710641_5b7b40b1e55efece5abe286c3734536dClass extends Cms\Classes\PageCode
+class Cms5fcb6804bdb74665666977_36309a17a309163d60eec3583cb593e3Class extends Cms\Classes\PageCode
 {
 public function onInit() {
+    
     // делаем проверку, если мы не нашли категорию и не нашли товар в параметре последнего слага :category*/:slug?
     // то нужно отобразить 404 ошибку
     /**
@@ -11,7 +12,7 @@ public function onInit() {
     $obBrandItem = $this->BrandPage->get();
     $obCategoryItem = $this->CategoryPage->get();    
     $obMainCategoryItem = $this->MainCategoryPage->get();
-        
+    
     if (!empty($this->param('slug')) && empty($obProductItem) && empty($obBrandItem) && empty($obCategoryItem)) {
         return $this->ProductPage->getErrorResponse(); // используем компонент ProductPage и его метод getErrorResponse - он вернет 404 ошибку
     }
@@ -45,6 +46,28 @@ public function onInit() {
         $this['obActiveCategory'] = $obActiveCategory; // Текущая активна категория которую отправляем в партиал product-list
     } else {
         $this['obProduct'] = $obProductItem;
+        //filterByProperty($arFilterList, $obPropertyList) метод OfferCollection
+        $arFilterList = [];
+        $arAppliedPropertyList = Input::get('property');
+        $iKey = 1;
+        if (!empty($arAppliedPropertyList)) {
+            foreach ($arAppliedPropertyList as $property) {
+                $arFilterList = array_add($arFilterList, (string)$iKey, [$property]);
+                //$arFilterList[] = [strval($iKey) => [$property]];
+                $iKey = $iKey+1;
+            }
+        }
+        
+        $iKey = 1;
+        $obItemProductList = $this->ProductList->make([$obProductItem->id]);
+        $obOfferPropertyList = $obMainCategoryItem->offer_filter_property->setCategory(null)->setProductList($obItemProductList);
+        $obOfferList = $obProductItem->offer;
+        $obOfferListCopy = $obOfferList->copy()->filterByProperty($arFilterList, $obOfferPropertyList);
+        $this['arAppliedPropertyList'] = $arAppliedPropertyList;
+        $this['arFilterList'] = $arFilterList;
+        $this['obOfferList'] = $obOfferList;
+        $this['obOfferListCopy'] = $obOfferListCopy;
+        $this['obOfferPropertyList'] = $obOfferPropertyList;
     }
     $this['obMainCategoryItem'] = $obMainCategoryItem;
     

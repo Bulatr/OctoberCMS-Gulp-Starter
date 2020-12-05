@@ -1,4 +1,4 @@
-1607103886a:1:{s:37:"product/product-card/product-card.htm";a:5:{s:8:"fileName";s:37:"product/product-card/product-card.htm";s:7:"content";s:2402:"{##}
+1607163054a:1:{s:37:"product/product-card/product-card.htm";a:5:{s:8:"fileName";s:37:"product/product-card/product-card.htm";s:7:"content";s:2402:"{##}
 {# @var obProduct \Lovata\Shopaholic\Classes\Item\ProductItem #}
 {# Get first offer object #}
 {% set obOffer = obProduct.offer.first() %}

@@ -75,7 +75,7 @@ class __TwigTemplate_d8de786ea86e016eccadd6ca53553bf42d2ce5b7317b82535ccfe9b9553
         echo "\" alt=\"\">
             </div>
         </div>     
-       
+
         ";
         // line 13
         if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "images", [], "any", false, false, true, 13))) {
@@ -168,7 +168,7 @@ class __TwigTemplate_d8de786ea86e016eccadd6ca53553bf42d2ce5b7317b82535ccfe9b9553
                 <img src=\"{{ 'assets/images/Hearth_Filled.svg' | theme }}\" alt=\"\">
             </div>
         </div>     
-       
+
         {% if obProduct.images is not empty %}
             {% for obImage in obProduct.images %}
                 <div class=\"product-main active\" id=\"dataimage-{{obImage.id}}\" data-imageid=\"{{obImage.id}}\">

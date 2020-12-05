@@ -33,12 +33,14 @@ description = "Фильтр товаров"
 
 					{# Get proeprty value list #}
 					{% set obPropertyValueList = obProperty.property_value.sort() %}
-						<div class="modal-options__wrap">	
+						<div class="modal-options__wrap _shopaholic-filter-wrapper" 
+							data-filter-type="{{obProperty.filter_type}}" 
+							data-property-id="{{obProperty.id}}">	
 							{# Render filtre with type == checkbox #}
 							
 								{% if sFilterType == 'checkbox' %}
 									{% if inputType %}
-										<div class="_shopaholic-filter-wrapper" data-filter-type="{{obProperty.filter_type}}" data-property-id="{{obProperty.id}}" >  
+										<div class="_shopaholic-filter" >  
 											{% for obValue in obPropertyValueList %}	
 												<div class="modal-options__checkout">						
 													<div class="form-check">
@@ -55,24 +57,28 @@ description = "Фильтр товаров"
 											{% endfor %}
 										</div>									
 									{% else %}
-										<div class="color-radio" id="color-radio">											                       
-											<div class="wrapper-radio" data-filter-type="checkbox" data-property-id="{{obProperty.id}}" >
+										<div class="color-radio-list" id="color-radio-list">											                       
+											<div class="_wrapper-color-list">
 												{% for obValue in obPropertyValueList %}
 													{% set bChecked = arFilterPropertyList[obProperty.id] is not empty and obValue.slug in arFilterPropertyList[obProperty.id] %}
 													{% set color_code = obValue.color_code %}
-													<label {% if bChecked %} class="input-checked" {% endif %} for="{{ obValue.arModelData.id }}">
-														<span style="background:{{color_code}}"></span>
+													<div class="color-wrapper-check">
 														<input
-															class="color-radio-input" 
-															type="radio" 
+															class="color-check-input" 
+															type="checkbox" 
 															id = "{{ obValue.arModelData.id }}"
 															value="{{obValue.slug}}" 
-															name="property[{{ obValue.id }}][]" 
-															data-property-id="{{obProperty.id}}" 
+															name="property[{{ obValue.id }}][]" 														 
 															{% if bChecked %}
-																"checked"
+																checked
 															{% endif %} />
-													</label>                                    
+														<label 
+															class="color-code-image"
+															{% if bChecked %} class="color-input-checked" {% endif %} 
+															for="{{ obValue.arModelData.id }}" 
+															style="background:{{color_code}}">
+														</label>
+													</div>
 												{% endfor %}
 											</div>	
 										</div>

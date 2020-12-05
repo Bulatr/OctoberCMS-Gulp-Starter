@@ -63,6 +63,7 @@ last_button_number = 1
 ==
 <?php
 function onInit() {
+    use Input;
     // делаем проверку, если мы не нашли категорию и не нашли товар в параметре последнего слага :category*/:slug?
     // то нужно отобразить 404 ошибку
     /**
@@ -72,7 +73,7 @@ function onInit() {
     $obBrandItem = $this->BrandPage->get();
     $obCategoryItem = $this->CategoryPage->get();    
     $obMainCategoryItem = $this->MainCategoryPage->get();
-        
+    
     if (!empty($this->param('slug')) && empty($obProductItem) && empty($obBrandItem) && empty($obCategoryItem)) {
         return $this->ProductPage->getErrorResponse(); // используем компонент ProductPage и его метод getErrorResponse - он вернет 404 ошибку
     }
@@ -106,6 +107,28 @@ function onInit() {
         $this['obActiveCategory'] = $obActiveCategory; // Текущая активна категория которую отправляем в партиал product-list
     } else {
         $this['obProduct'] = $obProductItem;
+        //filterByProperty($arFilterList, $obPropertyList) метод OfferCollection
+        $arFilterList = [];
+        $arAppliedPropertyList = Input::get('property');
+        $iKey = 1;
+        if (!empty($arAppliedPropertyList)) {
+            foreach ($arAppliedPropertyList as $property) {
+                $arFilterList = array_add($arFilterList, (string)$iKey, [$property]);
+                //$arFilterList[] = [strval($iKey) => [$property]];
+                $iKey = $iKey+1;
+            }
+        }
+        
+        $iKey = 1;
+        $obItemProductList = $this->ProductList->make([$obProductItem->id]);
+        $obOfferPropertyList = $obMainCategoryItem->offer_filter_property->setCategory(null)->setProductList($obItemProductList);
+        $obOfferList = $obProductItem->offer;
+        $obOfferListCopy = $obOfferList->copy()->filterByProperty($arFilterList, $obOfferPropertyList);
+        $this['arAppliedPropertyList'] = $arAppliedPropertyList;
+        $this['arFilterList'] = $arFilterList;
+        $this['obOfferList'] = $obOfferList;
+        $this['obOfferListCopy'] = $obOfferListCopy;
+        $this['obOfferPropertyList'] = $obOfferPropertyList;
     }
     $this['obMainCategoryItem'] = $obMainCategoryItem;
     
@@ -113,7 +136,9 @@ function onInit() {
 ?>
 ==
 {##}
-
+<pre>
+{{ arFilterList | var_dump}}
+</pre>
 {# @var obCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
 {# Get category item #}
 {% if obProduct.isNotEmpty() %}
@@ -137,12 +162,12 @@ function onInit() {
                         </div>
                         <div class="product-short">
                             {# Get first offer object #}
-                            {% set obOffer = obProduct.offer.sort('price|asc').first() %} 
+                            {% set obOfferItem = obProduct.offer.sort('price|asc').first() %} 
                             <div class="price">
-                                {% if obOffer.price < obOffer.old_price %}
-                                    <div class="old-price" > {{ obOffer.old_price }} </div>
+                                {% if obOfferItem.price < obOfferItem.old_price %}
+                                    <div class="old-price" > {{ obOfferItem.old_price }} </div>
                                 {% endif %}
-                                <div class="current-price" > {{ obOffer.price }}<span class="rub" itemprop="priceCurrency" content="{{ obOffer.currency_code }}">{{ obOffer.currency }}</span> </div>
+                                <div class="current-price" > {{ obOfferItem.price }}<span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span> </div>
                             </div>
                             <div class="raiting-overlay">
                                 <div class="raiting-wrapper">
@@ -182,15 +207,6 @@ function onInit() {
                                 
                         </div>
                         <!--Параметры товара-->
-                        {# Get offer list #}
-                        {% set obOfferList = obProduct.offer %}
-
-                        {# Нужно сделать фильтр по офферам #}
-                        {# Get product collection #}
-                        {% set obItemProductList = ProductList.make([obProduct.id]) %}
-                        {% set arAppliedPropertyList = input('property') %}
-                        {# Get offer proeprties for property sets with code 'main', enabled how filters #}
-                        {% set obOfferPropertyList = obMainCategoryItem.offer_filter_property.setCategory(null).setProductList(obItemProductList) %}
                         
                         <div class="product-options">
                             <form id="formProperty-{{obProduct.id}}">
@@ -200,21 +216,10 @@ function onInit() {
                                 {% endif %}
                                 {# Выводим офферы #}
                                 {# Get offer list #}
-                                {% set obOfferList = obProduct.offer %}
+                                
+                                
                                 {# Render select with offers #}
-                                {% if obOfferList.isNotEmpty() %}
-                                    <div class="form-group product-property" >  
-                                        <label class="property-values__label" for="offersProduct">Выберите предложение</label>
-                                        <select
-                                            class="form-control property-values__select"                                            
-                                            name="offer"
-                                            id="offersProduct">
-                                            {% for obOffer in obOfferList %}                                        
-                                                <option value="{{ obOffer.id }}" >{{ obOffer.name }}</option>
-                                            {% endfor %}
-                                        </select>
-                                    </div>
-                                {% endif %}
+                                {% partial "product/offer/product-offer-list" obOfferList = obOfferList obOfferListCopy = obOfferListCopy %}
                                 <!-- Количество -->
                                 <div class="kol-wrapper">
                                     <div class="group-kol">

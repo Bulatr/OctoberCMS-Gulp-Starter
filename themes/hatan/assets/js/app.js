@@ -43,22 +43,19 @@ document.addEventListener("DOMContentLoaded", function() {
 	const obSortingHelper = new ShopaholicSorting(obListHelper);
 	const obPaginationHelper = new ShopaholicPagination(obListHelper);
 	const obFilterPanel = new ShopaholicFilterPanel(obListHelper);
-	const obProductFilterPanel = new ShopaholicFilterPanel(obListHelper);
 
-	obProductFilterPanel.setWrapperSelector('product-property');
-	obProductFilterPanel.init();
 	obFilterPanel.init();
 	obPaginationHelper.init();
 	obSortingHelper.init();
 	
-	const obColorFilterPanel = new ShopaholicFilterPanel(obListHelper);
-	obColorFilterPanel.setWrapperSelector('wrapper-radio').init();
-
+	/**
+	 * Обработка фильтра на странице продукта
+	 */
 	const arValue = [];
 	arValue[0] = "";
 	arValue[1] = "";
 	let resultString = "";
-	let sBaseURL = `${location.origin}${location.pathname}`;
+	
 	$(".property-values-wrapper").on("change", "select.property-values__select", function(e){
 		/** ! добавление в строку браузера параметров */
 		//history.pushState(null, null, `${this.sBaseURL}?${this.sSearchString}`);
@@ -70,10 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		} else {
 			resultString = arValue[0]+"&"+arValue[1];
 		}
-		history.pushState(null, null, `${sBaseURL}?${resultString}`);
-		console.log(arValue);
-		console.log(resultString);
-		
+		pushStateUrl(resultString);		
 	});
 
 	$(".property-values-wrapper").on("change", ".wrapper-radio input[type=radio]", function(e){
@@ -85,10 +79,38 @@ document.addEventListener("DOMContentLoaded", function() {
 		} else {
 			resultString = arValue[0]+"&"+arValue[1];
 		}
-		history.pushState(null, null, `${sBaseURL}?${resultString}`);
-		console.log(arValue);
-		console.log(resultString);
+		pushStateUrl(resultString);
+		
 	});
+
+	/**
+	 * Функция меняет URL на странице продукта при использовании фильтра
+	 * и меняет доступные офферы
+	 *  pushState
+	 */
+	function pushStateUrl(resultstring) {
+		let sBaseURL = `${location.origin}${location.pathname}`;
+		history.pushState(null, null, `${sBaseURL}?${resultString}`);
+		$.request('onAjax', {
+			'update': {'product/offer/product-offer-list': '.property-values__select.offers'}
+		});
+	}
+
+	/**
+	 *  parse URL
+	 */
+	function parseRequestValue(arValueList)
+    {
+        if (empty(arValueList)) {
+            return [];
+		}
+		arValueList.forEach(function(sValue,iKey,arValueList){
+			arValueList[iKey] = explode('|', sValue);
+		})
+        
+        return arValueList;
+    }
+
 
 	$("modal-options__wrap .color-radio label").on("click", function() {
 		//$("input[type=radio].color-radio-input").trigger("click");		

@@ -213,18 +213,17 @@ class Catalog extends ComponentBase
     public function setRequestData($obProductItem, $obMainCategoryItem, $obCategoryItem, $obBrandItem) 
     {
         $this->obProductItem = $obProductItem;
-        $this->obMainCategoryItem = $obMainCategoryItem;
+        $this->obMainCategoryItem = $obMainCategoryItem;        
+        $this->obActiveCategoryItem = !empty($obCategoryItem) ? $obCategoryItem : $obMainCategoryItem;
 
-        $this->obActiveCategoryItem = $obMainCategoryItem;
-        if (!empty($obCategoryItem)) {
-            $this->obActiveCategoryItem = $obCategoryItem;
-        } elseif ($this->obProductItem) {
+        if (!empty($obProductItem)) {
             $this->obActiveCategoryItem = $this->obProductItem->category;
         }
 
         $this->obBrandItem = $obBrandItem;
-
         $this->obFilterProductPropertyList = $this->obActiveCategoryItem->offer_filter_property;
+
+        
     }
     
     /**

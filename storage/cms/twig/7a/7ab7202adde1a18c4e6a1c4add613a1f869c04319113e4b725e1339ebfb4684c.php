@@ -122,24 +122,28 @@ class __TwigTemplate_b1328bcc627173276d400a7734bdda2d21da7789975a18e15dc439d7217
                 echo "\t\t\t\t\t";
                 $context["obPropertyValueList"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["obProperty"], "property_value", [], "any", false, false, true, 31), "sort", [], "method", false, false, true, 31);
                 // line 32
-                echo "\t\t\t\t\t\t<div class=\"modal-options__wrap\">\t
-\t\t\t\t\t\t\t";
+                echo "\t\t\t\t\t\t<div class=\"modal-options__wrap _shopaholic-filter-wrapper\" 
+\t\t\t\t\t\t\tdata-filter-type=\"";
+                // line 33
+                echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obProperty"], "filter_type", [], "any", false, false, true, 33), 33, $this->source), "html", null, true);
+                echo "\" 
+\t\t\t\t\t\t\tdata-property-id=\"";
                 // line 34
+                echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obProperty"], "id", [], "any", false, false, true, 34), 34, $this->source), "html", null, true);
+                echo "\">\t
+\t\t\t\t\t\t\t";
+                // line 36
                 echo "\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t\t";
-                // line 35
+                // line 37
                 if ((($context["sFilterType"] ?? null) == "checkbox")) {
-                    // line 36
+                    // line 38
                     echo "\t\t\t\t\t\t\t\t\t";
                     if (($context["inputType"] ?? null)) {
-                        // line 37
-                        echo "\t\t\t\t\t\t\t\t\t\t<div class=\"_shopaholic-filter-wrapper\" data-filter-type=\"";
-                        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obProperty"], "filter_type", [], "any", false, false, true, 37), 37, $this->source), "html", null, true);
-                        echo "\" data-property-id=\"";
-                        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obProperty"], "id", [], "any", false, false, true, 37), 37, $this->source), "html", null, true);
-                        echo "\" >  
+                        // line 39
+                        echo "\t\t\t\t\t\t\t\t\t\t<div class=\"_shopaholic-filter\" >  
 \t\t\t\t\t\t\t\t\t\t\t";
-                        // line 38
+                        // line 40
                         $context['_parent'] = $context;
                         $context['_seq'] = twig_ensure_traversable(($context["obPropertyValueList"] ?? null));
                         foreach ($context['_seq'] as $context["_key"] => $context["obValue"]) {
@@ -147,30 +151,30 @@ class __TwigTemplate_b1328bcc627173276d400a7734bdda2d21da7789975a18e15dc439d7217
 \t\t\t\t\t\t\t\t\t\t\t\t<div class=\"modal-options__checkout\">\t\t\t\t\t\t
 \t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t";
-                            // line 41
-                            $context["bChecked"] = ( !twig_test_empty((($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4 = ($context["arFilterPropertyList"] ?? null)) && is_array($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4) || $__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4 instanceof ArrayAccess ? ($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4[twig_get_attribute($this->env, $this->source, $context["obProperty"], "id", [], "any", false, false, true, 41)] ?? null) : null)) && twig_in_filter(twig_get_attribute($this->env, $this->source, $context["obValue"], "slug", [], "any", false, false, true, 41), (($__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144 = ($context["arFilterPropertyList"] ?? null)) && is_array($__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144) || $__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144 instanceof ArrayAccess ? ($__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144[twig_get_attribute($this->env, $this->source, $context["obProperty"], "id", [], "any", false, false, true, 41)] ?? null) : null)));
-                            // line 42
+                            // line 43
+                            $context["bChecked"] = ( !twig_test_empty((($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4 = ($context["arFilterPropertyList"] ?? null)) && is_array($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4) || $__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4 instanceof ArrayAccess ? ($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4[twig_get_attribute($this->env, $this->source, $context["obProperty"], "id", [], "any", false, false, true, 43)] ?? null) : null)) && twig_in_filter(twig_get_attribute($this->env, $this->source, $context["obValue"], "slug", [], "any", false, false, true, 43), (($__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144 = ($context["arFilterPropertyList"] ?? null)) && is_array($__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144) || $__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144 instanceof ArrayAccess ? ($__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144[twig_get_attribute($this->env, $this->source, $context["obProperty"], "id", [], "any", false, false, true, 43)] ?? null) : null)));
+                            // line 44
                             echo "\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input 
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"form-check-input\" 
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"checkbox\" 
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t";
-                            // line 45
+                            // line 47
                             if (($context["bChecked"] ?? null)) {
                                 echo " checked ";
                             }
-                            // line 46
+                            // line 48
                             echo "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tid=\"";
-                            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["obValue"], "arModelData", [], "any", false, false, true, 46), "id", [], "any", false, false, true, 46), 46, $this->source), "html", null, true);
+                            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["obValue"], "arModelData", [], "any", false, false, true, 48), "id", [], "any", false, false, true, 48), 48, $this->source), "html", null, true);
                             echo "\" 
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\tvalue=\"";
-                            // line 47
-                            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obValue"], "slug", [], "any", false, false, true, 47), 47, $this->source), "html", null, true);
+                            // line 49
+                            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obValue"], "slug", [], "any", false, false, true, 49), 49, $this->source), "html", null, true);
                             echo "\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label\" for=\"";
-                            // line 48
-                            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["obValue"], "arModelData", [], "any", false, false, true, 48), "id", [], "any", false, false, true, 48), 48, $this->source), "html", null, true);
+                            // line 50
+                            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["obValue"], "arModelData", [], "any", false, false, true, 50), "id", [], "any", false, false, true, 50), 50, $this->source), "html", null, true);
                             echo "\">";
-                            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obValue"], "value", [], "any", false, false, true, 48), 48, $this->source), "html", null, true);
+                            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obValue"], "value", [], "any", false, false, true, 50), 50, $this->source), "html", null, true);
                             echo "</label>
 \t\t\t\t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t\t\t\t</div>
@@ -179,110 +183,110 @@ class __TwigTemplate_b1328bcc627173276d400a7734bdda2d21da7789975a18e15dc439d7217
                         $_parent = $context['_parent'];
                         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['obValue'], $context['_parent'], $context['loop']);
                         $context = array_intersect_key($context, $_parent) + $_parent;
-                        // line 52
+                        // line 54
                         echo "\t\t\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t\t\t";
                     } else {
-                        // line 54
-                        echo "\t\t\t\t\t\t\t\t\t\t<div class=\"color-radio\" id=\"color-radio\">\t\t\t\t\t\t\t\t\t\t\t                       
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"wrapper-radio\" data-filter-type=\"checkbox\" data-property-id=\"";
-                        // line 55
-                        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obProperty"], "id", [], "any", false, false, true, 55), 55, $this->source), "html", null, true);
-                        echo "\" >
-\t\t\t\t\t\t\t\t\t\t\t\t";
                         // line 56
+                        echo "\t\t\t\t\t\t\t\t\t\t<div class=\"color-radio-list\" id=\"color-radio-list\">\t\t\t\t\t\t\t\t\t\t\t                       
+\t\t\t\t\t\t\t\t\t\t\t<div class=\"_wrapper-color-list\">
+\t\t\t\t\t\t\t\t\t\t\t\t";
+                        // line 58
                         $context['_parent'] = $context;
                         $context['_seq'] = twig_ensure_traversable(($context["obPropertyValueList"] ?? null));
                         foreach ($context['_seq'] as $context["_key"] => $context["obValue"]) {
-                            // line 57
-                            echo "\t\t\t\t\t\t\t\t\t\t\t\t\t";
-                            $context["bChecked"] = ( !twig_test_empty((($__internal_1cfccaec8dd2e8578ccb026fbe7f2e7e29ac2ed5deb976639c5fc99a6ea8583b = ($context["arFilterPropertyList"] ?? null)) && is_array($__internal_1cfccaec8dd2e8578ccb026fbe7f2e7e29ac2ed5deb976639c5fc99a6ea8583b) || $__internal_1cfccaec8dd2e8578ccb026fbe7f2e7e29ac2ed5deb976639c5fc99a6ea8583b instanceof ArrayAccess ? ($__internal_1cfccaec8dd2e8578ccb026fbe7f2e7e29ac2ed5deb976639c5fc99a6ea8583b[twig_get_attribute($this->env, $this->source, $context["obProperty"], "id", [], "any", false, false, true, 57)] ?? null) : null)) && twig_in_filter(twig_get_attribute($this->env, $this->source, $context["obValue"], "slug", [], "any", false, false, true, 57), (($__internal_68aa442c1d43d3410ea8f958ba9090f3eaa9a76f8de8fc9be4d6c7389ba28002 = ($context["arFilterPropertyList"] ?? null)) && is_array($__internal_68aa442c1d43d3410ea8f958ba9090f3eaa9a76f8de8fc9be4d6c7389ba28002) || $__internal_68aa442c1d43d3410ea8f958ba9090f3eaa9a76f8de8fc9be4d6c7389ba28002 instanceof ArrayAccess ? ($__internal_68aa442c1d43d3410ea8f958ba9090f3eaa9a76f8de8fc9be4d6c7389ba28002[twig_get_attribute($this->env, $this->source, $context["obProperty"], "id", [], "any", false, false, true, 57)] ?? null) : null)));
-                            // line 58
-                            echo "\t\t\t\t\t\t\t\t\t\t\t\t\t";
-                            $context["color_code"] = twig_get_attribute($this->env, $this->source, $context["obValue"], "color_code", [], "any", false, false, true, 58);
                             // line 59
-                            echo "\t\t\t\t\t\t\t\t\t\t\t\t\t<label ";
-                            if (($context["bChecked"] ?? null)) {
-                                echo " class=\"input-checked\" ";
-                            }
-                            echo " for=\"";
-                            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["obValue"], "arModelData", [], "any", false, false, true, 59), "id", [], "any", false, false, true, 59), 59, $this->source), "html", null, true);
-                            echo "\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span style=\"background:";
+                            echo "\t\t\t\t\t\t\t\t\t\t\t\t\t";
+                            $context["bChecked"] = ( !twig_test_empty((($__internal_1cfccaec8dd2e8578ccb026fbe7f2e7e29ac2ed5deb976639c5fc99a6ea8583b = ($context["arFilterPropertyList"] ?? null)) && is_array($__internal_1cfccaec8dd2e8578ccb026fbe7f2e7e29ac2ed5deb976639c5fc99a6ea8583b) || $__internal_1cfccaec8dd2e8578ccb026fbe7f2e7e29ac2ed5deb976639c5fc99a6ea8583b instanceof ArrayAccess ? ($__internal_1cfccaec8dd2e8578ccb026fbe7f2e7e29ac2ed5deb976639c5fc99a6ea8583b[twig_get_attribute($this->env, $this->source, $context["obProperty"], "id", [], "any", false, false, true, 59)] ?? null) : null)) && twig_in_filter(twig_get_attribute($this->env, $this->source, $context["obValue"], "slug", [], "any", false, false, true, 59), (($__internal_68aa442c1d43d3410ea8f958ba9090f3eaa9a76f8de8fc9be4d6c7389ba28002 = ($context["arFilterPropertyList"] ?? null)) && is_array($__internal_68aa442c1d43d3410ea8f958ba9090f3eaa9a76f8de8fc9be4d6c7389ba28002) || $__internal_68aa442c1d43d3410ea8f958ba9090f3eaa9a76f8de8fc9be4d6c7389ba28002 instanceof ArrayAccess ? ($__internal_68aa442c1d43d3410ea8f958ba9090f3eaa9a76f8de8fc9be4d6c7389ba28002[twig_get_attribute($this->env, $this->source, $context["obProperty"], "id", [], "any", false, false, true, 59)] ?? null) : null)));
                             // line 60
-                            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(($context["color_code"] ?? null), 60, $this->source), "html", null, true);
-                            echo "\"></span>
+                            echo "\t\t\t\t\t\t\t\t\t\t\t\t\t";
+                            $context["color_code"] = twig_get_attribute($this->env, $this->source, $context["obValue"], "color_code", [], "any", false, false, true, 60);
+                            // line 61
+                            echo "\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"color-wrapper-check\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t<input
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"color-radio-input\" 
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" 
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"color-check-input\" 
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"checkbox\" 
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\tid = \"";
-                            // line 64
-                            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["obValue"], "arModelData", [], "any", false, false, true, 64), "id", [], "any", false, false, true, 64), 64, $this->source), "html", null, true);
+                            // line 65
+                            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["obValue"], "arModelData", [], "any", false, false, true, 65), "id", [], "any", false, false, true, 65), 65, $this->source), "html", null, true);
                             echo "\"
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\tvalue=\"";
-                            // line 65
-                            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obValue"], "slug", [], "any", false, false, true, 65), 65, $this->source), "html", null, true);
+                            // line 66
+                            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obValue"], "slug", [], "any", false, false, true, 66), 66, $this->source), "html", null, true);
                             echo "\" 
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"property[";
-                            // line 66
-                            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obValue"], "id", [], "any", false, false, true, 66), 66, $this->source), "html", null, true);
-                            echo "][]\" 
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tdata-property-id=\"";
                             // line 67
-                            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obProperty"], "id", [], "any", false, false, true, 67), 67, $this->source), "html", null, true);
-                            echo "\" 
+                            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obValue"], "id", [], "any", false, false, true, 67), 67, $this->source), "html", null, true);
+                            echo "][]\" \t\t\t\t\t\t\t\t\t\t\t\t\t\t 
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t";
                             // line 68
                             if (($context["bChecked"] ?? null)) {
                                 // line 69
-                                echo "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"checked\"
+                                echo "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tchecked
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t";
                             }
                             // line 70
                             echo " />
-\t\t\t\t\t\t\t\t\t\t\t\t\t</label>                                    
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label 
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"color-code-image\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t";
+                            // line 73
+                            if (($context["bChecked"] ?? null)) {
+                                echo " class=\"color-input-checked\" ";
+                            }
+                            echo " 
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tfor=\"";
+                            // line 74
+                            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["obValue"], "arModelData", [], "any", false, false, true, 74), "id", [], "any", false, false, true, 74), 74, $this->source), "html", null, true);
+                            echo "\" 
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tstyle=\"background:";
+                            // line 75
+                            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(($context["color_code"] ?? null), 75, $this->source), "html", null, true);
+                            echo "\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t</label>
+\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t\t\t\t";
                         }
                         $_parent = $context['_parent'];
                         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['obValue'], $context['_parent'], $context['loop']);
                         $context = array_intersect_key($context, $_parent) + $_parent;
-                        // line 73
+                        // line 79
                         echo "\t\t\t\t\t\t\t\t\t\t\t</div>\t
 \t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t";
                     }
-                    // line 76
+                    // line 82
                     echo "\t\t\t\t\t\t\t\t";
                 }
-                // line 77
+                // line 83
                 echo "
 \t\t\t\t\t\t\t\t";
-                // line 79
+                // line 85
                 echo "\t\t\t\t\t\t\t\t";
                 if ((($context["sFilterType"] ?? null) == "select")) {
-                    // line 80
+                    // line 86
                     echo "\t\t\t\t\t\t\t\t\t<select>
 \t\t\t\t\t\t\t\t\t\t";
-                    // line 81
+                    // line 87
                     $context['_parent'] = $context;
                     $context['_seq'] = twig_ensure_traversable(($context["obPropertyValueList"] ?? null));
                     foreach ($context['_seq'] as $context["_key"] => $context["obValue"]) {
-                        // line 82
+                        // line 88
                         echo "\t\t\t\t\t\t\t\t\t\t\t<option value=\"";
-                        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obValue"], "slug", [], "any", false, false, true, 82), 82, $this->source), "html", null, true);
+                        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obValue"], "slug", [], "any", false, false, true, 88), 88, $this->source), "html", null, true);
                         echo "\">";
-                        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obValue"], "value", [], "any", false, false, true, 82), 82, $this->source), "html", null, true);
+                        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obValue"], "value", [], "any", false, false, true, 88), 88, $this->source), "html", null, true);
                         echo "</option>
 \t\t\t\t\t\t\t\t\t\t";
                     }
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['obValue'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 84
+                    // line 90
                     echo "\t\t\t\t\t\t\t\t\t</select>
 \t\t\t\t\t\t\t\t";
                 }
-                // line 86
+                // line 92
                 echo "\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t
 \t\t\t\t\t\t</div>
@@ -292,7 +296,7 @@ class __TwigTemplate_b1328bcc627173276d400a7734bdda2d21da7789975a18e15dc439d7217
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['obProperty'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 90
+        // line 96
         echo "\t\t\t</div>
 \t\t\t
 \t\t\t<!--Price-->
@@ -360,7 +364,7 @@ class __TwigTemplate_b1328bcc627173276d400a7734bdda2d21da7789975a18e15dc439d7217
 
     public function getDebugInfo()
     {
-        return array (  296 => 90,  286 => 86,  282 => 84,  271 => 82,  267 => 81,  264 => 80,  261 => 79,  258 => 77,  255 => 76,  250 => 73,  242 => 70,  238 => 69,  236 => 68,  232 => 67,  228 => 66,  224 => 65,  220 => 64,  213 => 60,  204 => 59,  201 => 58,  198 => 57,  194 => 56,  190 => 55,  187 => 54,  183 => 52,  171 => 48,  167 => 47,  162 => 46,  158 => 45,  153 => 42,  151 => 41,  143 => 38,  136 => 37,  133 => 36,  131 => 35,  128 => 34,  125 => 32,  122 => 31,  119 => 29,  116 => 28,  109 => 23,  106 => 22,  101 => 20,  98 => 19,  95 => 18,  92 => 17,  89 => 16,  86 => 15,  81 => 14,  74 => 10,  70 => 8,  68 => 7,  66 => 6,  64 => 5,  62 => 4,);
+        return array (  300 => 96,  290 => 92,  286 => 90,  275 => 88,  271 => 87,  268 => 86,  265 => 85,  262 => 83,  259 => 82,  254 => 79,  244 => 75,  240 => 74,  234 => 73,  229 => 70,  225 => 69,  223 => 68,  219 => 67,  215 => 66,  211 => 65,  205 => 61,  202 => 60,  199 => 59,  195 => 58,  191 => 56,  187 => 54,  175 => 50,  171 => 49,  166 => 48,  162 => 47,  157 => 44,  155 => 43,  147 => 40,  144 => 39,  141 => 38,  139 => 37,  136 => 36,  132 => 34,  128 => 33,  125 => 32,  122 => 31,  119 => 29,  116 => 28,  109 => 23,  106 => 22,  101 => 20,  98 => 19,  95 => 18,  92 => 17,  89 => 16,  86 => 15,  81 => 14,  74 => 10,  70 => 8,  68 => 7,  66 => 6,  64 => 5,  62 => 4,);
     }
 
     public function getSourceContext()
@@ -396,12 +400,14 @@ class __TwigTemplate_b1328bcc627173276d400a7734bdda2d21da7789975a18e15dc439d7217
 
 \t\t\t\t\t{# Get proeprty value list #}
 \t\t\t\t\t{% set obPropertyValueList = obProperty.property_value.sort() %}
-\t\t\t\t\t\t<div class=\"modal-options__wrap\">\t
+\t\t\t\t\t\t<div class=\"modal-options__wrap _shopaholic-filter-wrapper\" 
+\t\t\t\t\t\t\tdata-filter-type=\"{{obProperty.filter_type}}\" 
+\t\t\t\t\t\t\tdata-property-id=\"{{obProperty.id}}\">\t
 \t\t\t\t\t\t\t{# Render filtre with type == checkbox #}
 \t\t\t\t\t\t\t
 \t\t\t\t\t\t\t\t{% if sFilterType == 'checkbox' %}
 \t\t\t\t\t\t\t\t\t{% if inputType %}
-\t\t\t\t\t\t\t\t\t\t<div class=\"_shopaholic-filter-wrapper\" data-filter-type=\"{{obProperty.filter_type}}\" data-property-id=\"{{obProperty.id}}\" >  
+\t\t\t\t\t\t\t\t\t\t<div class=\"_shopaholic-filter\" >  
 \t\t\t\t\t\t\t\t\t\t\t{% for obValue in obPropertyValueList %}\t
 \t\t\t\t\t\t\t\t\t\t\t\t<div class=\"modal-options__checkout\">\t\t\t\t\t\t
 \t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check\">
@@ -418,24 +424,28 @@ class __TwigTemplate_b1328bcc627173276d400a7734bdda2d21da7789975a18e15dc439d7217
 \t\t\t\t\t\t\t\t\t\t\t{% endfor %}
 \t\t\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t\t\t{% else %}
-\t\t\t\t\t\t\t\t\t\t<div class=\"color-radio\" id=\"color-radio\">\t\t\t\t\t\t\t\t\t\t\t                       
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"wrapper-radio\" data-filter-type=\"checkbox\" data-property-id=\"{{obProperty.id}}\" >
+\t\t\t\t\t\t\t\t\t\t<div class=\"color-radio-list\" id=\"color-radio-list\">\t\t\t\t\t\t\t\t\t\t\t                       
+\t\t\t\t\t\t\t\t\t\t\t<div class=\"_wrapper-color-list\">
 \t\t\t\t\t\t\t\t\t\t\t\t{% for obValue in obPropertyValueList %}
 \t\t\t\t\t\t\t\t\t\t\t\t\t{% set bChecked = arFilterPropertyList[obProperty.id] is not empty and obValue.slug in arFilterPropertyList[obProperty.id] %}
 \t\t\t\t\t\t\t\t\t\t\t\t\t{% set color_code = obValue.color_code %}
-\t\t\t\t\t\t\t\t\t\t\t\t\t<label {% if bChecked %} class=\"input-checked\" {% endif %} for=\"{{ obValue.arModelData.id }}\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span style=\"background:{{color_code}}\"></span>
+\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"color-wrapper-check\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t<input
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"color-radio-input\" 
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" 
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"color-check-input\" 
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"checkbox\" 
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\tid = \"{{ obValue.arModelData.id }}\"
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\tvalue=\"{{obValue.slug}}\" 
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"property[{{ obValue.id }}][]\" 
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tdata-property-id=\"{{obProperty.id}}\" 
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"property[{{ obValue.id }}][]\" \t\t\t\t\t\t\t\t\t\t\t\t\t\t 
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{% if bChecked %}
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"checked\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tchecked
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{% endif %} />
-\t\t\t\t\t\t\t\t\t\t\t\t\t</label>                                    
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label 
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"color-code-image\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{% if bChecked %} class=\"color-input-checked\" {% endif %} 
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tfor=\"{{ obValue.arModelData.id }}\" 
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tstyle=\"background:{{color_code}}\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t</label>
+\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t\t\t\t{% endfor %}
 \t\t\t\t\t\t\t\t\t\t\t</div>\t
 \t\t\t\t\t\t\t\t\t\t</div>

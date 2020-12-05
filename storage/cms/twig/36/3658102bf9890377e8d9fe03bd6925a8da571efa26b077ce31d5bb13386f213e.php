@@ -29,15 +29,15 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
         $this->blocks = [
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
-        $tags = array("if" => 5, "partial" => 12, "set" => 26, "for" => 98);
-        $filters = array("escape" => 7, "raw" => 67, "theme" => 180);
-        $functions = array("input" => 77);
+        $tags = array("if" => 7, "partial" => 14, "set" => 28);
+        $filters = array("var_dump" => 3, "escape" => 9, "raw" => 69, "theme" => 162);
+        $functions = array();
 
         try {
             $this->sandbox->checkSecurity(
-                ['if', 'partial', 'set', 'for'],
-                ['escape', 'raw', 'theme'],
-                ['input']
+                ['if', 'partial', 'set'],
+                ['var_dump', 'escape', 'raw', 'theme'],
+                []
             );
         } catch (SecurityError $e) {
             $e->setSourceContext($this->source);
@@ -59,70 +59,75 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
     {
         $macros = $this->macros;
         // line 2
-        echo "
+        echo "<pre>
 ";
-        // line 5
-        if (twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "isNotEmpty", [], "method", false, false, true, 5)) {
-            // line 6
+        // line 3
+        echo call_user_func_array($this->env->getFilter('var_dump')->getCallable(), [$this->sandbox->ensureToStringAllowed(($context["arFilterList"] ?? null), 3, $this->source)]);
+        echo "
+</pre>
+";
+        // line 7
+        if (twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "isNotEmpty", [], "method", false, false, true, 7)) {
+            // line 8
             echo "    ";
-            // line 7
+            // line 9
             echo "    <div class=\"single-product\" id=\"";
-            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "id", [], "any", false, false, true, 7), 7, $this->source), "html", null, true);
+            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "id", [], "any", false, false, true, 9), 9, $this->source), "html", null, true);
             echo "\">
     
         <div class=\"container\">
             <div class=\"row\">
                 <div class=\"col\">
                     ";
-            // line 12
+            // line 14
             $context['__cms_partial_params'] = [];
-            $context['__cms_partial_params']['arBreadcrumbs'] = twig_get_attribute($this->env, $this->source, ($context["Catalog"] ?? null), "getBreadcrumbs", [], "method", false, false, true, 12)            ;
+            $context['__cms_partial_params']['arBreadcrumbs'] = twig_get_attribute($this->env, $this->source, ($context["Catalog"] ?? null), "getBreadcrumbs", [], "method", false, false, true, 14)            ;
             echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("breadcrumbs/breadcrumbs"            , $context['__cms_partial_params']            , true            );
             unset($context['__cms_partial_params']);
-            // line 13
+            // line 15
             echo "                </div>
             </div>
             <div class=\"row\">
                 <div class=\"col-sm-12 col-md-12 col-lg-7 col-xl-7 col-xxl-7\">
                     ";
-            // line 17
+            // line 19
             $context['__cms_partial_params'] = [];
             $context['__cms_partial_params']['obProduct'] = ($context["obProduct"] ?? null)            ;
             echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("product/gallery/product-gallery"            , $context['__cms_partial_params']            , true            );
             unset($context['__cms_partial_params']);
-            // line 18
+            // line 20
             echo "                </div>
                 <div class=\"col-sm-12 col-md-12 col-lg-5 col-xl-5 col-xxl-5\">
                     <div class=\"product-overlay\">
                         <div class=\"product-title\">
                             <h2>";
-            // line 22
-            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "name", [], "any", false, false, true, 22), 22, $this->source), "html", null, true);
+            // line 24
+            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "name", [], "any", false, false, true, 24), 24, $this->source), "html", null, true);
             echo "</h2>
                         </div>
                         <div class=\"product-short\">
                             ";
-            // line 26
+            // line 28
             echo "                            ";
-            $context["obOffer"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "offer", [], "any", false, false, true, 26), "sort", [0 => "price|asc"], "method", false, false, true, 26), "first", [], "method", false, false, true, 26);
+            $context["obOfferItem"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "offer", [], "any", false, false, true, 28), "sort", [0 => "price|asc"], "method", false, false, true, 28), "first", [], "method", false, false, true, 28);
             echo " 
                             <div class=\"price\">
                                 ";
-            // line 28
-            if ((twig_get_attribute($this->env, $this->source, ($context["obOffer"] ?? null), "price", [], "any", false, false, true, 28) < twig_get_attribute($this->env, $this->source, ($context["obOffer"] ?? null), "old_price", [], "any", false, false, true, 28))) {
-                // line 29
+            // line 30
+            if ((twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "price", [], "any", false, false, true, 30) < twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "old_price", [], "any", false, false, true, 30))) {
+                // line 31
                 echo "                                    <div class=\"old-price\" > ";
-                echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOffer"] ?? null), "old_price", [], "any", false, false, true, 29), 29, $this->source), "html", null, true);
+                echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "old_price", [], "any", false, false, true, 31), 31, $this->source), "html", null, true);
                 echo " </div>
                                 ";
             }
-            // line 31
+            // line 33
             echo "                                <div class=\"current-price\" > ";
-            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOffer"] ?? null), "price", [], "any", false, false, true, 31), 31, $this->source), "html", null, true);
+            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "price", [], "any", false, false, true, 33), 33, $this->source), "html", null, true);
             echo "<span class=\"rub\" itemprop=\"priceCurrency\" content=\"";
-            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOffer"] ?? null), "currency_code", [], "any", false, false, true, 31), 31, $this->source), "html", null, true);
+            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "currency_code", [], "any", false, false, true, 33), 33, $this->source), "html", null, true);
             echo "\">";
-            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOffer"] ?? null), "currency", [], "any", false, false, true, 31), 31, $this->source), "html", null, true);
+            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "currency", [], "any", false, false, true, 33), 33, $this->source), "html", null, true);
             echo "</span> </div>
                             </div>
                             <div class=\"raiting-overlay\">
@@ -160,95 +165,48 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
                         </div>
                         <div class=\"product-text\">
                             ";
-            // line 67
-            echo $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "preview_text", [], "any", false, false, true, 67), 67, $this->source);
+            // line 69
+            echo $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "preview_text", [], "any", false, false, true, 69), 69, $this->source);
             echo "\t\t\t\t\t\t\t\t
                                 
                         </div>
                         <!--Параметры товара-->
-                        ";
-            // line 72
-            echo "                        ";
-            $context["obOfferList"] = twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "offer", [], "any", false, false, true, 72);
-            // line 73
-            echo "
-                        ";
-            // line 75
-            echo "                        ";
-            // line 76
-            echo "                        ";
-            $context["obItemProductList"] = twig_get_attribute($this->env, $this->source, ($context["ProductList"] ?? null), "make", [0 => [0 => twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "id", [], "any", false, false, true, 76)]], "method", false, false, true, 76);
-            // line 77
-            echo "                        ";
-            $context["arAppliedPropertyList"] = input("property");
-            // line 78
-            echo "                        ";
-            // line 79
-            echo "                        ";
-            $context["obOfferPropertyList"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["obMainCategoryItem"] ?? null), "offer_filter_property", [], "any", false, false, true, 79), "setCategory", [0 => null], "method", false, false, true, 79), "setProductList", [0 => ($context["obItemProductList"] ?? null)], "method", false, false, true, 79);
-            // line 80
-            echo "                        
+                        
                         <div class=\"product-options\">
                             <form id=\"formProperty-";
-            // line 82
-            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "id", [], "any", false, false, true, 82), 82, $this->source), "html", null, true);
+            // line 75
+            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "id", [], "any", false, false, true, 75), 75, $this->source), "html", null, true);
             echo "\">
                                 ";
-            // line 84
+            // line 77
             echo "                                ";
-            if (twig_get_attribute($this->env, $this->source, ($context["obOfferPropertyList"] ?? null), "isNotEmpty", [], "method", false, false, true, 84)) {
-                // line 85
+            if (twig_get_attribute($this->env, $this->source, ($context["obOfferPropertyList"] ?? null), "isNotEmpty", [], "method", false, false, true, 77)) {
+                // line 78
                 echo "                                    ";
                 $context['__cms_partial_params'] = [];
                 $context['__cms_partial_params']['obPropertyList'] = ($context["obOfferPropertyList"] ?? null)                ;
                 $context['__cms_partial_params']['arAppliedPropertyList'] = ($context["arAppliedPropertyList"] ?? null)                ;
                 echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("product/filter-panel/product-filter-panel"                , $context['__cms_partial_params']                , true                );
                 unset($context['__cms_partial_params']);
-                // line 86
+                // line 79
                 echo "                                ";
             }
-            // line 87
+            // line 80
             echo "                                ";
-            // line 88
+            // line 81
             echo "                                ";
-            // line 89
-            echo "                                ";
-            $context["obOfferList"] = twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "offer", [], "any", false, false, true, 89);
-            // line 90
-            echo "                                ";
-            // line 91
-            echo "                                ";
-            if (twig_get_attribute($this->env, $this->source, ($context["obOfferList"] ?? null), "isNotEmpty", [], "method", false, false, true, 91)) {
-                // line 92
-                echo "                                    <div class=\"form-group product-property\" >  
-                                        <label class=\"property-values__label\" for=\"offersProduct\">Выберите предложение</label>
-                                        <select
-                                            class=\"form-control property-values__select\"                                            
-                                            name=\"offer\"
-                                            id=\"offersProduct\">
-                                            ";
-                // line 98
-                $context['_parent'] = $context;
-                $context['_seq'] = twig_ensure_traversable(($context["obOfferList"] ?? null));
-                foreach ($context['_seq'] as $context["_key"] => $context["obOffer"]) {
-                    echo "                                        
-                                                <option value=\"";
-                    // line 99
-                    echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obOffer"], "id", [], "any", false, false, true, 99), 99, $this->source), "html", null, true);
-                    echo "\" >";
-                    echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obOffer"], "name", [], "any", false, false, true, 99), 99, $this->source), "html", null, true);
-                    echo "</option>
-                                            ";
-                }
-                $_parent = $context['_parent'];
-                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['obOffer'], $context['_parent'], $context['loop']);
-                $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 101
-                echo "                                        </select>
-                                    </div>
+            // line 82
+            echo "                                
+                                
                                 ";
-            }
-            // line 104
+            // line 85
+            echo "                                ";
+            $context['__cms_partial_params'] = [];
+            $context['__cms_partial_params']['obOfferList'] = ($context["obOfferList"] ?? null)            ;
+            $context['__cms_partial_params']['obOfferListCopy'] = ($context["obOfferListCopy"] ?? null)            ;
+            echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("product/offer/product-offer-list"            , $context['__cms_partial_params']            , true            );
+            unset($context['__cms_partial_params']);
+            // line 86
             echo "                                <!-- Количество -->
                                 <div class=\"kol-wrapper\">
                                     <div class=\"group-kol\">
@@ -285,8 +243,8 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
                                 <div class=\"tab-content-item\" id=\"tab1\" data-tabcontent=\"tab1\">
                                     <div class=\"product-text\">
                                         ";
-            // line 139
-            echo $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "description", [], "any", false, false, true, 139), 139, $this->source);
+            // line 121
+            echo $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "description", [], "any", false, false, true, 121), 121, $this->source);
             echo "
                                     </div>\t\t\t\t\t\t\t\t\t
                                 </div>
@@ -329,7 +287,7 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
                                     <div class=\"review-content-wrap\">
                                         <div class=\"review\">
                                             <div class=\"review-title\"><span><img src=\"";
-            // line 180
+            // line 162
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Verified.svg");
             echo "\" alt=\"\" class=\"icon-verified\"></span> Оксана</div>
                                             <div class=\"raiting-wrapper\">
@@ -367,7 +325,7 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
                                         <div class=\"review-all-collapse\">
                                             <div class=\"review\">
                                                 <div class=\"review-title\"><span><img src=\"";
-            // line 215
+            // line 197
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Verified.svg");
             echo "\" alt=\"\" class=\"icon-verified\"></span> Оксана</div>
                                                 <div class=\"raiting-wrapper\">
@@ -403,7 +361,7 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
                                             </div>
                                             <div class=\"review\">
                                                 <div class=\"review-title\"><span><img src=\"";
-            // line 248
+            // line 230
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Verified.svg");
             echo "\" alt=\"\" class=\"icon-verified\"></span> Оксана</div>
                                                 <div class=\"raiting-wrapper\">
@@ -456,7 +414,7 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
                     <div></div>
                     <div class=\"close\">
                         <img src=\"";
-            // line 298
+            // line 280
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Cross.svg");
             echo "\" alt=\"\">
                     </div>
@@ -464,32 +422,32 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
                 <div class=\"modal-body\">
                     <div class=\"modal-icon left\">
                         <img id=\"modal-image-left\" src=\"";
-            // line 303
+            // line 285
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Direction-Left.svg");
             echo "\" alt=\"\">
                     </div>
                     <div class=\"modal-wrap-images\">
                         <img src=\"";
-            // line 306
+            // line 288
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/dest/1/37416640299.jpg");
             echo "\" alt=\"\" id=\"dataimage-1\" data-modalimageid=\"modal-image-1\" class=\"modal-image show\">
                         <img src=\"";
-            // line 307
+            // line 289
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/dest/1/37416650299.jpg");
             echo "\" alt=\"\" id=\"dataimage-2\" data-modalimageid=\"modal-image-2\" class=\"modal-image\">
                         <img src=\"";
-            // line 308
+            // line 290
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/dest/1/37416660299.jpg");
             echo "\" alt=\"\" id=\"dataimage-3\" data-modalimageid=\"modal-image-3\" class=\"modal-image\">
                         <img src=\"";
-            // line 309
+            // line 291
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/dest/1/37416670299.jpg");
             echo "\" alt=\"\" id=\"dataimage-4\" data-modalimageid=\"modal-image-4\" class=\"modal-image\">
                         
                     </div>
                     <div class=\"modal-icon right\">
                         <img id=\"modal-image-right\" src=\"";
-            // line 313
+            // line 295
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Direction-Right.svg");
             echo "\" alt=\"\">
                     </div>
@@ -497,19 +455,19 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
                 <div class=\"modal-footer\">
                     <div class=\"modal-images-thumbs\">
                         <img src=\"";
-            // line 318
+            // line 300
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/dest/1/37416640299.jpg");
             echo "\" alt=\"\" id=\"dataimage-1\" data-modalimageid=\"1\" class=\"modal-thumb-image\">
                         <img src=\"";
-            // line 319
+            // line 301
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/dest/1/37416650299.jpg");
             echo "\" alt=\"\" id=\"dataimage-2\" data-modalimageid=\"2\" class=\"modal-thumb-image\">
                         <img src=\"";
-            // line 320
+            // line 302
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/dest/1/37416660299.jpg");
             echo "\" alt=\"\" id=\"dataimage-3\" data-modalimageid=\"3\" class=\"modal-thumb-image\">
                         <img src=\"";
-            // line 321
+            // line 303
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/dest/1/37416670299.jpg");
             echo "\" alt=\"\" id=\"dataimage-4\" data-modalimageid=\"4\" class=\"modal-thumb-image\">
                     </div>
@@ -519,47 +477,47 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
     </div>
 
     ";
-            // line 328
+            // line 310
             $context['__cms_partial_params'] = [];
             echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("similar-products"            , $context['__cms_partial_params']            , true            );
             unset($context['__cms_partial_params']);
-            // line 329
+            // line 311
             echo "
     ";
-            // line 330
+            // line 312
             $context['__cms_partial_params'] = [];
             echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("banners/banner-1"            , $context['__cms_partial_params']            , true            );
             unset($context['__cms_partial_params']);
-            // line 331
+            // line 313
             echo "
     ";
-            // line 332
+            // line 314
             $context['__cms_partial_params'] = [];
             echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("related-products"            , $context['__cms_partial_params']            , true            );
             unset($context['__cms_partial_params']);
         } else {
-            // line 334
+            // line 316
             echo "    ";
-            // line 335
+            // line 317
             echo "    ";
             $context['__cms_partial_params'] = [];
             $context['__cms_partial_params']['obPropertyList'] = ($context["obFilterProductPropertyList"] ?? null)            ;
             echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("filters/filter-modal"            , $context['__cms_partial_params']            , true            );
             unset($context['__cms_partial_params']);
-            // line 336
+            // line 318
             echo "
     <!-- Category-->
     <div class=\"category\" data-id=\"";
-            // line 338
-            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obCategory"] ?? null), "id", [], "any", false, false, true, 338), 338, $this->source), "html", null, true);
+            // line 320
+            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obCategory"] ?? null), "id", [], "any", false, false, true, 320), 320, $this->source), "html", null, true);
             echo "\" itemscope itemtype=\"http://schema.org/Category\">
         <div class=\"container\">
             <div class=\"row\">
                 <div class=\"col\">
                     ";
-            // line 342
+            // line 324
             $context['__cms_partial_params'] = [];
-            $context['__cms_partial_params']['arBreadcrumbs'] = twig_get_attribute($this->env, $this->source, ($context["Catalog"] ?? null), "getBreadcrumbs", [], "method", false, false, true, 342)            ;
+            $context['__cms_partial_params']['arBreadcrumbs'] = twig_get_attribute($this->env, $this->source, ($context["Catalog"] ?? null), "getBreadcrumbs", [], "method", false, false, true, 324)            ;
             echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("breadcrumbs/breadcrumbs"            , $context['__cms_partial_params']            , true            );
             unset($context['__cms_partial_params']);
             echo "                
@@ -567,19 +525,19 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
                         <div class=\"sidebar\">
                             <div class=\"sidebar__title\">
                                 <h3>";
-            // line 346
-            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obActiveCategory"] ?? null), "name", [], "any", false, false, true, 346), 346, $this->source), "html", null, true);
+            // line 328
+            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obActiveCategory"] ?? null), "name", [], "any", false, false, true, 328), 328, $this->source), "html", null, true);
             echo "</h3>
                             </div>
                             <div class=\"sidebar__content\">
                                 <div class=\"sidebar__menu\">
                                     ";
-            // line 350
+            // line 332
             $context['__cms_partial_params'] = [];
             $context['__cms_partial_params']['obActiveCategory'] = ($context["obActiveCategory"] ?? null)            ;
             echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("category/category-tree/category-list"            , $context['__cms_partial_params']            , true            );
             unset($context['__cms_partial_params']);
-            // line 351
+            // line 333
             echo "                                </div>
                                 <div class=\"sidebar__filter\">
                                     
@@ -616,7 +574,7 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
                                     <div class=\"filter-icon\">
                                         <div class=\"filter-icon__image\">
                                             <img src=\"";
-            // line 386
+            // line 368
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Filter.svg");
             echo "\" alt=\"\">
                                         </div>\t\t\t\t\t\t\t\t\t
@@ -632,25 +590,25 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
                                         <div class=\"filter-sort__select\">
                                             <select class=\"sort-select _shopaholic-sorting\" name=\"sort-product\" id=\"sort-product\">
                                                 <option ";
-            // line 399
+            // line 381
             if ((($context["sActiveSort"] ?? null) == "no")) {
                 echo " selected ";
             }
             echo " value=\"no\">По популярности</option>
                                                 <option ";
-            // line 400
+            // line 382
             if ((($context["sActiveSort"] ?? null) == "price|asc")) {
                 echo " selected ";
             }
             echo " value=\"price|asc\">По возрастанию цены</option>
                                                 <option ";
-            // line 401
+            // line 383
             if ((($context["sActiveSort"] ?? null) == "price|desc")) {
                 echo " selected ";
             }
             echo " value=\"price|desc\">По убыванию цены</option>
                                                 <option ";
-            // line 402
+            // line 384
             if ((($context["sActiveSort"] ?? null) == "new")) {
                 echo " selected ";
             }
@@ -659,22 +617,22 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
                                         </div>\t\t\t\t\t\t\t\t\t\t
                                     </div>
                                     ";
-            // line 406
+            // line 388
             $context['__cms_partial_params'] = [];
             $context['__cms_partial_params']['obFilteredProductList'] = ($context["obFilteredProductList"] ?? null)            ;
             echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("product-count"            , $context['__cms_partial_params']            , true            );
             unset($context['__cms_partial_params']);
-            // line 407
+            // line 389
             echo "                                </div>
                             </div>
                             <div class=\"wrapper-overlay card-container catalog-wrapper\">
                                 ";
-            // line 410
+            // line 392
             $context['__cms_partial_params'] = [];
             $context['__cms_partial_params']['arProductList'] = ($context["arProductList"] ?? null)            ;
             echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("product/catalog/product-list"            , $context['__cms_partial_params']            , true            );
             unset($context['__cms_partial_params']);
-            // line 411
+            // line 393
             echo "                            </div>
                         </div>
                     </div>   
@@ -684,21 +642,21 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
     </div>
 
     ";
-            // line 419
+            // line 401
             $context['__cms_partial_params'] = [];
             echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("related-products"            , $context['__cms_partial_params']            , true            );
             unset($context['__cms_partial_params']);
-            // line 420
+            // line 402
             echo "
     ";
-            // line 421
+            // line 403
             $context['__cms_partial_params'] = [];
             echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("banners/banner-1"            , $context['__cms_partial_params']            , true            );
             unset($context['__cms_partial_params']);
-            // line 422
+            // line 404
             echo "
     ";
-            // line 423
+            // line 405
             $context['__cms_partial_params'] = [];
             echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("lookbook"            , $context['__cms_partial_params']            , true            );
             unset($context['__cms_partial_params']);
@@ -717,13 +675,15 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
 
     public function getDebugInfo()
     {
-        return array (  702 => 423,  699 => 422,  695 => 421,  692 => 420,  688 => 419,  678 => 411,  673 => 410,  668 => 407,  663 => 406,  654 => 402,  648 => 401,  642 => 400,  636 => 399,  620 => 386,  583 => 351,  578 => 350,  571 => 346,  561 => 342,  554 => 338,  550 => 336,  544 => 335,  542 => 334,  537 => 332,  534 => 331,  530 => 330,  527 => 329,  523 => 328,  513 => 321,  509 => 320,  505 => 319,  501 => 318,  493 => 313,  486 => 309,  482 => 308,  478 => 307,  474 => 306,  468 => 303,  460 => 298,  407 => 248,  371 => 215,  333 => 180,  289 => 139,  252 => 104,  247 => 101,  237 => 99,  231 => 98,  223 => 92,  220 => 91,  218 => 90,  215 => 89,  213 => 88,  211 => 87,  208 => 86,  201 => 85,  198 => 84,  194 => 82,  190 => 80,  187 => 79,  185 => 78,  182 => 77,  179 => 76,  177 => 75,  174 => 73,  171 => 72,  164 => 67,  120 => 31,  114 => 29,  112 => 28,  106 => 26,  100 => 22,  94 => 18,  89 => 17,  83 => 13,  78 => 12,  69 => 7,  67 => 6,  65 => 5,  62 => 2,);
+        return array (  660 => 405,  657 => 404,  653 => 403,  650 => 402,  646 => 401,  636 => 393,  631 => 392,  626 => 389,  621 => 388,  612 => 384,  606 => 383,  600 => 382,  594 => 381,  578 => 368,  541 => 333,  536 => 332,  529 => 328,  519 => 324,  512 => 320,  508 => 318,  502 => 317,  500 => 316,  495 => 314,  492 => 313,  488 => 312,  485 => 311,  481 => 310,  471 => 303,  467 => 302,  463 => 301,  459 => 300,  451 => 295,  444 => 291,  440 => 290,  436 => 289,  432 => 288,  426 => 285,  418 => 280,  365 => 230,  329 => 197,  291 => 162,  247 => 121,  210 => 86,  203 => 85,  199 => 82,  197 => 81,  195 => 80,  192 => 79,  185 => 78,  182 => 77,  178 => 75,  169 => 69,  125 => 33,  119 => 31,  117 => 30,  111 => 28,  105 => 24,  99 => 20,  94 => 19,  88 => 15,  83 => 14,  74 => 9,  72 => 8,  70 => 7,  65 => 3,  62 => 2,);
     }
 
     public function getSourceContext()
     {
         return new Source("{##}
-
+<pre>
+{{ arFilterList | var_dump}}
+</pre>
 {# @var obCategory \\Lovata\\Shopaholic\\Classes\\Item\\CategoryItem #}
 {# Get category item #}
 {% if obProduct.isNotEmpty() %}
@@ -747,12 +707,12 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
                         </div>
                         <div class=\"product-short\">
                             {# Get first offer object #}
-                            {% set obOffer = obProduct.offer.sort('price|asc').first() %} 
+                            {% set obOfferItem = obProduct.offer.sort('price|asc').first() %} 
                             <div class=\"price\">
-                                {% if obOffer.price < obOffer.old_price %}
-                                    <div class=\"old-price\" > {{ obOffer.old_price }} </div>
+                                {% if obOfferItem.price < obOfferItem.old_price %}
+                                    <div class=\"old-price\" > {{ obOfferItem.old_price }} </div>
                                 {% endif %}
-                                <div class=\"current-price\" > {{ obOffer.price }}<span class=\"rub\" itemprop=\"priceCurrency\" content=\"{{ obOffer.currency_code }}\">{{ obOffer.currency }}</span> </div>
+                                <div class=\"current-price\" > {{ obOfferItem.price }}<span class=\"rub\" itemprop=\"priceCurrency\" content=\"{{ obOfferItem.currency_code }}\">{{ obOfferItem.currency }}</span> </div>
                             </div>
                             <div class=\"raiting-overlay\">
                                 <div class=\"raiting-wrapper\">
@@ -792,15 +752,6 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
                                 
                         </div>
                         <!--Параметры товара-->
-                        {# Get offer list #}
-                        {% set obOfferList = obProduct.offer %}
-
-                        {# Нужно сделать фильтр по офферам #}
-                        {# Get product collection #}
-                        {% set obItemProductList = ProductList.make([obProduct.id]) %}
-                        {% set arAppliedPropertyList = input('property') %}
-                        {# Get offer proeprties for property sets with code 'main', enabled how filters #}
-                        {% set obOfferPropertyList = obMainCategoryItem.offer_filter_property.setCategory(null).setProductList(obItemProductList) %}
                         
                         <div class=\"product-options\">
                             <form id=\"formProperty-{{obProduct.id}}\">
@@ -810,21 +761,10 @@ class __TwigTemplate_73e43c371f308cc06d3e249c03a631d9ba3fc784433fb84f0b6559aaddc
                                 {% endif %}
                                 {# Выводим офферы #}
                                 {# Get offer list #}
-                                {% set obOfferList = obProduct.offer %}
+                                
+                                
                                 {# Render select with offers #}
-                                {% if obOfferList.isNotEmpty() %}
-                                    <div class=\"form-group product-property\" >  
-                                        <label class=\"property-values__label\" for=\"offersProduct\">Выберите предложение</label>
-                                        <select
-                                            class=\"form-control property-values__select\"                                            
-                                            name=\"offer\"
-                                            id=\"offersProduct\">
-                                            {% for obOffer in obOfferList %}                                        
-                                                <option value=\"{{ obOffer.id }}\" >{{ obOffer.name }}</option>
-                                            {% endfor %}
-                                        </select>
-                                    </div>
-                                {% endif %}
+                                {% partial \"product/offer/product-offer-list\" obOfferList = obOfferList obOfferListCopy = obOfferListCopy %}
                                 <!-- Количество -->
                                 <div class=\"kol-wrapper\">
                                     <div class=\"group-kol\">
