@@ -3,7 +3,7 @@
 {# Get first offer object #}
 {% set obOffer = obProduct.offer.first() %}
 
-<div class="product-card" data-id="{{ obProduct.id }}">
+<div class="product-card _shopaholic-product-wrapper" data-product-id="{{ obProduct.id }}">
     <div class="card-img-wrapper">
         <a href="{{ obProduct.getPageUrl('catalog') }}">
             {% if obProduct.preview_image is not empty %}

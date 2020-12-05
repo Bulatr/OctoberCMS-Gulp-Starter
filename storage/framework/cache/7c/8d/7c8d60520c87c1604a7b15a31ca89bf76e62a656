@@ -1,13 +1,13 @@
-1607169523a:1:{s:31:"product/price/price-product.htm";a:5:{s:8:"fileName";s:31:"product/price/price-product.htm";s:7:"content";s:358:"{##}
+1607186452a:1:{s:31:"product/price/price-product.htm";a:5:{s:8:"fileName";s:31:"product/price/price-product.htm";s:7:"content";s:466:"{##}
 <div class="price">
     {% if obOfferItem.price < obOfferItem.old_price %}
-        <div class="old-price" > {{ obOfferItem.old_price }} </div>
+        <div class="old-price" data-old-price-value = "{{ obOfferItem.old_price_value }}" > {{ obOfferItem.old_price }} </div>
     {% endif %}
-    <div class="current-price" > {{ obOfferItem.price }}<span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span> </div>
-</div>";s:5:"mtime";i:1607168834;s:6:"markup";s:358:"{##}
+    <div class="current-price" data-price-value="{{ obOfferItem.price_value }}" > {{ obOfferItem.price }}<span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span> </div>
+</div>";s:5:"mtime";i:1607170261;s:6:"markup";s:466:"{##}
 <div class="price">
     {% if obOfferItem.price < obOfferItem.old_price %}
-        <div class="old-price" > {{ obOfferItem.old_price }} </div>
+        <div class="old-price" data-old-price-value = "{{ obOfferItem.old_price_value }}" > {{ obOfferItem.old_price }} </div>
     {% endif %}
-    <div class="current-price" > {{ obOfferItem.price }}<span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span> </div>
+    <div class="current-price" data-price-value="{{ obOfferItem.price_value }}" > {{ obOfferItem.price }}<span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span> </div>
 </div>";s:4:"code";N;}}

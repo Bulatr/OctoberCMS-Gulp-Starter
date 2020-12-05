@@ -68,7 +68,7 @@ class __TwigTemplate_cd3dba22bff3b27430b9220a9544e16918f652bcef2a57461f3291ecadd
         <label class=\"property-values__label\" for=\"offersProduct\">Выберите вариант</label>
         <select
             class=\"form-control property-values__select offers\"                                            
-            name=\"offer\"
+            name=\"offer_id\"
             id=\"offersProduct\">
             ";
             // line 10
@@ -122,7 +122,7 @@ class __TwigTemplate_cd3dba22bff3b27430b9220a9544e16918f652bcef2a57461f3291ecadd
         <label class=\"property-values__label\" for=\"offersProduct\">Выберите вариант</label>
         <select
             class=\"form-control property-values__select offers\"                                            
-            name=\"offer\"
+            name=\"offer_id\"
             id=\"offersProduct\">
             {% for obOffer in obOfferListCopy %}
                 {{ obOffer.price | var_dump}}                                        

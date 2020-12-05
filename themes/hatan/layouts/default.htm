@@ -1,7 +1,10 @@
 [CategoryList]
 
+[ProductData]
+
+[Cart]
 ==
-{##}
+{% component 'Cart' %}{##}
 {% set sPageTitle = this.page.title %}
 {% if obProduct.isNotEmpty() %}
 {%  set sPageTitle = "Купить "~obProduct.name %}

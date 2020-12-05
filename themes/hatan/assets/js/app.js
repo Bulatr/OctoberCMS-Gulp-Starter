@@ -2,6 +2,7 @@ import ShopaholicProductList from "@lovata/shopaholic-product-list/shopaholic-pr
 import ShopaholicSorting from "@lovata/shopaholic-product-list/shopaholic-sorting";
 import ShopaholicPagination from "@lovata/shopaholic-product-list/shopaholic-pagination";
 import ShopaholicFilterPanel from "@lovata/shopaholic-filter-panel/shopaholic-filter-panel";
+import ShopaholicCartAdd from '@lovata/shopaholic-cart/shopaholic-cart-add'
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -43,6 +44,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	const obSortingHelper = new ShopaholicSorting(obListHelper);
 	const obPaginationHelper = new ShopaholicPagination(obListHelper);
 	const obFilterPanel = new ShopaholicFilterPanel(obListHelper);
+	const obShopaholicCartAdd = new ShopaholicCartAdd();
+
+		obShopaholicCartAdd.setAjaxRequestCallback((obRequestData=>obRequestData)).init();
 
 	obFilterPanel.init();
 	obPaginationHelper.init();
@@ -96,6 +100,12 @@ document.addEventListener("DOMContentLoaded", function() {
 		});
 		$.request('onAjax', {
 			'update': {'product/price/price-product': '.price'}
+		});
+		$.request('onAjax', {
+			'update': {'product/offer/offer-quantity': '.ostatok'}
+		});
+		$.request('onAjax', {
+			'update': {'product/gallery/product-gallery': '.product-gallery'}			
 		});
 	}
 
@@ -361,27 +371,36 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 	
 	// product thumbnail
-
-	$(".product-gallery-trumbnail").hover(
-		function() {
+	$(document).on({
+		mouseenter: function() {
 			$(".product-gallery-trumbnail.active").removeClass("active");
 			let thumb_id = $(this).data("trumbid");
-			$(this).addClass("active");
+			$(this).addClass("active").fadeIn(800);
 			$(".product-main").removeClass("active");
 			$(".modal-image").removeClass("show");
 			$("#"+thumb_id+".product-main").addClass("active");
 		},
-		function() {
-			//$(this).removeClass("active");
+		mouseleave: function() {
+			
 		}
-	);
+	}, '.product-gallery-trumbnail');
 
-	$(".product-gallery-trumbnail").click(function() {
-		$(".product-gallery-trumbnail.active").removeClass("active");
+	$(document).on({
+		click: function(){
+			$(".product-gallery-trumbnail.active").removeClass("active");
 			let thumb_id = $(this).data("trumbid");
 			$(this).addClass("active");
 			$(".product-main").removeClass("active");
 			$("#"+thumb_id+".product-main").addClass("active");
+		}
+	},".product-gallery-trumbn");
+
+	$(".product-gallery-trumbnail").click(function() {
+		$(".product-gallery-trumbnail.active").removeClass("active");
+		let thumb_id = $(this).data("trumbid");
+		$(this).addClass("active");
+		$(".product-main").removeClass("active");
+		$("#"+thumb_id+".product-main").addClass("active");
 	});
 
 	// modal

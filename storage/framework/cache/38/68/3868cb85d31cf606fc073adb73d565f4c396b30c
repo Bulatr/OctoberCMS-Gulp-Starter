@@ -1,4 +1,4 @@
-1607169701a:1:{s:11:"catalog.htm";a:18:{s:8:"fileName";s:11:"catalog.htm";s:7:"content";s:31574:"title = "Каталог товаров"
+1607186452a:1:{s:11:"catalog.htm";a:18:{s:8:"fileName";s:11:"catalog.htm";s:7:"content";s:32118:"title = "Каталог товаров"
 url = "/catalog/:category*/:slug?"
 layout = "default"
 description = "Каталог магазина"
@@ -143,7 +143,7 @@ function onInit() {
 {# Get category item #}
 {% if obProduct.isNotEmpty() %}
     {# Render product page #}
-    <div class="single-product" id="{{obProduct.id}}">
+    <div class="single-product _shopaholic-product-wrapper" id="{{obProduct.id}}" data-product-id="{{ obProduct.id }}">
     
         <div class="container">
             <div class="row">
@@ -153,7 +153,7 @@ function onInit() {
             </div>
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-7 col-xl-7 col-xxl-7">
-                    {% partial "product/gallery/product-gallery" obProduct = obProduct %}
+                    {% partial "product/gallery/product-gallery" obProduct = obProduct obOfferItem = obOfferItem %}
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 col-xxl-5">
                     <div class="product-overlay">
@@ -221,23 +221,30 @@ function onInit() {
                                         <div class="form-group">
                                             <div class="count-wrap" id="product-single-count">
                                                 <div class="count-up">+</div>
-                                                <input type="text" class="form-control amount-product" id="count" name="amount-product" placeholder="1" value="1">
+                                                <input 
+                                                    type="number" 
+                                                    class="form-control amount-product" 
+                                                    id="count" 
+                                                    name="quantity" 
+                                                    step="1"
+                                                    min="1"
+                                                    max="{{obOfferItem.quantity}}"
+                                                    value="1">
                                                 <div class="count-down">-</div>
                                             </div>								
                                         </div>										
                                     </div>
                                     <!--Добавить в корзину-->
-                                    <button type="submit" id="addtocart" class="btn btn-primary">Добавить корзину</button>
+                                    <button 
+                                        type="button" 
+                                        id="addtocart" 
+                                        class="btn btn-primary _shopaholic-cart-add"
+                                        aria-label="Add to cart">
+                                            Добавить в корзину
+                                    </button>
                                 </div>
                                 <!-- Остаток -->
-                                <div class="ostatok">
-                                    <div class="label-ostatok">
-                                        Остаток:
-                                    </div>
-                                    <div class="value-ostatok">
-                                        25
-                                    </div>
-                                </div>
+                                {% partial "product/offer/offer-quantity" %}                                
                             </form>
                         </div>
                         <div class="reviews">
@@ -535,13 +542,13 @@ function onInit() {
     {% partial "banners/banner-1" %}
 
     {% partial "lookbook" %}
-{% endif %}";s:5:"mtime";i:1607169097;s:6:"markup";s:26197:"{##}
+{% endif %}";s:5:"mtime";i:1607183017;s:6:"markup";s:26741:"{##}
 
 {# @var obCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
 {# Get category item #}
 {% if obProduct.isNotEmpty() %}
     {# Render product page #}
-    <div class="single-product" id="{{obProduct.id}}">
+    <div class="single-product _shopaholic-product-wrapper" id="{{obProduct.id}}" data-product-id="{{ obProduct.id }}">
     
         <div class="container">
             <div class="row">
@@ -551,7 +558,7 @@ function onInit() {
             </div>
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-7 col-xl-7 col-xxl-7">
-                    {% partial "product/gallery/product-gallery" obProduct = obProduct %}
+                    {% partial "product/gallery/product-gallery" obProduct = obProduct obOfferItem = obOfferItem %}
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 col-xxl-5">
                     <div class="product-overlay">
@@ -619,23 +626,30 @@ function onInit() {
                                         <div class="form-group">
                                             <div class="count-wrap" id="product-single-count">
                                                 <div class="count-up">+</div>
-                                                <input type="text" class="form-control amount-product" id="count" name="amount-product" placeholder="1" value="1">
+                                                <input 
+                                                    type="number" 
+                                                    class="form-control amount-product" 
+                                                    id="count" 
+                                                    name="quantity" 
+                                                    step="1"
+                                                    min="1"
+                                                    max="{{obOfferItem.quantity}}"
+                                                    value="1">
                                                 <div class="count-down">-</div>
                                             </div>								
                                         </div>										
                                     </div>
                                     <!--Добавить в корзину-->
-                                    <button type="submit" id="addtocart" class="btn btn-primary">Добавить корзину</button>
+                                    <button 
+                                        type="button" 
+                                        id="addtocart" 
+                                        class="btn btn-primary _shopaholic-cart-add"
+                                        aria-label="Add to cart">
+                                            Добавить в корзину
+                                    </button>
                                 </div>
                                 <!-- Остаток -->
-                                <div class="ostatok">
-                                    <div class="label-ostatok">
-                                        Остаток:
-                                    </div>
-                                    <div class="value-ostatok">
-                                        25
-                                    </div>
-                                </div>
+                                {% partial "product/offer/offer-quantity" %}                                
                             </form>
                         </div>
                         <div class="reviews">

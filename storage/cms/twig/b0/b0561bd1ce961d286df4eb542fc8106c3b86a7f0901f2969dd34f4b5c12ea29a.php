@@ -29,13 +29,13 @@ class __TwigTemplate_d162eb68792f8bcf1c9507e18b16951200f11d562d9508a1fc8f666468f
         $this->blocks = [
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
-        $tags = array("set" => 2, "if" => 3, "partial" => 8, "page" => 13);
+        $tags = array("component" => 1, "set" => 2, "if" => 3, "partial" => 8, "page" => 13);
         $filters = array();
         $functions = array();
 
         try {
             $this->sandbox->checkSecurity(
-                ['set', 'if', 'partial', 'page'],
+                ['component', 'set', 'if', 'partial', 'page'],
                 [],
                 []
             );
@@ -58,6 +58,10 @@ class __TwigTemplate_d162eb68792f8bcf1c9507e18b16951200f11d562d9508a1fc8f666468f
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
+        // line 1
+        $context['__cms_component_params'] = [];
+        echo $this->env->getExtension('Cms\Twig\Extension')->componentFunction("Cart"        , $context['__cms_component_params']        );
+        unset($context['__cms_component_params']);
         // line 2
         $context["sPageTitle"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, true, 2), "title", [], "any", false, false, true, 2);
         // line 3
@@ -104,12 +108,12 @@ class __TwigTemplate_d162eb68792f8bcf1c9507e18b16951200f11d562d9508a1fc8f666468f
 
     public function getDebugInfo()
     {
-        return array (  90 => 16,  86 => 14,  84 => 13,  78 => 9,  72 => 8,  69 => 6,  66 => 4,  64 => 3,  62 => 2,);
+        return array (  94 => 16,  90 => 14,  88 => 13,  82 => 9,  76 => 8,  73 => 6,  70 => 4,  68 => 3,  66 => 2,  62 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{##}
+        return new Source("{% component 'Cart' %}{##}
 {% set sPageTitle = this.page.title %}
 {% if obProduct.isNotEmpty() %}
 {%  set sPageTitle = \"Купить \"~obProduct.name %}

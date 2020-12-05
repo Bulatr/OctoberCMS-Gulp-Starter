@@ -1,7 +1,10 @@
-1607169153a:1:{s:11:"default.htm";a:6:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:418:"[CategoryList]
+1607186452a:1:{s:11:"default.htm";a:8:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:463:"[CategoryList]
 
+[ProductData]
+
+[Cart]
 ==
-{##}
+{% component 'Cart' %}{##}
 {% set sPageTitle = this.page.title %}
 {% if obProduct.isNotEmpty() %}
 {%  set sPageTitle = "Купить "~obProduct.name %}
@@ -16,8 +19,7 @@
 		{% page %}
 	</section>
 
-{% partial 'footer' %}
-";s:5:"mtime";i:1606985556;s:6:"markup";s:394:"{##}
+{% partial 'footer' %}";s:5:"mtime";i:1607182944;s:6:"markup";s:416:"{% component 'Cart' %}{##}
 {% set sPageTitle = this.page.title %}
 {% if obProduct.isNotEmpty() %}
 {%  set sPageTitle = "Купить "~obProduct.name %}
@@ -32,4 +34,4 @@
 		{% page %}
 	</section>
 
-{% partial 'footer' %}";s:4:"code";N;s:12:"CategoryList";a:0:{}}}
+{% partial 'footer' %}";s:4:"code";N;s:12:"CategoryList";a:0:{}s:11:"ProductData";a:0:{}s:4:"Cart";a:0:{}}}
