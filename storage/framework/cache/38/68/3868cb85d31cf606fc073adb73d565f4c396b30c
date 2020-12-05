@@ -1,4 +1,4 @@
-1607166556a:1:{s:11:"catalog.htm";a:18:{s:8:"fileName";s:11:"catalog.htm";s:7:"content";s:32018:"title = "Каталог товаров"
+1607169701a:1:{s:11:"catalog.htm";a:18:{s:8:"fileName";s:11:"catalog.htm";s:7:"content";s:31574:"title = "Каталог товаров"
 url = "/catalog/:category*/:slug?"
 layout = "default"
 description = "Каталог магазина"
@@ -124,11 +124,13 @@ function onInit() {
         $obOfferPropertyList = $obMainCategoryItem->offer_filter_property->setCategory(null)->setProductList($obItemProductList);
         $obOfferList = $obProductItem->offer;
         $obOfferListCopy = $obOfferList->copy()->filterByProperty($arFilterList, $obOfferPropertyList);
+        $obOfferItem = $obOfferListCopy->sort('price|asc')->first();
         $this['arAppliedPropertyList'] = $arAppliedPropertyList;
         $this['arFilterList'] = $arFilterList;
         $this['obOfferList'] = $obOfferList;
         $this['obOfferListCopy'] = $obOfferListCopy;
         $this['obOfferPropertyList'] = $obOfferPropertyList;
+        $this['obOfferItem'] = $obOfferItem;
     }
     $this['obMainCategoryItem'] = $obMainCategoryItem;
     
@@ -136,9 +138,7 @@ function onInit() {
 ?>
 ==
 {##}
-<pre>
-{{ arFilterList | var_dump}}
-</pre>
+
 {# @var obCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
 {# Get category item #}
 {% if obProduct.isNotEmpty() %}
@@ -161,14 +161,9 @@ function onInit() {
                             <h2>{{obProduct.name}}</h2>
                         </div>
                         <div class="product-short">
-                            {# Get first offer object #}
-                            {% set obOfferItem = obProduct.offer.sort('price|asc').first() %} 
-                            <div class="price">
-                                {% if obOfferItem.price < obOfferItem.old_price %}
-                                    <div class="old-price" > {{ obOfferItem.old_price }} </div>
-                                {% endif %}
-                                <div class="current-price" > {{ obOfferItem.price }}<span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span> </div>
-                            </div>
+                            
+                            {% partial "product/price/price-product" obOfferItem = obOfferItem %}
+                            
                             <div class="raiting-overlay">
                                 <div class="raiting-wrapper">
                                     <div class="star-wrapper">
@@ -540,10 +535,8 @@ function onInit() {
     {% partial "banners/banner-1" %}
 
     {% partial "lookbook" %}
-{% endif %}";s:5:"mtime";i:1607165952;s:6:"markup";s:26757:"{##}
-<pre>
-{{ arFilterList | var_dump}}
-</pre>
+{% endif %}";s:5:"mtime";i:1607169097;s:6:"markup";s:26197:"{##}
+
 {# @var obCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
 {# Get category item #}
 {% if obProduct.isNotEmpty() %}
@@ -566,14 +559,9 @@ function onInit() {
                             <h2>{{obProduct.name}}</h2>
                         </div>
                         <div class="product-short">
-                            {# Get first offer object #}
-                            {% set obOfferItem = obProduct.offer.sort('price|asc').first() %} 
-                            <div class="price">
-                                {% if obOfferItem.price < obOfferItem.old_price %}
-                                    <div class="old-price" > {{ obOfferItem.old_price }} </div>
-                                {% endif %}
-                                <div class="current-price" > {{ obOfferItem.price }}<span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span> </div>
-                            </div>
+                            
+                            {% partial "product/price/price-product" obOfferItem = obOfferItem %}
+                            
                             <div class="raiting-overlay">
                                 <div class="raiting-wrapper">
                                     <div class="star-wrapper">
@@ -945,7 +933,7 @@ function onInit() {
     {% partial "banners/banner-1" %}
 
     {% partial "lookbook" %}
-{% endif %}";s:4:"code";s:3982:"function onInit() {
+{% endif %}";s:4:"code";s:4098:"function onInit() {
     use Input;
     // делаем проверку, если мы не нашли категорию и не нашли товар в параметре последнего слага :category*/:slug?
     // то нужно отобразить 404 ошибку
@@ -1007,11 +995,13 @@ function onInit() {
         $obOfferPropertyList = $obMainCategoryItem->offer_filter_property->setCategory(null)->setProductList($obItemProductList);
         $obOfferList = $obProductItem->offer;
         $obOfferListCopy = $obOfferList->copy()->filterByProperty($arFilterList, $obOfferPropertyList);
+        $obOfferItem = $obOfferListCopy->sort('price|asc')->first();
         $this['arAppliedPropertyList'] = $arAppliedPropertyList;
         $this['arFilterList'] = $arFilterList;
         $this['obOfferList'] = $obOfferList;
         $this['obOfferListCopy'] = $obOfferListCopy;
         $this['obOfferPropertyList'] = $obOfferPropertyList;
+        $this['obOfferItem'] = $obOfferItem;
     }
     $this['obMainCategoryItem'] = $obMainCategoryItem;
     

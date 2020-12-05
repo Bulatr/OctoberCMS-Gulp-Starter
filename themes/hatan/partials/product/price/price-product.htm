@@ -1,0 +1,7 @@
+{##}
+<div class="price">
+    {% if obOfferItem.price < obOfferItem.old_price %}
+        <div class="old-price" > {{ obOfferItem.old_price }} </div>
+    {% endif %}
+    <div class="current-price" > {{ obOfferItem.price }}<span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span> </div>
+</div>

@@ -29,14 +29,14 @@ class __TwigTemplate_cd3dba22bff3b27430b9220a9544e16918f652bcef2a57461f3291ecadd
         $this->blocks = [
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
-        $tags = array("if" => 2, "for" => 9);
-        $filters = array("escape" => 10);
+        $tags = array("if" => 3, "for" => 10);
+        $filters = array("var_dump" => 11, "escape" => 12);
         $functions = array();
 
         try {
             $this->sandbox->checkSecurity(
                 ['if', 'for'],
-                ['escape'],
+                ['var_dump', 'escape'],
                 []
             );
         } catch (SecurityError $e) {
@@ -59,8 +59,11 @@ class __TwigTemplate_cd3dba22bff3b27430b9220a9544e16918f652bcef2a57461f3291ecadd
     {
         $macros = $this->macros;
         // line 2
-        if (twig_get_attribute($this->env, $this->source, ($context["obOfferList"] ?? null), "isNotEmpty", [], "method", false, false, true, 2)) {
-            // line 3
+        echo "
+";
+        // line 3
+        if (twig_get_attribute($this->env, $this->source, ($context["obOfferList"] ?? null), "isNotEmpty", [], "method", false, false, true, 3)) {
+            // line 4
             echo "    <div class=\"form-group product-property\" >  
         <label class=\"property-values__label\" for=\"offersProduct\">Выберите вариант</label>
         <select
@@ -68,23 +71,26 @@ class __TwigTemplate_cd3dba22bff3b27430b9220a9544e16918f652bcef2a57461f3291ecadd
             name=\"offer\"
             id=\"offersProduct\">
             ";
-            // line 9
+            // line 10
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["obOfferListCopy"] ?? null));
             foreach ($context['_seq'] as $context["_key"] => $context["obOffer"]) {
+                // line 11
+                echo "                ";
+                echo call_user_func_array($this->env->getFilter('var_dump')->getCallable(), [$this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obOffer"], "price", [], "any", false, false, true, 11), 11, $this->source)]);
                 echo "                                        
                 <option value=\"";
-                // line 10
-                echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obOffer"], "id", [], "any", false, false, true, 10), 10, $this->source), "html", null, true);
+                // line 12
+                echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obOffer"], "id", [], "any", false, false, true, 12), 12, $this->source), "html", null, true);
                 echo "\" >";
-                echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obOffer"], "name", [], "any", false, false, true, 10), 10, $this->source), "html", null, true);
+                echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["obOffer"], "name", [], "any", false, false, true, 12), 12, $this->source), "html", null, true);
                 echo "</option>
             ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['obOffer'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 12
+            // line 14
             echo "        </select>
     </div>
     
@@ -104,12 +110,13 @@ class __TwigTemplate_cd3dba22bff3b27430b9220a9544e16918f652bcef2a57461f3291ecadd
 
     public function getDebugInfo()
     {
-        return array (  88 => 12,  78 => 10,  72 => 9,  64 => 3,  62 => 2,);
+        return array (  94 => 14,  84 => 12,  79 => 11,  75 => 10,  67 => 4,  65 => 3,  62 => 2,);
     }
 
     public function getSourceContext()
     {
         return new Source("{##}
+
 {% if obOfferList.isNotEmpty() %}
     <div class=\"form-group product-property\" >  
         <label class=\"property-values__label\" for=\"offersProduct\">Выберите вариант</label>
@@ -117,7 +124,8 @@ class __TwigTemplate_cd3dba22bff3b27430b9220a9544e16918f652bcef2a57461f3291ecadd
             class=\"form-control property-values__select offers\"                                            
             name=\"offer\"
             id=\"offersProduct\">
-            {% for obOffer in obOfferListCopy %}                                        
+            {% for obOffer in obOfferListCopy %}
+                {{ obOffer.price | var_dump}}                                        
                 <option value=\"{{ obOffer.id }}\" >{{ obOffer.name }}</option>
             {% endfor %}
         </select>

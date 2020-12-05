@@ -124,11 +124,13 @@ function onInit() {
         $obOfferPropertyList = $obMainCategoryItem->offer_filter_property->setCategory(null)->setProductList($obItemProductList);
         $obOfferList = $obProductItem->offer;
         $obOfferListCopy = $obOfferList->copy()->filterByProperty($arFilterList, $obOfferPropertyList);
+        $obOfferItem = $obOfferListCopy->sort('price|asc')->first();
         $this['arAppliedPropertyList'] = $arAppliedPropertyList;
         $this['arFilterList'] = $arFilterList;
         $this['obOfferList'] = $obOfferList;
         $this['obOfferListCopy'] = $obOfferListCopy;
         $this['obOfferPropertyList'] = $obOfferPropertyList;
+        $this['obOfferItem'] = $obOfferItem;
     }
     $this['obMainCategoryItem'] = $obMainCategoryItem;
     
@@ -136,9 +138,7 @@ function onInit() {
 ?>
 ==
 {##}
-<pre>
-{{ arFilterList | var_dump}}
-</pre>
+
 {# @var obCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
 {# Get category item #}
 {% if obProduct.isNotEmpty() %}
@@ -161,14 +161,9 @@ function onInit() {
                             <h2>{{obProduct.name}}</h2>
                         </div>
                         <div class="product-short">
-                            {# Get first offer object #}
-                            {% set obOfferItem = obProduct.offer.sort('price|asc').first() %} 
-                            <div class="price">
-                                {% if obOfferItem.price < obOfferItem.old_price %}
-                                    <div class="old-price" > {{ obOfferItem.old_price }} </div>
-                                {% endif %}
-                                <div class="current-price" > {{ obOfferItem.price }}<span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span> </div>
-                            </div>
+                            
+                            {% partial "product/price/price-product" obOfferItem = obOfferItem %}
+                            
                             <div class="raiting-overlay">
                                 <div class="raiting-wrapper">
                                     <div class="star-wrapper">

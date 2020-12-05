@@ -94,6 +94,9 @@ document.addEventListener("DOMContentLoaded", function() {
 		$.request('onAjax', {
 			'update': {'product/offer/product-offer-list': '.property-values__select.offers'}
 		});
+		$.request('onAjax', {
+			'update': {'product/price/price-product': '.price'}
+		});
 	}
 
 	/**

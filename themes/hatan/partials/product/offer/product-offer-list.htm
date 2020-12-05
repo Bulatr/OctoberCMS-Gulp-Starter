@@ -1,4 +1,5 @@
 {##}
+
 {% if obOfferList.isNotEmpty() %}
     <div class="form-group product-property" >  
         <label class="property-values__label" for="offersProduct">Выберите вариант</label>
@@ -6,7 +7,8 @@
             class="form-control property-values__select offers"                                            
             name="offer"
             id="offersProduct">
-            {% for obOffer in obOfferListCopy %}                                        
+            {% for obOffer in obOfferListCopy %}
+                {{ obOffer.price | var_dump}}                                        
                 <option value="{{ obOffer.id }}" >{{ obOffer.name }}</option>
             {% endfor %}
         </select>

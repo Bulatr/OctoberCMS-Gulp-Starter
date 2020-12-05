@@ -1,5 +1,5 @@
 <?php 
-class Cms5fcb6804bdb74665666977_36309a17a309163d60eec3583cb593e3Class extends Cms\Classes\PageCode
+class Cms5fcb744d08175783376627_d89915492e3a40c01fb5134fe38ce043Class extends Cms\Classes\PageCode
 {
 public function onInit() {
     
@@ -63,11 +63,13 @@ public function onInit() {
         $obOfferPropertyList = $obMainCategoryItem->offer_filter_property->setCategory(null)->setProductList($obItemProductList);
         $obOfferList = $obProductItem->offer;
         $obOfferListCopy = $obOfferList->copy()->filterByProperty($arFilterList, $obOfferPropertyList);
+        $obOfferItem = $obOfferListCopy->sort('price|asc')->first();
         $this['arAppliedPropertyList'] = $arAppliedPropertyList;
         $this['arFilterList'] = $arFilterList;
         $this['obOfferList'] = $obOfferList;
         $this['obOfferListCopy'] = $obOfferListCopy;
         $this['obOfferPropertyList'] = $obOfferPropertyList;
+        $this['obOfferItem'] = $obOfferItem;
     }
     $this['obMainCategoryItem'] = $obMainCategoryItem;
     
