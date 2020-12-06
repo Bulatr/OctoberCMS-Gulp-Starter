@@ -1,4 +1,4 @@
-1607186452a:1:{s:36:"product/offer/product-offer-list.htm";a:5:{s:8:"fileName";s:36:"product/offer/product-offer-list.htm";s:7:"content";s:678:"{##}
+1607266049a:1:{s:36:"product/offer/product-offer-list.htm";a:5:{s:8:"fileName";s:36:"product/offer/product-offer-list.htm";s:7:"content";s:678:"{##}
 
 {% if obOfferList.isNotEmpty() %}
     <div class="form-group product-property" >  

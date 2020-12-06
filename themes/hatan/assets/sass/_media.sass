@@ -259,17 +259,21 @@
 
         .product-gallery-wrapper
             height: 474px
-        .product-gallery-trumb
-            display: flex
-            flex-direction: row
-            overflow-x: auto
-            .product-gallery-trumbnail
-                width: 98px
-                height: 100px
+        ul
+            &.product-gallery-trumb
+                display: flex
+                flex-direction: row
+                overflow-x: auto
+                height: auto
+                width: 100%
+                .product-gallery-trumbnail
+                    width: 98px
+                    height: 100px
     // product content
 
     .product-overlay
         padding-left: 0
+        margin-top: 16px
     // options
     .product-options
         position: relative
@@ -285,6 +289,7 @@
         .group-kol
             margin-right: 0
             .form-group
+                margin-right: 0
                 .count-wrap
                     input.form-control
                         width: 50px
@@ -296,7 +301,7 @@
                         width: 45px
     .ostatok
         position: absolute
-        top: 186px
+        top: 243px
         left: 180px
     // banners
     .banner-section
@@ -371,6 +376,7 @@
 
     .title
         margin-bottom: 0
+        align-items: center
     
     // Product card
     .product-card
@@ -387,6 +393,10 @@
     .cart-header 
         .close
             left: 25px
+
+    // review
+    .review
+        margin-top: 16px
     
 // ≥576px
 +media-breakpoint-down(xs)

@@ -437,4 +437,7 @@
   'Lovata\\OrdersShopaholic\\Classes\\Processor\\OfferCartPositionProcessor' => 'plugins\\lovata\\ordersshopaholic\\classes\\processor\\OfferCartPositionProcessor.php',
   'Lovata\\OrdersShopaholic\\Classes\\Item\\AbstractPositionItem' => 'plugins\\lovata\\ordersshopaholic\\classes\\item\\AbstractPositionItem.php',
   'Lovata\\OrdersShopaholic\\Classes\\Item\\CartPositionItem' => 'plugins\\lovata\\ordersshopaholic\\classes\\item\\CartPositionItem.php',
+  'lovata\\shopaholic\\Controllers\\taxes' => 'plugins\\lovata\\shopaholic\\controllers\\taxes.php',
+  'Lovata\\Shopaholic\\Classes\\Item\\TaxItem' => 'plugins\\lovata\\shopaholic\\classes\\item\\TaxItem.php',
+  'bulatr\\BaseCode\\Models\\Settings' => 'plugins\\bulatr\\basecode\\models\\Settings.php',
 );

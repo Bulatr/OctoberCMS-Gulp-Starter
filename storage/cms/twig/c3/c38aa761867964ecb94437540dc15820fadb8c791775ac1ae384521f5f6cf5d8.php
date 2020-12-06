@@ -29,14 +29,14 @@ class __TwigTemplate_901fa2bb68174a77854f327a2f034c8176134815f9fd7de2dcbb511eba8
         $this->blocks = [
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
-        $tags = array("partial" => 13);
-        $filters = array("theme" => 9);
+        $tags = array("partial" => 13, "set" => 33, "if" => 36);
+        $filters = array("theme" => 9, "escape" => 59);
         $functions = array();
 
         try {
             $this->sandbox->checkSecurity(
-                ['partial'],
-                ['theme'],
+                ['partial', 'set', 'if'],
+                ['theme', 'escape'],
                 []
             );
         } catch (SecurityError $e) {
@@ -107,27 +107,82 @@ class __TwigTemplate_901fa2bb68174a77854f327a2f034c8176134815f9fd7de2dcbb511eba8
         echo "\" alt=\"Избранное\">
 \t\t\t\t\t\t</a>
 \t\t\t\t\t</div>
-\t\t\t\t\t<div class=\"icons cart-icon\" data-cartfilled=\"no\">
-\t\t\t\t\t\t<a href=\"#\" class=\"cart empty show\">
+\t\t\t\t\t";
+        // line 33
+        $context["obCartPositionList"] = twig_get_attribute($this->env, $this->source, ($context["Cart"] ?? null), "get", [], "method", false, false, true, 33);
+        // line 34
+        echo "\t\t\t\t\t<div 
+\t\t\t\t\t\tclass=\"icons cart-icon\" 
+\t\t\t\t\t\t";
+        // line 36
+        if ((twig_get_attribute($this->env, $this->source, ($context["obCartPositionList"] ?? null), "count", [], "method", false, false, true, 36) > 0)) {
+            // line 37
+            echo "\t\t\t\t\t\t\tdata-cartfilled=\"yes\"
+\t\t\t\t\t\t\t";
+        } else {
+            // line 39
+            echo "\t\t\t\t\t\t\tdata-cartfilled=\"no\"
+\t\t\t\t\t\t";
+        }
+        // line 40
+        echo " >
+\t\t\t\t\t\t<a href=\"#\" class=\"cart empty 
+\t\t\t\t\t\t\t";
+        // line 42
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["obCartPositionList"] ?? null), "count", [], "method", false, false, true, 42), "isEmpty", [], "method", false, false, true, 42)) {
+            // line 43
+            echo "\t\t\t\t\t\t\t\tshow
+\t\t\t\t\t\t\t";
+        }
+        // line 44
+        echo "\">
 \t\t\t\t\t\t\t<img src=\"";
-        // line 35
+        // line 45
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Empty Cart.svg");
         echo "\" alt=\"\">
 \t\t\t\t\t\t</a>
-\t\t\t\t\t\t<a href=\"#\" class=\"cart filled\">
+\t\t\t\t\t\t<a href=\"#\" class=\"cart filled
+\t\t\t\t\t\t\t";
+        // line 48
+        if ((twig_get_attribute($this->env, $this->source, ($context["obCartPositionList"] ?? null), "count", [], "method", false, false, true, 48) > 0)) {
+            // line 49
+            echo "\t\t\t\t\t\t\t\tshow
+\t\t\t\t\t\t\t";
+        }
+        // line 51
+        echo "\t\t\t\t\t\t\">
 \t\t\t\t\t\t\t<img src=\"";
-        // line 38
+        // line 52
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Added to Cart.svg");
         echo "\" alt=\"\">
 \t\t\t\t\t\t</a>
 \t\t\t\t\t\t<a href=\"#\" class=\"cart added\">
 \t\t\t\t\t\t\t<img src=\"";
-        // line 41
+        // line 55
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Add to Cart.svg");
         echo "\" alt=\"\">
-\t\t\t\t\t\t</a>\t\t\t\t\t\t\t
+\t\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
 \t\t\t\t\t</div>
-\t\t\t\t\t<div class=\"icons-toggle\"></div>
+\t\t\t\t\t";
+        // line 58
+        if ((twig_get_attribute($this->env, $this->source, ($context["obCartPositionList"] ?? null), "count", [], "method", false, false, true, 58) > 0)) {
+            // line 59
+            echo "\t\t\t\t\t\t<div class=\"count\" > ";
+            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obCartPositionList"] ?? null), "count", [], "method", false, false, true, 59), 59, $this->source), "html", null, true);
+            echo " </div>
+\t\t\t\t\t";
+        }
+        // line 61
+        echo "\t\t\t\t\t";
+        if ((twig_get_attribute($this->env, $this->source, ($context["obCartPositionList"] ?? null), "getTotalPriceValue", [], "method", false, false, true, 61) > 0)) {
+            // line 62
+            echo "\t\t\t\t\t\t<div class=\"summ\" > ";
+            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obCartPositionList"] ?? null), "getTotalPrice", [], "method", false, false, true, 62), 62, $this->source), "html", null, true);
+            echo " <span class=\"rub\"></span> </div>
+\t\t\t\t\t";
+        }
+        // line 64
+        echo "\t\t\t\t\t<div class=\"icons-toggle\"></div>
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t</div>\t\t\t\t\t
@@ -147,7 +202,7 @@ class __TwigTemplate_901fa2bb68174a77854f327a2f034c8176134815f9fd7de2dcbb511eba8
 
     public function getDebugInfo()
     {
-        return array (  126 => 41,  120 => 38,  114 => 35,  106 => 30,  98 => 25,  88 => 18,  82 => 14,  78 => 13,  71 => 9,  62 => 2,);
+        return array (  185 => 64,  179 => 62,  176 => 61,  170 => 59,  168 => 58,  162 => 55,  156 => 52,  153 => 51,  149 => 49,  147 => 48,  141 => 45,  138 => 44,  134 => 43,  132 => 42,  128 => 40,  124 => 39,  120 => 37,  118 => 36,  114 => 34,  112 => 33,  106 => 30,  98 => 25,  88 => 18,  82 => 14,  78 => 13,  71 => 9,  62 => 2,);
     }
 
     public function getSourceContext()
@@ -184,17 +239,37 @@ class __TwigTemplate_901fa2bb68174a77854f327a2f034c8176134815f9fd7de2dcbb511eba8
 \t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Outline.svg' | theme}}\" alt=\"Избранное\">
 \t\t\t\t\t\t</a>
 \t\t\t\t\t</div>
-\t\t\t\t\t<div class=\"icons cart-icon\" data-cartfilled=\"no\">
-\t\t\t\t\t\t<a href=\"#\" class=\"cart empty show\">
+\t\t\t\t\t{% set obCartPositionList = Cart.get() %}
+\t\t\t\t\t<div 
+\t\t\t\t\t\tclass=\"icons cart-icon\" 
+\t\t\t\t\t\t{% if obCartPositionList.count()>0 %}
+\t\t\t\t\t\t\tdata-cartfilled=\"yes\"
+\t\t\t\t\t\t\t{% else %}
+\t\t\t\t\t\t\tdata-cartfilled=\"no\"
+\t\t\t\t\t\t{% endif %} >
+\t\t\t\t\t\t<a href=\"#\" class=\"cart empty 
+\t\t\t\t\t\t\t{% if obCartPositionList.count().isEmpty() %}
+\t\t\t\t\t\t\t\tshow
+\t\t\t\t\t\t\t{% endif %}\">
 \t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Empty Cart.svg' | theme}}\" alt=\"\">
 \t\t\t\t\t\t</a>
-\t\t\t\t\t\t<a href=\"#\" class=\"cart filled\">
+\t\t\t\t\t\t<a href=\"#\" class=\"cart filled
+\t\t\t\t\t\t\t{% if obCartPositionList.count()>0 %}
+\t\t\t\t\t\t\t\tshow
+\t\t\t\t\t\t\t{% endif %}
+\t\t\t\t\t\t\">
 \t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Added to Cart.svg' | theme}}\" alt=\"\">
 \t\t\t\t\t\t</a>
 \t\t\t\t\t\t<a href=\"#\" class=\"cart added\">
 \t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Add to Cart.svg' | theme}}\" alt=\"\">
-\t\t\t\t\t\t</a>\t\t\t\t\t\t\t
+\t\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
 \t\t\t\t\t</div>
+\t\t\t\t\t{% if obCartPositionList.count()>0 %}
+\t\t\t\t\t\t<div class=\"count\" > {{obCartPositionList.count()}} </div>
+\t\t\t\t\t{% endif %}
+\t\t\t\t\t{% if obCartPositionList.getTotalPriceValue() > 0 %}
+\t\t\t\t\t\t<div class=\"summ\" > {{ obCartPositionList.getTotalPrice() }} <span class=\"rub\"></span> </div>
+\t\t\t\t\t{% endif %}
 \t\t\t\t\t<div class=\"icons-toggle\"></div>
 \t\t\t\t</div>
 \t\t\t</div>

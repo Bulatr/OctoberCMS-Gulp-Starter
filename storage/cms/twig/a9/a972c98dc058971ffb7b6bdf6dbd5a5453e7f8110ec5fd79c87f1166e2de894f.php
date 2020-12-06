@@ -62,7 +62,7 @@ class __TwigTemplate_7ccf430f15b52e62e62667f0e4a293c8e02e364e381322b5c616d177d7d
         $context["obOffer"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "offer", [], "any", false, false, true, 4), "first", [], "method", false, false, true, 4);
         // line 5
         echo "
-<div class=\"product-card\" data-id=\"";
+<div class=\"product-card _shopaholic-product-wrapper\" data-product-id=\"";
         // line 6
         echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "id", [], "any", false, false, true, 6), 6, $this->source), "html", null, true);
         echo "\">
@@ -189,7 +189,7 @@ class __TwigTemplate_7ccf430f15b52e62e62667f0e4a293c8e02e364e381322b5c616d177d7d
 {# Get first offer object #}
 {% set obOffer = obProduct.offer.first() %}
 
-<div class=\"product-card\" data-id=\"{{ obProduct.id }}\">
+<div class=\"product-card _shopaholic-product-wrapper\" data-product-id=\"{{ obProduct.id }}\">
     <div class=\"card-img-wrapper\">
         <a href=\"{{ obProduct.getPageUrl('catalog') }}\">
             {% if obProduct.preview_image is not empty %}

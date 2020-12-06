@@ -1,0 +1,77 @@
+{##}
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div></div>
+            <div class="close">
+                <img src="{{ 'assets/images/Cross.svg' | theme }}" alt="">
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="modal-icon left">
+                <img id="modal-image-left" src="{{ 'assets/images/Direction-Left.svg' | theme }}" alt="">
+            </div>
+            <div class="modal-wrap-images">
+
+                {# Цикл вывода #}
+                {% if obOfferItem.images is not empty %}
+                    {% for obImage in obOfferItem.images %}
+                        <img 
+                            src="{{ obImage.getPath() }}" 
+                            alt="{{ obImage.description }}" id="dataimage-{{obImage.id}}" 
+                            data-modalimageid="modal-image-{{obImage.id}}" 
+                            class="modal-image 
+                            {% if loop.first %}
+                            show
+                            {% endif %}
+                            ">                        
+                    {% endfor %}
+                {% else %}
+                    {% if obProduct.images is not empty %}
+                        {% for obImage in obProduct.images %}
+                        <img 
+                            src="{{ obImage.getPath() }}" 
+                            alt="{{ obImage.description }}" id="dataimage-{{obImage.id}}" 
+                            data-modalimageid="modal-image-{{obImage.id}}" 
+                            class="modal-image 
+                            {% if loop.first %}
+                            show
+                            {% endif %}
+                            ">                        
+                    {% endfor %}
+                    {% endif %}
+                {% endif %}
+            </div>
+            <div class="modal-icon right">
+                <img id="modal-image-right" src="{{ 'assets/images/Direction-Right.svg' | theme }}" alt="">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="modal-images-thumbs">
+
+                {# Цикл вывода #}
+                {% if obOfferItem.images is not empty %}
+                    {% for obImage in obOfferItem.images %}
+                        <img 
+                            src="{{ obImage.getPath() }}" 
+                            alt="{{ obImage.description }}" 
+                            id="dataimage-{{obImage.id}}" 
+                            data-modalimageid="{{obImage.id}}" 
+                            class="modal-thumb-image">                        
+                    {% endfor %}
+                {% else %}
+                    {% if obProduct.images is not empty %}
+                        {% for obImage in obProduct.images %}
+                            <img 
+                            src="{{ obImage.getPath() }}" 
+                            alt="{{ obImage.description }}" 
+                            id="dataimage-{{obImage.id}}" 
+                            data-modalimageid="{{obImage.id}}" 
+                            class="modal-thumb-image"> 
+                        {% endfor %}
+                    {% endif %}
+                {% endif %}    
+            </div>
+        </div>
+    </div>
+</div>

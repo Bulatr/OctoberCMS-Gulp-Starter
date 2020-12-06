@@ -1,4 +1,4 @@
-1607186452a:1:{s:45:"product/filter-panel/product-filter-panel.htm";a:5:{s:8:"fileName";s:45:"product/filter-panel/product-filter-panel.htm";s:7:"content";s:4281:"{##}
+1607266049a:1:{s:45:"product/filter-panel/product-filter-panel.htm";a:5:{s:8:"fileName";s:45:"product/filter-panel/product-filter-panel.htm";s:7:"content";s:4281:"{##}
 {% if obPropertyList.isNotEmpty() %}
     {# Render proeprty list #}
     <div class="property-wrapper" >  

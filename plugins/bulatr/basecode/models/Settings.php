@@ -1,4 +1,4 @@
-<?php namespace Lovata\BaseCode\Models;
+<?php namespace Bulatr\BaseCode\Models;
 
 use System\Models\File;
 use October\Rain\Database\Model;

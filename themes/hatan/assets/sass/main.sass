@@ -305,6 +305,7 @@ button.btn
 	display: flex
 	padding-left: em(25px)
 	margin-top: 25px
+	position: relative
 	.icons
 		margin-left: 17px
 		margin-right: 17px
@@ -328,6 +329,39 @@ button.btn
 						opacity: 1
 						transform: translateX(0)
 						transition: all 0.35s ease-out	
+	.summ
+		position: absolute
+		top: -11px
+		right: 0
+		height: 20px
+		width: auto
+		font-size: 12px
+		font-weight: 300
+		display: flex
+		flex-direction: row
+		justify-content: flex-start
+		align-items: center
+		opacity: 0
+		transition: all 0.3s ease-out
+		.rub
+			width: 8px
+			height: 8px
+			background-image: url(../images/Rub.svg)
+			background-repeat: no-repeat
+			background-size: contain
+		&.show
+			opacity: 1
+			transition: all 0.3s ease-out
+		
+	.count
+		position: absolute
+		top: 7px
+		right: 0
+		height: 20px
+		width: auto
+		font-size: 10px
+		font-weight: 400
+		color: $textcolor
 				
 
 	.icons-toggle
@@ -2073,12 +2107,13 @@ select
 		&.product-gallery-trumb	
 			list-style: none
 			padding-left: 0	
-			height: 657px
+			height: 640px
 			overflow-y: auto 	
+			width: 30%
 			&::-webkit-scrollbar
 				width: 0	
 			.product-gallery-trumbnail
-				width: 170px
+				width: auto
 				height: 160px
 				overflow: hidden
 				opacity: 0.5
@@ -2431,6 +2466,8 @@ label.color-code-image
 			
 // reviews
 
+.reviews
+	margin-top: 30px
 .review-content-wrap
 	.review
 		margin-bottom: 30px

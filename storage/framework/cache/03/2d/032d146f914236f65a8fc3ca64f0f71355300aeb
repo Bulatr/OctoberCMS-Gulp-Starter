@@ -1,4 +1,4 @@
-1607186452a:1:{s:15:"header-site.htm";a:6:{s:8:"fileName";s:15:"header-site.htm";s:7:"content";s:1689:"description = "Шапка сайта"
+1607266049a:1:{s:15:"header-site.htm";a:6:{s:8:"fileName";s:15:"header-site.htm";s:7:"content";s:2358:"description = "Шапка сайта"
 ==
 {##}
 <div class="header">
@@ -32,17 +32,37 @@
 							<img src="{{ 'assets/images/Outline.svg' | theme}}" alt="Избранное">
 						</a>
 					</div>
-					<div class="icons cart-icon" data-cartfilled="no">
-						<a href="#" class="cart empty show">
+					{% set obCartPositionList = Cart.get() %}
+					<div 
+						class="icons cart-icon" 
+						{% if obCartPositionList.count()>0 %}
+							data-cartfilled="yes"
+							{% else %}
+							data-cartfilled="no"
+						{% endif %} >
+						<a href="#" class="cart empty 
+							{% if obCartPositionList.count().isEmpty() %}
+								show
+							{% endif %}">
 							<img src="{{ 'assets/images/Empty Cart.svg' | theme}}" alt="">
 						</a>
-						<a href="#" class="cart filled">
+						<a href="#" class="cart filled
+							{% if obCartPositionList.count()>0 %}
+								show
+							{% endif %}
+						">
 							<img src="{{ 'assets/images/Added to Cart.svg' | theme}}" alt="">
 						</a>
 						<a href="#" class="cart added">
 							<img src="{{ 'assets/images/Add to Cart.svg' | theme}}" alt="">
-						</a>							
+						</a>																			
 					</div>
+					{% if obCartPositionList.count()>0 %}
+						<div class="count" > {{obCartPositionList.count()}} </div>
+					{% endif %}
+					{% if obCartPositionList.getTotalPriceValue() > 0 %}
+						<div class="summ" > {{ obCartPositionList.getTotalPrice() }} <span class="rub"></span> </div>
+					{% endif %}
 					<div class="icons-toggle"></div>
 				</div>
 			</div>
@@ -50,7 +70,7 @@
 	</div>
 </div>
 
-";s:5:"mtime";i:1606976658;s:6:"markup";s:1642:"{##}
+";s:5:"mtime";i:1607262012;s:6:"markup";s:2311:"{##}
 <div class="header">
 	<div class="container" style="position: relative;">
 		<div class="row">
@@ -82,17 +102,37 @@
 							<img src="{{ 'assets/images/Outline.svg' | theme}}" alt="Избранное">
 						</a>
 					</div>
-					<div class="icons cart-icon" data-cartfilled="no">
-						<a href="#" class="cart empty show">
+					{% set obCartPositionList = Cart.get() %}
+					<div 
+						class="icons cart-icon" 
+						{% if obCartPositionList.count()>0 %}
+							data-cartfilled="yes"
+							{% else %}
+							data-cartfilled="no"
+						{% endif %} >
+						<a href="#" class="cart empty 
+							{% if obCartPositionList.count().isEmpty() %}
+								show
+							{% endif %}">
 							<img src="{{ 'assets/images/Empty Cart.svg' | theme}}" alt="">
 						</a>
-						<a href="#" class="cart filled">
+						<a href="#" class="cart filled
+							{% if obCartPositionList.count()>0 %}
+								show
+							{% endif %}
+						">
 							<img src="{{ 'assets/images/Added to Cart.svg' | theme}}" alt="">
 						</a>
 						<a href="#" class="cart added">
 							<img src="{{ 'assets/images/Add to Cart.svg' | theme}}" alt="">
-						</a>							
+						</a>																			
 					</div>
+					{% if obCartPositionList.count()>0 %}
+						<div class="count" > {{obCartPositionList.count()}} </div>
+					{% endif %}
+					{% if obCartPositionList.getTotalPriceValue() > 0 %}
+						<div class="summ" > {{ obCartPositionList.getTotalPrice() }} <span class="rub"></span> </div>
+					{% endif %}
 					<div class="icons-toggle"></div>
 				</div>
 			</div>

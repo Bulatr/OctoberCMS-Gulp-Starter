@@ -62,7 +62,7 @@ class __TwigTemplate_cfa094cd8c78958874600915547f5d76e95888e406e3ba82027bdd64490
         echo "<div class=\"price\">
     ";
         // line 3
-        if ((twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "price", [], "any", false, false, true, 3) < twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "old_price", [], "any", false, false, true, 3))) {
+        if ((twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "price_value", [], "any", false, false, true, 3) < twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "old_price_value", [], "any", false, false, true, 3))) {
             // line 4
             echo "        <div class=\"old-price\" data-old-price-value = \"";
             echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "old_price_value", [], "any", false, false, true, 4), 4, $this->source), "html", null, true);
@@ -103,7 +103,7 @@ class __TwigTemplate_cfa094cd8c78958874600915547f5d76e95888e406e3ba82027bdd64490
     {
         return new Source("{##}
 <div class=\"price\">
-    {% if obOfferItem.price < obOfferItem.old_price %}
+    {% if obOfferItem.price_value < obOfferItem.old_price_value %}
         <div class=\"old-price\" data-old-price-value = \"{{ obOfferItem.old_price_value }}\" > {{ obOfferItem.old_price }} </div>
     {% endif %}
     <div class=\"current-price\" data-price-value=\"{{ obOfferItem.price_value }}\" > {{ obOfferItem.price }}<span class=\"rub\" itemprop=\"priceCurrency\" content=\"{{ obOfferItem.currency_code }}\">{{ obOfferItem.currency }}</span> </div>

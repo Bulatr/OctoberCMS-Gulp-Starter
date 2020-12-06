@@ -209,10 +209,8 @@ function onInit() {
                                 {% if obOfferPropertyList.isNotEmpty() %}
                                     {% partial "product/filter-panel/product-filter-panel" obPropertyList = obOfferPropertyList arAppliedPropertyList = arAppliedPropertyList %}
                                 {% endif %}
-                                {# Выводим офферы #}
-                                {# Get offer list #}
-                                
-                                
+
+                                {# Выводим офферы #}                                
                                 {# Render select with offers #}
                                 {% partial "product/offer/product-offer-list" obOfferList = obOfferList obOfferListCopy = obOfferListCopy %}
                                 <!-- Количество -->
@@ -246,28 +244,64 @@ function onInit() {
                                 <!-- Остаток -->
                                 {% partial "product/offer/offer-quantity" %}                                
                             </form>
+                        </div>                        
+                    </div>					
+                </div>
+            </div>
+            <div class="row" > 
+                <div class="col-sm-12 col-md-8 col-lg-7 col-xl-7 col-xxl-7" >  
+                    <div class="reviews">
+                        <div class="tab">
+                            <ul>
+                                <li class="tab-item" id="tab1" data-tab="tab1"><a href="#tab1">Описание</a></li>
+                                <li class="tab-item active" id="tab2" data-tab="tab2"><a href="#tab2">Отзывы</a></li>
+                            </ul>
                         </div>
-                        <div class="reviews">
-                            <div class="tab">
-                                <ul>
-                                    <li class="tab-item" id="tab1" data-tab="tab1"><a href="#tab1">Описание</a></li>
-                                    <li class="tab-item active" id="tab2" data-tab="tab2"><a href="#tab2">Отзывы</a></li>
-                                </ul>
+                        <div class="tab-content">
+                            <div class="tab-content-item" id="tab1" data-tabcontent="tab1">
+                                <div class="product-text">
+                                    {{obProduct.description | raw}}
+                                </div>									
                             </div>
-                            <div class="tab-content">
-                                <div class="tab-content-item" id="tab1" data-tabcontent="tab1">
-                                    <div class="product-text">
-                                        {{obProduct.description | raw}}
-                                    </div>									
-                                </div>
-                                <div class="tab-content-item show" id="tab2" data-tabcontent="tab2">
-                                    <div class="title-wrap">
-                                        <div class="title">
-                                            <div class="count-r">2</div>
-                                            <h3>												
-                                                Отзыва
-                                            </h3>											
+                            <div class="tab-content-item show" id="tab2" data-tabcontent="tab2">
+                                <div class="title-wrap">
+                                    <div class="title">
+                                        <div class="count-r">2</div>
+                                        <h3>												
+                                            Отзыва
+                                        </h3>											
+                                    </div>
+                                    <div class="raiting-wrapper">
+                                        <div class="star-wrapper">
+                                            <a href="#">
+                                                <div class="star">														
+                                                </div>
+                                            </a>
+                                            <a href="#">
+                                                <div class="star">														
+                                                </div>
+                                            </a>
+                                            <a href="#">
+                                                <div class="star">														
+                                                </div>
+                                            </a>
+                                            <a href="#">
+                                                <div class="star">														
+                                                </div>
+                                            </a>
+                                            <a href="#">
+                                                <div class="star none">														
+                                                </div>
+                                            </a>
                                         </div>
+                                        <div class="star-count">
+                                            (8)
+                                        </div>
+                                    </div>										
+                                </div>
+                                <div class="review-content-wrap">
+                                    <div class="review">
+                                        <div class="review-title"><span><img src="{{ 'assets/images/Verified.svg' | theme }}" alt="" class="icon-verified"></span> Оксана</div>
                                         <div class="raiting-wrapper">
                                             <div class="star-wrapper">
                                                 <a href="#">
@@ -291,12 +325,16 @@ function onInit() {
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="star-count">
-                                                (8)
-                                            </div>
-                                        </div>										
+                                            <div class="star-count data-review">
+                                                Декабрь 2020
+                                            </div>																								
+                                        </div>
+                                        <div class="review-content">
+                                            <p>Очень понравился этот джемпер вязки «косы». Мой любимый, безумно нежный цвет, поднимающий настроение. Теплый и уютный)) Качество супер и длина та, которую я люблю) Советую его всем приобрести, не пожалеете))))</p>
+                                        </div>
                                     </div>
-                                    <div class="review-content-wrap">
+                                    <div class="read-more"><a href="#" data-eventclick="open" class="button text">Читать далее</a></div>
+                                    <div class="review-all-collapse">
                                         <div class="review">
                                             <div class="review-title"><span><img src="{{ 'assets/images/Verified.svg' | theme }}" alt="" class="icon-verified"></span> Оксана</div>
                                             <div class="raiting-wrapper">
@@ -324,86 +362,50 @@ function onInit() {
                                                 </div>
                                                 <div class="star-count data-review">
                                                     Декабрь 2020
-                                                </div>																								
+                                                </div>																									
                                             </div>
                                             <div class="review-content">
                                                 <p>Очень понравился этот джемпер вязки «косы». Мой любимый, безумно нежный цвет, поднимающий настроение. Теплый и уютный)) Качество супер и длина та, которую я люблю) Советую его всем приобрести, не пожалеете))))</p>
                                             </div>
                                         </div>
-                                        <div class="read-more"><a href="#" data-eventclick="open" class="button text">Читать далее</a></div>
-                                        <div class="review-all-collapse">
-                                            <div class="review">
-                                                <div class="review-title"><span><img src="{{ 'assets/images/Verified.svg' | theme }}" alt="" class="icon-verified"></span> Оксана</div>
-                                                <div class="raiting-wrapper">
-                                                    <div class="star-wrapper">
-                                                        <a href="#">
-                                                            <div class="star">														
-                                                            </div>
-                                                        </a>
-                                                        <a href="#">
-                                                            <div class="star">														
-                                                            </div>
-                                                        </a>
-                                                        <a href="#">
-                                                            <div class="star">														
-                                                            </div>
-                                                        </a>
-                                                        <a href="#">
-                                                            <div class="star">														
-                                                            </div>
-                                                        </a>
-                                                        <a href="#">
-                                                            <div class="star none">														
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="star-count data-review">
-                                                        Декабрь 2020
-                                                    </div>																									
+                                        <div class="review">
+                                            <div class="review-title"><span><img src="{{ 'assets/images/Verified.svg' | theme }}" alt="" class="icon-verified"></span> Оксана</div>
+                                            <div class="raiting-wrapper">
+                                                <div class="star-wrapper">
+                                                    <a href="#">
+                                                        <div class="star">														
+                                                        </div>
+                                                    </a>
+                                                    <a href="#">
+                                                        <div class="star">														
+                                                        </div>
+                                                    </a>
+                                                    <a href="#">
+                                                        <div class="star">														
+                                                        </div>
+                                                    </a>
+                                                    <a href="#">
+                                                        <div class="star">														
+                                                        </div>
+                                                    </a>
+                                                    <a href="#">
+                                                        <div class="star none">														
+                                                        </div>
+                                                    </a>
                                                 </div>
-                                                <div class="review-content">
-                                                    <p>Очень понравился этот джемпер вязки «косы». Мой любимый, безумно нежный цвет, поднимающий настроение. Теплый и уютный)) Качество супер и длина та, которую я люблю) Советую его всем приобрести, не пожалеете))))</p>
-                                                </div>
+                                                <div class="star-count data-review">
+                                                    Декабрь 2020
+                                                </div>																									
                                             </div>
-                                            <div class="review">
-                                                <div class="review-title"><span><img src="{{ 'assets/images/Verified.svg' | theme }}" alt="" class="icon-verified"></span> Оксана</div>
-                                                <div class="raiting-wrapper">
-                                                    <div class="star-wrapper">
-                                                        <a href="#">
-                                                            <div class="star">														
-                                                            </div>
-                                                        </a>
-                                                        <a href="#">
-                                                            <div class="star">														
-                                                            </div>
-                                                        </a>
-                                                        <a href="#">
-                                                            <div class="star">														
-                                                            </div>
-                                                        </a>
-                                                        <a href="#">
-                                                            <div class="star">														
-                                                            </div>
-                                                        </a>
-                                                        <a href="#">
-                                                            <div class="star none">														
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="star-count data-review">
-                                                        Декабрь 2020
-                                                    </div>																									
-                                                </div>
-                                                <div class="review-content">
-                                                    <p>Очень понравился этот джемпер вязки «косы». Мой любимый, безумно нежный цвет, поднимающий настроение. Теплый и уютный)) Качество супер и длина та, которую я люблю) Советую его всем приобрести, не пожалеете))))</p>
-                                                </div>
+                                            <div class="review-content">
+                                                <p>Очень понравился этот джемпер вязки «косы». Мой любимый, безумно нежный цвет, поднимающий настроение. Теплый и уютный)) Качество супер и длина та, которую я люблю) Советую его всем приобрести, не пожалеете))))</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>					
+                    </div>
                 </div>
             </div>
         </div>
@@ -411,39 +413,7 @@ function onInit() {
 
     <!-- Modal images -->
     <div class="modal" data-modal="1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div></div>
-                    <div class="close">
-                        <img src="{{ 'assets/images/Cross.svg' | theme }}" alt="">
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <div class="modal-icon left">
-                        <img id="modal-image-left" src="{{ 'assets/images/Direction-Left.svg' | theme }}" alt="">
-                    </div>
-                    <div class="modal-wrap-images">
-                        <img src="{{ 'assets/images/dest/1/37416640299.jpg' | theme }}" alt="" id="dataimage-1" data-modalimageid="modal-image-1" class="modal-image show">
-                        <img src="{{ 'assets/images/dest/1/37416650299.jpg' | theme }}" alt="" id="dataimage-2" data-modalimageid="modal-image-2" class="modal-image">
-                        <img src="{{ 'assets/images/dest/1/37416660299.jpg' | theme }}" alt="" id="dataimage-3" data-modalimageid="modal-image-3" class="modal-image">
-                        <img src="{{ 'assets/images/dest/1/37416670299.jpg' | theme }}" alt="" id="dataimage-4" data-modalimageid="modal-image-4" class="modal-image">
-                        
-                    </div>
-                    <div class="modal-icon right">
-                        <img id="modal-image-right" src="{{ 'assets/images/Direction-Right.svg' | theme }}" alt="">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <div class="modal-images-thumbs">
-                        <img src="{{ 'assets/images/dest/1/37416640299.jpg' | theme }}" alt="" id="dataimage-1" data-modalimageid="1" class="modal-thumb-image">
-                        <img src="{{ 'assets/images/dest/1/37416650299.jpg' | theme }}" alt="" id="dataimage-2" data-modalimageid="2" class="modal-thumb-image">
-                        <img src="{{ 'assets/images/dest/1/37416660299.jpg' | theme }}" alt="" id="dataimage-3" data-modalimageid="3" class="modal-thumb-image">
-                        <img src="{{ 'assets/images/dest/1/37416670299.jpg' | theme }}" alt="" id="dataimage-4" data-modalimageid="4" class="modal-thumb-image">
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% partial "product/gallery/product-gallery-modal" obProduct = obProduct obOfferItem = obOfferItem %}
     </div>
 
     {% partial "similar-products" %}
