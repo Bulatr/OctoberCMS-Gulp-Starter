@@ -125,6 +125,7 @@ function onInit() {
         $obOfferList = $obProductItem->offer;
         $obOfferListCopy = $obOfferList->copy()->filterByProperty($arFilterList, $obOfferPropertyList);
         $obOfferItem = $obOfferListCopy->sort('price|asc')->first();
+        
         $this['arAppliedPropertyList'] = $arAppliedPropertyList;
         $this['arFilterList'] = $arFilterList;
         $this['obOfferList'] = $obOfferList;

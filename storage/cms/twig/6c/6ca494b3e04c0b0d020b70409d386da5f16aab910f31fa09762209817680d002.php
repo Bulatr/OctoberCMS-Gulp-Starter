@@ -106,14 +106,14 @@ class __TwigTemplate_bfd7447bc08fa91aa5e8dd5bafdf9b1ffff3fe53c4aa516ea2aa8c44fc6
         echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, true, 19), "id", [], "any", false, false, true, 19), 19, $this->source), "html", null, true);
         ((($context["class"] ?? null)) ? (print (twig_escape_filter($this->env, (" " . ($context["class"] ?? null)), "html", null, true))) : (print ("")));
         echo "\">
-
-";
+<div class=\"microcart\">
+\t";
         // line 21
         $context['__cms_partial_params'] = [];
-        echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("modal-microcart"        , $context['__cms_partial_params']        , true        );
+        echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("modal/modal-microcart"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
         // line 22
-        echo "
+        echo "</div>
 <div class=\"modal-overlay\"></div>
 
 ";
@@ -166,9 +166,9 @@ class __TwigTemplate_bfd7447bc08fa91aa5e8dd5bafdf9b1ffff3fe53c4aa516ea2aa8c44fc6
 </head>
 
 <body class=\"is_{{ this.page.id }}{{ class ? ' ' ~ class }}\">
-
-{% partial \"modal-microcart\" %}
-
+<div class=\"microcart\">
+\t{% partial \"modal/modal-microcart\" %}
+</div>
 <div class=\"modal-overlay\"></div>
 
 {% partial \"top-bar\" %}

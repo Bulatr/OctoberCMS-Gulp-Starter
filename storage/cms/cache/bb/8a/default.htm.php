@@ -1,5 +1,10 @@
 <?php 
-class Cms5fcbaa74116fb975686198_2822a382ae6a2ffd79e6992262add3deClass extends Cms\Classes\LayoutCode
+class Cms5fcf045429b4e422221015_f6673cc0ce276597c3ee2fa59cad18d1Class extends Cms\Classes\LayoutCode
 {
-
+public function onInit() {
+	$obCartPositionList = $this->Cart->get();
+	$obCartPositionListCount = $obCartPositionList->count();
+	$this["obCartPositionList"] = $obCartPositionList;
+	$this["obCartPositionListCount"] = $obCartPositionListCount;
+}
 }

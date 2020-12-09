@@ -1,17 +1,27 @@
-1607266049a:1:{s:11:"default.htm";a:8:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:463:"[CategoryList]
+1607501524a:1:{s:11:"default.htm";a:8:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:703:"[CategoryList]
 
 [ProductData]
 
 [Cart]
 ==
-{% component 'Cart' %}{##}
+<?php
+function onInit() {
+	$obCartPositionList = $this->Cart->get();
+	$obCartPositionListCount = $obCartPositionList->count();
+	$this["obCartPositionList"] = $obCartPositionList;
+	$this["obCartPositionListCount"] = $obCartPositionListCount;
+}
+?>
+==
+{##}
+
 {% set sPageTitle = this.page.title %}
 {% if obProduct.isNotEmpty() %}
 {%  set sPageTitle = "Купить "~obProduct.name %}
 {% else %}
 {% set sPageTitle = obActiveCategory.name %}
 {% endif %}
-{% partial 'header' class='myclass' sPageTitle=sPageTitle %}
+{% partial 'header' class='myclass' sPageTitle = sPageTitle %}
 	
 	<section id="body-site">
 		<div class="mega-menu-wrapper">
@@ -19,14 +29,15 @@
 		{% page %}
 	</section>
 
-{% partial 'footer' %}";s:5:"mtime";i:1607182944;s:6:"markup";s:416:"{% component 'Cart' %}{##}
+{% partial 'footer' %}";s:5:"mtime";i:1607402576;s:6:"markup";s:398:"{##}
+
 {% set sPageTitle = this.page.title %}
 {% if obProduct.isNotEmpty() %}
 {%  set sPageTitle = "Купить "~obProduct.name %}
 {% else %}
 {% set sPageTitle = obActiveCategory.name %}
 {% endif %}
-{% partial 'header' class='myclass' sPageTitle=sPageTitle %}
+{% partial 'header' class='myclass' sPageTitle = sPageTitle %}
 	
 	<section id="body-site">
 		<div class="mega-menu-wrapper">
@@ -34,4 +45,9 @@
 		{% page %}
 	</section>
 
-{% partial 'footer' %}";s:4:"code";N;s:12:"CategoryList";a:0:{}s:11:"ProductData";a:0:{}s:4:"Cart";a:0:{}}}
+{% partial 'footer' %}";s:4:"code";s:241:"function onInit() {
+	$obCartPositionList = $this->Cart->get();
+	$obCartPositionListCount = $obCartPositionList->count();
+	$this["obCartPositionList"] = $obCartPositionList;
+	$this["obCartPositionListCount"] = $obCartPositionListCount;
+}";s:12:"CategoryList";a:0:{}s:11:"ProductData";a:0:{}s:4:"Cart";a:0:{}}}

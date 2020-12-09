@@ -1,4 +1,4 @@
-1607266049a:1:{s:11:"catalog.htm";a:18:{s:8:"fileName";s:11:"catalog.htm";s:7:"content";s:29292:"title = "Каталог товаров"
+1607501524a:1:{s:11:"catalog.htm";a:18:{s:8:"fileName";s:11:"catalog.htm";s:7:"content";s:29302:"title = "Каталог товаров"
 url = "/catalog/:category*/:slug?"
 layout = "default"
 description = "Каталог магазина"
@@ -125,6 +125,7 @@ function onInit() {
         $obOfferList = $obProductItem->offer;
         $obOfferListCopy = $obOfferList->copy()->filterByProperty($arFilterList, $obOfferPropertyList);
         $obOfferItem = $obOfferListCopy->sort('price|asc')->first();
+        
         $this['arAppliedPropertyList'] = $arAppliedPropertyList;
         $this['arFilterList'] = $arFilterList;
         $this['obOfferList'] = $obOfferList;
@@ -512,7 +513,7 @@ function onInit() {
     {% partial "banners/banner-1" %}
 
     {% partial "lookbook" %}
-{% endif %}";s:5:"mtime";i:1607256141;s:6:"markup";s:23915:"{##}
+{% endif %}";s:5:"mtime";i:1607402458;s:6:"markup";s:23915:"{##}
 
 {# @var obCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
 {# Get category item #}
@@ -887,7 +888,7 @@ function onInit() {
     {% partial "banners/banner-1" %}
 
     {% partial "lookbook" %}
-{% endif %}";s:4:"code";s:4098:"function onInit() {
+{% endif %}";s:4:"code";s:4108:"function onInit() {
     use Input;
     // делаем проверку, если мы не нашли категорию и не нашли товар в параметре последнего слага :category*/:slug?
     // то нужно отобразить 404 ошибку
@@ -950,6 +951,7 @@ function onInit() {
         $obOfferList = $obProductItem->offer;
         $obOfferListCopy = $obOfferList->copy()->filterByProperty($arFilterList, $obOfferPropertyList);
         $obOfferItem = $obOfferListCopy->sort('price|asc')->first();
+        
         $this['arAppliedPropertyList'] = $arAppliedPropertyList;
         $this['arFilterList'] = $arFilterList;
         $this['obOfferList'] = $obOfferList;

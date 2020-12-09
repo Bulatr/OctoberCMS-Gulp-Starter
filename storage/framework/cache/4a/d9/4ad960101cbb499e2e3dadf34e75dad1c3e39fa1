@@ -1,0 +1,111 @@
+1607501524a:1:{s:25:"modal/modal-microcart.htm";a:6:{s:8:"fileName";s:25:"modal/modal-microcart.htm";s:7:"content";s:2101:";;
+description = "Корзина"
+==
+{##}
+	{% set obCartPositionList = Cart.get() %}
+	{% set obCartPositionListCount = obCartPositionList.getTotalQuantity() %}
+	{% set obPriceData = Cart.getTotalPriceData() %}
+	<div class="microcart show">
+		<div class="cart-dialog">
+			<div class="cart-content">
+				<div class="cart-header">
+					<div></div>
+					<div class="close">
+						<img src="{{'assets/images/Close-circle.svg' | theme }}" alt="">
+					</div>
+				</div>
+				<div class="cart-body">
+					{% if obCartPositionList.isEmpty() %}
+					<div class="cart-empty">
+						<div class="empty-image">
+							<img src="{{ 'assets/images/empty cart image.svg' | theme }}" alt="">
+						</div>
+						<div class="empty-content">
+							<div class="title-empty">
+								Ваша корзина пуста
+							</div>
+							<div class="subtitle-empty">
+								Выберите понравившиеся товары и добавьте в корзину. Если сейчас не готовы купить, можете рассмотреть товары в корзине позднее
+							</div>
+						</div>
+					</div>
+					{% else %}
+					<div class="cart-filled show">
+						<div class="cart-items">
+							{% for obCartPosition in obCartPositionList %}
+								{% partial "product/product-card/mini-card" obCartPosition = obCartPosition %}	
+							{% endfor %}
+						</div>
+						<div class="cupon-input">
+							<label for="cupon">Ввести код купона</label>
+							<input id="cupon" class="input__cupon" name="cupon" type="text">
+						</div>
+						<div class="summary">
+							{% partial "cart/microcart/summary" %}
+						</div>
+					</div>
+					{% endif %}
+				</div>
+				<div class="cart-footer">
+					<div class="cart-footer--center">
+						<a href="#" id="empty-cart" class="btn btn-primary secondary cartevent show">Начать покупки</a>
+						<a href="#" id="filled-cart" class="btn btn-primary secondary cartevent">Оформить покупку</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+";s:5:"mtime";i:1607474385;s:6:"markup";s:2059:"{##}
+	{% set obCartPositionList = Cart.get() %}
+	{% set obCartPositionListCount = obCartPositionList.getTotalQuantity() %}
+	{% set obPriceData = Cart.getTotalPriceData() %}
+	<div class="microcart show">
+		<div class="cart-dialog">
+			<div class="cart-content">
+				<div class="cart-header">
+					<div></div>
+					<div class="close">
+						<img src="{{'assets/images/Close-circle.svg' | theme }}" alt="">
+					</div>
+				</div>
+				<div class="cart-body">
+					{% if obCartPositionList.isEmpty() %}
+					<div class="cart-empty">
+						<div class="empty-image">
+							<img src="{{ 'assets/images/empty cart image.svg' | theme }}" alt="">
+						</div>
+						<div class="empty-content">
+							<div class="title-empty">
+								Ваша корзина пуста
+							</div>
+							<div class="subtitle-empty">
+								Выберите понравившиеся товары и добавьте в корзину. Если сейчас не готовы купить, можете рассмотреть товары в корзине позднее
+							</div>
+						</div>
+					</div>
+					{% else %}
+					<div class="cart-filled show">
+						<div class="cart-items">
+							{% for obCartPosition in obCartPositionList %}
+								{% partial "product/product-card/mini-card" obCartPosition = obCartPosition %}	
+							{% endfor %}
+						</div>
+						<div class="cupon-input">
+							<label for="cupon">Ввести код купона</label>
+							<input id="cupon" class="input__cupon" name="cupon" type="text">
+						</div>
+						<div class="summary">
+							{% partial "cart/microcart/summary" %}
+						</div>
+					</div>
+					{% endif %}
+				</div>
+				<div class="cart-footer">
+					<div class="cart-footer--center">
+						<a href="#" id="empty-cart" class="btn btn-primary secondary cartevent show">Начать покупки</a>
+						<a href="#" id="filled-cart" class="btn btn-primary secondary cartevent">Оформить покупку</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>";s:4:"code";N;s:11:"description";s:14:"Корзина";}}

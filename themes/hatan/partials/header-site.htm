@@ -1,6 +1,9 @@
 description = "Шапка сайта"
 ==
+
+==
 {##}
+{{ obCartPositionList.count() | var_dump}}
 <div class="header">
 	<div class="container" style="position: relative;">
 		<div class="row">
@@ -32,22 +35,21 @@ description = "Шапка сайта"
 							<img src="{{ 'assets/images/Outline.svg' | theme}}" alt="Избранное">
 						</a>
 					</div>
-					{% set obCartPositionList = Cart.get() %}
 					<div 
 						class="icons cart-icon" 
-						{% if obCartPositionList.count()>0 %}
+						{% if obCartPositionListCount > 0 %}
 							data-cartfilled="yes"
 							{% else %}
 							data-cartfilled="no"
 						{% endif %} >
 						<a href="#" class="cart empty 
-							{% if obCartPositionList.count().isEmpty() %}
+							{% if obCartPositionListCount == 0 %}
 								show
 							{% endif %}">
 							<img src="{{ 'assets/images/Empty Cart.svg' | theme}}" alt="">
 						</a>
 						<a href="#" class="cart filled
-							{% if obCartPositionList.count()>0 %}
+							{% if obCartPositionListCount > 0 %}
 								show
 							{% endif %}
 						">
@@ -57,12 +59,9 @@ description = "Шапка сайта"
 							<img src="{{ 'assets/images/Add to Cart.svg' | theme}}" alt="">
 						</a>																			
 					</div>
-					{% if obCartPositionList.count()>0 %}
-						<div class="count" > {{obCartPositionList.count()}} </div>
-					{% endif %}
-					{% if obCartPositionList.getTotalPriceValue() > 0 %}
-						<div class="summ" > {{ obCartPositionList.getTotalPrice() }} <span class="rub"></span> </div>
-					{% endif %}
+					<div class='summ_count_wrapper' >
+						{% partial "header/summ_count_header" %}
+					</div>					
 					<div class="icons-toggle"></div>
 				</div>
 			</div>

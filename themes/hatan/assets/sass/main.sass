@@ -388,6 +388,11 @@ button.btn
 			&.text
 				padding-top: 0
 				padding-bottom: 0
+.top-bar__link
+	font-size: 12px
+	color: $dark
+	font-weight: 400
+	letter-spacing: 0.1px
 
 .bar-phone
 	font-family: $roboto
@@ -1227,6 +1232,7 @@ button.btn
 	transform: translateX(500px)
 	&.show
 		z-index: 1000
+		transform: translateX(0)
 
 .cart-dialog
 	position: relative
@@ -1249,6 +1255,7 @@ button.btn
 	flex-direction: column
 	justify-content: flex-start
 	height: 100%
+	width: 428px
 	overflow-y: auto
 	padding-right: 10px
 	padding-top: 24px
@@ -1289,7 +1296,7 @@ button.btn
 	display: none
 	flex-direction: column
 	justify-content: space-between
-	height: 100%
+	height: auto
 	&.show
 		display: flex
 
@@ -1334,27 +1341,62 @@ button.btn
 	&.summary
 
 .collected-product__image-wrapper
-	width: 50%
 	overflow: hidden
 	position: relative
-	width: 140px
-	height: 200px
 	background-color: $light-var
 
 .collected-product__image-wrapper-image
-	width: 140px
-	height: 200px
+	width: 175px
+	height: 170px
 	img
 		width: auto
-		height: 100%
+		height: 170px
 		object-fit: cover
+		overflow: hidden
 
 .collected-product__image-wrapper-count-wrap-collected
 	position: absolute
 	z-index: 2
 	bottom: 16px
 	width: 100%
-
+	display: flex
+	flex-direction: row
+	justify-content: space-between
+	align-items: center
+.quantity-wrapper
+	background-color: $light-var
+	.quantity-down
+		cursor: pointer
+		width: 26px
+		height: 26px
+		background-image: url(../images/Minus.svg)
+		background-repeat: no-repeat
+		background-position: 50% 50%
+		background-size: contain
+	input[type="number"].quantity
+		-moz-appearance: textfield
+		text-align: center
+		width: 50px
+		border: none
+		background-color: $light-var
+		&::-webkit-inner-spin-button
+			-webkit-appearance: none
+			-moz-appearance: none
+			appearance: none
+			margin: 0
+		&::-webkit-outer-spin-button
+			-webkit-appearance: none
+			-moz-appearance: none
+			appearance: none
+			margin: 0
+	.quantity-up
+		cursor: pointer
+		width: 26px
+		height: 26px
+		background-image: url(../images/Plus.svg)
+		background-repeat: no-repeat
+		background-position: 50% 50%
+		background-size: contain
 .collected-product__content
 	margin-left: 24px
 	position: relative
@@ -1404,16 +1446,7 @@ button.btn
 	text-decoration: line-through
 	font-size: 18px
 	font-weight: 200
-	margin-top: 3px
-	.rub
-		width: 11px
-		background-image: url("../images/Rub_red.svg")
-		background-size: contain
-		background-repeat: no-repeat
-		background-position: 0 66%
-		background-color: $light
-		img
-			display: none
+	
 
 .today-price
 	display: flex
@@ -1435,10 +1468,11 @@ button.btn
 		margin-top: 76px
 
 .option__item-label-option
-	width: 40%
+	width: 60%
 
 .option__value-option
-	width: 60%
+	width: 40%
+	text-transform: capitalize
 
 .cupon-input
 	font-size: 14px
@@ -2819,7 +2853,56 @@ input.filled
 	&:hover
 		color: $accent
 
+.mobile-menu
+	display: none
+	width: 100%
+	height: 60px
+	position: fixed
+	bottom: 0
+	left: 0
+	background-color: $light-var
+	box-shadow: 0px -2px 10px rgba(29, 31, 34, 0.15)
+	z-index: 100000
 
+.mobile-menu__wrapper
+	display: flex
+	flex-direction: row
+	flex-wrap: nowrap
+	justify-content: space-between
+	align-items: center
+	height: 100%
+	padding: 8px 16px 8px 16px
+
+
+.item-mobile-menu
+	display: flex
+	position: relative
+	height: 100%
+	&.cart-icon
+		justify-content: flex-end
+		img
+			position: absolute
+			top: -33px
+			right: -9px
+			width: 66px
+			height: 66px
+		a.link-mobile-menu
+			justify-content: flex-end
+
+a.link-mobile-menu
+	text-decoration: none
+	color: $textcolor
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	align-items: center
+	img
+
+	.link-mobile-menu__title
+		font-family: $roboto
+		font-weight: 200
+		font-size: 12px
+		text-align: center
 
 // animation
 

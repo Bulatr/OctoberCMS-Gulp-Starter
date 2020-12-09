@@ -4,14 +4,24 @@
 
 [Cart]
 ==
-{% component 'Cart' %}{##}
+<?php
+function onInit() {
+	$obCartPositionList = $this->Cart->get();
+	$obCartPositionListCount = $obCartPositionList->count();
+	$this["obCartPositionList"] = $obCartPositionList;
+	$this["obCartPositionListCount"] = $obCartPositionListCount;
+}
+?>
+==
+{##}
+
 {% set sPageTitle = this.page.title %}
 {% if obProduct.isNotEmpty() %}
 {%  set sPageTitle = "Купить "~obProduct.name %}
 {% else %}
 {% set sPageTitle = obActiveCategory.name %}
 {% endif %}
-{% partial 'header' class='myclass' sPageTitle=sPageTitle %}
+{% partial 'header' class='myclass' sPageTitle = sPageTitle %}
 	
 	<section id="body-site">
 		<div class="mega-menu-wrapper">

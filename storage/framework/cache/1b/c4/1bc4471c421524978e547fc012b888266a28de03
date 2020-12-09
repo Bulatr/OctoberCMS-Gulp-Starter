@@ -1,4 +1,4 @@
-1607266049a:1:{s:11:"top-bar.htm";a:6:{s:8:"fileName";s:11:"top-bar.htm";s:7:"content";s:551:"==
+1607501524a:1:{s:11:"top-bar.htm";a:6:{s:8:"fileName";s:11:"top-bar.htm";s:7:"content";s:556:"==
 {##}
 <div class="top-bar">
 	<div class="container">
@@ -14,13 +14,13 @@
 					</div>
 					<a href="tel:+79247702321" class="bar-phone">+7(924) 770-2321</a>
 					<div class="help-wrapper">
-						<a href="#" class="btn text">Помощь</a>
+						<a href="#" class="top-bar__link">Помощь</a>
 					</div>
 				</div>					
 			</div>
 		</div>
 	</div>		
-</div>";s:5:"mtime";i:1606974905;s:6:"markup";s:547:"{##}
+</div>";s:5:"mtime";i:1607305907;s:6:"markup";s:552:"{##}
 <div class="top-bar">
 	<div class="container">
 		<div class="row">
@@ -35,7 +35,7 @@
 					</div>
 					<a href="tel:+79247702321" class="bar-phone">+7(924) 770-2321</a>
 					<div class="help-wrapper">
-						<a href="#" class="btn text">Помощь</a>
+						<a href="#" class="top-bar__link">Помощь</a>
 					</div>
 				</div>					
 			</div>

@@ -29,13 +29,13 @@ class __TwigTemplate_d162eb68792f8bcf1c9507e18b16951200f11d562d9508a1fc8f666468f
         $this->blocks = [
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
-        $tags = array("component" => 1, "set" => 2, "if" => 3, "partial" => 8, "page" => 13);
+        $tags = array("set" => 3, "if" => 4, "partial" => 9, "page" => 14);
         $filters = array();
         $functions = array();
 
         try {
             $this->sandbox->checkSecurity(
-                ['component', 'set', 'if', 'partial', 'page'],
+                ['set', 'if', 'partial', 'page'],
                 [],
                 []
             );
@@ -58,39 +58,38 @@ class __TwigTemplate_d162eb68792f8bcf1c9507e18b16951200f11d562d9508a1fc8f666468f
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 1
-        $context['__cms_component_params'] = [];
-        echo $this->env->getExtension('Cms\Twig\Extension')->componentFunction("Cart"        , $context['__cms_component_params']        );
-        unset($context['__cms_component_params']);
         // line 2
-        $context["sPageTitle"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, true, 2), "title", [], "any", false, false, true, 2);
+        echo "
+";
         // line 3
-        if (twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "isNotEmpty", [], "method", false, false, true, 3)) {
-            // line 4
-            $context["sPageTitle"] = ("Купить " . $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "name", [], "any", false, false, true, 4), 4, $this->source));
+        $context["sPageTitle"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, true, 3), "title", [], "any", false, false, true, 3);
+        // line 4
+        if (twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "isNotEmpty", [], "method", false, false, true, 4)) {
+            // line 5
+            $context["sPageTitle"] = ("Купить " . $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "name", [], "any", false, false, true, 5), 5, $this->source));
         } else {
-            // line 6
-            $context["sPageTitle"] = twig_get_attribute($this->env, $this->source, ($context["obActiveCategory"] ?? null), "name", [], "any", false, false, true, 6);
+            // line 7
+            $context["sPageTitle"] = twig_get_attribute($this->env, $this->source, ($context["obActiveCategory"] ?? null), "name", [], "any", false, false, true, 7);
         }
-        // line 8
+        // line 9
         $context['__cms_partial_params'] = [];
         $context['__cms_partial_params']['class'] = "myclass"        ;
         $context['__cms_partial_params']['sPageTitle'] = ($context["sPageTitle"] ?? null)        ;
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("header"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 9
+        // line 10
         echo "\t
 \t<section id=\"body-site\">
 \t\t<div class=\"mega-menu-wrapper\">
 \t\t</div>
 \t\t";
-        // line 13
-        echo $this->env->getExtension('Cms\Twig\Extension')->pageFunction();
         // line 14
+        echo $this->env->getExtension('Cms\Twig\Extension')->pageFunction();
+        // line 15
         echo "\t</section>
 
 ";
-        // line 16
+        // line 17
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("footer"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
@@ -108,19 +107,20 @@ class __TwigTemplate_d162eb68792f8bcf1c9507e18b16951200f11d562d9508a1fc8f666468f
 
     public function getDebugInfo()
     {
-        return array (  94 => 16,  90 => 14,  88 => 13,  82 => 9,  76 => 8,  73 => 6,  70 => 4,  68 => 3,  66 => 2,  62 => 1,);
+        return array (  93 => 17,  89 => 15,  87 => 14,  81 => 10,  75 => 9,  72 => 7,  69 => 5,  67 => 4,  65 => 3,  62 => 2,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% component 'Cart' %}{##}
+        return new Source("{##}
+
 {% set sPageTitle = this.page.title %}
 {% if obProduct.isNotEmpty() %}
 {%  set sPageTitle = \"Купить \"~obProduct.name %}
 {% else %}
 {% set sPageTitle = obActiveCategory.name %}
 {% endif %}
-{% partial 'header' class='myclass' sPageTitle=sPageTitle %}
+{% partial 'header' class='myclass' sPageTitle = sPageTitle %}
 \t
 \t<section id=\"body-site\">
 \t\t<div class=\"mega-menu-wrapper\">

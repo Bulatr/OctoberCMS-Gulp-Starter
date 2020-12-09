@@ -2,7 +2,9 @@ import ShopaholicProductList from "@lovata/shopaholic-product-list/shopaholic-pr
 import ShopaholicSorting from "@lovata/shopaholic-product-list/shopaholic-sorting";
 import ShopaholicPagination from "@lovata/shopaholic-product-list/shopaholic-pagination";
 import ShopaholicFilterPanel from "@lovata/shopaholic-filter-panel/shopaholic-filter-panel";
-import ShopaholicCartAdd from '@lovata/shopaholic-cart/shopaholic-cart-add'
+import ShopaholicCartAdd from '@lovata/shopaholic-cart/shopaholic-cart-add';
+import ShopaholicCartRemove from '@lovata/shopaholic-cart/shopaholic-cart-remove';
+import ShopaholicCartUpdate from '@lovata/shopaholic-cart/shopaholic-cart-update';
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -45,8 +47,88 @@ document.addEventListener("DOMContentLoaded", function() {
 	const obPaginationHelper = new ShopaholicPagination(obListHelper);
 	const obFilterPanel = new ShopaholicFilterPanel(obListHelper);
 	const obShopaholicCartAdd = new ShopaholicCartAdd();
+	const obShopaholicCartRemove = new ShopaholicCartRemove();
 
-		obShopaholicCartAdd.setAjaxRequestCallback((obRequestData=>obRequestData)).init();
+	/** Cart update 
+	 * Quantity up and down 
+	 * 
+	 * Prepare object with offers
+		let data = {
+		'cart': [
+			{'offer_id': 32, 'quantity': 4},
+			{'offer_id': 44, 'quantity': 1}
+		],
+		'shipping_type_id': 4,
+		'payment_method_id': 3
+		};
+
+		//Send ajax request and sync cart positions
+		$.request('Cart::onUpdate', {
+			'data': data,
+			'update': {'product/product-card/mini-card': '.card-items'}
+		});
+	*/
+	const obShopaholicCartUpdate = new ShopaholicCartUpdate();
+	obShopaholicCartUpdate.setAjaxRequestCallback((obRequestData) => {
+		obRequestData.update = {
+			'header/summ_count_header': '.summ_count_wrapper',
+			'product/product-card/mini-card': '.card-items',
+			"cart/microcart/summary": '.summary'
+		};
+		return obRequestData;
+	}).init();
+	
+	/** 
+	$(document).on({
+		click: function(e){
+			if (e.target.nextElementSibling.value === null) {
+				console.log(e.currentTarget);
+			} else {
+				let var_count = Number(e.target.nextElementSibling.value);
+				var_count = var_count-1;
+				e.target.nextElementSibling.value = var_count;
+			}
+			
+		}
+	},'._shopaholic-cart-decrease-quantity');
+
+	$(document).on({
+		click: function(e){
+			if (e.target.previousElementSibling.value === null) {
+				console.log(e.currentTarget);
+			} else {
+				let var_count = Number(e.target.previousElementSibling.value);
+				var_count = var_count+1;
+				e.target.previousElementSibling.value = var_count;
+			}		
+			
+		}
+	},'._shopaholic-cart-increase-quantity')
+	*/
+	
+
+	/** Cart remove */
+	obShopaholicCartRemove.setAjaxRequestCallback(
+		(obRequestData) =>{
+			
+			obRequestData.update = {
+				'header/summ_count_header': '.summ_count_wrapper',
+				'modal/modal-microcart': '.microcart',
+				"cart/microcart/summary": '.summary'
+			}
+			return obRequestData;
+		}
+	).init();
+
+	/** Cart add */
+	obShopaholicCartAdd.setAjaxRequestCallback((obRequestData) =>{
+		
+		obRequestData.update = {
+			'header/summ_count_header': '.summ_count_wrapper',
+			'modal/modal-microcart': '.microcart'
+		}
+		return obRequestData;
+	}).init();
 
 	obFilterPanel.init();
 	obPaginationHelper.init();
@@ -87,6 +169,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		
 	});
 
+	
 	/**
 	 * Функция меняет URL на странице продукта при использовании фильтра
 	 * и меняет доступные офферы
@@ -145,36 +228,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		//$("input[type=radio].color-radio-input").prop('checked', true);
 	})
 	
-	//Ajax filtration
-		/*
-	$('body').on('change', 'input.form-check-input', function (e) {
-		console.log(e);
-		$('.wrapper-overlay.card-container').request('ProductList::onAjaxRequest', {
-			'update': {'product/catalog/product-list': '.catalog-wrapper'}
-		});
-	});
-
-	//Ajax pagination (product list)
-	$('body').on('click', '.pagination a._shopaholic-pagination', function (e) {
-
-		e.preventDefault();
-		var _this = $(e.currentTarget),
-			iPage = _this.attr('data-page');
-
-		$('.card-container').request('ProductList::onAjaxRequest', {
-			'data': {'page': iPage},
-			'update': {'product/catalog/product-list': '.catalog-wrapper'}
-		});
-	});
-
-	//Ajax filtration and sorting
-	$('body').on('change', 'select.sort-select', function (e) {
-		console.log(e);
-		$('.card-container').request('ProductList::onAjaxRequest', {
-			'update': {'product/catalog/product-list': '.catalog-wrapper'}
-		});
-	});
-	*/
+	
 	var myCarousel = document.querySelector('#myCarousel');
 	
 	$( ".product-card" ).hover(
@@ -285,13 +339,17 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	},'.icons.cart-icon');
 
-	// add to cart
+	/** add to cart
+	 * 
+	 */
 
 	$("#addtocart").click(function(e){
 		e.preventDefault();
 		$(".icons.cart-icon").attr("data-cartfilled","yes");
 		$(".icons.cart-icon .cart.show").removeClass("show");
 		$(".icons.cart-icon .cart.added").addClass("show").addClass("bounce").addClass("animated");
+		
+		
 		setTimeout(function(){
 			$(".icons.cart-icon .cart.added").removeClass("show")
 		},3000);
@@ -312,6 +370,21 @@ document.addEventListener("DOMContentLoaded", function() {
 			$(".icons.cart-icon .cart.filled").addClass("show")
 		},3000);		
 	});
+
+	/** Remove card from cart */
+
+	$(document).on({
+		click: function(e){
+			let card = e.currentTarget.parentNode.parentNode;
+			$(card).addClass("slideOutRight");
+			setTimeout(function(){
+				$(card).attr("style", "display:none; transition: all 0.3s ease-out;")
+			},600);
+			
+			console.log(e.currentTarget.parentNode.parentNode);
+		}
+	},'.collected-product ._shopaholic-cart-remove')
+
 	// Click to cart
 
 	$(".icons.cart-icon").click(function(){

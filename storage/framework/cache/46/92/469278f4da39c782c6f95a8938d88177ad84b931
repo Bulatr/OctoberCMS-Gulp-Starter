@@ -1,4 +1,4 @@
-1607266049a:1:{s:10:"header.htm";a:6:{s:8:"fileName";s:10:"header.htm";s:7:"content";s:850:";;
+1607501524a:1:{s:10:"header.htm";a:6:{s:8:"fileName";s:10:"header.htm";s:7:"content";s:886:";;
 description = "Default layout"
 ==
 {##}
@@ -20,14 +20,14 @@ description = "Default layout"
 </head>
 
 <body class="is_{{ this.page.id }}{{ class ? ' ' ~ class }}">
-
-{% partial "modal-microcart" %}
-
+<div class="microcart">
+	{% partial "modal/modal-microcart" %}
+</div>
 <div class="modal-overlay"></div>
 
 {% partial "top-bar" %}
 
-{% partial "header-site" %}";s:5:"mtime";i:1606984992;s:6:"markup";s:810:"{##}
+{% partial "header-site" %}";s:5:"mtime";i:1607424973;s:6:"markup";s:846:"{##}
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -46,9 +46,9 @@ description = "Default layout"
 </head>
 
 <body class="is_{{ this.page.id }}{{ class ? ' ' ~ class }}">
-
-{% partial "modal-microcart" %}
-
+<div class="microcart">
+	{% partial "modal/modal-microcart" %}
+</div>
 <div class="modal-overlay"></div>
 
 {% partial "top-bar" %}

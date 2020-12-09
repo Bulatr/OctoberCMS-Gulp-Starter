@@ -29,7 +29,7 @@ class __TwigTemplate_cb57290d2a999f4b1ed8ae2202ddef0712998aa9ac4ce7105caff684f9c
         $this->blocks = [
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
-        $tags = array("scripts" => 125);
+        $tags = array("scripts" => 169);
         $filters = array("theme" => 98);
         $functions = array();
 
@@ -193,15 +193,74 @@ class __TwigTemplate_cb57290d2a999f4b1ed8ae2202ddef0712998aa9ac4ce7105caff684f9c
 \t\t\t</div>
 \t\t</div>
 \t</div>
+\t<div class=\"mobile-menu\" >  
+\t\t<div class=\"mobile-menu__wrapper\">
+\t\t\t<div class='item-mobile-menu' >
+\t\t\t\t<a href=\"#\" class='link-mobile-menu'>
+\t\t\t\t\t<img src=\"";
+        // line 128
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Icon-Home-Outlined.svg");
+        echo "\" alt=\"Домой\">
+\t\t\t\t\t<div class='link-mobile-menu__title' >
+\t\t\t\t\t\tДомой
+\t\t\t\t\t</div>
+\t\t\t\t</a>
+\t\t\t</div>
+\t\t\t<div class='item-mobile-menu' >
+\t\t\t\t<a href=\"#\" class='link-mobile-menu'>
+\t\t\t\t\t<img src=\"";
+        // line 136
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Menu-Outline.svg");
+        echo "\" alt=\"Меню\">
+\t\t\t\t\t<div class='link-mobile-menu__title' >
+\t\t\t\t\t\tМеню
+\t\t\t\t\t</div>
+\t\t\t\t</a>
+\t\t\t</div>
+\t\t\t<div class='item-mobile-menu' >
+\t\t\t\t<a href=\"#\" class='link-mobile-menu'>
+\t\t\t\t\t<img src=\"";
+        // line 144
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Thin-hearth.svg");
+        echo "\" alt=\"Избранное\">
+\t\t\t\t\t<div class='link-mobile-menu__title' >
+\t\t\t\t\t\tИзбранное
+\t\t\t\t\t</div>
+\t\t\t\t</a>
+\t\t\t</div>
+\t\t\t<div class='item-mobile-menu' >
+\t\t\t\t<a href=\"#\" class='link-mobile-menu'>
+\t\t\t\t\t<img src=\"";
+        // line 152
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Icon-Profile-Outline.svg");
+        echo "\" alt=\"Профиль\">
+\t\t\t\t\t<div class='link-mobile-menu__title' >
+\t\t\t\t\t\tПрофиль
+\t\t\t\t\t</div>
+\t\t\t\t</a>
+\t\t\t</div>
+\t\t\t<div class='item-mobile-menu cart-icon' >
+\t\t\t\t<img src=\"";
+        // line 159
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Circle-cart-icon.svg");
+        echo "\" alt=\"Корзина\">
+\t\t\t\t<a href=\"#\" class='link-mobile-menu'>\t\t\t\t\t
+\t\t\t\t\t<div class='link-mobile-menu__title' >
+\t\t\t\t\t\tКорзина
+\t\t\t\t\t</div>
+\t\t\t\t</a>
+\t\t\t</div>
+\t\t</div>\t\t
+\t</div>
 \t<script src=\"";
-        // line 124
+        // line 168
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/js/hatan.min.js");
         echo "\"></script>\t
 \t";
-        // line 125
+        // line 169
         echo $this->env->getExtension('Cms\Twig\Extension')->assetsFunction('js');
         echo $this->env->getExtension('Cms\Twig\Extension')->displayBlock('scripts');
-        // line 126
+        // line 170
         echo "\t
 \t
 </body>
@@ -220,7 +279,7 @@ class __TwigTemplate_cb57290d2a999f4b1ed8ae2202ddef0712998aa9ac4ce7105caff684f9c
 
     public function getDebugInfo()
     {
-        return array (  205 => 126,  202 => 125,  198 => 124,  184 => 113,  176 => 108,  168 => 103,  160 => 98,  62 => 2,);
+        return array (  264 => 170,  261 => 169,  257 => 168,  245 => 159,  235 => 152,  224 => 144,  213 => 136,  202 => 128,  184 => 113,  176 => 108,  168 => 103,  160 => 98,  62 => 2,);
     }
 
     public function getSourceContext()
@@ -347,6 +406,50 @@ class __TwigTemplate_cb57290d2a999f4b1ed8ae2202ddef0712998aa9ac4ce7105caff684f9c
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t</div>
+\t</div>
+\t<div class=\"mobile-menu\" >  
+\t\t<div class=\"mobile-menu__wrapper\">
+\t\t\t<div class='item-mobile-menu' >
+\t\t\t\t<a href=\"#\" class='link-mobile-menu'>
+\t\t\t\t\t<img src=\"{{ 'assets/images/Icon-Home-Outlined.svg'| theme }}\" alt=\"Домой\">
+\t\t\t\t\t<div class='link-mobile-menu__title' >
+\t\t\t\t\t\tДомой
+\t\t\t\t\t</div>
+\t\t\t\t</a>
+\t\t\t</div>
+\t\t\t<div class='item-mobile-menu' >
+\t\t\t\t<a href=\"#\" class='link-mobile-menu'>
+\t\t\t\t\t<img src=\"{{ 'assets/images/Menu-Outline.svg'| theme }}\" alt=\"Меню\">
+\t\t\t\t\t<div class='link-mobile-menu__title' >
+\t\t\t\t\t\tМеню
+\t\t\t\t\t</div>
+\t\t\t\t</a>
+\t\t\t</div>
+\t\t\t<div class='item-mobile-menu' >
+\t\t\t\t<a href=\"#\" class='link-mobile-menu'>
+\t\t\t\t\t<img src=\"{{ 'assets/images/Thin-hearth.svg'| theme }}\" alt=\"Избранное\">
+\t\t\t\t\t<div class='link-mobile-menu__title' >
+\t\t\t\t\t\tИзбранное
+\t\t\t\t\t</div>
+\t\t\t\t</a>
+\t\t\t</div>
+\t\t\t<div class='item-mobile-menu' >
+\t\t\t\t<a href=\"#\" class='link-mobile-menu'>
+\t\t\t\t\t<img src=\"{{ 'assets/images/Icon-Profile-Outline.svg'| theme }}\" alt=\"Профиль\">
+\t\t\t\t\t<div class='link-mobile-menu__title' >
+\t\t\t\t\t\tПрофиль
+\t\t\t\t\t</div>
+\t\t\t\t</a>
+\t\t\t</div>
+\t\t\t<div class='item-mobile-menu cart-icon' >
+\t\t\t\t<img src=\"{{ 'assets/images/Circle-cart-icon.svg'| theme }}\" alt=\"Корзина\">
+\t\t\t\t<a href=\"#\" class='link-mobile-menu'>\t\t\t\t\t
+\t\t\t\t\t<div class='link-mobile-menu__title' >
+\t\t\t\t\t\tКорзина
+\t\t\t\t\t</div>
+\t\t\t\t</a>
+\t\t\t</div>
+\t\t</div>\t\t
 \t</div>
 \t<script src=\"{{ 'assets/js/hatan.min.js' | theme }}\"></script>\t
 \t{% scripts %}

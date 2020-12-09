@@ -74,13 +74,18 @@ class __TwigTemplate_cfa094cd8c78958874600915547f5d76e95888e406e3ba82027bdd64490
         // line 6
         echo "    <div class=\"current-price\" data-price-value=\"";
         echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "price_value", [], "any", false, false, true, 6), 6, $this->source), "html", null, true);
-        echo "\" > ";
-        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "price", [], "any", false, false, true, 6), 6, $this->source), "html", null, true);
-        echo "<span class=\"rub\" itemprop=\"priceCurrency\" content=\"";
-        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "currency_code", [], "any", false, false, true, 6), 6, $this->source), "html", null, true);
+        echo "\" > 
+        ";
+        // line 7
+        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "price", [], "any", false, false, true, 7), 7, $this->source), "html", null, true);
+        echo "
+        <span class=\"rub\" itemprop=\"priceCurrency\" content=\"";
+        // line 8
+        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "currency_code", [], "any", false, false, true, 8), 8, $this->source), "html", null, true);
         echo "\">";
-        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "currency", [], "any", false, false, true, 6), 6, $this->source), "html", null, true);
-        echo "</span> </div>
+        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "currency", [], "any", false, false, true, 8), 8, $this->source), "html", null, true);
+        echo "</span> 
+    </div>
 </div>";
     }
 
@@ -96,7 +101,7 @@ class __TwigTemplate_cfa094cd8c78958874600915547f5d76e95888e406e3ba82027bdd64490
 
     public function getDebugInfo()
     {
-        return array (  75 => 6,  67 => 4,  65 => 3,  62 => 2,);
+        return array (  84 => 8,  80 => 7,  75 => 6,  67 => 4,  65 => 3,  62 => 2,);
     }
 
     public function getSourceContext()
@@ -106,7 +111,10 @@ class __TwigTemplate_cfa094cd8c78958874600915547f5d76e95888e406e3ba82027bdd64490
     {% if obOfferItem.price_value < obOfferItem.old_price_value %}
         <div class=\"old-price\" data-old-price-value = \"{{ obOfferItem.old_price_value }}\" > {{ obOfferItem.old_price }} </div>
     {% endif %}
-    <div class=\"current-price\" data-price-value=\"{{ obOfferItem.price_value }}\" > {{ obOfferItem.price }}<span class=\"rub\" itemprop=\"priceCurrency\" content=\"{{ obOfferItem.currency_code }}\">{{ obOfferItem.currency }}</span> </div>
+    <div class=\"current-price\" data-price-value=\"{{ obOfferItem.price_value }}\" > 
+        {{ obOfferItem.price }}
+        <span class=\"rub\" itemprop=\"priceCurrency\" content=\"{{ obOfferItem.currency_code }}\">{{ obOfferItem.currency }}</span> 
+    </div>
 </div>", "Z:\\domains\\hatan.loc/themes/hatan/partials/product/price/price-product.htm", "");
     }
 }

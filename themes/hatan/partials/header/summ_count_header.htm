@@ -1,0 +1,9 @@
+{##}
+{% set obCartPositionList = Cart.get() %}
+{% set obCartPositionListCount = obCartPositionList.getTotalQuantity() %}
+{% if obCartPositionListCount > 0 %}
+    <div class="count" data-Position-List-Count="{{obCartPositionListCount}}" > {{obCartPositionListCount}} </div>
+{% endif %}
+{% if obCartPositionList.getTotalPriceValue() > 0 %}
+    <div class="summ" data-Position-Total-Price="{{ obCartPositionList.getTotalPriceValue() }}" > {{ obCartPositionList.getTotalPrice() }} <span class="rub"></span> </div>
+{% endif %}

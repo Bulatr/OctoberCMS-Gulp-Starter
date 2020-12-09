@@ -20,9 +20,9 @@ description = "Default layout"
 </head>
 
 <body class="is_{{ this.page.id }}{{ class ? ' ' ~ class }}">
-
-{% partial "modal-microcart" %}
-
+<div class="microcart">
+	{% partial "modal/modal-microcart" %}
+</div>
 <div class="modal-overlay"></div>
 
 {% partial "top-bar" %}

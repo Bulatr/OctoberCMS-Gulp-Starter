@@ -1,4 +1,4 @@
-1607266049a:1:{s:10:"footer.htm";a:6:{s:8:"fileName";s:10:"footer.htm";s:7:"content";s:4057:"==
+1607501524a:1:{s:10:"footer.htm";a:6:{s:8:"fileName";s:10:"footer.htm";s:7:"content";s:5491:"==
 {##}
 <div class="footer">
 		<div class="container">
@@ -122,12 +122,56 @@
 			</div>
 		</div>
 	</div>
+	<div class="mobile-menu" >  
+		<div class="mobile-menu__wrapper">
+			<div class='item-mobile-menu' >
+				<a href="#" class='link-mobile-menu'>
+					<img src="{{ 'assets/images/Icon-Home-Outlined.svg'| theme }}" alt="Домой">
+					<div class='link-mobile-menu__title' >
+						Домой
+					</div>
+				</a>
+			</div>
+			<div class='item-mobile-menu' >
+				<a href="#" class='link-mobile-menu'>
+					<img src="{{ 'assets/images/Menu-Outline.svg'| theme }}" alt="Меню">
+					<div class='link-mobile-menu__title' >
+						Меню
+					</div>
+				</a>
+			</div>
+			<div class='item-mobile-menu' >
+				<a href="#" class='link-mobile-menu'>
+					<img src="{{ 'assets/images/Thin-hearth.svg'| theme }}" alt="Избранное">
+					<div class='link-mobile-menu__title' >
+						Избранное
+					</div>
+				</a>
+			</div>
+			<div class='item-mobile-menu' >
+				<a href="#" class='link-mobile-menu'>
+					<img src="{{ 'assets/images/Icon-Profile-Outline.svg'| theme }}" alt="Профиль">
+					<div class='link-mobile-menu__title' >
+						Профиль
+					</div>
+				</a>
+			</div>
+			<div class='item-mobile-menu cart-icon' >
+				<img src="{{ 'assets/images/Circle-cart-icon.svg'| theme }}" alt="Корзина">
+				<a href="#" class='link-mobile-menu'>					
+					<div class='link-mobile-menu__title' >
+						Корзина
+					</div>
+				</a>
+			</div>
+		</div>		
+	</div>
 	<script src="{{ 'assets/js/hatan.min.js' | theme }}"></script>	
 	{% scripts %}
 	
 	
 </body>
-</html>";s:5:"mtime";i:1606749013;s:6:"markup";s:4053:"{##}
+</html>";s:5:"mtime";i:1607306355;s:6:"markup";s:5487:"{##}
 <div class="footer">
 		<div class="container">
 			<div class="row">
@@ -249,6 +293,50 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="mobile-menu" >  
+		<div class="mobile-menu__wrapper">
+			<div class='item-mobile-menu' >
+				<a href="#" class='link-mobile-menu'>
+					<img src="{{ 'assets/images/Icon-Home-Outlined.svg'| theme }}" alt="Домой">
+					<div class='link-mobile-menu__title' >
+						Домой
+					</div>
+				</a>
+			</div>
+			<div class='item-mobile-menu' >
+				<a href="#" class='link-mobile-menu'>
+					<img src="{{ 'assets/images/Menu-Outline.svg'| theme }}" alt="Меню">
+					<div class='link-mobile-menu__title' >
+						Меню
+					</div>
+				</a>
+			</div>
+			<div class='item-mobile-menu' >
+				<a href="#" class='link-mobile-menu'>
+					<img src="{{ 'assets/images/Thin-hearth.svg'| theme }}" alt="Избранное">
+					<div class='link-mobile-menu__title' >
+						Избранное
+					</div>
+				</a>
+			</div>
+			<div class='item-mobile-menu' >
+				<a href="#" class='link-mobile-menu'>
+					<img src="{{ 'assets/images/Icon-Profile-Outline.svg'| theme }}" alt="Профиль">
+					<div class='link-mobile-menu__title' >
+						Профиль
+					</div>
+				</a>
+			</div>
+			<div class='item-mobile-menu cart-icon' >
+				<img src="{{ 'assets/images/Circle-cart-icon.svg'| theme }}" alt="Корзина">
+				<a href="#" class='link-mobile-menu'>					
+					<div class='link-mobile-menu__title' >
+						Корзина
+					</div>
+				</a>
+			</div>
+		</div>		
 	</div>
 	<script src="{{ 'assets/js/hatan.min.js' | theme }}"></script>	
 	{% scripts %}
