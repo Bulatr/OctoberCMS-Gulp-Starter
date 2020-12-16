@@ -1,0 +1,10 @@
+name: Reviews
+modelClass: Bulatr\Reviews\Models\Reviews
+form: $/bulatr/reviews/models/reviews/fields.yaml
+defaultRedirect: bulatr/reviews/reviews
+create:
+    redirect: 'bulatr/reviews/reviews/update/:id'
+    redirectClose: bulatr/reviews/reviews
+update:
+    redirect: bulatr/reviews/reviews
+    redirectClose: bulatr/reviews/reviews

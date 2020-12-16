@@ -1,0 +1,11 @@
+plugin:
+    name: 'bulatr.reviews::lang.plugin.name'
+    description: 'bulatr.reviews::lang.plugin.description'
+    author: bulatR
+    icon: oc-icon-users
+    homepage: ''
+navigation:
+    main-menu-item-reviews:
+        label: Отзывы
+        url: bulatr/reviews/reviews
+        icon: icon-check-circle-o

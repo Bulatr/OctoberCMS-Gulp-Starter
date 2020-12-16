@@ -1,0 +1,5 @@
+title: Reviews
+modelClass: Bulatr\Reviews\Models\Reviews
+nameFrom: name
+toolbar:
+    buttons: reorder_toolbar

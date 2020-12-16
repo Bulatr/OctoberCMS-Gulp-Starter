@@ -1,0 +1,27 @@
+columns:
+    name:
+        label: Имя
+        type: text
+        searchable: true
+        sortable: true
+    rating:
+        label: Оценка
+        type: number
+        sortable: true
+    id_productitem:
+        label: 'ID товара'
+        type: number
+        sortable: true
+        select: id_productitem_id
+    created_at:
+        label: 'Дата создания'
+        type: datetime
+        sortable: true
+    updated_at:
+        label: 'Дата изменения'
+        type: datetime
+        sortable: true
+    permission:
+        label: Опубликовано
+        type: switch
+        sortable: true

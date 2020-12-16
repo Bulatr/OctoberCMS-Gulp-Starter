@@ -6,6 +6,8 @@ use Bulatr\BaseCode\Classes\Event\PropertyValue\ExtendPropertyValueFieldsHandler
 use Bulatr\BaseCode\Classes\Event\PropertyValue\ExtendPropertyValueModel;
 use Bulatr\BaseCode\Classes\Event\ShippingType\ExtendShippingTypeFieldsHandler;
 use Bulatr\BaseCode\Classes\Event\ShippingType\ExtendShippingTypeModel;
+use Bulatr\Reviews\Classes\Event\Product\ExtendProductFieldsHandler;
+use Bulatr\Reviews\Classes\Event\Product\ExtendProductModel;
 
 /**
  * Class Plugin
@@ -24,7 +26,8 @@ class Plugin extends PluginBase
     {
         return [
             'Bulatr\BaseCode\Components\SiteSettings' => 'SiteSettings',
-            'Bulatr\BaseCode\Components\Catalog' => 'Catalog'
+            'Bulatr\BaseCode\Components\Catalog' => 'Catalog',
+
         ];
     }
 
@@ -56,6 +59,9 @@ class Plugin extends PluginBase
         Event::subscribe(ExtendPropertyValueModel::class);
         Event::subscribe(ExtendShippingTypeFieldsHandler::class);
         Event::subscribe(ExtendShippingTypeModel::class);
+        Event::subscribe(ExtendProductFieldsHandler::class);
+        Event::subscribe(ExtendProductModel::class);
+        
     }
 
     public function register()

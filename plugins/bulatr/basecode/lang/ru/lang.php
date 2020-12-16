@@ -1,7 +1,7 @@
 <?php return [
     'plugin'     => [
         'name'        => 'BaseCode',
-        'description' => '',
+        'description' => 'Компоненты для магазина',
     ],
     'menu'       => [
         'settings' => 'Настройки сайта',

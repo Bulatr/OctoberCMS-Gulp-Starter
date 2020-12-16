@@ -11,3 +11,12 @@
     - update_table_shippingtypes_1.php
 1.0.5:
     - update_table_shippingtypes_1.php
+1.0.6:
+    - 'Created table bulatr_basecode_reviews'
+    - builder_table_create_bulatr_basecode_reviews.php
+1.0.7:
+    - 'Updated table bulatr_basecode_reviews'
+    - builder_table_update_bulatr_basecode_reviews.php
+1.0.8:
+    - 'Drop table bulatr_basecode_reviews'
+    - builder_table_delete_bulatr_basecode_reviews.php

@@ -1,0 +1,19 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table bulatr_reviews_database'
+    - builder_table_create_bulatr_reviews_database.php
+1.0.3:
+    - 'Updated table bulatr_reviews_database'
+    - builder_table_update_bulatr_reviews_database.php
+1.0.4:
+    - 'Updated table bulatr_reviews_database'
+    - builder_table_update_bulatr_reviews_database_2.php
+1.0.5:
+    - 'Updated table bulatr_reviews_database'
+    - builder_table_update_bulatr_reviews_database_3.php
+1.0.6:
+    - update_table_products_1.php
+1.0.7:
+    - 'Updated table bulatr_reviews_database'
+    - builder_table_update_bulatr_reviews_database_4.php

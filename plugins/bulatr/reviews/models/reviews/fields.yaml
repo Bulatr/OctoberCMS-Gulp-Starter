@@ -1,0 +1,38 @@
+fields:
+    name:
+        label: Имя
+        span: auto
+        required: 1
+        type: text
+    slug:
+        label: Slug
+        span: auto
+        required: 1
+        defaultFrom: name
+        preset:
+            field: name
+            type: slug
+        type: text
+    rating:
+        label: Оценка
+        span: auto
+        readOnly: 0
+        required: 1
+        type: text
+    permission:
+        label: Опубликовать
+        span: auto
+        type: switch
+    content:
+        label: 'Текст отзыва'
+        size: small
+        span: auto
+        type: textarea
+    id_productitem:
+        label: Продукт
+        nameFrom: name
+        descriptionFrom: ''
+        list: $/lovata/shopaholic/models/product/columns.yaml
+        span: auto
+        required: 1
+        type: recordfinder

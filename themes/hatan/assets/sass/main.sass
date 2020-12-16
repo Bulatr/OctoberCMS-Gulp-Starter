@@ -2666,6 +2666,56 @@ label.color-code-image
 				margin-bottom: 28px
 		&.main
 
+.rating-area
+	overflow: hidden
+	width: 265px
+	margin: 0 auto
+
+	&:not(:checked)
+		>
+			input
+				display: none
+
+			label
+				float: right
+				width: 42px
+				padding: 0
+				cursor: pointer
+				font-size: 32px
+				line-height: 32px
+				color: $light-var
+				text-shadow: 1px 1px #bbb
+
+				&:before
+				content: '★'
+
+		> label:hover
+			color: $accent
+
+			~ label
+				color: $accent
+
+	> input:checked ~ label
+		color: $accent
+		text-shadow: 1px 1px #c60
+
+	>
+		input:checked
+			+ label:hover, ~ label:hover
+				color: $accent
+				text-shadow: 1px 1px $accent
+
+				~ label
+					color: $accent
+					text-shadow: 1px 1px $accent
+
+    label:hover ~ input:checked ~ label
+		color: $accent
+		text-shadow: 1px 1px $accent
+
+.rate-area > label:active
+	position: relative
+
 .read-more
 
 .review-all-collapse
