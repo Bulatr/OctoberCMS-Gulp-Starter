@@ -1,0 +1,53 @@
+{##}
+{# Get offer and product objects #}
+{% set obOffer = obCartPosition.item %}
+{% set obProduct = obOffer.product %}
+
+<div class="collected-product _shopaholic-product-wrapper" data-product-id="{{ obProduct.id }}" data-position-id="{{ obCartPosition.id }}">
+    <input type="hidden" name="offer_id" id="offer_id" value="{{obOffer.id}}">
+    <div class="collected-product__image-wrapper">
+        <div class="collected-product__image-wrapper-image">
+        
+            {% if obOffer.preview_image is not empty %}
+                <img src="{{obOffer.preview_image.getPath() }}" alt="">
+                {% else %}
+                <img src="{{obProduct.preview_image.getPath() }}" alt="">
+            {% endif %}
+        </div>        
+    </div>
+    <div class="collected-product__content">
+        <div class="collected-product__content-delete-product _shopaholic-cart-remove" aria-label="Remove from cart">
+            <img src="{{ 'assets/images/small_close.svg' | theme }}" alt="">
+        </div>
+        <div class="collected-product__content-pr-title">
+            {{obProduct.name}}
+        </div>
+        <div class="collected-product__content-pr-price-wrap">
+            {% if obOfferItem.price_value < obOfferItem.old_price_value %}
+                <div class="old-price" data-old-price-value = "{{ obOfferItem.old_price_value }}">
+                    {{ obOfferItem.old_price }} 
+                    <span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span>
+                </div>
+            {% endif %}
+            <div class="today-price" data-price-value="{{ obOfferItem.price_value }}">
+                {{ obOfferItem.price }} <span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span>
+            </div>
+        </div>
+        {# Get propert list #}
+        {% set obPropertyList = obOffer.property %}
+        {% if obPropertyList.isNotEmpty() %}
+        <div class="collected-product__content-options">
+            {% for obProperty in obPropertyList if obProperty.hasValue() %}
+            <div class="option__item">
+                <div class="option__item-label-option" data-property-code="{{obProperty.code}}">{{ obProperty.name }}</div>
+                <div class="option__value-option" data-property-value="{{obProperty.property_value.getValueString()}}">{{ obProperty.property_value.getValueString() }}</div>
+            </div>
+            {% endfor %}  
+            <div class="option__item">
+                <div class="option__item-label-option">Количество</div>
+                <div class="option__value-option" data-offer-quantity="{{obCartPosition.quantity}}">{{ obCartPosition.quantity }}</div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>

@@ -30,13 +30,13 @@ class __TwigTemplate_3033e0f1d125c406f85aa3dbd7273dca7cd3f56af9d4e19d8485750ceb5
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
         $tags = array("set" => 2, "if" => 15, "for" => 32, "partial" => 33);
-        $filters = array("theme" => 11);
+        $filters = array("theme" => 11, "page" => 49);
         $functions = array();
 
         try {
             $this->sandbox->checkSecurity(
                 ['set', 'if', 'for', 'partial'],
-                ['theme'],
+                ['theme', 'page'],
                 []
             );
         } catch (SecurityError $e) {
@@ -144,9 +144,23 @@ class __TwigTemplate_3033e0f1d125c406f85aa3dbd7273dca7cd3f56af9d4e19d8485750ceb5
         echo "\t\t\t\t</div>
 \t\t\t\t<div class=\"cart-footer\">
 \t\t\t\t\t<div class=\"cart-footer--center\">
-\t\t\t\t\t\t<a href=\"#\" id=\"empty-cart\" class=\"btn btn-primary secondary cartevent show\">Начать покупки</a>
-\t\t\t\t\t\t<a href=\"#\" id=\"filled-cart\" class=\"btn btn-primary secondary cartevent\">Оформить покупку</a>
-\t\t\t\t\t</div>
+\t\t\t\t\t\t";
+        // line 48
+        if (twig_get_attribute($this->env, $this->source, ($context["obCartPositionList"] ?? null), "isEmpty", [], "method", false, false, true, 48)) {
+            // line 49
+            echo "\t\t\t\t\t\t<a href=\"";
+            echo $this->extensions['Cms\Twig\Extension']->pageFilter("catalog");
+            echo "\" id=\"empty-cart\" class=\"btn btn-primary secondary\">Начать покупки</a>
+\t\t\t\t\t\t";
+        } else {
+            // line 51
+            echo "\t\t\t\t\t\t<a href=\"";
+            echo $this->extensions['Cms\Twig\Extension']->pageFilter("orders");
+            echo "\" id=\"filled-cart\" class=\"btn btn-primary\">Оформить покупку</a>
+\t\t\t\t\t\t";
+        }
+        // line 53
+        echo "\t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t</div>
@@ -165,7 +179,7 @@ class __TwigTemplate_3033e0f1d125c406f85aa3dbd7273dca7cd3f56af9d4e19d8485750ceb5
 
     public function getDebugInfo()
     {
-        return array (  144 => 45,  139 => 42,  135 => 41,  127 => 35,  115 => 33,  111 => 32,  107 => 30,  92 => 18,  88 => 16,  86 => 15,  79 => 11,  71 => 5,  68 => 4,  65 => 3,  62 => 2,);
+        return array (  163 => 53,  157 => 51,  151 => 49,  149 => 48,  144 => 45,  139 => 42,  135 => 41,  127 => 35,  115 => 33,  111 => 32,  107 => 30,  92 => 18,  88 => 16,  86 => 15,  79 => 11,  71 => 5,  68 => 4,  65 => 3,  62 => 2,);
     }
 
     public function getSourceContext()
@@ -217,8 +231,11 @@ class __TwigTemplate_3033e0f1d125c406f85aa3dbd7273dca7cd3f56af9d4e19d8485750ceb5
 \t\t\t\t</div>
 \t\t\t\t<div class=\"cart-footer\">
 \t\t\t\t\t<div class=\"cart-footer--center\">
-\t\t\t\t\t\t<a href=\"#\" id=\"empty-cart\" class=\"btn btn-primary secondary cartevent show\">Начать покупки</a>
-\t\t\t\t\t\t<a href=\"#\" id=\"filled-cart\" class=\"btn btn-primary secondary cartevent\">Оформить покупку</a>
+\t\t\t\t\t\t{% if obCartPositionList.isEmpty() %}
+\t\t\t\t\t\t<a href=\"{{'catalog' | page }}\" id=\"empty-cart\" class=\"btn btn-primary secondary\">Начать покупки</a>
+\t\t\t\t\t\t{% else %}
+\t\t\t\t\t\t<a href=\"{{'orders' | page }}\" id=\"filled-cart\" class=\"btn btn-primary\">Оформить покупку</a>
+\t\t\t\t\t\t{% endif %}
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t</div>

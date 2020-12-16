@@ -17,9 +17,11 @@ function onInit() {
 
 {% set sPageTitle = this.page.title %}
 {% if obProduct.isNotEmpty() %}
-{%  set sPageTitle = "Купить "~obProduct.name %}
+	{%  set sPageTitle = "Купить "~obProduct.name %}
 {% else %}
-{% set sPageTitle = obActiveCategory.name %}
+	{% if obActiveCategory.isNotEmpty() %}
+		{% set sPageTitle = obActiveCategory.name %}
+	{% endif %}
 {% endif %}
 {% partial 'header' class='myclass' sPageTitle = sPageTitle %}
 	

@@ -1,4 +1,4 @@
-1607501524a:1:{s:11:"catalog.htm";a:18:{s:8:"fileName";s:11:"catalog.htm";s:7:"content";s:29302:"title = "Каталог товаров"
+1608020986a:1:{s:11:"catalog.htm";a:18:{s:8:"fileName";s:11:"catalog.htm";s:7:"content";s:29415:"title = "Каталог товаров"
 url = "/catalog/:category*/:slug?"
 layout = "default"
 description = "Каталог магазина"
@@ -63,7 +63,7 @@ last_button_number = 1
 ==
 <?php
 function onInit() {
-    use Input;
+    //use Input;
     // делаем проверку, если мы не нашли категорию и не нашли товар в параметре последнего слага :category*/:slug?
     // то нужно отобразить 404 ошибку
     /**
@@ -82,34 +82,47 @@ function onInit() {
 
     if (empty($obProductItem)) 
     {
+        $minPrice = 0;
+        $maxPrice = 100000;
+        $sPriceRange = Input::get('price');
+        $arPriceRange = [];
+        if (!empty($sPriceRange)) {
+            $arPriceRange = explode("|",$sPriceRange);
+            $minPrice = $arPriceRange[0];
+            $maxPrice = $arPriceRange[1];
+        }
         $sActiveSort = $this->ProductList->getSorting();
         $iPage = $this->Pagination->getPageFromRequest(); // Номер текущей страницы        
         $this->Catalog->initCatalogData($sActiveSort, $iPage);
         $obProductList = $this->Catalog->getProductList();
-        $obFilteredProductList = $this->Catalog->getFilteredProductList();
+        $obFilteredProductList = $this->Catalog->getFilteredProductList()->filterByPrice($minPrice,$maxPrice);
         $obBrandList = $this->Catalog->getBrandList();
         $iMaxPage = $this->Pagination->getMaxPage($obProductList->count());
         $obActiveCategory = $this->Catalog->getActiveCategory();
         $arProductList = $this->Catalog->getProductListWithPagination($this->Pagination->getCountPerPage());
-        $obFilterProductPropertyList = $this->Catalog->getFilterProductPropertyList()->setCategory(null)->setProductList($obProductList);
+        $obFilterProductPropertyList = $this->Catalog->getFilterProductPropertyList()->setCategory(null)->setProductList($obProductList);        
         //$this->FilterPanel->getOfferPropertyList(['cloches','shoes'], $obProductList);
         // Передача в шаблон
         $this['iPage'] = $iPage;
         $this['iCount'] = $obFilteredProductList->count();
         $this['obProductList'] = $obProductList;
         $this['obBrandList'] = $obBrandList;
-        $this['obBrand'] = $obBrandItem;        
+        $this['obBrand'] = $obBrandItem;
         $this['obFilterProductPropertyList'] = $obFilterProductPropertyList;
         $this['sActiveSort'] = $sActiveSort;
         $this['iMaxPage'] = $iMaxPage;
         $this['obFilteredProductList'] = $obFilteredProductList;
         $this['arProductList'] = $arProductList;
         $this['obActiveCategory'] = $obActiveCategory; // Текущая активна категория которую отправляем в партиал product-list
+        $this['arPriceRange'] = $arPriceRange;
+        $this['sPriceRange'] = $sPriceRange;
     } else {
         $this['obProduct'] = $obProductItem;
         //filterByProperty($arFilterList, $obPropertyList) метод OfferCollection
+        $sActiveSort = $this->ProductList->getSorting();
         $arFilterList = [];
         $arAppliedPropertyList = Input::get('property');
+        $iPage = $this->Pagination->getPageFromRequest(); // Номер текущей страницы        
         $iKey = 1;
         if (!empty($arAppliedPropertyList)) {
             foreach ($arAppliedPropertyList as $property) {
@@ -118,28 +131,27 @@ function onInit() {
                 $iKey = $iKey+1;
             }
         }
-        
         $iKey = 1;
         $obItemProductList = $this->ProductList->make([$obProductItem->id]);
         $obOfferPropertyList = $obMainCategoryItem->offer_filter_property->setCategory(null)->setProductList($obItemProductList);
         $obOfferList = $obProductItem->offer;
         $obOfferListCopy = $obOfferList->copy()->filterByProperty($arFilterList, $obOfferPropertyList);
         $obOfferItem = $obOfferListCopy->sort('price|asc')->first();
-        
+        $this->Catalog->initCatalogData($sActiveSort, $iPage);
+        $obActiveCategory = $this->Catalog->getActiveCategory();
         $this['arAppliedPropertyList'] = $arAppliedPropertyList;
         $this['arFilterList'] = $arFilterList;
         $this['obOfferList'] = $obOfferList;
         $this['obOfferListCopy'] = $obOfferListCopy;
         $this['obOfferPropertyList'] = $obOfferPropertyList;
         $this['obOfferItem'] = $obOfferItem;
+        $this['obActiveCategory'] = $obActiveCategory;
     }
     $this['obMainCategoryItem'] = $obMainCategoryItem;
-    
 }
 ?>
 ==
 {##}
-
 {# @var obCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
 {# Get category item #}
 {% if obProduct.isNotEmpty() %}
@@ -416,15 +428,14 @@ function onInit() {
     <div class="modal" data-modal="1">
         {% partial "product/gallery/product-gallery-modal" obProduct = obProduct obOfferItem = obOfferItem %}
     </div>
-
-    {% partial "similar-products" %}
+    {% partial "similar-products" obActiveCategory = obActiveCategory %}
 
     {% partial "banners/banner-1" %}
 
     {% partial "related-products" %}
 {% else %}
     {# Render catalog page #}
-    {% partial "filters/filter-modal" obPropertyList = obFilterProductPropertyList %}
+    {% partial "modal/filters/filter-modal" obPropertyList = obFilterProductPropertyList obProductList = obFilteredProductList %}
 
     <!-- Category-->
     <div class="category" data-id="{{ obCategory.id }}" itemscope itemtype="http://schema.org/Category">
@@ -476,24 +487,19 @@ function onInit() {
                                     <div class="filter-icon">
                                         <div class="filter-icon__image">
                                             <img src="{{'assets/images/Filter.svg' | theme }}" alt="">
-                                        </div>									
+                                        </div>
                                         <div class="filter-icon__label">
                                             Фильтр
-                                        </div>									
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="filter-bar-col">
                                     <!-- Sort -->
                                     <div class="filter-sort">
-                                        <div class="filter-sort__label">Сортировка</div>
+                                        <div class="filter-sort__label">Сортировка:</div>
                                         <div class="filter-sort__select">
-                                            <select class="sort-select _shopaholic-sorting" name="sort-product" id="sort-product">
-                                                <option {% if sActiveSort == 'no' %} selected {% endif %} value="no">По популярности</option>
-                                                <option {% if sActiveSort == 'price|asc' %} selected {% endif %} value="price|asc">По возрастанию цены</option>
-                                                <option {% if sActiveSort == 'price|desc' %} selected {% endif %} value="price|desc">По убыванию цены</option>
-                                                <option {% if sActiveSort == 'new' %} selected {% endif %} value="new">Новые</option>
-                                            </select>
-                                        </div>										
+                                            {% partial "product/filter-panel/select-sort" sActiveSort = sActiveSort %}
+                                        </div>
                                     </div>
                                     {% partial "product-count" obFilteredProductList = obFilteredProductList%}
                                 </div>
@@ -513,8 +519,7 @@ function onInit() {
     {% partial "banners/banner-1" %}
 
     {% partial "lookbook" %}
-{% endif %}";s:5:"mtime";i:1607402458;s:6:"markup";s:23915:"{##}
-
+{% endif %}";s:5:"mtime";i:1607963019;s:6:"markup";s:23248:"{##}
 {# @var obCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
 {# Get category item #}
 {% if obProduct.isNotEmpty() %}
@@ -791,15 +796,14 @@ function onInit() {
     <div class="modal" data-modal="1">
         {% partial "product/gallery/product-gallery-modal" obProduct = obProduct obOfferItem = obOfferItem %}
     </div>
-
-    {% partial "similar-products" %}
+    {% partial "similar-products" obActiveCategory = obActiveCategory %}
 
     {% partial "banners/banner-1" %}
 
     {% partial "related-products" %}
 {% else %}
     {# Render catalog page #}
-    {% partial "filters/filter-modal" obPropertyList = obFilterProductPropertyList %}
+    {% partial "modal/filters/filter-modal" obPropertyList = obFilterProductPropertyList obProductList = obFilteredProductList %}
 
     <!-- Category-->
     <div class="category" data-id="{{ obCategory.id }}" itemscope itemtype="http://schema.org/Category">
@@ -851,24 +855,19 @@ function onInit() {
                                     <div class="filter-icon">
                                         <div class="filter-icon__image">
                                             <img src="{{'assets/images/Filter.svg' | theme }}" alt="">
-                                        </div>									
+                                        </div>
                                         <div class="filter-icon__label">
                                             Фильтр
-                                        </div>									
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="filter-bar-col">
                                     <!-- Sort -->
                                     <div class="filter-sort">
-                                        <div class="filter-sort__label">Сортировка</div>
+                                        <div class="filter-sort__label">Сортировка:</div>
                                         <div class="filter-sort__select">
-                                            <select class="sort-select _shopaholic-sorting" name="sort-product" id="sort-product">
-                                                <option {% if sActiveSort == 'no' %} selected {% endif %} value="no">По популярности</option>
-                                                <option {% if sActiveSort == 'price|asc' %} selected {% endif %} value="price|asc">По возрастанию цены</option>
-                                                <option {% if sActiveSort == 'price|desc' %} selected {% endif %} value="price|desc">По убыванию цены</option>
-                                                <option {% if sActiveSort == 'new' %} selected {% endif %} value="new">Новые</option>
-                                            </select>
-                                        </div>										
+                                            {% partial "product/filter-panel/select-sort" sActiveSort = sActiveSort %}
+                                        </div>
                                     </div>
                                     {% partial "product-count" obFilteredProductList = obFilteredProductList%}
                                 </div>
@@ -888,8 +887,8 @@ function onInit() {
     {% partial "banners/banner-1" %}
 
     {% partial "lookbook" %}
-{% endif %}";s:4:"code";s:4108:"function onInit() {
-    use Input;
+{% endif %}";s:4:"code";s:4888:"function onInit() {
+    //use Input;
     // делаем проверку, если мы не нашли категорию и не нашли товар в параметре последнего слага :category*/:slug?
     // то нужно отобразить 404 ошибку
     /**
@@ -908,34 +907,47 @@ function onInit() {
 
     if (empty($obProductItem)) 
     {
+        $minPrice = 0;
+        $maxPrice = 100000;
+        $sPriceRange = Input::get('price');
+        $arPriceRange = [];
+        if (!empty($sPriceRange)) {
+            $arPriceRange = explode("|",$sPriceRange);
+            $minPrice = $arPriceRange[0];
+            $maxPrice = $arPriceRange[1];
+        }
         $sActiveSort = $this->ProductList->getSorting();
         $iPage = $this->Pagination->getPageFromRequest(); // Номер текущей страницы        
         $this->Catalog->initCatalogData($sActiveSort, $iPage);
         $obProductList = $this->Catalog->getProductList();
-        $obFilteredProductList = $this->Catalog->getFilteredProductList();
+        $obFilteredProductList = $this->Catalog->getFilteredProductList()->filterByPrice($minPrice,$maxPrice);
         $obBrandList = $this->Catalog->getBrandList();
         $iMaxPage = $this->Pagination->getMaxPage($obProductList->count());
         $obActiveCategory = $this->Catalog->getActiveCategory();
         $arProductList = $this->Catalog->getProductListWithPagination($this->Pagination->getCountPerPage());
-        $obFilterProductPropertyList = $this->Catalog->getFilterProductPropertyList()->setCategory(null)->setProductList($obProductList);
+        $obFilterProductPropertyList = $this->Catalog->getFilterProductPropertyList()->setCategory(null)->setProductList($obProductList);        
         //$this->FilterPanel->getOfferPropertyList(['cloches','shoes'], $obProductList);
         // Передача в шаблон
         $this['iPage'] = $iPage;
         $this['iCount'] = $obFilteredProductList->count();
         $this['obProductList'] = $obProductList;
         $this['obBrandList'] = $obBrandList;
-        $this['obBrand'] = $obBrandItem;        
+        $this['obBrand'] = $obBrandItem;
         $this['obFilterProductPropertyList'] = $obFilterProductPropertyList;
         $this['sActiveSort'] = $sActiveSort;
         $this['iMaxPage'] = $iMaxPage;
         $this['obFilteredProductList'] = $obFilteredProductList;
         $this['arProductList'] = $arProductList;
         $this['obActiveCategory'] = $obActiveCategory; // Текущая активна категория которую отправляем в партиал product-list
+        $this['arPriceRange'] = $arPriceRange;
+        $this['sPriceRange'] = $sPriceRange;
     } else {
         $this['obProduct'] = $obProductItem;
         //filterByProperty($arFilterList, $obPropertyList) метод OfferCollection
+        $sActiveSort = $this->ProductList->getSorting();
         $arFilterList = [];
         $arAppliedPropertyList = Input::get('property');
+        $iPage = $this->Pagination->getPageFromRequest(); // Номер текущей страницы        
         $iKey = 1;
         if (!empty($arAppliedPropertyList)) {
             foreach ($arAppliedPropertyList as $property) {
@@ -944,21 +956,21 @@ function onInit() {
                 $iKey = $iKey+1;
             }
         }
-        
         $iKey = 1;
         $obItemProductList = $this->ProductList->make([$obProductItem->id]);
         $obOfferPropertyList = $obMainCategoryItem->offer_filter_property->setCategory(null)->setProductList($obItemProductList);
         $obOfferList = $obProductItem->offer;
         $obOfferListCopy = $obOfferList->copy()->filterByProperty($arFilterList, $obOfferPropertyList);
         $obOfferItem = $obOfferListCopy->sort('price|asc')->first();
-        
+        $this->Catalog->initCatalogData($sActiveSort, $iPage);
+        $obActiveCategory = $this->Catalog->getActiveCategory();
         $this['arAppliedPropertyList'] = $arAppliedPropertyList;
         $this['arFilterList'] = $arFilterList;
         $this['obOfferList'] = $obOfferList;
         $this['obOfferListCopy'] = $obOfferListCopy;
         $this['obOfferPropertyList'] = $obOfferPropertyList;
         $this['obOfferItem'] = $obOfferItem;
+        $this['obActiveCategory'] = $obActiveCategory;
     }
     $this['obMainCategoryItem'] = $obMainCategoryItem;
-    
 }";s:5:"title";s:29:"Каталог товаров";s:3:"url";s:26:"/catalog/:category*/:slug?";s:6:"layout";s:7:"default";s:11:"description";s:31:"Каталог магазина";s:9:"is_hidden";s:1:"0";s:29:"CategoryPage MainCategoryPage";a:5:{s:4:"slug";s:15:"{{ :category }}";s:13:"slug_required";s:1:"1";s:15:"smart_url_check";s:1:"1";s:12:"has_wildcard";s:1:"1";s:10:"skip_error";s:1:"0";}s:12:"CategoryPage";a:5:{s:4:"slug";s:11:"{{ :slug }}";s:13:"slug_required";s:1:"0";s:15:"smart_url_check";s:1:"1";s:12:"has_wildcard";s:1:"0";s:10:"skip_error";s:1:"1";}s:11:"ProductPage";a:4:{s:4:"slug";s:11:"{{ :slug }}";s:13:"slug_required";s:1:"0";s:15:"smart_url_check";s:1:"1";s:10:"skip_error";s:1:"1";}s:9:"BrandPage";a:4:{s:4:"slug";s:11:"{{ :slug }}";s:13:"slug_required";s:1:"0";s:15:"smart_url_check";s:1:"1";s:10:"skip_error";s:1:"1";}s:11:"ProductList";a:1:{s:7:"sorting";s:3:"new";}s:10:"Pagination";a:22:{s:14:"count_per_page";s:2:"12";s:16:"pagination_limit";s:1:"5";s:12:"active_class";s:6:"active";s:11:"button_list";s:4:"main";s:17:"first_button_name";s:5:"First";s:18:"first_button_limit";s:1:"3";s:19:"first_button_number";s:1:"4";s:22:"first-more_button_name";s:3:"...";s:23:"first-more_button_limit";s:1:"4";s:16:"prev_button_name";s:4:"Prev";s:17:"prev_button_limit";s:1:"1";s:21:"prev-more_button_name";s:3:"...";s:22:"prev-more_button_limit";s:1:"1";s:21:"next-more_button_name";s:3:"...";s:22:"next-more_button_limit";s:1:"1";s:16:"next_button_name";s:4:"Next";s:17:"next_button_limit";s:1:"1";s:21:"last-more_button_name";s:3:"...";s:22:"last-more_button_limit";s:1:"4";s:16:"last_button_name";s:4:"Last";s:17:"last_button_limit";s:1:"3";s:18:"last_button_number";s:1:"1";}s:7:"Catalog";a:0:{}s:11:"FilterPanel";a:0:{}}}

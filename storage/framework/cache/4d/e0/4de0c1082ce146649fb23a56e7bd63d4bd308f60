@@ -1,4 +1,4 @@
-1607501524a:1:{s:28:"header/summ_count_header.htm";a:5:{s:8:"fileName";s:28:"header/summ_count_header.htm";s:7:"content";s:529:"{##}
+1608020987a:1:{s:28:"header/summ_count_header.htm";a:5:{s:8:"fileName";s:28:"header/summ_count_header.htm";s:7:"content";s:529:"{##}
 {% set obCartPositionList = Cart.get() %}
 {% set obCartPositionListCount = obCartPositionList.getTotalQuantity() %}
 {% if obCartPositionListCount > 0 %}

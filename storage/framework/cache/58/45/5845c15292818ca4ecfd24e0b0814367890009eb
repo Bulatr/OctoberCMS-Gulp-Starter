@@ -1,0 +1,57 @@
+1607707737a:1:{s:16:"order-layout.htm";a:8:{s:8:"fileName";s:16:"order-layout.htm";s:7:"content";s:776:"[CategoryList]
+
+[ProductData]
+
+[Cart]
+==
+<?php
+function onInit() {
+	$obCartPositionList = $this->Cart->get();
+	$obCartPositionListCount = $obCartPositionList->count();
+	$this["obCartPositionList"] = $obCartPositionList;
+	$this["obCartPositionListCount"] = $obCartPositionListCount;
+}
+?>
+==
+{##}
+
+{% set sPageTitle = this.page.title %}
+{% if obProduct.isNotEmpty() %}
+	{%  set sPageTitle = "Купить "~obProduct.name %}
+{% else %}
+	{% if obActiveCategory.isNotEmpty() %}
+		{% set sPageTitle = obActiveCategory.name %}
+	{% endif %}
+{% endif %}
+{% partial 'header/header-minimal' class='myclass' sPageTitle = sPageTitle %}
+	
+	<section id="body-site">
+		<div class="mega-menu-wrapper">
+		</div>
+		{% page %}
+	</section>
+
+{% partial 'footer' %}";s:5:"mtime";i:1607676504;s:6:"markup";s:471:"{##}
+
+{% set sPageTitle = this.page.title %}
+{% if obProduct.isNotEmpty() %}
+	{%  set sPageTitle = "Купить "~obProduct.name %}
+{% else %}
+	{% if obActiveCategory.isNotEmpty() %}
+		{% set sPageTitle = obActiveCategory.name %}
+	{% endif %}
+{% endif %}
+{% partial 'header/header-minimal' class='myclass' sPageTitle = sPageTitle %}
+	
+	<section id="body-site">
+		<div class="mega-menu-wrapper">
+		</div>
+		{% page %}
+	</section>
+
+{% partial 'footer' %}";s:4:"code";s:241:"function onInit() {
+	$obCartPositionList = $this->Cart->get();
+	$obCartPositionListCount = $obCartPositionList->count();
+	$this["obCartPositionList"] = $obCartPositionList;
+	$this["obCartPositionListCount"] = $obCartPositionListCount;
+}";s:12:"CategoryList";a:0:{}s:11:"ProductData";a:0:{}s:4:"Cart";a:0:{}}}

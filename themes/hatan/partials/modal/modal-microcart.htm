@@ -48,8 +48,11 @@ description = "Корзина"
 				</div>
 				<div class="cart-footer">
 					<div class="cart-footer--center">
-						<a href="#" id="empty-cart" class="btn btn-primary secondary cartevent show">Начать покупки</a>
-						<a href="#" id="filled-cart" class="btn btn-primary secondary cartevent">Оформить покупку</a>
+						{% if obCartPositionList.isEmpty() %}
+						<a href="{{'catalog' | page }}" id="empty-cart" class="btn btn-primary secondary">Начать покупки</a>
+						{% else %}
+						<a href="{{'orders' | page }}" id="filled-cart" class="btn btn-primary">Оформить покупку</a>
+						{% endif %}
 					</div>
 				</div>
 			</div>

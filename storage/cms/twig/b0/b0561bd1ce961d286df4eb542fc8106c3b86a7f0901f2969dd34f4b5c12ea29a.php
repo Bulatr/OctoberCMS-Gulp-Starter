@@ -29,7 +29,7 @@ class __TwigTemplate_d162eb68792f8bcf1c9507e18b16951200f11d562d9508a1fc8f666468f
         $this->blocks = [
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
-        $tags = array("set" => 3, "if" => 4, "partial" => 9, "page" => 14);
+        $tags = array("set" => 3, "if" => 4, "partial" => 11, "page" => 16);
         $filters = array();
         $functions = array();
 
@@ -66,30 +66,38 @@ class __TwigTemplate_d162eb68792f8bcf1c9507e18b16951200f11d562d9508a1fc8f666468f
         // line 4
         if (twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "isNotEmpty", [], "method", false, false, true, 4)) {
             // line 5
+            echo "\t";
             $context["sPageTitle"] = ("Купить " . $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "name", [], "any", false, false, true, 5), 5, $this->source));
         } else {
             // line 7
-            $context["sPageTitle"] = twig_get_attribute($this->env, $this->source, ($context["obActiveCategory"] ?? null), "name", [], "any", false, false, true, 7);
+            echo "\t";
+            if (twig_get_attribute($this->env, $this->source, ($context["obActiveCategory"] ?? null), "isNotEmpty", [], "method", false, false, true, 7)) {
+                // line 8
+                echo "\t\t";
+                $context["sPageTitle"] = twig_get_attribute($this->env, $this->source, ($context["obActiveCategory"] ?? null), "name", [], "any", false, false, true, 8);
+                // line 9
+                echo "\t";
+            }
         }
-        // line 9
+        // line 11
         $context['__cms_partial_params'] = [];
         $context['__cms_partial_params']['class'] = "myclass"        ;
         $context['__cms_partial_params']['sPageTitle'] = ($context["sPageTitle"] ?? null)        ;
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("header"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 10
+        // line 12
         echo "\t
 \t<section id=\"body-site\">
 \t\t<div class=\"mega-menu-wrapper\">
 \t\t</div>
 \t\t";
-        // line 14
+        // line 16
         echo $this->env->getExtension('Cms\Twig\Extension')->pageFunction();
-        // line 15
+        // line 17
         echo "\t</section>
 
 ";
-        // line 17
+        // line 19
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("footer"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
@@ -107,7 +115,7 @@ class __TwigTemplate_d162eb68792f8bcf1c9507e18b16951200f11d562d9508a1fc8f666468f
 
     public function getDebugInfo()
     {
-        return array (  93 => 17,  89 => 15,  87 => 14,  81 => 10,  75 => 9,  72 => 7,  69 => 5,  67 => 4,  65 => 3,  62 => 2,);
+        return array (  101 => 19,  97 => 17,  95 => 16,  89 => 12,  83 => 11,  79 => 9,  76 => 8,  73 => 7,  69 => 5,  67 => 4,  65 => 3,  62 => 2,);
     }
 
     public function getSourceContext()
@@ -116,9 +124,11 @@ class __TwigTemplate_d162eb68792f8bcf1c9507e18b16951200f11d562d9508a1fc8f666468f
 
 {% set sPageTitle = this.page.title %}
 {% if obProduct.isNotEmpty() %}
-{%  set sPageTitle = \"Купить \"~obProduct.name %}
+\t{%  set sPageTitle = \"Купить \"~obProduct.name %}
 {% else %}
-{% set sPageTitle = obActiveCategory.name %}
+\t{% if obActiveCategory.isNotEmpty() %}
+\t\t{% set sPageTitle = obActiveCategory.name %}
+\t{% endif %}
 {% endif %}
 {% partial 'header' class='myclass' sPageTitle = sPageTitle %}
 \t

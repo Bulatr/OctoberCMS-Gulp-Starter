@@ -1,30 +1,31 @@
-1607501524a:1:{s:15:"header-site.htm";a:6:{s:8:"fileName";s:15:"header-site.htm";s:7:"content";s:2150:"description = "Шапка сайта"
+1608020987a:1:{s:15:"header-site.htm";a:6:{s:8:"fileName";s:15:"header-site.htm";s:7:"content";s:2130:"description = "Шапка сайта"
 ==
 
 ==
 {##}
-{{ obCartPositionList.count() | var_dump}}
 <div class="header">
 	<div class="container" style="position: relative;">
 		<div class="row">
 			<div class="col d-flex justify-content-between">
-				<div class="logo-wrapper">
-					<div class="logo">
-						<a href="#">
-							<img src="{{ 'assets/images/a-logo.svg' | theme}}" alt="">
-						</a>
+				<div class="d-flex justify-content-start">
+					<div class="logo-wrapper">
+						<div class="logo">
+							<a href="#">
+								<img src="{{ 'assets/images/a-logo.svg' | theme}}" alt="">
+							</a>
+						</div>
 					</div>
+					{% partial "menu/main-menu-wrapper" %}
 				</div>
-				{% partial "menu/main-menu-wrapper" %}
 				<div class="search-wrapper">
 					<form class="form-inline custom d-flex">
 						<input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Search">
 						<div class="icon-search">
 							<img src="{{ 'assets/images/Search.svg' | theme}}" alt="">
-						</div>							
+						</div>
 					</form>
 				</div>
-				<div class="icons-wrapper">					
+				<div class="icons-wrapper">
 					<div class="icons account-icon">
 						<a href="#">
 							<img src="{{ 'assets/images/Account.svg' | theme}}" alt="Личный кабинет">
@@ -35,14 +36,14 @@
 							<img src="{{ 'assets/images/Outline.svg' | theme}}" alt="Избранное">
 						</a>
 					</div>
-					<div 
-						class="icons cart-icon" 
+					<div
+						class="icons cart-icon"
 						{% if obCartPositionListCount > 0 %}
 							data-cartfilled="yes"
 							{% else %}
 							data-cartfilled="no"
 						{% endif %} >
-						<a href="#" class="cart empty 
+						<a href="#" class="cart empty
 							{% if obCartPositionListCount == 0 %}
 								show
 							{% endif %}">
@@ -57,41 +58,42 @@
 						</a>
 						<a href="#" class="cart added">
 							<img src="{{ 'assets/images/Add to Cart.svg' | theme}}" alt="">
-						</a>																			
+						</a>
 					</div>
 					<div class='summ_count_wrapper' >
 						{% partial "header/summ_count_header" %}
-					</div>					
+					</div>
 					<div class="icons-toggle"></div>
 				</div>
 			</div>
-		</div>					
+		</div>
 	</div>
 </div>
 
-";s:5:"mtime";i:1607402529;s:6:"markup";s:2097:"{##}
-{{ obCartPositionList.count() | var_dump}}
+";s:5:"mtime";i:1607745585;s:6:"markup";s:2077:"{##}
 <div class="header">
 	<div class="container" style="position: relative;">
 		<div class="row">
 			<div class="col d-flex justify-content-between">
-				<div class="logo-wrapper">
-					<div class="logo">
-						<a href="#">
-							<img src="{{ 'assets/images/a-logo.svg' | theme}}" alt="">
-						</a>
+				<div class="d-flex justify-content-start">
+					<div class="logo-wrapper">
+						<div class="logo">
+							<a href="#">
+								<img src="{{ 'assets/images/a-logo.svg' | theme}}" alt="">
+							</a>
+						</div>
 					</div>
+					{% partial "menu/main-menu-wrapper" %}
 				</div>
-				{% partial "menu/main-menu-wrapper" %}
 				<div class="search-wrapper">
 					<form class="form-inline custom d-flex">
 						<input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Search">
 						<div class="icon-search">
 							<img src="{{ 'assets/images/Search.svg' | theme}}" alt="">
-						</div>							
+						</div>
 					</form>
 				</div>
-				<div class="icons-wrapper">					
+				<div class="icons-wrapper">
 					<div class="icons account-icon">
 						<a href="#">
 							<img src="{{ 'assets/images/Account.svg' | theme}}" alt="Личный кабинет">
@@ -102,14 +104,14 @@
 							<img src="{{ 'assets/images/Outline.svg' | theme}}" alt="Избранное">
 						</a>
 					</div>
-					<div 
-						class="icons cart-icon" 
+					<div
+						class="icons cart-icon"
 						{% if obCartPositionListCount > 0 %}
 							data-cartfilled="yes"
 							{% else %}
 							data-cartfilled="no"
 						{% endif %} >
-						<a href="#" class="cart empty 
+						<a href="#" class="cart empty
 							{% if obCartPositionListCount == 0 %}
 								show
 							{% endif %}">
@@ -124,14 +126,14 @@
 						</a>
 						<a href="#" class="cart added">
 							<img src="{{ 'assets/images/Add to Cart.svg' | theme}}" alt="">
-						</a>																			
+						</a>
 					</div>
 					<div class='summ_count_wrapper' >
 						{% partial "header/summ_count_header" %}
-					</div>					
+					</div>
 					<div class="icons-toggle"></div>
 				</div>
 			</div>
-		</div>					
+		</div>
 	</div>
 </div>";s:4:"code";s:0:"";s:11:"description";s:21:"Шапка сайта";}}

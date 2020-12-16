@@ -1,0 +1,171 @@
+1607703429a:1:{s:37:"checkout/order-steps/order-step-3.htm";a:6:{s:8:"fileName";s:37:"checkout/order-steps/order-step-3.htm";s:7:"content";s:4336:"
+[PaymentMethodList]
+
+==
+{##}
+{# Get PaymentMethodCollection object from PaymentMethodList component #}
+{% set obPaymentMethodList = PaymentMethodList.make().sort().active() %}
+{% if obPaymentMethodList.isNotEmpty() %}
+<h2>3. Оплата</h2>
+<h3>Способы оплаты</h3>
+<div class="table-container hovered"> 
+    {% for obPaymentMethod in obPaymentMethodList %}
+        <div class="table-container__row">
+            <div class="table-container-row__col fixed-2">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input _shopaholic-order-field"  
+                        value="{{ obPaymentMethod.id }}" 
+                        id="paymentMethodId-{{ obPaymentMethod.id }}" 
+                        name="payment_method_id" 
+                        data-id="{{ obPaymentMethod.id }}"
+                        data-group="order">
+                    <label class="form-check-label" for="paymentMethodId-{{ obPaymentMethod.id }}">
+                        {{ obPaymentMethod.name }}
+                    </label>
+                </div>
+            </div> 
+            <div class="table-container-row__col">
+                {{ obPaymentMethod.preview_text }}
+            </div>                                   
+        </div>
+    {% endfor %}
+</div> 							
+
+{#<h3>Выберите карту для оплаты</h3>
+<div class="table-container hovered">                                
+    <div class="table-container__row">
+        <div class="table-container-row__col fixed-2">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="karta-2" id="karta-2" name="karta-oplaty" checked>
+                <label class="form-check-label" for="karta-2">
+                    <div class="credit-card__icon mastercard"></div>
+                    <div class="placeholder-credit-card">																				
+                        <div class="placeholder-credit-card__item"></div>
+                        <div class="placeholder-credit-card__item"></div>
+                        <div class="placeholder-credit-card__item"></div>
+                        <div class="placeholder-credit-card__item"></div>
+                    </div>
+                    <div class="credit-card__number">7845</div>
+                </label>
+            </div>
+        </div>									
+    </div>
+    <div class="table-container__row">
+        <div class="table-container-row__col fixed-2">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="karta-1" id="karta-1" name="karta-oplaty">
+                <label class="form-check-label" for="karta-1">
+                    <div class="credit-card__icon mastercard"></div>
+                    <div class="placeholder-credit-card">																				
+                        <div class="placeholder-credit-card__item"></div>
+                        <div class="placeholder-credit-card__item"></div>
+                        <div class="placeholder-credit-card__item"></div>
+                        <div class="placeholder-credit-card__item"></div>
+                    </div>
+                    <div class="credit-card__number">5466</div>
+                </label>
+            </div>
+        </div>									
+    </div>
+    <div class="table-container__row">
+        <div class="table-container-row__col fixed-2">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="karta-new" id="karta-new" name="karta-oplaty">
+                <label class="form-check-label" for="karta-1">
+                    <div class="credit-card__icon mastercard"></div>
+                    
+                    <div class="credit-card__number">Новая карта</div>
+                </label>
+            </div>
+        </div>									
+    </div>
+</div>#}                                                         
+
+<div class="input-group space-between align-items-center">
+    <a href="#сheckout-4" class="btn btn-primary" id="btn-step-3" data-step-next="4">Продолжить</a>
+    <a href="#checkout-2" class="btn text" id="btn-return-step-3" data-step-next="2">Редактировать детали доставки</a>
+</div>
+{% endif %}";s:5:"mtime";i:1607682857;s:6:"markup";s:4307:"{##}
+{# Get PaymentMethodCollection object from PaymentMethodList component #}
+{% set obPaymentMethodList = PaymentMethodList.make().sort().active() %}
+{% if obPaymentMethodList.isNotEmpty() %}
+<h2>3. Оплата</h2>
+<h3>Способы оплаты</h3>
+<div class="table-container hovered"> 
+    {% for obPaymentMethod in obPaymentMethodList %}
+        <div class="table-container__row">
+            <div class="table-container-row__col fixed-2">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input _shopaholic-order-field"  
+                        value="{{ obPaymentMethod.id }}" 
+                        id="paymentMethodId-{{ obPaymentMethod.id }}" 
+                        name="payment_method_id" 
+                        data-id="{{ obPaymentMethod.id }}"
+                        data-group="order">
+                    <label class="form-check-label" for="paymentMethodId-{{ obPaymentMethod.id }}">
+                        {{ obPaymentMethod.name }}
+                    </label>
+                </div>
+            </div> 
+            <div class="table-container-row__col">
+                {{ obPaymentMethod.preview_text }}
+            </div>                                   
+        </div>
+    {% endfor %}
+</div> 							
+
+{#<h3>Выберите карту для оплаты</h3>
+<div class="table-container hovered">                                
+    <div class="table-container__row">
+        <div class="table-container-row__col fixed-2">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="karta-2" id="karta-2" name="karta-oplaty" checked>
+                <label class="form-check-label" for="karta-2">
+                    <div class="credit-card__icon mastercard"></div>
+                    <div class="placeholder-credit-card">																				
+                        <div class="placeholder-credit-card__item"></div>
+                        <div class="placeholder-credit-card__item"></div>
+                        <div class="placeholder-credit-card__item"></div>
+                        <div class="placeholder-credit-card__item"></div>
+                    </div>
+                    <div class="credit-card__number">7845</div>
+                </label>
+            </div>
+        </div>									
+    </div>
+    <div class="table-container__row">
+        <div class="table-container-row__col fixed-2">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="karta-1" id="karta-1" name="karta-oplaty">
+                <label class="form-check-label" for="karta-1">
+                    <div class="credit-card__icon mastercard"></div>
+                    <div class="placeholder-credit-card">																				
+                        <div class="placeholder-credit-card__item"></div>
+                        <div class="placeholder-credit-card__item"></div>
+                        <div class="placeholder-credit-card__item"></div>
+                        <div class="placeholder-credit-card__item"></div>
+                    </div>
+                    <div class="credit-card__number">5466</div>
+                </label>
+            </div>
+        </div>									
+    </div>
+    <div class="table-container__row">
+        <div class="table-container-row__col fixed-2">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="karta-new" id="karta-new" name="karta-oplaty">
+                <label class="form-check-label" for="karta-1">
+                    <div class="credit-card__icon mastercard"></div>
+                    
+                    <div class="credit-card__number">Новая карта</div>
+                </label>
+            </div>
+        </div>									
+    </div>
+</div>#}                                                         
+
+<div class="input-group space-between align-items-center">
+    <a href="#сheckout-4" class="btn btn-primary" id="btn-step-3" data-step-next="4">Продолжить</a>
+    <a href="#checkout-2" class="btn text" id="btn-return-step-3" data-step-next="2">Редактировать детали доставки</a>
+</div>
+{% endif %}";s:4:"code";N;s:17:"PaymentMethodList";a:0:{}}}

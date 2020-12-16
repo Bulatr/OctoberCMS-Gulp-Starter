@@ -1,10 +1,10 @@
-1607501524a:1:{s:26:"cart/microcart/summary.htm";a:5:{s:8:"fileName";s:26:"cart/microcart/summary.htm";s:7:"content";s:1518:"{##}
+1607755819a:1:{s:26:"cart/microcart/summary.htm";a:5:{s:8:"fileName";s:26:"cart/microcart/summary.htm";s:7:"content";s:1727:"{##}
 {% set obCartPositionList = Cart.get() %}
 {% set obCartPositionListCount = obCartPositionList.count() %}
 {% set obPriceData = Cart.getTotalPriceData() %}
 <div class="summary__item">
     <div class="summary-label">Всего товаров</div>
-    <div class="summary-value">{{ obCartPositionList.getTotalQuantity() }} шт.</div>
+    <div class="summary-value">{{ obCartPositionList.getTotalQuantity() }} шт.</div> 
 </div>
 <div class="summary__item">
     <div class="summary-label">НДС 20%</div>
@@ -14,20 +14,30 @@
     <div class="summary-label">Сумма с НДС</div>
     <div class="summary-value">{{ obPriceData.price_with_tax }}<span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span></div>
 </div>
-<div class="summary__item">
-    <div class="summary-label">Скидка по купону</div>
-    <div class="summary-value">0<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span></div>
+<div class="summary__item shiping">
+    <div class="summary-label">Доставка</div>
+    <div class="summary-value">
+        <div class='shiping_value' >
+            0
+        </div>
+        <span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span>
+    </div>
 </div>
 <div class="summary__item summ">
     <div class="summary-label">Итого стоимость</div>
-    <div class="summary-value" data-Position-Total-Price="{{ obCartPositionList.getTotalPriceValue() }}">{{ obCartPositionList.getTotalPriceValue() }}<span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span></div>
-</div>";s:5:"mtime";i:1607474245;s:6:"markup";s:1518:"{##}
+    <div class="summary-value" data-Position-Total-Price="{{ obCartPositionList.getTotalPriceValue() }}">
+        <div class='summary__value' >
+            {{ obCartPositionList.getTotalPriceValue() }}
+        </div>        
+        <span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span>
+    </div>
+</div>";s:5:"mtime";i:1607689869;s:6:"markup";s:1727:"{##}
 {% set obCartPositionList = Cart.get() %}
 {% set obCartPositionListCount = obCartPositionList.count() %}
 {% set obPriceData = Cart.getTotalPriceData() %}
 <div class="summary__item">
     <div class="summary-label">Всего товаров</div>
-    <div class="summary-value">{{ obCartPositionList.getTotalQuantity() }} шт.</div>
+    <div class="summary-value">{{ obCartPositionList.getTotalQuantity() }} шт.</div> 
 </div>
 <div class="summary__item">
     <div class="summary-label">НДС 20%</div>
@@ -37,11 +47,21 @@
     <div class="summary-label">Сумма с НДС</div>
     <div class="summary-value">{{ obPriceData.price_with_tax }}<span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span></div>
 </div>
-<div class="summary__item">
-    <div class="summary-label">Скидка по купону</div>
-    <div class="summary-value">0<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span></div>
+<div class="summary__item shiping">
+    <div class="summary-label">Доставка</div>
+    <div class="summary-value">
+        <div class='shiping_value' >
+            0
+        </div>
+        <span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span>
+    </div>
 </div>
 <div class="summary__item summ">
     <div class="summary-label">Итого стоимость</div>
-    <div class="summary-value" data-Position-Total-Price="{{ obCartPositionList.getTotalPriceValue() }}">{{ obCartPositionList.getTotalPriceValue() }}<span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span></div>
+    <div class="summary-value" data-Position-Total-Price="{{ obCartPositionList.getTotalPriceValue() }}">
+        <div class='summary__value' >
+            {{ obCartPositionList.getTotalPriceValue() }}
+        </div>        
+        <span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span>
+    </div>
 </div>";s:4:"code";N;}}

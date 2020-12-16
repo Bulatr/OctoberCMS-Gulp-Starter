@@ -1,4 +1,4 @@
-1607501524a:1:{s:10:"footer.htm";a:6:{s:8:"fileName";s:10:"footer.htm";s:7:"content";s:5491:"==
+1608020987a:1:{s:10:"footer.htm";a:6:{s:8:"fileName";s:10:"footer.htm";s:7:"content";s:5570:"==
 {##}
 <div class="footer">
 		<div class="container">
@@ -167,11 +167,12 @@
 		</div>		
 	</div>
 	<script src="{{ 'assets/js/hatan.min.js' | theme }}"></script>	
+	<script src="{{ 'assets/js/jquery.suggestions.min.js' | theme }}"></script>	
 	{% scripts %}
 	
 	
 </body>
-</html>";s:5:"mtime";i:1607306355;s:6:"markup";s:5487:"{##}
+</html>";s:5:"mtime";i:1607606641;s:6:"markup";s:5566:"{##}
 <div class="footer">
 		<div class="container">
 			<div class="row">
@@ -339,6 +340,7 @@
 		</div>		
 	</div>
 	<script src="{{ 'assets/js/hatan.min.js' | theme }}"></script>	
+	<script src="{{ 'assets/js/jquery.suggestions.min.js' | theme }}"></script>	
 	{% scripts %}
 	
 	

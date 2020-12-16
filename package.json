@@ -46,7 +46,10 @@
     "gulp-sourcemaps": "^3.0.0",
     "help": "^3.0.2",
     "jquery": "^3.5.1",
+    "jquery.maskedinput": "^1.4.1",
     "lazyload": "^2.0.0-rc.2",
-    "oc-request": "^1.0.0"
+    "oc-request": "^1.0.0",
+    "save-dev": "0.0.1-security",
+    "suggestions-jquery": "^20.3.0"
   }
 }

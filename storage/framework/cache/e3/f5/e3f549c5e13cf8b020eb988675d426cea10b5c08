@@ -1,4 +1,4 @@
-1607501524a:1:{s:11:"default.htm";a:8:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:703:"[CategoryList]
+1608020986a:1:{s:11:"default.htm";a:8:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:761:"[CategoryList]
 
 [ProductData]
 
@@ -17,9 +17,11 @@ function onInit() {
 
 {% set sPageTitle = this.page.title %}
 {% if obProduct.isNotEmpty() %}
-{%  set sPageTitle = "Купить "~obProduct.name %}
+	{%  set sPageTitle = "Купить "~obProduct.name %}
 {% else %}
-{% set sPageTitle = obActiveCategory.name %}
+	{% if obActiveCategory.isNotEmpty() %}
+		{% set sPageTitle = obActiveCategory.name %}
+	{% endif %}
 {% endif %}
 {% partial 'header' class='myclass' sPageTitle = sPageTitle %}
 	
@@ -29,13 +31,15 @@ function onInit() {
 		{% page %}
 	</section>
 
-{% partial 'footer' %}";s:5:"mtime";i:1607402576;s:6:"markup";s:398:"{##}
+{% partial 'footer' %}";s:5:"mtime";i:1607676491;s:6:"markup";s:456:"{##}
 
 {% set sPageTitle = this.page.title %}
 {% if obProduct.isNotEmpty() %}
-{%  set sPageTitle = "Купить "~obProduct.name %}
+	{%  set sPageTitle = "Купить "~obProduct.name %}
 {% else %}
-{% set sPageTitle = obActiveCategory.name %}
+	{% if obActiveCategory.isNotEmpty() %}
+		{% set sPageTitle = obActiveCategory.name %}
+	{% endif %}
 {% endif %}
 {% partial 'header' class='myclass' sPageTitle = sPageTitle %}
 	

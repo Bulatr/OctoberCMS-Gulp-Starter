@@ -1,7 +1,7 @@
 {##}
 {# @var obProduct \Lovata\Shopaholic\Classes\Item\ProductItem #}
 {# Get first offer object #}
-{% set obOffer = obProduct.offer.first() %}
+{% set obOffer = obProduct.offer.sort('price|asc').first() %}
 
 <div class="product-card _shopaholic-product-wrapper" data-product-id="{{ obProduct.id }}">
     <div class="card-img-wrapper">

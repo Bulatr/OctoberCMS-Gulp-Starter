@@ -1,7 +1,7 @@
-1607480552a:1:{s:37:"product/product-card/product-card.htm";a:5:{s:8:"fileName";s:37:"product/product-card/product-card.htm";s:7:"content";s:2438:"{##}
+1608020987a:1:{s:37:"product/product-card/product-card.htm";a:5:{s:8:"fileName";s:37:"product/product-card/product-card.htm";s:7:"content";s:2456:"{##}
 {# @var obProduct \Lovata\Shopaholic\Classes\Item\ProductItem #}
 {# Get first offer object #}
-{% set obOffer = obProduct.offer.first() %}
+{% set obOffer = obProduct.offer.sort('price|asc').first() %}
 
 <div class="product-card _shopaholic-product-wrapper" data-product-id="{{ obProduct.id }}">
     <div class="card-img-wrapper">
@@ -65,10 +65,10 @@
         </div>
     </div>							
 </div>
-         ";s:5:"mtime";i:1607182283;s:6:"markup";s:2427:"{##}
+         ";s:5:"mtime";i:1607921253;s:6:"markup";s:2445:"{##}
 {# @var obProduct \Lovata\Shopaholic\Classes\Item\ProductItem #}
 {# Get first offer object #}
-{% set obOffer = obProduct.offer.first() %}
+{% set obOffer = obProduct.offer.sort('price|asc').first() %}
 
 <div class="product-card _shopaholic-product-wrapper" data-product-id="{{ obProduct.id }}">
     <div class="card-img-wrapper">

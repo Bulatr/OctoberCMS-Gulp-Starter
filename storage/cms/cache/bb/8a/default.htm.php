@@ -1,5 +1,5 @@
 <?php 
-class Cms5fcf045429b4e422221015_f6673cc0ce276597c3ee2fa59cad18d1Class extends Cms\Classes\LayoutCode
+class Cms5fd334c5b8d8d344632081_c5997c5d76072a3210e49dc88d49eabeClass extends Cms\Classes\LayoutCode
 {
 public function onInit() {
 	$obCartPositionList = $this->Cart->get();

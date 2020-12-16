@@ -12,11 +12,13 @@ let paths = {
 		src: [
 			 	'node_modules/jquery/dist/jquery.min.js', // npm vendor example (npm i --save-dev jquery)
 			 	'node_modules/bootstrap/dist/js/bootstrap.min.js',
-				'node_modules/lazyload/lazyload.min.js', // 				
+				'node_modules/lazyload/lazyload.min.js', // 
+				'node_modules/jquery.maskedinput/src/jquery.maskedinput.js',
+				//'node_modules/suggestions-jquery/dist/js/jquery.suggestions.min.js',				
 				'modules/system/assets/js/framework.js', // {% framework extras %}
 				'modules/system/assets/js/framework.extras.js', // {% framework extras %}
-				//'node_modules/@lovata/shopaholic-product-list/shopaholic-product-list.js',//
-				//'node_modules/@lovata/url-generation/url-generation.js',
+				//
+				
 				//'node_modules/@lovata/shopaholic-product-list/shopaholic-sorting.js',
 				//'node_modules/@lovata/shopaholic-product-list/shopaholic-pagination.js',
 			// 'plugins/nms/plugin/assets/js/plugin.js', // Plugin script example
@@ -25,6 +27,7 @@ let paths = {
 
 	userscripts: {
 		src: [
+			
 			'themes/' + theme + '/assets/js/app.js', // Theme app.js. Always at the end
 		]
 	},
@@ -122,7 +125,10 @@ function scripts() {
 }
 
 function styles() {
-	return src('themes/' + theme + '/assets/' + preprocessor + '/main.*')
+	return src([
+		//'node_modules/suggestions-jquery/dist/css/suggestions.min.css',
+		'themes/' + theme + '/assets/' + preprocessor + '/main.*',		
+	])
 	.pipe(eval(preprocessor)())
 	.pipe(concat(paths.cssOutputName))
 	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))

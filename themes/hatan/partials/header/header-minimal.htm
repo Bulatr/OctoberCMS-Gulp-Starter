@@ -1,0 +1,30 @@
+;;
+description = "Default layout"
+==
+{##}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+	<title>{{ sPageTitle }} | Хатан - интернет магазин одежды</title>
+	{% if record.description != null %}<meta name="description" content="{{ str_limit(record.description | striptags , 120) }}">
+	{% else %}<meta name="description" content="{{ this.page.meta_description }}">{% endif %}
+	<meta name="viewport" content="width=device-width">
+	<link rel="icon" href="{{ 'assets/images/october.png' | theme }}">
+	<link href="{{ 'assets/css/hatan.min.css' | theme }}" rel="stylesheet">
+	{% styles %}
+	
+
+</head>
+
+<body class="is_{{ this.page.id }}{{ class ? ' ' ~ class }}">
+<div class="microcart">
+	{% partial "modal/modal-microcart" %}
+</div>
+<div class="modal-overlay"></div>
+
+{% partial "top-bar" %}
+
+{% partial "header/header-site-minimal" %}

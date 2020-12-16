@@ -1,4 +1,33 @@
-1607501524a:1:{s:20:"similar-products.htm";a:5:{s:8:"fileName";s:20:"similar-products.htm";s:7:"content";s:8441:"{##}
+1608021157a:1:{s:20:"similar-products.htm";a:7:{s:8:"fileName";s:20:"similar-products.htm";s:7:"content";s:2803:"[ProductList]
+sorting = "price|asc"
+
+[Pagination]
+count_per_page = 12
+pagination_limit = 5
+active_class = "_act"
+first_button_name = "First"
+first_button_limit = 1
+first-more_button_name = "..."
+first-more_button_limit = 1
+prev_button_name = "Prev"
+prev_button_limit = 1
+prev-more_button_name = "..."
+prev-more_button_limit = 1
+next-more_button_name = "..."
+next-more_button_limit = 1
+next_button_name = "Next"
+next_button_limit = 1
+last-more_button_name = "..."
+last-more_button_limit = 1
+last_button_name = "Last"
+last_button_limit = 1
+==
+{##}
+{% set obProductList = ProductList.make().sort(ProductList.getSorting()).active().category(obActiveCategory.id, true) %}
+{% set arProductList = obProductList.page(iPage, Pagination.getCountPerPage()) %}
+{% if arProductList is not empty %}
+    {# Render product list #}
+
 <div class="section">
     <div class="container">
         <div class="row">
@@ -10,238 +39,61 @@
         </div>
         <div class="row">
             <div class="col">
-                <div id="carouselExampleIndicators" class="carousel slide products" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
+                <div id="carousel-similar-product" class="carousel slide products">
+                    
                     <div class="carousel-inner">
-                          <div class="carousel-item active" >
-                            <div class="product-wrapper">
-								<div class="product-card">
-									<div class="card-img-wrapper">
-										<a href="{{"product-single" | page }}">
-											<img src="{{ 'assets/images/dest/1/37416640299.jpg' | theme }}" alt="" class="card-img-top">
-										</a>										
+
+						{% for key, obProduct in arProductList %}
+							{% if loop.first %}
+								<div class="carousel-item active" >
+									<div class="product-wrapper">
+							{% endif %}
+							{% if loop.index == 5 %}
+								<div class="carousel-item " >
+									<div class="product-wrapper">
+							{% endif %}
+							{% if loop.index == 9 %}
+								<div class="carousel-item" >
+									<div class="product-wrapper">
+							{% endif %}
+
+								 {% partial 'product/product-card/product-card' obProduct=obProduct %}
+
+							
+							{% if loop.index == 4 %}
 									</div>
-									<div class="card-content-wrapper">
-										<div class="product-title">
-											<a href="">
-												<h4>Джемпер структурной вязки</h4>
-											</a>											
-										</div>
-										<div class="price">
-											4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
-										</div>
-										<div class="raiting-wrapper">
-											<div class="star-wrapper">
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star none">														
-													</div>
-												</a>
-											</div>
-											<div class="star-count">
-												(8)
-											</div>
-										</div>
-									</div>	
-									<div class="cart">
-										<img src="{{ 'assets/images/Cart-icon.svg' | theme }}" alt="">										
-									</div>	
-									<div class="badje">
-										<div class="content">
-											15%
-										</div>
-									</div>							
 								</div>
-								<div class="product-card">
-									<div class="card-img-wrapper">
-										<a href="product-single.html">
-											<img src="{{ 'assets/images/dest/2/37375710299.jpg' | theme }}" alt="" class="card-img-top">
-										</a>										
+							{% endif %}
+							{% if loop.index == 8 %}
 									</div>
-									<div class="card-content-wrapper">
-										<div class="product-title">
-											<a href="">
-												<h4>Джемпер структурной вязки</h4>
-											</a>											
-										</div>
-										<div class="price">
-											4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
-										</div>
-										<div class="raiting-wrapper">
-											<div class="star-wrapper">
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star none">														
-													</div>
-												</a>
-											</div>
-											<div class="star-count">
-												(8)
-											</div>
-										</div>
-									</div>	
-									<div class="cart">
-										<img src="{{ 'assets/images/Cart-icon.svg' | theme }}" alt="">										
-									</div>	
-									<div class="badje active">
-										<div class="content">
-											15%
-										</div>
-									</div>							
 								</div>
-								<div class="product-card">
-									<div class="card-img-wrapper">
-										<a href="product-single.html">
-											<img src="{{ 'assets/images/dest/3/37488640299.jpg' | theme }}" alt="" class="card-img-top">
-										</a>										
+							{% endif %}
+							{% if loop.index == 12 %}
 									</div>
-									<div class="card-content-wrapper">
-										<div class="product-title">
-											<a href="">
-												<h4>Джемпер структурной вязки</h4>
-											</a>											
-										</div>
-										<div class="price">
-											4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
-										</div>
-										<div class="raiting-wrapper">
-											<div class="star-wrapper">
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star none">														
-													</div>
-												</a>
-											</div>
-											<div class="star-count">
-												(8)
-											</div>
-										</div>
-									</div>	
-									<div class="cart">
-										<img src="{{ 'assets/images/Cart-icon.svg' | theme }}" alt="">										
-									</div>	
-									<div class="badje">
-										<div class="content">
-											15%
-										</div>
-									</div>							
 								</div>
-								<div class="product-card">
-									<div class="card-img-wrapper">
-										<a href="product-single.html">
-											<img src="{{ 'assets/images/dest/1/37416640299.jpg' | theme }}" alt="" class="card-img-top">
-										</a>										
-									</div>
-									<div class="card-content-wrapper">
-										<div class="product-title">
-											<a href="">
-												<h4>Джемпер структурной вязки</h4>
-											</a>											
-										</div>
-										<div class="price">
-											4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
-										</div>
-										<div class="raiting-wrapper">
-											<div class="star-wrapper">
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star none">														
-													</div>
-												</a>
-											</div>
-											<div class="star-count">
-												(8)
-											</div>
-										</div>
-									</div>	
-									<div class="cart">
-										<img src="{{ 'assets/images/Cart-icon.svg' | theme }}" alt="">										
-									</div>	
-									<div class="badje">
-										<div class="content">
-											15%
-										</div>
-									</div>							
-								</div>
-							</div>								
-                          </div>						  	
+							{% endif %}
+							
+							
+						{% endfor %}
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>						  	
+                    <a class="carousel-control-prev" href="#carousel-similar-product" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>						  	
+                    <a class="carousel-control-next" href="#carousel-similar-product" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     </a>
                   </div>
             </div>
         </div>
     </div>
 
-</div>";s:5:"mtime";i:1606284661;s:6:"markup";s:8441:"{##}
+</div>
+{% endif %}";s:5:"mtime";i:1608020552;s:6:"markup";s:2238:"{##}
+{% set obProductList = ProductList.make().sort(ProductList.getSorting()).active().category(obActiveCategory.id, true) %}
+{% set arProductList = obProductList.page(iPage, Pagination.getCountPerPage()) %}
+{% if arProductList is not empty %}
+    {# Render product list #}
+
 <div class="section">
     <div class="container">
         <div class="row">
@@ -253,235 +105,53 @@
         </div>
         <div class="row">
             <div class="col">
-                <div id="carouselExampleIndicators" class="carousel slide products" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
+                <div id="carousel-similar-product" class="carousel slide products">
+                    
                     <div class="carousel-inner">
-                          <div class="carousel-item active" >
-                            <div class="product-wrapper">
-								<div class="product-card">
-									<div class="card-img-wrapper">
-										<a href="{{"product-single" | page }}">
-											<img src="{{ 'assets/images/dest/1/37416640299.jpg' | theme }}" alt="" class="card-img-top">
-										</a>										
+
+						{% for key, obProduct in arProductList %}
+							{% if loop.first %}
+								<div class="carousel-item active" >
+									<div class="product-wrapper">
+							{% endif %}
+							{% if loop.index == 5 %}
+								<div class="carousel-item " >
+									<div class="product-wrapper">
+							{% endif %}
+							{% if loop.index == 9 %}
+								<div class="carousel-item" >
+									<div class="product-wrapper">
+							{% endif %}
+
+								 {% partial 'product/product-card/product-card' obProduct=obProduct %}
+
+							
+							{% if loop.index == 4 %}
 									</div>
-									<div class="card-content-wrapper">
-										<div class="product-title">
-											<a href="">
-												<h4>Джемпер структурной вязки</h4>
-											</a>											
-										</div>
-										<div class="price">
-											4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
-										</div>
-										<div class="raiting-wrapper">
-											<div class="star-wrapper">
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star none">														
-													</div>
-												</a>
-											</div>
-											<div class="star-count">
-												(8)
-											</div>
-										</div>
-									</div>	
-									<div class="cart">
-										<img src="{{ 'assets/images/Cart-icon.svg' | theme }}" alt="">										
-									</div>	
-									<div class="badje">
-										<div class="content">
-											15%
-										</div>
-									</div>							
 								</div>
-								<div class="product-card">
-									<div class="card-img-wrapper">
-										<a href="product-single.html">
-											<img src="{{ 'assets/images/dest/2/37375710299.jpg' | theme }}" alt="" class="card-img-top">
-										</a>										
+							{% endif %}
+							{% if loop.index == 8 %}
 									</div>
-									<div class="card-content-wrapper">
-										<div class="product-title">
-											<a href="">
-												<h4>Джемпер структурной вязки</h4>
-											</a>											
-										</div>
-										<div class="price">
-											4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
-										</div>
-										<div class="raiting-wrapper">
-											<div class="star-wrapper">
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star none">														
-													</div>
-												</a>
-											</div>
-											<div class="star-count">
-												(8)
-											</div>
-										</div>
-									</div>	
-									<div class="cart">
-										<img src="{{ 'assets/images/Cart-icon.svg' | theme }}" alt="">										
-									</div>	
-									<div class="badje active">
-										<div class="content">
-											15%
-										</div>
-									</div>							
 								</div>
-								<div class="product-card">
-									<div class="card-img-wrapper">
-										<a href="product-single.html">
-											<img src="{{ 'assets/images/dest/3/37488640299.jpg' | theme }}" alt="" class="card-img-top">
-										</a>										
+							{% endif %}
+							{% if loop.index == 12 %}
 									</div>
-									<div class="card-content-wrapper">
-										<div class="product-title">
-											<a href="">
-												<h4>Джемпер структурной вязки</h4>
-											</a>											
-										</div>
-										<div class="price">
-											4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
-										</div>
-										<div class="raiting-wrapper">
-											<div class="star-wrapper">
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star none">														
-													</div>
-												</a>
-											</div>
-											<div class="star-count">
-												(8)
-											</div>
-										</div>
-									</div>	
-									<div class="cart">
-										<img src="{{ 'assets/images/Cart-icon.svg' | theme }}" alt="">										
-									</div>	
-									<div class="badje">
-										<div class="content">
-											15%
-										</div>
-									</div>							
 								</div>
-								<div class="product-card">
-									<div class="card-img-wrapper">
-										<a href="product-single.html">
-											<img src="{{ 'assets/images/dest/1/37416640299.jpg' | theme }}" alt="" class="card-img-top">
-										</a>										
-									</div>
-									<div class="card-content-wrapper">
-										<div class="product-title">
-											<a href="">
-												<h4>Джемпер структурной вязки</h4>
-											</a>											
-										</div>
-										<div class="price">
-											4800<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span>
-										</div>
-										<div class="raiting-wrapper">
-											<div class="star-wrapper">
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star">														
-													</div>
-												</a>
-												<a href="#">
-													<div class="star none">														
-													</div>
-												</a>
-											</div>
-											<div class="star-count">
-												(8)
-											</div>
-										</div>
-									</div>	
-									<div class="cart">
-										<img src="{{ 'assets/images/Cart-icon.svg' | theme }}" alt="">										
-									</div>	
-									<div class="badje">
-										<div class="content">
-											15%
-										</div>
-									</div>							
-								</div>
-							</div>								
-                          </div>						  	
+							{% endif %}
+							
+							
+						{% endfor %}
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>						  	
+                    <a class="carousel-control-prev" href="#carousel-similar-product" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>						  	
+                    <a class="carousel-control-next" href="#carousel-similar-product" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     </a>
                   </div>
             </div>
         </div>
     </div>
 
-</div>";s:4:"code";N;}}
+</div>
+{% endif %}";s:4:"code";N;s:11:"ProductList";a:1:{s:7:"sorting";s:9:"price|asc";}s:10:"Pagination";a:19:{s:14:"count_per_page";s:2:"12";s:16:"pagination_limit";s:1:"5";s:12:"active_class";s:4:"_act";s:17:"first_button_name";s:5:"First";s:18:"first_button_limit";s:1:"1";s:22:"first-more_button_name";s:3:"...";s:23:"first-more_button_limit";s:1:"1";s:16:"prev_button_name";s:4:"Prev";s:17:"prev_button_limit";s:1:"1";s:21:"prev-more_button_name";s:3:"...";s:22:"prev-more_button_limit";s:1:"1";s:21:"next-more_button_name";s:3:"...";s:22:"next-more_button_limit";s:1:"1";s:16:"next_button_name";s:4:"Next";s:17:"next_button_limit";s:1:"1";s:21:"last-more_button_name";s:3:"...";s:22:"last-more_button_limit";s:1:"1";s:16:"last_button_name";s:4:"Last";s:17:"last_button_limit";s:1:"1";}}}

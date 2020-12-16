@@ -1,0 +1,177 @@
+1607707738a:1:{s:26:"checkout/order-summary.htm";a:5:{s:8:"fileName";s:26:"checkout/order-summary.htm";s:7:"content";s:4630:"{##}
+{% set obCartPositionList = Cart.get() %}
+{% set obCartPositionListCount = obCartPositionList.count() %}
+{% set obPriceData = Cart.getTotalPriceData() %}
+
+
+<h3>Детали заказа</h3>
+<div class="prise-summary">
+    <div class="prise-summary__item">
+        <div class="prise-summary-item__label">Товаров</div>
+        <div class="prise-summary-item__value">{{ obCartPositionList.getTotalQuantity() }} шт.</div>
+    </div>    
+    <div class="prise-summary__item">
+        <div class="prise-summary-item__label">НДС 20%</div>
+        <div class="prise-summary-item__value">
+            {{ obPriceData.tax_price }}
+            <span class="rub" itemprop="priceCurrency" content="{{ obCartPositionList.getCurrencyCode() }}">{{ obCartPositionList.getCurrency() }}</span>
+        </div>
+    </div>
+    <div class="prise-summary__item">
+        <div class="prise-summary-item__label">Сумма с НДС</div>
+        <div class="prise-summary-item__value" id="price-summary-total-value" data-position-total-price="{{ obCartPositionList.getTotalPriceValue() }}">
+            {{ obPriceData.price_with_tax }}
+            <span class="rub" itemprop="priceCurrency" content="{{ obCartPositionList.getCurrencyCode() }}">{{ obCartPositionList.getCurrency() }}</span>
+        </div>
+    </div>
+    <div class="prise-summary__item">
+        <div class="prise-summary-item__label">Доставка</div>
+        <div class="prise-summary-item__value">
+            <div class='price-summary__shiping' >
+                0
+            </div>            
+            <span class="rub" itemprop="priceCurrency" content="{{ obCartPositionList.getCurrencyCode() }}">{{ obCartPositionList.getCurrency() }}</span>
+        </div>
+    </div>
+    <div class="prise-summary__item">
+        <div class="prise-summary-item__label">Скидка по купону</div>
+        <div class="prise-summary-item__value">0<span class="rub" itemprop="priceCurrency" content="{{ obCartPositionList.getCurrencyCode() }}">{{ obCartPositionList.getCurrency() }}</span></div>
+    </div>
+    <div class="divider light"></div>
+    <div class="prise-summary__item">
+        <div class="prise-summary-item__label">Итого стоимость</div>
+        <div class="prise-summary-item__value">
+            <div class='price-summary__value' >
+                {{ obCartPositionList.getTotalPrice() }}  
+            </div>            
+            <span class="rub" itemprop="priceCurrency" content="{{ obCartPositionList.getCurrencyCode() }}">{{ obCartPositionList.getCurrency() }}</span>
+        </div>
+    </div>
+</div>
+<div class="form-filled">
+    <input class="filled" type="text" id="kod-cupona" name="kod-cupona" placeholder="Код купона">
+    <div class="icon-cupon"><img src="{{'assets/images/Circle Icon ok.svg' | theme }}" alt=""></div>
+</div>
+<div class="block-order-info">
+    <div class="block-order-info__item">
+        <div class="block-order-info-item__icon"><img src="{{'assets/images/Safety-accent.svg' | theme }}" alt=""></div>
+        <div class="block-order-info-item__content">
+            <div class="block-order-info-item__content--title">
+                Безопасность
+            </div>
+            <div class="block-order-info-item__content--subtitle">
+                Товар тщательно упаковываем, для сохранности при доставке
+            </div>
+        </div>
+    </div>
+    <div class="block-order-info__item">
+        <div class="block-order-info-item__icon"><img src="{{'assets/images/Shipping.svg' | theme }}" alt=""></div>
+        <div class="block-order-info-item__content">
+            <div class="block-order-info-item__content--title">
+                Доставка
+            </div>
+            <div class="block-order-info-item__content--subtitle">
+                Следите за доставкой с помощью трек-кода
+            </div>
+        </div>
+    </div>
+    <div class="block-order-info__item">
+        <div class="block-order-info-item__icon"><img src="{{ 'assets/images/Return.svg' | theme }}" alt=""></div>
+        <div class="block-order-info-item__content">
+            <div class="block-order-info-item__content--title">
+                Возврат товара
+            </div>
+            <div class="block-order-info-item__content--subtitle">
+                Мы предлагаем бесплатный возврат в течение 30 дней
+            </div>
+        </div>
+    </div>
+</div>";s:5:"mtime";i:1607701578;s:6:"markup";s:4630:"{##}
+{% set obCartPositionList = Cart.get() %}
+{% set obCartPositionListCount = obCartPositionList.count() %}
+{% set obPriceData = Cart.getTotalPriceData() %}
+
+
+<h3>Детали заказа</h3>
+<div class="prise-summary">
+    <div class="prise-summary__item">
+        <div class="prise-summary-item__label">Товаров</div>
+        <div class="prise-summary-item__value">{{ obCartPositionList.getTotalQuantity() }} шт.</div>
+    </div>    
+    <div class="prise-summary__item">
+        <div class="prise-summary-item__label">НДС 20%</div>
+        <div class="prise-summary-item__value">
+            {{ obPriceData.tax_price }}
+            <span class="rub" itemprop="priceCurrency" content="{{ obCartPositionList.getCurrencyCode() }}">{{ obCartPositionList.getCurrency() }}</span>
+        </div>
+    </div>
+    <div class="prise-summary__item">
+        <div class="prise-summary-item__label">Сумма с НДС</div>
+        <div class="prise-summary-item__value" id="price-summary-total-value" data-position-total-price="{{ obCartPositionList.getTotalPriceValue() }}">
+            {{ obPriceData.price_with_tax }}
+            <span class="rub" itemprop="priceCurrency" content="{{ obCartPositionList.getCurrencyCode() }}">{{ obCartPositionList.getCurrency() }}</span>
+        </div>
+    </div>
+    <div class="prise-summary__item">
+        <div class="prise-summary-item__label">Доставка</div>
+        <div class="prise-summary-item__value">
+            <div class='price-summary__shiping' >
+                0
+            </div>            
+            <span class="rub" itemprop="priceCurrency" content="{{ obCartPositionList.getCurrencyCode() }}">{{ obCartPositionList.getCurrency() }}</span>
+        </div>
+    </div>
+    <div class="prise-summary__item">
+        <div class="prise-summary-item__label">Скидка по купону</div>
+        <div class="prise-summary-item__value">0<span class="rub" itemprop="priceCurrency" content="{{ obCartPositionList.getCurrencyCode() }}">{{ obCartPositionList.getCurrency() }}</span></div>
+    </div>
+    <div class="divider light"></div>
+    <div class="prise-summary__item">
+        <div class="prise-summary-item__label">Итого стоимость</div>
+        <div class="prise-summary-item__value">
+            <div class='price-summary__value' >
+                {{ obCartPositionList.getTotalPrice() }}  
+            </div>            
+            <span class="rub" itemprop="priceCurrency" content="{{ obCartPositionList.getCurrencyCode() }}">{{ obCartPositionList.getCurrency() }}</span>
+        </div>
+    </div>
+</div>
+<div class="form-filled">
+    <input class="filled" type="text" id="kod-cupona" name="kod-cupona" placeholder="Код купона">
+    <div class="icon-cupon"><img src="{{'assets/images/Circle Icon ok.svg' | theme }}" alt=""></div>
+</div>
+<div class="block-order-info">
+    <div class="block-order-info__item">
+        <div class="block-order-info-item__icon"><img src="{{'assets/images/Safety-accent.svg' | theme }}" alt=""></div>
+        <div class="block-order-info-item__content">
+            <div class="block-order-info-item__content--title">
+                Безопасность
+            </div>
+            <div class="block-order-info-item__content--subtitle">
+                Товар тщательно упаковываем, для сохранности при доставке
+            </div>
+        </div>
+    </div>
+    <div class="block-order-info__item">
+        <div class="block-order-info-item__icon"><img src="{{'assets/images/Shipping.svg' | theme }}" alt=""></div>
+        <div class="block-order-info-item__content">
+            <div class="block-order-info-item__content--title">
+                Доставка
+            </div>
+            <div class="block-order-info-item__content--subtitle">
+                Следите за доставкой с помощью трек-кода
+            </div>
+        </div>
+    </div>
+    <div class="block-order-info__item">
+        <div class="block-order-info-item__icon"><img src="{{ 'assets/images/Return.svg' | theme }}" alt=""></div>
+        <div class="block-order-info-item__content">
+            <div class="block-order-info-item__content--title">
+                Возврат товара
+            </div>
+            <div class="block-order-info-item__content--subtitle">
+                Мы предлагаем бесплатный возврат в течение 30 дней
+            </div>
+        </div>
+    </div>
+</div>";s:4:"code";N;}}

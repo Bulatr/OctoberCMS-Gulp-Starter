@@ -1,48 +1,58 @@
+[CategoryList]
+
 description = "Mega menu for main menu"
 ==
-<div id="item1" data-menuid="1" class="megamenu show">
-	<div class="container">
-		<div class="block-menu">
-			<ul class="nav-megamenu">
-				<li class="nav-item-megamenu">
-					<span class="main-link-megamenu">Одежда</span>
-					<div class="overlay-menu-links">
-						<a href="" class="nav-item-link">Верхняя одежда</a>
-						<a href="" class="nav-item-link">Джемперы</a>
-						<a href="" class="nav-item-link">Рубашки</a>
-						<a href="" class="nav-item-link">Брюки</a>
-						<a href="" class="nav-item-link">Джинсы</a>
-						<a href="" class="nav-item-link">Нижнее белье</a>
-					</div>							
-				</li>
-				<li class="nav-item-megamenu">
-					<span class="main-link-megamenu">Обувь</span>
-					<div class="overlay-menu-links">
-						<a href="" class="nav-item-link">Кроссовки</a>
-						<a href="" class="nav-item-link">Туфли</a>
-						<a href="" class="nav-item-link">Сапоги</a>
-						<a href="" class="nav-item-link">Ботинки</a>
-					</div>							
-				</li>
-				<li class="nav-item-megamenu">
-					<span class="main-link-megamenu">Аксессуары</span>
-					<div class="overlay-menu-links">
-						<a href="" class="nav-item-link">Ремни</a>
-						<a href="" class="nav-item-link">Сумки</a>
-					</div>							
-				</li>
-				<li class="nav-item-megamenu">
-					<span class="main-link-megamenu">Акции</span>
-					<div class="banner-wrapper">
-						<div class="banner square small">
-							<img src="{{ 'assets/images/dest/Banner1.png' | theme }}" alt="">
-						</div>
-						<div class="banner square small">
-							<img src="{{ 'assets/images/dest/Bannerbig.png' | theme }}" alt="">
+<?php
+function onStart() {
+	$categoryId = $_POST["categoryId"];
+	$this["categoryId"] = (int)$categoryId;
+}
+?>
+==
+{##}
+{# @var obCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
+{# Get category list#}
+{% set obCategoryList = CategoryList.make([categoryId]).tree() %}
+{% if obCategoryList.isNotEmpty() %}
+	<div id="item1" data-menuid="1" class="megamenu show">
+		<div class="container">
+			<div class="block-menu">
+				<div class="nav-megamenu">
+					<div class='nav-megamenu-column' >
+						{% for obCategory in obCategoryList if obCategory.product_count > 0 %}
+							{% if obCategory.children.isNotEmpty() %}
+								{% for obChildCategory in obCategory.children if obChildCategory.product_count > 0 %}
+									<div class="nav-item-megamenu">
+										<span class="main-link-megamenu" data-id="{{ obChildCategory.id }}">
+											<a href="{{ obChildCategory.getPageUrl('catalog') }}">
+												{{ obChildCategory.name }}
+											</a>
+										</span>
+										<div class="overlay-menu-links">
+											{% for obChildChildCategory in obChildCategory.children if obChildChildCategory.product_count > 0 %}
+												<a href="{{ obChildChildCategory.getPageUrl('catalog') }}" class="nav-item-link">{{ obChildChildCategory.name }}</a>
+											{% endfor %}
+										</div>
+									</div>
+								{% endfor %}
+							{% endif %}
+						{% endfor %}
+					</div>
+					<div class='nav-megamenu-column' >
+						<div class="nav-item-megamenu width-banners">
+							<span class="main-link-megamenu">Акции</span>
+							<div class="banner-wrapper">
+								<div class="banner square small">
+									<img src="{{ 'assets/images/dest/Banner1.png' | theme }}" alt="">
+								</div>
+								<div class="banner square small">
+									<img src="{{ 'assets/images/dest/Bannerbig.png' | theme }}" alt="">
+								</div>
+							</div>
 						</div>
 					</div>
-				</li>
-			</ul>
+				</div>
+			</div>
 		</div>
-	</div>				
-</div>
+	</div>
+{% endif %}

@@ -59,7 +59,7 @@ class __TwigTemplate_7ccf430f15b52e62e62667f0e4a293c8e02e364e381322b5c616d177d7d
     {
         $macros = $this->macros;
         // line 4
-        $context["obOffer"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "offer", [], "any", false, false, true, 4), "first", [], "method", false, false, true, 4);
+        $context["obOffer"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["obProduct"] ?? null), "offer", [], "any", false, false, true, 4), "sort", [0 => "price|asc"], "method", false, false, true, 4), "first", [], "method", false, false, true, 4);
         // line 5
         echo "
 <div class=\"product-card _shopaholic-product-wrapper\" data-product-id=\"";
@@ -187,7 +187,7 @@ class __TwigTemplate_7ccf430f15b52e62e62667f0e4a293c8e02e364e381322b5c616d177d7d
         return new Source("{##}
 {# @var obProduct \\Lovata\\Shopaholic\\Classes\\Item\\ProductItem #}
 {# Get first offer object #}
-{% set obOffer = obProduct.offer.first() %}
+{% set obOffer = obProduct.offer.sort('price|asc').first() %}
 
 <div class=\"product-card _shopaholic-product-wrapper\" data-product-id=\"{{ obProduct.id }}\">
     <div class=\"card-img-wrapper\">

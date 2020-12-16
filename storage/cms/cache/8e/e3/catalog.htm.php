@@ -1,8 +1,8 @@
 <?php 
-class Cms5fcf03de6fdda762822091_facc98e4e6f6d3630490cb8f49e62f3fClass extends Cms\Classes\PageCode
+class Cms5fd7918f86d0e480830230_e391bef3aa7b94a7b8e21e5f5831d4a8Class extends Cms\Classes\PageCode
 {
 public function onInit() {
-    
+    //
     // делаем проверку, если мы не нашли категорию и не нашли товар в параметре последнего слага :category*/:slug?
     // то нужно отобразить 404 ошибку
     /**
@@ -21,34 +21,47 @@ public function onInit() {
 
     if (empty($obProductItem)) 
     {
+        $minPrice = 0;
+        $maxPrice = 100000;
+        $sPriceRange = Input::get('price');
+        $arPriceRange = [];
+        if (!empty($sPriceRange)) {
+            $arPriceRange = explode("|",$sPriceRange);
+            $minPrice = $arPriceRange[0];
+            $maxPrice = $arPriceRange[1];
+        }
         $sActiveSort = $this->ProductList->getSorting();
         $iPage = $this->Pagination->getPageFromRequest(); // Номер текущей страницы        
         $this->Catalog->initCatalogData($sActiveSort, $iPage);
         $obProductList = $this->Catalog->getProductList();
-        $obFilteredProductList = $this->Catalog->getFilteredProductList();
+        $obFilteredProductList = $this->Catalog->getFilteredProductList()->filterByPrice($minPrice,$maxPrice);
         $obBrandList = $this->Catalog->getBrandList();
         $iMaxPage = $this->Pagination->getMaxPage($obProductList->count());
         $obActiveCategory = $this->Catalog->getActiveCategory();
         $arProductList = $this->Catalog->getProductListWithPagination($this->Pagination->getCountPerPage());
-        $obFilterProductPropertyList = $this->Catalog->getFilterProductPropertyList()->setCategory(null)->setProductList($obProductList);
+        $obFilterProductPropertyList = $this->Catalog->getFilterProductPropertyList()->setCategory(null)->setProductList($obProductList);        
         //$this->FilterPanel->getOfferPropertyList(['cloches','shoes'], $obProductList);
         // Передача в шаблон
         $this['iPage'] = $iPage;
         $this['iCount'] = $obFilteredProductList->count();
         $this['obProductList'] = $obProductList;
         $this['obBrandList'] = $obBrandList;
-        $this['obBrand'] = $obBrandItem;        
+        $this['obBrand'] = $obBrandItem;
         $this['obFilterProductPropertyList'] = $obFilterProductPropertyList;
         $this['sActiveSort'] = $sActiveSort;
         $this['iMaxPage'] = $iMaxPage;
         $this['obFilteredProductList'] = $obFilteredProductList;
         $this['arProductList'] = $arProductList;
         $this['obActiveCategory'] = $obActiveCategory; // Текущая активна категория которую отправляем в партиал product-list
+        $this['arPriceRange'] = $arPriceRange;
+        $this['sPriceRange'] = $sPriceRange;
     } else {
         $this['obProduct'] = $obProductItem;
         //filterByProperty($arFilterList, $obPropertyList) метод OfferCollection
+        $sActiveSort = $this->ProductList->getSorting();
         $arFilterList = [];
         $arAppliedPropertyList = Input::get('property');
+        $iPage = $this->Pagination->getPageFromRequest(); // Номер текущей страницы        
         $iKey = 1;
         if (!empty($arAppliedPropertyList)) {
             foreach ($arAppliedPropertyList as $property) {
@@ -57,22 +70,22 @@ public function onInit() {
                 $iKey = $iKey+1;
             }
         }
-        
         $iKey = 1;
         $obItemProductList = $this->ProductList->make([$obProductItem->id]);
         $obOfferPropertyList = $obMainCategoryItem->offer_filter_property->setCategory(null)->setProductList($obItemProductList);
         $obOfferList = $obProductItem->offer;
         $obOfferListCopy = $obOfferList->copy()->filterByProperty($arFilterList, $obOfferPropertyList);
         $obOfferItem = $obOfferListCopy->sort('price|asc')->first();
-        
+        $this->Catalog->initCatalogData($sActiveSort, $iPage);
+        $obActiveCategory = $this->Catalog->getActiveCategory();
         $this['arAppliedPropertyList'] = $arAppliedPropertyList;
         $this['arFilterList'] = $arFilterList;
         $this['obOfferList'] = $obOfferList;
         $this['obOfferListCopy'] = $obOfferListCopy;
         $this['obOfferPropertyList'] = $obOfferPropertyList;
         $this['obOfferItem'] = $obOfferItem;
+        $this['obActiveCategory'] = $obActiveCategory;
     }
     $this['obMainCategoryItem'] = $obMainCategoryItem;
-    
 }
 }

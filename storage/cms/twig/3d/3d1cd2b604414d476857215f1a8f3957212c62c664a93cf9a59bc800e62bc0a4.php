@@ -29,14 +29,14 @@ class __TwigTemplate_33f28f360fab31e9071c1bf5febb56b66a0e2c76c129541fe1efe36f29b
         $this->blocks = [
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
-        $tags = array();
-        $filters = array("page" => 24, "theme" => 25);
+        $tags = array("set" => 2, "if" => 4, "for" => 22, "partial" => 36);
+        $filters = array();
         $functions = array();
 
         try {
             $this->sandbox->checkSecurity(
+                ['set', 'if', 'for', 'partial'],
                 [],
-                ['page', 'theme'],
                 []
             );
         } catch (SecurityError $e) {
@@ -59,7 +59,16 @@ class __TwigTemplate_33f28f360fab31e9071c1bf5febb56b66a0e2c76c129541fe1efe36f29b
     {
         $macros = $this->macros;
         // line 2
-        echo "<div class=\"section\">
+        $context["obProductList"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["ProductList"] ?? null), "make", [], "method", false, false, true, 2), "sort", [0 => twig_get_attribute($this->env, $this->source, ($context["ProductList"] ?? null), "getSorting", [], "method", false, false, true, 2)], "method", false, false, true, 2), "active", [], "method", false, false, true, 2), "category", [0 => twig_get_attribute($this->env, $this->source, ($context["obActiveCategory"] ?? null), "id", [], "any", false, false, true, 2), 1 => true], "method", false, false, true, 2);
+        // line 3
+        $context["arProductList"] = twig_get_attribute($this->env, $this->source, ($context["obProductList"] ?? null), "page", [0 => ($context["iPage"] ?? null), 1 => twig_get_attribute($this->env, $this->source, ($context["Pagination"] ?? null), "getCountPerPage", [], "method", false, false, true, 3)], "method", false, false, true, 3);
+        // line 4
+        if ( !twig_test_empty(($context["arProductList"] ?? null))) {
+            // line 5
+            echo "    ";
+            // line 6
+            echo "
+<div class=\"section\">
     <div class=\"container\">
         <div class=\"row\">
             <div class=\"col d-flex justify-content-center\">
@@ -70,277 +79,119 @@ class __TwigTemplate_33f28f360fab31e9071c1bf5febb56b66a0e2c76c129541fe1efe36f29b
         </div>
         <div class=\"row\">
             <div class=\"col\">
-                <div id=\"carouselExampleIndicators\" class=\"carousel slide products\" data-ride=\"carousel\">
-                    <ol class=\"carousel-indicators\">
-                          <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"0\" class=\"active\"></li>
-                          <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"1\"></li>
-                          <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"2\"></li>
-                    </ol>
+                <div id=\"carousel-similar-product\" class=\"carousel slide products\">
+                    
                     <div class=\"carousel-inner\">
-                          <div class=\"carousel-item active\" >
-                            <div class=\"product-wrapper\">
-\t\t\t\t\t\t\t\t<div class=\"product-card\">
-\t\t\t\t\t\t\t\t\t<div class=\"card-img-wrapper\">
-\t\t\t\t\t\t\t\t\t\t<a href=\"";
-        // line 24
-        echo $this->extensions['Cms\Twig\Extension']->pageFilter("product-single");
-        echo "\">
-\t\t\t\t\t\t\t\t\t\t\t<img src=\"";
-        // line 25
-        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/dest/1/37416640299.jpg");
-        echo "\" alt=\"\" class=\"card-img-top\">
-\t\t\t\t\t\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t<div class=\"card-content-wrapper\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"product-title\">
-\t\t\t\t\t\t\t\t\t\t\t<a href=\"\">
-\t\t\t\t\t\t\t\t\t\t\t\t<h4>Джемпер структурной вязки</h4>
-\t\t\t\t\t\t\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"price\">
-\t\t\t\t\t\t\t\t\t\t\t4800<span class=\"rub\"><img src=\"";
-        // line 35
-        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Rub.svg");
-        echo "\" alt=\"\"></span>
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"raiting-wrapper\">
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"star-wrapper\">
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star none\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"star-count\">
-\t\t\t\t\t\t\t\t\t\t\t\t(8)
-\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t</div>\t
-\t\t\t\t\t\t\t\t\t<div class=\"cart\">
-\t\t\t\t\t\t\t\t\t\t<img src=\"";
-        // line 66
-        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Cart-icon.svg");
-        echo "\" alt=\"\">\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t</div>\t
-\t\t\t\t\t\t\t\t\t<div class=\"badje\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"content\">
-\t\t\t\t\t\t\t\t\t\t\t15%
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t
+
+\t\t\t\t\t\t";
+            // line 22
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable(($context["arProductList"] ?? null));
+            $context['loop'] = [
+              'parent' => $context['_parent'],
+              'index0' => 0,
+              'index'  => 1,
+              'first'  => true,
+            ];
+            if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof \Countable)) {
+                $length = count($context['_seq']);
+                $context['loop']['revindex0'] = $length - 1;
+                $context['loop']['revindex'] = $length;
+                $context['loop']['length'] = $length;
+                $context['loop']['last'] = 1 === $length;
+            }
+            foreach ($context['_seq'] as $context["key"] => $context["obProduct"]) {
+                // line 23
+                echo "\t\t\t\t\t\t\t";
+                if (twig_get_attribute($this->env, $this->source, $context["loop"], "first", [], "any", false, false, true, 23)) {
+                    // line 24
+                    echo "\t\t\t\t\t\t\t\t<div class=\"carousel-item active\" >
+\t\t\t\t\t\t\t\t\t<div class=\"product-wrapper\">
+\t\t\t\t\t\t\t";
+                }
+                // line 27
+                echo "\t\t\t\t\t\t\t";
+                if ((twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, true, 27) == 5)) {
+                    // line 28
+                    echo "\t\t\t\t\t\t\t\t<div class=\"carousel-item \" >
+\t\t\t\t\t\t\t\t\t<div class=\"product-wrapper\">
+\t\t\t\t\t\t\t";
+                }
+                // line 31
+                echo "\t\t\t\t\t\t\t";
+                if ((twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, true, 31) == 9)) {
+                    // line 32
+                    echo "\t\t\t\t\t\t\t\t<div class=\"carousel-item\" >
+\t\t\t\t\t\t\t\t\t<div class=\"product-wrapper\">
+\t\t\t\t\t\t\t";
+                }
+                // line 35
+                echo "
+\t\t\t\t\t\t\t\t ";
+                // line 36
+                $context['__cms_partial_params'] = [];
+                $context['__cms_partial_params']['obProduct'] = $context["obProduct"]                ;
+                echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("product/product-card/product-card"                , $context['__cms_partial_params']                , true                );
+                unset($context['__cms_partial_params']);
+                // line 37
+                echo "
+\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t";
+                // line 39
+                if ((twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, true, 39) == 4)) {
+                    // line 40
+                    echo "\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t<div class=\"product-card\">
-\t\t\t\t\t\t\t\t\t<div class=\"card-img-wrapper\">
-\t\t\t\t\t\t\t\t\t\t<a href=\"product-single.html\">
-\t\t\t\t\t\t\t\t\t\t\t<img src=\"";
-        // line 77
-        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/dest/2/37375710299.jpg");
-        echo "\" alt=\"\" class=\"card-img-top\">
-\t\t\t\t\t\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t<div class=\"card-content-wrapper\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"product-title\">
-\t\t\t\t\t\t\t\t\t\t\t<a href=\"\">
-\t\t\t\t\t\t\t\t\t\t\t\t<h4>Джемпер структурной вязки</h4>
-\t\t\t\t\t\t\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"price\">
-\t\t\t\t\t\t\t\t\t\t\t4800<span class=\"rub\"><img src=\"";
-        // line 87
-        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Rub.svg");
-        echo "\" alt=\"\"></span>
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"raiting-wrapper\">
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"star-wrapper\">
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star none\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"star-count\">
-\t\t\t\t\t\t\t\t\t\t\t\t(8)
-\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t</div>\t
-\t\t\t\t\t\t\t\t\t<div class=\"cart\">
-\t\t\t\t\t\t\t\t\t\t<img src=\"";
-        // line 118
-        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Cart-icon.svg");
-        echo "\" alt=\"\">\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t</div>\t
-\t\t\t\t\t\t\t\t\t<div class=\"badje active\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"content\">
-\t\t\t\t\t\t\t\t\t\t\t15%
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t";
+                }
+                // line 43
+                echo "\t\t\t\t\t\t\t";
+                if ((twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, true, 43) == 8)) {
+                    // line 44
+                    echo "\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t<div class=\"product-card\">
-\t\t\t\t\t\t\t\t\t<div class=\"card-img-wrapper\">
-\t\t\t\t\t\t\t\t\t\t<a href=\"product-single.html\">
-\t\t\t\t\t\t\t\t\t\t\t<img src=\"";
-        // line 129
-        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/dest/3/37488640299.jpg");
-        echo "\" alt=\"\" class=\"card-img-top\">
-\t\t\t\t\t\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t<div class=\"card-content-wrapper\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"product-title\">
-\t\t\t\t\t\t\t\t\t\t\t<a href=\"\">
-\t\t\t\t\t\t\t\t\t\t\t\t<h4>Джемпер структурной вязки</h4>
-\t\t\t\t\t\t\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"price\">
-\t\t\t\t\t\t\t\t\t\t\t4800<span class=\"rub\"><img src=\"";
-        // line 139
-        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Rub.svg");
-        echo "\" alt=\"\"></span>
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"raiting-wrapper\">
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"star-wrapper\">
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star none\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"star-count\">
-\t\t\t\t\t\t\t\t\t\t\t\t(8)
-\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t</div>\t
-\t\t\t\t\t\t\t\t\t<div class=\"cart\">
-\t\t\t\t\t\t\t\t\t\t<img src=\"";
-        // line 170
-        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Cart-icon.svg");
-        echo "\" alt=\"\">\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t</div>\t
-\t\t\t\t\t\t\t\t\t<div class=\"badje\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"content\">
-\t\t\t\t\t\t\t\t\t\t\t15%
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t";
+                }
+                // line 47
+                echo "\t\t\t\t\t\t\t";
+                if ((twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, true, 47) == 12)) {
+                    // line 48
+                    echo "\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t<div class=\"product-card\">
-\t\t\t\t\t\t\t\t\t<div class=\"card-img-wrapper\">
-\t\t\t\t\t\t\t\t\t\t<a href=\"product-single.html\">
-\t\t\t\t\t\t\t\t\t\t\t<img src=\"";
-        // line 181
-        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/dest/1/37416640299.jpg");
-        echo "\" alt=\"\" class=\"card-img-top\">
-\t\t\t\t\t\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t<div class=\"card-content-wrapper\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"product-title\">
-\t\t\t\t\t\t\t\t\t\t\t<a href=\"\">
-\t\t\t\t\t\t\t\t\t\t\t\t<h4>Джемпер структурной вязки</h4>
-\t\t\t\t\t\t\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"price\">
-\t\t\t\t\t\t\t\t\t\t\t4800<span class=\"rub\"><img src=\"";
-        // line 191
-        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Rub.svg");
-        echo "\" alt=\"\"></span>
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"raiting-wrapper\">
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"star-wrapper\">
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star none\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"star-count\">
-\t\t\t\t\t\t\t\t\t\t\t\t(8)
-\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t</div>\t
-\t\t\t\t\t\t\t\t\t<div class=\"cart\">
-\t\t\t\t\t\t\t\t\t\t<img src=\"";
-        // line 222
-        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Cart-icon.svg");
-        echo "\" alt=\"\">\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t</div>\t
-\t\t\t\t\t\t\t\t\t<div class=\"badje\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"content\">
-\t\t\t\t\t\t\t\t\t\t\t15%
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t
-                          </div>\t\t\t\t\t\t  \t
-                    </div>
-                    <a class=\"carousel-control-prev\" href=\"#carouselExampleIndicators\" role=\"button\" data-slide=\"prev\">
-                          <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\t\t\t\t\t\t  \t
+\t\t\t\t\t\t\t";
+                }
+                // line 51
+                echo "\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t
+\t\t\t\t\t\t";
+                ++$context['loop']['index0'];
+                ++$context['loop']['index'];
+                $context['loop']['first'] = false;
+                if (isset($context['loop']['length'])) {
+                    --$context['loop']['revindex0'];
+                    --$context['loop']['revindex'];
+                    $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+                }
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['key'], $context['obProduct'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 54
+            echo "                    </div>
+                    <a class=\"carousel-control-prev\" href=\"#carousel-similar-product\" role=\"button\" data-slide=\"prev\">
+                          <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>
                     </a>
-                    <a class=\"carousel-control-next\" href=\"#carouselExampleIndicators\" role=\"button\" data-slide=\"next\">
-                          <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\t\t\t\t\t\t  \t
+                    <a class=\"carousel-control-next\" href=\"#carousel-similar-product\" role=\"button\" data-slide=\"next\">
+                          <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>
                     </a>
                   </div>
             </div>
         </div>
     </div>
 
-</div>";
+</div>
+";
+        }
     }
 
     public function getTemplateName()
@@ -355,12 +206,17 @@ class __TwigTemplate_33f28f360fab31e9071c1bf5febb56b66a0e2c76c129541fe1efe36f29b
 
     public function getDebugInfo()
     {
-        return array (  320 => 222,  286 => 191,  273 => 181,  259 => 170,  225 => 139,  212 => 129,  198 => 118,  164 => 87,  151 => 77,  137 => 66,  103 => 35,  90 => 25,  86 => 24,  62 => 2,);
+        return array (  180 => 54,  164 => 51,  159 => 48,  156 => 47,  151 => 44,  148 => 43,  143 => 40,  141 => 39,  137 => 37,  132 => 36,  129 => 35,  124 => 32,  121 => 31,  116 => 28,  113 => 27,  108 => 24,  105 => 23,  88 => 22,  70 => 6,  68 => 5,  66 => 4,  64 => 3,  62 => 2,);
     }
 
     public function getSourceContext()
     {
         return new Source("{##}
+{% set obProductList = ProductList.make().sort(ProductList.getSorting()).active().category(obActiveCategory.id, true) %}
+{% set arProductList = obProductList.page(iPage, Pagination.getCountPerPage()) %}
+{% if arProductList is not empty %}
+    {# Render product list #}
+
 <div class=\"section\">
     <div class=\"container\">
         <div class=\"row\">
@@ -372,237 +228,55 @@ class __TwigTemplate_33f28f360fab31e9071c1bf5febb56b66a0e2c76c129541fe1efe36f29b
         </div>
         <div class=\"row\">
             <div class=\"col\">
-                <div id=\"carouselExampleIndicators\" class=\"carousel slide products\" data-ride=\"carousel\">
-                    <ol class=\"carousel-indicators\">
-                          <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"0\" class=\"active\"></li>
-                          <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"1\"></li>
-                          <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"2\"></li>
-                    </ol>
+                <div id=\"carousel-similar-product\" class=\"carousel slide products\">
+                    
                     <div class=\"carousel-inner\">
-                          <div class=\"carousel-item active\" >
-                            <div class=\"product-wrapper\">
-\t\t\t\t\t\t\t\t<div class=\"product-card\">
-\t\t\t\t\t\t\t\t\t<div class=\"card-img-wrapper\">
-\t\t\t\t\t\t\t\t\t\t<a href=\"{{\"product-single\" | page }}\">
-\t\t\t\t\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/dest/1/37416640299.jpg' | theme }}\" alt=\"\" class=\"card-img-top\">
-\t\t\t\t\t\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t\t
+
+\t\t\t\t\t\t{% for key, obProduct in arProductList %}
+\t\t\t\t\t\t\t{% if loop.first %}
+\t\t\t\t\t\t\t\t<div class=\"carousel-item active\" >
+\t\t\t\t\t\t\t\t\t<div class=\"product-wrapper\">
+\t\t\t\t\t\t\t{% endif %}
+\t\t\t\t\t\t\t{% if loop.index == 5 %}
+\t\t\t\t\t\t\t\t<div class=\"carousel-item \" >
+\t\t\t\t\t\t\t\t\t<div class=\"product-wrapper\">
+\t\t\t\t\t\t\t{% endif %}
+\t\t\t\t\t\t\t{% if loop.index == 9 %}
+\t\t\t\t\t\t\t\t<div class=\"carousel-item\" >
+\t\t\t\t\t\t\t\t\t<div class=\"product-wrapper\">
+\t\t\t\t\t\t\t{% endif %}
+
+\t\t\t\t\t\t\t\t {% partial 'product/product-card/product-card' obProduct=obProduct %}
+
+\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t{% if loop.index == 4 %}
 \t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t<div class=\"card-content-wrapper\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"product-title\">
-\t\t\t\t\t\t\t\t\t\t\t<a href=\"\">
-\t\t\t\t\t\t\t\t\t\t\t\t<h4>Джемпер структурной вязки</h4>
-\t\t\t\t\t\t\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"price\">
-\t\t\t\t\t\t\t\t\t\t\t4800<span class=\"rub\"><img src=\"{{ 'assets/images/Rub.svg' | theme }}\" alt=\"\"></span>
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"raiting-wrapper\">
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"star-wrapper\">
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star none\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"star-count\">
-\t\t\t\t\t\t\t\t\t\t\t\t(8)
-\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t</div>\t
-\t\t\t\t\t\t\t\t\t<div class=\"cart\">
-\t\t\t\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Cart-icon.svg' | theme }}\" alt=\"\">\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t</div>\t
-\t\t\t\t\t\t\t\t\t<div class=\"badje\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"content\">
-\t\t\t\t\t\t\t\t\t\t\t15%
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t<div class=\"product-card\">
-\t\t\t\t\t\t\t\t\t<div class=\"card-img-wrapper\">
-\t\t\t\t\t\t\t\t\t\t<a href=\"product-single.html\">
-\t\t\t\t\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/dest/2/37375710299.jpg' | theme }}\" alt=\"\" class=\"card-img-top\">
-\t\t\t\t\t\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t{% endif %}
+\t\t\t\t\t\t\t{% if loop.index == 8 %}
 \t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t<div class=\"card-content-wrapper\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"product-title\">
-\t\t\t\t\t\t\t\t\t\t\t<a href=\"\">
-\t\t\t\t\t\t\t\t\t\t\t\t<h4>Джемпер структурной вязки</h4>
-\t\t\t\t\t\t\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"price\">
-\t\t\t\t\t\t\t\t\t\t\t4800<span class=\"rub\"><img src=\"{{ 'assets/images/Rub.svg' | theme }}\" alt=\"\"></span>
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"raiting-wrapper\">
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"star-wrapper\">
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star none\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"star-count\">
-\t\t\t\t\t\t\t\t\t\t\t\t(8)
-\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t</div>\t
-\t\t\t\t\t\t\t\t\t<div class=\"cart\">
-\t\t\t\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Cart-icon.svg' | theme }}\" alt=\"\">\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t</div>\t
-\t\t\t\t\t\t\t\t\t<div class=\"badje active\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"content\">
-\t\t\t\t\t\t\t\t\t\t\t15%
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t<div class=\"product-card\">
-\t\t\t\t\t\t\t\t\t<div class=\"card-img-wrapper\">
-\t\t\t\t\t\t\t\t\t\t<a href=\"product-single.html\">
-\t\t\t\t\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/dest/3/37488640299.jpg' | theme }}\" alt=\"\" class=\"card-img-top\">
-\t\t\t\t\t\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t{% endif %}
+\t\t\t\t\t\t\t{% if loop.index == 12 %}
 \t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t<div class=\"card-content-wrapper\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"product-title\">
-\t\t\t\t\t\t\t\t\t\t\t<a href=\"\">
-\t\t\t\t\t\t\t\t\t\t\t\t<h4>Джемпер структурной вязки</h4>
-\t\t\t\t\t\t\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"price\">
-\t\t\t\t\t\t\t\t\t\t\t4800<span class=\"rub\"><img src=\"{{ 'assets/images/Rub.svg' | theme }}\" alt=\"\"></span>
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"raiting-wrapper\">
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"star-wrapper\">
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star none\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"star-count\">
-\t\t\t\t\t\t\t\t\t\t\t\t(8)
-\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t</div>\t
-\t\t\t\t\t\t\t\t\t<div class=\"cart\">
-\t\t\t\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Cart-icon.svg' | theme }}\" alt=\"\">\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t</div>\t
-\t\t\t\t\t\t\t\t\t<div class=\"badje\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"content\">
-\t\t\t\t\t\t\t\t\t\t\t15%
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t<div class=\"product-card\">
-\t\t\t\t\t\t\t\t\t<div class=\"card-img-wrapper\">
-\t\t\t\t\t\t\t\t\t\t<a href=\"product-single.html\">
-\t\t\t\t\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/dest/1/37416640299.jpg' | theme }}\" alt=\"\" class=\"card-img-top\">
-\t\t\t\t\t\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t<div class=\"card-content-wrapper\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"product-title\">
-\t\t\t\t\t\t\t\t\t\t\t<a href=\"\">
-\t\t\t\t\t\t\t\t\t\t\t\t<h4>Джемпер структурной вязки</h4>
-\t\t\t\t\t\t\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"price\">
-\t\t\t\t\t\t\t\t\t\t\t4800<span class=\"rub\"><img src=\"{{ 'assets/images/Rub.svg' | theme }}\" alt=\"\"></span>
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"raiting-wrapper\">
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"star-wrapper\">
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"star none\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"star-count\">
-\t\t\t\t\t\t\t\t\t\t\t\t(8)
-\t\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t</div>\t
-\t\t\t\t\t\t\t\t\t<div class=\"cart\">
-\t\t\t\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Cart-icon.svg' | theme }}\" alt=\"\">\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t</div>\t
-\t\t\t\t\t\t\t\t\t<div class=\"badje\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"content\">
-\t\t\t\t\t\t\t\t\t\t\t15%
-\t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t
-                          </div>\t\t\t\t\t\t  \t
+\t\t\t\t\t\t\t{% endif %}
+\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t
+\t\t\t\t\t\t{% endfor %}
                     </div>
-                    <a class=\"carousel-control-prev\" href=\"#carouselExampleIndicators\" role=\"button\" data-slide=\"prev\">
-                          <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\t\t\t\t\t\t  \t
+                    <a class=\"carousel-control-prev\" href=\"#carousel-similar-product\" role=\"button\" data-slide=\"prev\">
+                          <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>
                     </a>
-                    <a class=\"carousel-control-next\" href=\"#carouselExampleIndicators\" role=\"button\" data-slide=\"next\">
-                          <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\t\t\t\t\t\t  \t
+                    <a class=\"carousel-control-next\" href=\"#carousel-similar-product\" role=\"button\" data-slide=\"next\">
+                          <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>
                     </a>
                   </div>
             </div>
         </div>
     </div>
 
-</div>", "Z:\\domains\\hatan.loc/themes/hatan/partials/similar-products.htm", "");
+</div>
+{% endif %}", "Z:\\domains\\hatan.loc/themes/hatan/partials/similar-products.htm", "");
     }
 }

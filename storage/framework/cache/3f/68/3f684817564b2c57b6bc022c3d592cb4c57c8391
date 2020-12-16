@@ -1,4 +1,4 @@
-1607480552a:1:{s:17:"product-count.htm";a:5:{s:8:"fileName";s:17:"product-count.htm";s:7:"content";s:165:"<div class="kol-item">
+1608019171a:1:{s:17:"product-count.htm";a:5:{s:8:"fileName";s:17:"product-count.htm";s:7:"content";s:165:"<div class="kol-item">
     <div class="kol-item__label">Товаров</div>
     <div class="kol-item__value">{{obFilteredProductList.count()}}</div>
     

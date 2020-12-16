@@ -29,7 +29,7 @@ class __TwigTemplate_bfd7447bc08fa91aa5e8dd5bafdf9b1ffff3fe53c4aa516ea2aa8c44fc6
         $this->blocks = [
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
-        $tags = array("if" => 9, "styles" => 14, "partial" => 21);
+        $tags = array("if" => 9, "styles" => 15, "partial" => 22);
         $filters = array("escape" => 8, "striptags" => 9, "theme" => 12);
         $functions = array("str_limit" => 9);
 
@@ -92,39 +92,43 @@ class __TwigTemplate_bfd7447bc08fa91aa5e8dd5bafdf9b1ffff3fe53c4aa516ea2aa8c44fc6
         // line 13
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/css/hatan.min.css");
         echo "\" rel=\"stylesheet\">
-\t";
+\t<link href=\"";
         // line 14
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/css/suggestions.min.css");
+        echo "\" rel=\"stylesheet\">
+\t";
+        // line 15
         echo $this->env->getExtension('Cms\Twig\Extension')->assetsFunction('css');
         echo $this->env->getExtension('Cms\Twig\Extension')->displayBlock('styles');
-        // line 15
+        // line 16
         echo "\t
 
 </head>
 
 <body class=\"is_";
-        // line 19
-        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, true, 19), "id", [], "any", false, false, true, 19), 19, $this->source), "html", null, true);
+        // line 20
+        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, true, 20), "id", [], "any", false, false, true, 20), 20, $this->source), "html", null, true);
         ((($context["class"] ?? null)) ? (print (twig_escape_filter($this->env, (" " . ($context["class"] ?? null)), "html", null, true))) : (print ("")));
         echo "\">
 <div class=\"microcart\">
 \t";
-        // line 21
+        // line 22
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("modal/modal-microcart"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 22
+        // line 23
         echo "</div>
 <div class=\"modal-overlay\"></div>
 
 ";
-        // line 25
+        // line 26
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("top-bar"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 26
+        // line 27
         echo "
 ";
-        // line 27
+        // line 28
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("header-site"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
@@ -142,7 +146,7 @@ class __TwigTemplate_bfd7447bc08fa91aa5e8dd5bafdf9b1ffff3fe53c4aa516ea2aa8c44fc6
 
     public function getDebugInfo()
     {
-        return array (  128 => 27,  125 => 26,  121 => 25,  116 => 22,  112 => 21,  106 => 19,  100 => 15,  97 => 14,  93 => 13,  89 => 12,  86 => 11,  81 => 10,  74 => 9,  70 => 8,  62 => 2,);
+        return array (  132 => 28,  129 => 27,  125 => 26,  120 => 23,  116 => 22,  110 => 20,  104 => 16,  101 => 15,  97 => 14,  93 => 13,  89 => 12,  86 => 11,  81 => 10,  74 => 9,  70 => 8,  62 => 2,);
     }
 
     public function getSourceContext()
@@ -160,6 +164,7 @@ class __TwigTemplate_bfd7447bc08fa91aa5e8dd5bafdf9b1ffff3fe53c4aa516ea2aa8c44fc6
 \t<meta name=\"viewport\" content=\"width=device-width\">
 \t<link rel=\"icon\" href=\"{{ 'assets/images/october.png' | theme }}\">
 \t<link href=\"{{ 'assets/css/hatan.min.css' | theme }}\" rel=\"stylesheet\">
+\t<link href=\"{{ 'assets/css/suggestions.min.css' | theme }}\" rel=\"stylesheet\">
 \t{% styles %}
 \t
 

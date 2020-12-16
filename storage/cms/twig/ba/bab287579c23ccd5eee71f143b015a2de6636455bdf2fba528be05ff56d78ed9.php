@@ -30,13 +30,13 @@ class __TwigTemplate_fc8e8a51cf2b4cdf9ac9f2d50027a79cdffaf01a956dd232cb9ed496243
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
         $tags = array("set" => 2);
-        $filters = array("escape" => 7, "theme" => 19);
+        $filters = array("escape" => 7);
         $functions = array();
 
         try {
             $this->sandbox->checkSecurity(
                 ['set'],
-                ['escape', 'theme'],
+                ['escape'],
                 []
             );
         } catch (SecurityError $e) {
@@ -70,7 +70,7 @@ class __TwigTemplate_fc8e8a51cf2b4cdf9ac9f2d50027a79cdffaf01a956dd232cb9ed496243
     <div class=\"summary-value\">";
         // line 7
         echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obCartPositionList"] ?? null), "getTotalQuantity", [], "method", false, false, true, 7), 7, $this->source), "html", null, true);
-        echo " шт.</div>
+        echo " шт.</div> 
 </div>
 <div class=\"summary__item\">
     <div class=\"summary-label\">НДС 20%</div>
@@ -94,25 +94,39 @@ class __TwigTemplate_fc8e8a51cf2b4cdf9ac9f2d50027a79cdffaf01a956dd232cb9ed496243
         echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "currency", [], "any", false, false, true, 15), 15, $this->source), "html", null, true);
         echo "</span></div>
 </div>
-<div class=\"summary__item\">
-    <div class=\"summary-label\">Скидка по купону</div>
-    <div class=\"summary-value\">0<span class=\"rub\"><img src=\"";
-        // line 19
-        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Rub.svg");
-        echo "\" alt=\"\"></span></div>
+<div class=\"summary__item shiping\">
+    <div class=\"summary-label\">Доставка</div>
+    <div class=\"summary-value\">
+        <div class='shiping_value' >
+            0
+        </div>
+        <span class=\"rub\" itemprop=\"priceCurrency\" content=\"";
+        // line 23
+        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "currency_code", [], "any", false, false, true, 23), 23, $this->source), "html", null, true);
+        echo "\">";
+        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "currency", [], "any", false, false, true, 23), 23, $this->source), "html", null, true);
+        echo "</span>
+    </div>
 </div>
 <div class=\"summary__item summ\">
     <div class=\"summary-label\">Итого стоимость</div>
     <div class=\"summary-value\" data-Position-Total-Price=\"";
-        // line 23
-        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obCartPositionList"] ?? null), "getTotalPriceValue", [], "method", false, false, true, 23), 23, $this->source), "html", null, true);
+        // line 28
+        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obCartPositionList"] ?? null), "getTotalPriceValue", [], "method", false, false, true, 28), 28, $this->source), "html", null, true);
+        echo "\">
+        <div class='summary__value' >
+            ";
+        // line 30
+        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obCartPositionList"] ?? null), "getTotalPriceValue", [], "method", false, false, true, 30), 30, $this->source), "html", null, true);
+        echo "
+        </div>        
+        <span class=\"rub\" itemprop=\"priceCurrency\" content=\"";
+        // line 32
+        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "currency_code", [], "any", false, false, true, 32), 32, $this->source), "html", null, true);
         echo "\">";
-        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obCartPositionList"] ?? null), "getTotalPriceValue", [], "method", false, false, true, 23), 23, $this->source), "html", null, true);
-        echo "<span class=\"rub\" itemprop=\"priceCurrency\" content=\"";
-        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "currency_code", [], "any", false, false, true, 23), 23, $this->source), "html", null, true);
-        echo "\">";
-        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "currency", [], "any", false, false, true, 23), 23, $this->source), "html", null, true);
-        echo "</span></div>
+        echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obOfferItem"] ?? null), "currency", [], "any", false, false, true, 32), 32, $this->source), "html", null, true);
+        echo "</span>
+    </div>
 </div>";
     }
 
@@ -128,7 +142,7 @@ class __TwigTemplate_fc8e8a51cf2b4cdf9ac9f2d50027a79cdffaf01a956dd232cb9ed496243
 
     public function getDebugInfo()
     {
-        return array (  108 => 23,  101 => 19,  90 => 15,  79 => 11,  72 => 7,  68 => 5,  66 => 4,  64 => 3,  62 => 2,);
+        return array (  125 => 32,  120 => 30,  115 => 28,  105 => 23,  90 => 15,  79 => 11,  72 => 7,  68 => 5,  66 => 4,  64 => 3,  62 => 2,);
     }
 
     public function getSourceContext()
@@ -139,7 +153,7 @@ class __TwigTemplate_fc8e8a51cf2b4cdf9ac9f2d50027a79cdffaf01a956dd232cb9ed496243
 {% set obPriceData = Cart.getTotalPriceData() %}
 <div class=\"summary__item\">
     <div class=\"summary-label\">Всего товаров</div>
-    <div class=\"summary-value\">{{ obCartPositionList.getTotalQuantity() }} шт.</div>
+    <div class=\"summary-value\">{{ obCartPositionList.getTotalQuantity() }} шт.</div> 
 </div>
 <div class=\"summary__item\">
     <div class=\"summary-label\">НДС 20%</div>
@@ -149,13 +163,23 @@ class __TwigTemplate_fc8e8a51cf2b4cdf9ac9f2d50027a79cdffaf01a956dd232cb9ed496243
     <div class=\"summary-label\">Сумма с НДС</div>
     <div class=\"summary-value\">{{ obPriceData.price_with_tax }}<span class=\"rub\" itemprop=\"priceCurrency\" content=\"{{ obOfferItem.currency_code }}\">{{ obOfferItem.currency }}</span></div>
 </div>
-<div class=\"summary__item\">
-    <div class=\"summary-label\">Скидка по купону</div>
-    <div class=\"summary-value\">0<span class=\"rub\"><img src=\"{{ 'assets/images/Rub.svg' | theme }}\" alt=\"\"></span></div>
+<div class=\"summary__item shiping\">
+    <div class=\"summary-label\">Доставка</div>
+    <div class=\"summary-value\">
+        <div class='shiping_value' >
+            0
+        </div>
+        <span class=\"rub\" itemprop=\"priceCurrency\" content=\"{{ obOfferItem.currency_code }}\">{{ obOfferItem.currency }}</span>
+    </div>
 </div>
 <div class=\"summary__item summ\">
     <div class=\"summary-label\">Итого стоимость</div>
-    <div class=\"summary-value\" data-Position-Total-Price=\"{{ obCartPositionList.getTotalPriceValue() }}\">{{ obCartPositionList.getTotalPriceValue() }}<span class=\"rub\" itemprop=\"priceCurrency\" content=\"{{ obOfferItem.currency_code }}\">{{ obOfferItem.currency }}</span></div>
+    <div class=\"summary-value\" data-Position-Total-Price=\"{{ obCartPositionList.getTotalPriceValue() }}\">
+        <div class='summary__value' >
+            {{ obCartPositionList.getTotalPriceValue() }}
+        </div>        
+        <span class=\"rub\" itemprop=\"priceCurrency\" content=\"{{ obOfferItem.currency_code }}\">{{ obOfferItem.currency }}</span>
+    </div>
 </div>", "Z:\\domains\\hatan.loc/themes/hatan/partials/cart/microcart/summary.htm", "");
     }
 }

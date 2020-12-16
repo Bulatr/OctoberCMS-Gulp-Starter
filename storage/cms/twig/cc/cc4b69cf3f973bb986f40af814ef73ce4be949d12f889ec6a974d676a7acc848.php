@@ -29,7 +29,7 @@ class __TwigTemplate_cb57290d2a999f4b1ed8ae2202ddef0712998aa9ac4ce7105caff684f9c
         $this->blocks = [
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
-        $tags = array("scripts" => 169);
+        $tags = array("scripts" => 170);
         $filters = array("theme" => 98);
         $functions = array();
 
@@ -256,11 +256,15 @@ class __TwigTemplate_cb57290d2a999f4b1ed8ae2202ddef0712998aa9ac4ce7105caff684f9c
         // line 168
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/js/hatan.min.js");
         echo "\"></script>\t
-\t";
+\t<script src=\"";
         // line 169
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/js/jquery.suggestions.min.js");
+        echo "\"></script>\t
+\t";
+        // line 170
         echo $this->env->getExtension('Cms\Twig\Extension')->assetsFunction('js');
         echo $this->env->getExtension('Cms\Twig\Extension')->displayBlock('scripts');
-        // line 170
+        // line 171
         echo "\t
 \t
 </body>
@@ -279,7 +283,7 @@ class __TwigTemplate_cb57290d2a999f4b1ed8ae2202ddef0712998aa9ac4ce7105caff684f9c
 
     public function getDebugInfo()
     {
-        return array (  264 => 170,  261 => 169,  257 => 168,  245 => 159,  235 => 152,  224 => 144,  213 => 136,  202 => 128,  184 => 113,  176 => 108,  168 => 103,  160 => 98,  62 => 2,);
+        return array (  268 => 171,  265 => 170,  261 => 169,  257 => 168,  245 => 159,  235 => 152,  224 => 144,  213 => 136,  202 => 128,  184 => 113,  176 => 108,  168 => 103,  160 => 98,  62 => 2,);
     }
 
     public function getSourceContext()
@@ -452,6 +456,7 @@ class __TwigTemplate_cb57290d2a999f4b1ed8ae2202ddef0712998aa9ac4ce7105caff684f9c
 \t\t</div>\t\t
 \t</div>
 \t<script src=\"{{ 'assets/js/hatan.min.js' | theme }}\"></script>\t
+\t<script src=\"{{ 'assets/js/jquery.suggestions.min.js' | theme }}\"></script>\t
 \t{% scripts %}
 \t
 \t

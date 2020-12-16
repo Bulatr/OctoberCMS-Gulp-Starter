@@ -4,6 +4,8 @@ use Event;
 use System\Classes\PluginBase;
 use Bulatr\BaseCode\Classes\Event\PropertyValue\ExtendPropertyValueFieldsHandler;
 use Bulatr\BaseCode\Classes\Event\PropertyValue\ExtendPropertyValueModel;
+use Bulatr\BaseCode\Classes\Event\ShippingType\ExtendShippingTypeFieldsHandler;
+use Bulatr\BaseCode\Classes\Event\ShippingType\ExtendShippingTypeModel;
 
 /**
  * Class Plugin
@@ -52,6 +54,8 @@ class Plugin extends PluginBase
         $this->addEventListener();
         Event::subscribe(ExtendPropertyValueFieldsHandler::class);
         Event::subscribe(ExtendPropertyValueModel::class);
+        Event::subscribe(ExtendShippingTypeFieldsHandler::class);
+        Event::subscribe(ExtendShippingTypeModel::class);
     }
 
     public function register()

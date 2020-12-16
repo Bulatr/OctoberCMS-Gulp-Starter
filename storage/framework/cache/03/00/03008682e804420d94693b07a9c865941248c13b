@@ -1,0 +1,108 @@
+1608019170a:1:{s:18:"menu/mega-menu.htm";a:6:{s:8:"fileName";s:18:"menu/mega-menu.htm";s:7:"content";s:2041:"[CategoryList]
+
+description = "Mega menu for main menu"
+==
+<?php
+function onStart() {
+	$categoryId = $_POST["categoryId"];
+	$this["categoryId"] = (int)$categoryId;
+}
+?>
+==
+{##}
+{# @var obCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
+{# Get category list#}
+{% set obCategoryList = CategoryList.make([categoryId]).tree() %}
+{% if obCategoryList.isNotEmpty() %}
+	<div id="item1" data-menuid="1" class="megamenu show">
+		<div class="container">
+			<div class="block-menu">
+				<div class="nav-megamenu">
+					<div class='nav-megamenu-column' >
+						{% for obCategory in obCategoryList if obCategory.product_count > 0 %}
+							{% if obCategory.children.isNotEmpty() %}
+								{% for obChildCategory in obCategory.children if obChildCategory.product_count > 0 %}
+									<div class="nav-item-megamenu">
+										<span class="main-link-megamenu" data-id="{{ obChildCategory.id }}">
+											<a href="{{ obChildCategory.getPageUrl('catalog') }}">
+												{{ obChildCategory.name }}
+											</a>
+										</span>
+										<div class="overlay-menu-links">
+											{% for obChildChildCategory in obChildCategory.children if obChildChildCategory.product_count > 0 %}
+												<a href="{{ obChildChildCategory.getPageUrl('catalog') }}" class="nav-item-link">{{ obChildChildCategory.name }}</a>
+											{% endfor %}
+										</div>
+									</div>
+								{% endfor %}
+							{% endif %}
+						{% endfor %}
+					</div>
+					<div class='nav-megamenu-column' >
+						<div class="nav-item-megamenu width-banners">
+							<span class="main-link-megamenu">Акции</span>
+							<div class="banner-wrapper">
+								<div class="banner square small">
+									<img src="{{ 'assets/images/dest/Banner1.png' | theme }}" alt="">
+								</div>
+								<div class="banner square small">
+									<img src="{{ 'assets/images/dest/Bannerbig.png' | theme }}" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
+";s:5:"mtime";i:1607828202;s:6:"markup";s:1856:"{##}
+{# @var obCategory \Lovata\Shopaholic\Classes\Item\CategoryItem #}
+{# Get category list#}
+{% set obCategoryList = CategoryList.make([categoryId]).tree() %}
+{% if obCategoryList.isNotEmpty() %}
+	<div id="item1" data-menuid="1" class="megamenu show">
+		<div class="container">
+			<div class="block-menu">
+				<div class="nav-megamenu">
+					<div class='nav-megamenu-column' >
+						{% for obCategory in obCategoryList if obCategory.product_count > 0 %}
+							{% if obCategory.children.isNotEmpty() %}
+								{% for obChildCategory in obCategory.children if obChildCategory.product_count > 0 %}
+									<div class="nav-item-megamenu">
+										<span class="main-link-megamenu" data-id="{{ obChildCategory.id }}">
+											<a href="{{ obChildCategory.getPageUrl('catalog') }}">
+												{{ obChildCategory.name }}
+											</a>
+										</span>
+										<div class="overlay-menu-links">
+											{% for obChildChildCategory in obChildCategory.children if obChildChildCategory.product_count > 0 %}
+												<a href="{{ obChildChildCategory.getPageUrl('catalog') }}" class="nav-item-link">{{ obChildChildCategory.name }}</a>
+											{% endfor %}
+										</div>
+									</div>
+								{% endfor %}
+							{% endif %}
+						{% endfor %}
+					</div>
+					<div class='nav-megamenu-column' >
+						<div class="nav-item-megamenu width-banners">
+							<span class="main-link-megamenu">Акции</span>
+							<div class="banner-wrapper">
+								<div class="banner square small">
+									<img src="{{ 'assets/images/dest/Banner1.png' | theme }}" alt="">
+								</div>
+								<div class="banner square small">
+									<img src="{{ 'assets/images/dest/Bannerbig.png' | theme }}" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}";s:4:"code";s:103:"function onStart() {
+	$categoryId = $_POST["categoryId"];
+	$this["categoryId"] = (int)$categoryId;
+}";s:12:"CategoryList";a:1:{s:11:"description";s:23:"Mega menu for main menu";}}}

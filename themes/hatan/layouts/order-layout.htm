@@ -1,0 +1,34 @@
+[CategoryList]
+
+[ProductData]
+
+[Cart]
+==
+<?php
+function onInit() {
+	$obCartPositionList = $this->Cart->get();
+	$obCartPositionListCount = $obCartPositionList->count();
+	$this["obCartPositionList"] = $obCartPositionList;
+	$this["obCartPositionListCount"] = $obCartPositionListCount;
+}
+?>
+==
+{##}
+
+{% set sPageTitle = this.page.title %}
+{% if obProduct.isNotEmpty() %}
+	{%  set sPageTitle = "Купить "~obProduct.name %}
+{% else %}
+	{% if obActiveCategory.isNotEmpty() %}
+		{% set sPageTitle = obActiveCategory.name %}
+	{% endif %}
+{% endif %}
+{% partial 'header/header-minimal' class='myclass' sPageTitle = sPageTitle %}
+	
+	<section id="body-site">
+		<div class="mega-menu-wrapper">
+		</div>
+		{% page %}
+	</section>
+
+{% partial 'footer' %}

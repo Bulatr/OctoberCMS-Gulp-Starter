@@ -1,0 +1,39 @@
+1607707738a:1:{s:30:"header/header-site-minimal.htm";a:6:{s:8:"fileName";s:30:"header/header-site-minimal.htm";s:7:"content";s:633:"description = "Шапка сайта Minimal"
+==
+{##}
+<!--Header minimal-->
+
+<div class="header">
+    <div class="container" style="position: relative;">
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <div class="logo-wrapper">
+                    <div class="logo">
+                        <a href="{{ 'home' | page}}">
+                            <img src="{{'assets/images/a-logo.svg' | theme }}" alt="">
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>			
+    </div>
+</div>";s:5:"mtime";i:1607567272;s:6:"markup";s:582:"{##}
+<!--Header minimal-->
+
+<div class="header">
+    <div class="container" style="position: relative;">
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <div class="logo-wrapper">
+                    <div class="logo">
+                        <a href="{{ 'home' | page}}">
+                            <img src="{{'assets/images/a-logo.svg' | theme }}" alt="">
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>			
+    </div>
+</div>";s:4:"code";N;s:11:"description";s:29:"Шапка сайта Minimal";}}

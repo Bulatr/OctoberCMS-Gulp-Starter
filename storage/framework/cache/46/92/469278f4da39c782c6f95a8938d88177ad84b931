@@ -1,4 +1,4 @@
-1607501524a:1:{s:10:"header.htm";a:6:{s:8:"fileName";s:10:"header.htm";s:7:"content";s:886:";;
+1608020987a:1:{s:10:"header.htm";a:6:{s:8:"fileName";s:10:"header.htm";s:7:"content";s:966:";;
 description = "Default layout"
 ==
 {##}
@@ -14,6 +14,7 @@ description = "Default layout"
 	<meta name="viewport" content="width=device-width">
 	<link rel="icon" href="{{ 'assets/images/october.png' | theme }}">
 	<link href="{{ 'assets/css/hatan.min.css' | theme }}" rel="stylesheet">
+	<link href="{{ 'assets/css/suggestions.min.css' | theme }}" rel="stylesheet">
 	{% styles %}
 	
 
@@ -27,7 +28,7 @@ description = "Default layout"
 
 {% partial "top-bar" %}
 
-{% partial "header-site" %}";s:5:"mtime";i:1607424973;s:6:"markup";s:846:"{##}
+{% partial "header-site" %}";s:5:"mtime";i:1607606594;s:6:"markup";s:926:"{##}
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -40,6 +41,7 @@ description = "Default layout"
 	<meta name="viewport" content="width=device-width">
 	<link rel="icon" href="{{ 'assets/images/october.png' | theme }}">
 	<link href="{{ 'assets/css/hatan.min.css' | theme }}" rel="stylesheet">
+	<link href="{{ 'assets/css/suggestions.min.css' | theme }}" rel="stylesheet">
 	{% styles %}
 	
 

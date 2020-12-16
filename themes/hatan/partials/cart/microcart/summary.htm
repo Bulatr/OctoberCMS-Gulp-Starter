@@ -4,7 +4,7 @@
 {% set obPriceData = Cart.getTotalPriceData() %}
 <div class="summary__item">
     <div class="summary-label">Всего товаров</div>
-    <div class="summary-value">{{ obCartPositionList.getTotalQuantity() }} шт.</div>
+    <div class="summary-value">{{ obCartPositionList.getTotalQuantity() }} шт.</div> 
 </div>
 <div class="summary__item">
     <div class="summary-label">НДС 20%</div>
@@ -14,11 +14,21 @@
     <div class="summary-label">Сумма с НДС</div>
     <div class="summary-value">{{ obPriceData.price_with_tax }}<span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span></div>
 </div>
-<div class="summary__item">
-    <div class="summary-label">Скидка по купону</div>
-    <div class="summary-value">0<span class="rub"><img src="{{ 'assets/images/Rub.svg' | theme }}" alt=""></span></div>
+<div class="summary__item shiping">
+    <div class="summary-label">Доставка</div>
+    <div class="summary-value">
+        <div class='shiping_value' >
+            0
+        </div>
+        <span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span>
+    </div>
 </div>
 <div class="summary__item summ">
     <div class="summary-label">Итого стоимость</div>
-    <div class="summary-value" data-Position-Total-Price="{{ obCartPositionList.getTotalPriceValue() }}">{{ obCartPositionList.getTotalPriceValue() }}<span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span></div>
+    <div class="summary-value" data-Position-Total-Price="{{ obCartPositionList.getTotalPriceValue() }}">
+        <div class='summary__value' >
+            {{ obCartPositionList.getTotalPriceValue() }}
+        </div>        
+        <span class="rub" itemprop="priceCurrency" content="{{ obOfferItem.currency_code }}">{{ obOfferItem.currency }}</span>
+    </div>
 </div>

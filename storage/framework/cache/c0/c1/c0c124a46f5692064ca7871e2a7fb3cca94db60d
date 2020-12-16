@@ -1,0 +1,85 @@
+1607702839a:1:{s:37:"checkout/order-steps/order-step-4.htm";a:5:{s:8:"fileName";s:37:"checkout/order-steps/order-step-4.htm";s:7:"content";s:2077:"{##}
+{% set obCartPositionList = Cart.get() %}
+<h2>4. Подтверждение заказа</h2>
+<h3>Список товаров</h3>
+<div class="cart-items">
+    {% for obCartPosition in obCartPositionList %}
+        {% partial "product/product-card/checkout-card" obCartPosition = obCartPosition %}	
+    {% endfor %}
+</div>
+<div class="table-container">
+    
+        <div class="table-container__row">
+            <div class="table-container-row__col">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="default-adress" id="default-adress" name="default-adress" checked>
+                            <label class="form-check-label" for="default-adress">
+                                Доставка по моему адресу по умолчанию
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-filled gray">
+                            <input class="filled" type="text" id="kod-cupona" name="kod-cupona" placeholder="Код купона">
+                            <div class="icon-cupon"><img src="{{'assets/images/Circle Icon ok.svg' | theme }}" alt=""></div>
+                        </div>
+                    </div>
+
+                </div>																		
+            </div>
+            <div class="table-container-row__col">
+                <div class='block-order-summary__wrapper' >
+                    {% partial "checkout/block-order-summary" %}
+                </div>                
+            </div>
+        </div>
+    
+</div>
+<div class="input-group align-items-center">
+    <a type="submit" href="#Checkout-5.html#" class="btn btn-primary" id="submit-order">Оформить заказ</a>
+    <a href="#checkout-3" class="btn text" id="btn-return-step-4" data-step-next="3">Назад к оплате</a>
+</div>";s:5:"mtime";i:1607682116;s:6:"markup";s:2077:"{##}
+{% set obCartPositionList = Cart.get() %}
+<h2>4. Подтверждение заказа</h2>
+<h3>Список товаров</h3>
+<div class="cart-items">
+    {% for obCartPosition in obCartPositionList %}
+        {% partial "product/product-card/checkout-card" obCartPosition = obCartPosition %}	
+    {% endfor %}
+</div>
+<div class="table-container">
+    
+        <div class="table-container__row">
+            <div class="table-container-row__col">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="default-adress" id="default-adress" name="default-adress" checked>
+                            <label class="form-check-label" for="default-adress">
+                                Доставка по моему адресу по умолчанию
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-filled gray">
+                            <input class="filled" type="text" id="kod-cupona" name="kod-cupona" placeholder="Код купона">
+                            <div class="icon-cupon"><img src="{{'assets/images/Circle Icon ok.svg' | theme }}" alt=""></div>
+                        </div>
+                    </div>
+
+                </div>																		
+            </div>
+            <div class="table-container-row__col">
+                <div class='block-order-summary__wrapper' >
+                    {% partial "checkout/block-order-summary" %}
+                </div>                
+            </div>
+        </div>
+    
+</div>
+<div class="input-group align-items-center">
+    <a type="submit" href="#Checkout-5.html#" class="btn btn-primary" id="submit-order">Оформить заказ</a>
+    <a href="#checkout-3" class="btn text" id="btn-return-step-4" data-step-next="3">Назад к оплате</a>
+</div>";s:4:"code";N;}}

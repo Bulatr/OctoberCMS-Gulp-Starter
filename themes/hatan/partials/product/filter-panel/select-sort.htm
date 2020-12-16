@@ -1,0 +1,21 @@
+==
+{##}
+<select class="sort-select _shopaholic-sorting" name="sort-product" id="sort-product">
+    <option {% if sActiveSort == 'no' %} selected {% endif %} value="no">По популярности</option>
+    <option {% if sActiveSort == 'price|asc' %} selected {% endif %} value="price|asc">По возрастанию цены</option>
+    <option {% if sActiveSort == 'price|desc' %} selected {% endif %} value="price|desc">По убыванию цены</option>
+    <option {% if sActiveSort == 'new' %} selected {% endif %} value="new">Новые</option>
+</select>
+<div class='custom-select' id='sort-select-product' >
+    <div class='custom-select__value' data-custom-select="sort-product">
+        {% if sActiveSort == 'no' %} По популярности {% endif %}
+        {% if sActiveSort == 'price|asc' %} По возрастанию цены {% endif %}
+        {% if sActiveSort == 'price|desc' %} По убыванию цены {% endif %}
+        {% if sActiveSort == 'new' %}Новые{% endif %}
+    </div>
+    <div class='custom-select__icon' >
+        <img src="{{'assets/images/Direction-Down.svg' | theme }}">
+    </div>
+</div>
+<div class='custom-options-select' id="custom-options__sort-product" >
+</div>

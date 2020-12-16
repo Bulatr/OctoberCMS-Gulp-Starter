@@ -1,0 +1,49 @@
+==
+{##}
+{% set obCartPositionList = Cart.get() %}
+{% set obCartPositionListCount = obCartPositionList.count() %}
+{% set obPriceData = Cart.getTotalPriceData() %}
+
+<div class="block-order-summary small nobg">
+    <h3>Обзор заказа</h3>
+    <div class="prise-summary">
+        <div class="prise-summary__item">
+            <div class="prise-summary-item__label">Товаров</div>
+            <div class="prise-summary-item__value">{{ obCartPositionList.getTotalQuantity() }} шт.</div>
+        </div>
+        <div class="prise-summary__item">
+            <div class="prise-summary-item__label">Сумма с НДС</div>
+            <div class="prise-summary-item__value">
+                {{ obPriceData.price_with_tax }}
+                <span class="rub" itemprop="priceCurrency" content="{{ obCartPositionList.getCurrencyCode() }}">{{ obCartPositionList.getCurrency() }}</span>
+            </div>
+        </div>
+        <div class="prise-summary__item">
+            <div class="prise-summary-item__label">НДС 20%</div>
+            <div class="prise-summary-item__value">
+                {{ obPriceData.tax_price }}
+                <span class="rub" itemprop="priceCurrency" content="{{ obCartPositionList.getCurrencyCode() }}">{{ obCartPositionList.getCurrency() }}</span>
+            </div>
+        </div>
+        <div class="prise-summary__item">
+            <div class="prise-summary-item__label">Доставка</div>
+            <div class="prise-summary-item__value">
+                <div class='price-summary__shiping' >
+                    0
+                </div>
+                <span class="rub" itemprop="priceCurrency" content="{{ obCartPositionList.getCurrencyCode() }}">{{ obCartPositionList.getCurrency() }}</span>
+            </div>
+        </div>
+        <div class="divider light-var"></div>
+        <div class="prise-summary__item">
+            <div class="prise-summary-item__label">Итого стоимость</div>
+            <div class="prise-summary-item__value" data-Position-Total-Price="{{ obCartPositionList.getTotalPriceValue() }}">
+                <input type="hidden" id="total-price-value-order" value="">
+                <div class='price-total__value' >
+                    {{ obCartPositionList.getTotalPriceValue() }}
+                </div>                 
+                <span class="rub" itemprop="priceCurrency" content="{{ obCartPositionList.getCurrencyCode() }}">{{ obCartPositionList.getCurrency() }}</span>
+            </div>
+        </div>
+    </div>	
+</div>

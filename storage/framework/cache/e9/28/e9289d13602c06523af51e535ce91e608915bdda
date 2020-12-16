@@ -1,4 +1,4 @@
-1607501956a:1:{s:34:"product/product-card/mini-card.htm";a:5:{s:8:"fileName";s:34:"product/product-card/mini-card.htm";s:7:"content";s:3448:"{##}
+1607755819a:1:{s:34:"product/product-card/mini-card.htm";a:5:{s:8:"fileName";s:34:"product/product-card/mini-card.htm";s:7:"content";s:3448:"{##}
 {# Get offer and product objects #}
 {% set obOffer = obCartPosition.item %}
 {% set obProduct = obOffer.product %}

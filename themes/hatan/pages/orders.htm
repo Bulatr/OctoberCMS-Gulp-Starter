@@ -1,0 +1,55 @@
+title = "Оформление заказа"
+url = "/order"
+layout = "order-layout"
+description = "Страница оформления заказа"
+meta_title = "Оформление заказа"
+is_hidden = 0
+
+[UserAddress]
+
+[Cart]
+
+[PaymentMethodList]
+
+[ShippingTypeList]
+
+[MakeOrder]
+mode = "ajax"
+==
+{##}
+<!--Checkout-->
+
+<div class="checkout">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-7 col-lg-7 col-xl-8 col-xxl-8">
+                <div class="steps">
+                    {% partial "breadcrumbs/order/steps" %}
+                </div>
+                <div class="checkout__container">
+                    <a href="" class="btn btn-primary secondary">Войти в личный кабинет</a>
+                    <p class="till">или заполните подробную информацию ниже:</p>
+                    <form class="steps-form _shopaholic-order-form" action="" method="post" data-request-validate>
+                        <div class='steps-form__item show' id="checkout-1">
+                            {% partial "checkout/order-steps/order-step-1" %}                        
+                        </div> 
+                        <div class='steps-form__item' id="checkout-2">
+                            
+                        </div>
+                        <div class='steps-form__item' id="checkout-3">
+                            
+                        </div>
+                        <div class='steps-form__item' id="checkout-4"> 
+
+                        </div>                    
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-5 col-lg-5 col-xl-4 col-xxl-4">
+                <div class="block-order-summary">
+                    {% partial "checkout/order-summary" %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

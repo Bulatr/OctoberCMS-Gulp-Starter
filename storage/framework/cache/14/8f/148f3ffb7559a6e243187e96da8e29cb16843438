@@ -1,0 +1,12 @@
+1607707738a:1:{s:27:"breadcrumbs/order/steps.htm";a:6:{s:8:"fileName";s:27:"breadcrumbs/order/steps.htm";s:7:"content";s:349:"==
+{##}
+
+<div class="steps__item active" id="step-1"><a href="">Личные данные</a></div>
+<div class="steps__item" id="step-2"><a href="">Доставка</a></div>
+<div class="steps__item" id="step-3"><a href="">Оплата</a></div>
+<div class="steps__item" id="step-4"><a href="">Подтверждение заказа</a></div>";s:5:"mtime";i:1607575091;s:6:"markup";s:345:"{##}
+
+<div class="steps__item active" id="step-1"><a href="">Личные данные</a></div>
+<div class="steps__item" id="step-2"><a href="">Доставка</a></div>
+<div class="steps__item" id="step-3"><a href="">Оплата</a></div>
+<div class="steps__item" id="step-4"><a href="">Подтверждение заказа</a></div>";s:4:"code";N;s:17:"_PARSER_ERROR_INI";s:0:"";}}

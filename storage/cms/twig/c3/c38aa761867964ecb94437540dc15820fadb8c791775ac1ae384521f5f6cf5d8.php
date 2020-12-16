@@ -29,14 +29,14 @@ class __TwigTemplate_901fa2bb68174a77854f327a2f034c8176134815f9fd7de2dcbb511eba8
         $this->blocks = [
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
-        $tags = array("partial" => 14, "if" => 36);
-        $filters = array("var_dump" => 2, "theme" => 10);
+        $tags = array("partial" => 14, "if" => 37);
+        $filters = array("theme" => 10);
         $functions = array();
 
         try {
             $this->sandbox->checkSecurity(
                 ['partial', 'if'],
-                ['var_dump', 'theme'],
+                ['theme'],
                 []
             );
         } catch (SecurityError $e) {
@@ -59,44 +59,44 @@ class __TwigTemplate_901fa2bb68174a77854f327a2f034c8176134815f9fd7de2dcbb511eba8
     {
         $macros = $this->macros;
         // line 2
-        echo call_user_func_array($this->env->getFilter('var_dump')->getCallable(), [$this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, ($context["obCartPositionList"] ?? null), "count", [], "method", false, false, true, 2), 2, $this->source)]);
-        echo "
-<div class=\"header\">
+        echo "<div class=\"header\">
 \t<div class=\"container\" style=\"position: relative;\">
 \t\t<div class=\"row\">
 \t\t\t<div class=\"col d-flex justify-content-between\">
-\t\t\t\t<div class=\"logo-wrapper\">
-\t\t\t\t\t<div class=\"logo\">
-\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t<img src=\"";
+\t\t\t\t<div class=\"d-flex justify-content-start\">
+\t\t\t\t\t<div class=\"logo-wrapper\">
+\t\t\t\t\t\t<div class=\"logo\">
+\t\t\t\t\t\t\t<a href=\"#\">
+\t\t\t\t\t\t\t\t<img src=\"";
         // line 10
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/a-logo.svg");
         echo "\" alt=\"\">
-\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t\t";
+\t\t\t\t\t";
         // line 14
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("menu/main-menu-wrapper"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
         // line 15
-        echo "\t\t\t\t<div class=\"search-wrapper\">
+        echo "\t\t\t\t</div>
+\t\t\t\t<div class=\"search-wrapper\">
 \t\t\t\t\t<form class=\"form-inline custom d-flex\">
 \t\t\t\t\t\t<input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Поиск\" aria-label=\"Search\">
 \t\t\t\t\t\t<div class=\"icon-search\">
 \t\t\t\t\t\t\t<img src=\"";
-        // line 19
+        // line 20
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Search.svg");
         echo "\" alt=\"\">
-\t\t\t\t\t\t</div>\t\t\t\t\t\t\t
+\t\t\t\t\t\t</div>
 \t\t\t\t\t</form>
 \t\t\t\t</div>
-\t\t\t\t<div class=\"icons-wrapper\">\t\t\t\t\t
+\t\t\t\t<div class=\"icons-wrapper\">
 \t\t\t\t\t<div class=\"icons account-icon\">
 \t\t\t\t\t\t<a href=\"#\">
 \t\t\t\t\t\t\t<img src=\"";
-        // line 26
+        // line 27
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Account.svg");
         echo "\" alt=\"Личный кабинет\">
 \t\t\t\t\t\t</a>
@@ -104,75 +104,75 @@ class __TwigTemplate_901fa2bb68174a77854f327a2f034c8176134815f9fd7de2dcbb511eba8
 \t\t\t\t\t<div class=\"icons heart-icon\">
 \t\t\t\t\t\t<a href=\"#\">
 \t\t\t\t\t\t\t<img src=\"";
-        // line 31
+        // line 32
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Outline.svg");
         echo "\" alt=\"Избранное\">
 \t\t\t\t\t\t</a>
 \t\t\t\t\t</div>
-\t\t\t\t\t<div 
-\t\t\t\t\t\tclass=\"icons cart-icon\" 
+\t\t\t\t\t<div
+\t\t\t\t\t\tclass=\"icons cart-icon\"
 \t\t\t\t\t\t";
-        // line 36
+        // line 37
         if ((($context["obCartPositionListCount"] ?? null) > 0)) {
-            // line 37
+            // line 38
             echo "\t\t\t\t\t\t\tdata-cartfilled=\"yes\"
 \t\t\t\t\t\t\t";
         } else {
-            // line 39
+            // line 40
             echo "\t\t\t\t\t\t\tdata-cartfilled=\"no\"
 \t\t\t\t\t\t";
         }
-        // line 40
+        // line 41
         echo " >
-\t\t\t\t\t\t<a href=\"#\" class=\"cart empty 
+\t\t\t\t\t\t<a href=\"#\" class=\"cart empty
 \t\t\t\t\t\t\t";
-        // line 42
+        // line 43
         if ((($context["obCartPositionListCount"] ?? null) == 0)) {
-            // line 43
+            // line 44
             echo "\t\t\t\t\t\t\t\tshow
 \t\t\t\t\t\t\t";
         }
-        // line 44
+        // line 45
         echo "\">
 \t\t\t\t\t\t\t<img src=\"";
-        // line 45
+        // line 46
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Empty Cart.svg");
         echo "\" alt=\"\">
 \t\t\t\t\t\t</a>
 \t\t\t\t\t\t<a href=\"#\" class=\"cart filled
 \t\t\t\t\t\t\t";
-        // line 48
+        // line 49
         if ((($context["obCartPositionListCount"] ?? null) > 0)) {
-            // line 49
+            // line 50
             echo "\t\t\t\t\t\t\t\tshow
 \t\t\t\t\t\t\t";
         }
-        // line 51
+        // line 52
         echo "\t\t\t\t\t\t\">
 \t\t\t\t\t\t\t<img src=\"";
-        // line 52
+        // line 53
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Added to Cart.svg");
         echo "\" alt=\"\">
 \t\t\t\t\t\t</a>
 \t\t\t\t\t\t<a href=\"#\" class=\"cart added\">
 \t\t\t\t\t\t\t<img src=\"";
-        // line 55
+        // line 56
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/Add to Cart.svg");
         echo "\" alt=\"\">
-\t\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+\t\t\t\t\t\t</a>
 \t\t\t\t\t</div>
 \t\t\t\t\t<div class='summ_count_wrapper' >
 \t\t\t\t\t\t";
-        // line 59
+        // line 60
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("header/summ_count_header"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 60
-        echo "\t\t\t\t\t</div>\t\t\t\t\t
+        // line 61
+        echo "\t\t\t\t\t</div>
 \t\t\t\t\t<div class=\"icons-toggle\"></div>
 \t\t\t\t</div>
 \t\t\t</div>
-\t\t</div>\t\t\t\t\t
+\t\t</div>
 \t</div>
 </div>";
     }
@@ -189,34 +189,35 @@ class __TwigTemplate_901fa2bb68174a77854f327a2f034c8176134815f9fd7de2dcbb511eba8
 
     public function getDebugInfo()
     {
-        return array (  171 => 60,  167 => 59,  160 => 55,  154 => 52,  151 => 51,  147 => 49,  145 => 48,  139 => 45,  136 => 44,  132 => 43,  130 => 42,  126 => 40,  122 => 39,  118 => 37,  116 => 36,  108 => 31,  100 => 26,  90 => 19,  84 => 15,  80 => 14,  73 => 10,  62 => 2,);
+        return array (  171 => 61,  167 => 60,  160 => 56,  154 => 53,  151 => 52,  147 => 50,  145 => 49,  139 => 46,  136 => 45,  132 => 44,  130 => 43,  126 => 41,  122 => 40,  118 => 38,  116 => 37,  108 => 32,  100 => 27,  90 => 20,  83 => 15,  79 => 14,  72 => 10,  62 => 2,);
     }
 
     public function getSourceContext()
     {
         return new Source("{##}
-{{ obCartPositionList.count() | var_dump}}
 <div class=\"header\">
 \t<div class=\"container\" style=\"position: relative;\">
 \t\t<div class=\"row\">
 \t\t\t<div class=\"col d-flex justify-content-between\">
-\t\t\t\t<div class=\"logo-wrapper\">
-\t\t\t\t\t<div class=\"logo\">
-\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/a-logo.svg' | theme}}\" alt=\"\">
-\t\t\t\t\t\t</a>
+\t\t\t\t<div class=\"d-flex justify-content-start\">
+\t\t\t\t\t<div class=\"logo-wrapper\">
+\t\t\t\t\t\t<div class=\"logo\">
+\t\t\t\t\t\t\t<a href=\"#\">
+\t\t\t\t\t\t\t\t<img src=\"{{ 'assets/images/a-logo.svg' | theme}}\" alt=\"\">
+\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
+\t\t\t\t\t{% partial \"menu/main-menu-wrapper\" %}
 \t\t\t\t</div>
-\t\t\t\t{% partial \"menu/main-menu-wrapper\" %}
 \t\t\t\t<div class=\"search-wrapper\">
 \t\t\t\t\t<form class=\"form-inline custom d-flex\">
 \t\t\t\t\t\t<input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Поиск\" aria-label=\"Search\">
 \t\t\t\t\t\t<div class=\"icon-search\">
 \t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Search.svg' | theme}}\" alt=\"\">
-\t\t\t\t\t\t</div>\t\t\t\t\t\t\t
+\t\t\t\t\t\t</div>
 \t\t\t\t\t</form>
 \t\t\t\t</div>
-\t\t\t\t<div class=\"icons-wrapper\">\t\t\t\t\t
+\t\t\t\t<div class=\"icons-wrapper\">
 \t\t\t\t\t<div class=\"icons account-icon\">
 \t\t\t\t\t\t<a href=\"#\">
 \t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Account.svg' | theme}}\" alt=\"Личный кабинет\">
@@ -227,14 +228,14 @@ class __TwigTemplate_901fa2bb68174a77854f327a2f034c8176134815f9fd7de2dcbb511eba8
 \t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Outline.svg' | theme}}\" alt=\"Избранное\">
 \t\t\t\t\t\t</a>
 \t\t\t\t\t</div>
-\t\t\t\t\t<div 
-\t\t\t\t\t\tclass=\"icons cart-icon\" 
+\t\t\t\t\t<div
+\t\t\t\t\t\tclass=\"icons cart-icon\"
 \t\t\t\t\t\t{% if obCartPositionListCount > 0 %}
 \t\t\t\t\t\t\tdata-cartfilled=\"yes\"
 \t\t\t\t\t\t\t{% else %}
 \t\t\t\t\t\t\tdata-cartfilled=\"no\"
 \t\t\t\t\t\t{% endif %} >
-\t\t\t\t\t\t<a href=\"#\" class=\"cart empty 
+\t\t\t\t\t\t<a href=\"#\" class=\"cart empty
 \t\t\t\t\t\t\t{% if obCartPositionListCount == 0 %}
 \t\t\t\t\t\t\t\tshow
 \t\t\t\t\t\t\t{% endif %}\">
@@ -249,15 +250,15 @@ class __TwigTemplate_901fa2bb68174a77854f327a2f034c8176134815f9fd7de2dcbb511eba8
 \t\t\t\t\t\t</a>
 \t\t\t\t\t\t<a href=\"#\" class=\"cart added\">
 \t\t\t\t\t\t\t<img src=\"{{ 'assets/images/Add to Cart.svg' | theme}}\" alt=\"\">
-\t\t\t\t\t\t</a>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+\t\t\t\t\t\t</a>
 \t\t\t\t\t</div>
 \t\t\t\t\t<div class='summ_count_wrapper' >
 \t\t\t\t\t\t{% partial \"header/summ_count_header\" %}
-\t\t\t\t\t</div>\t\t\t\t\t
+\t\t\t\t\t</div>
 \t\t\t\t\t<div class=\"icons-toggle\"></div>
 \t\t\t\t</div>
 \t\t\t</div>
-\t\t</div>\t\t\t\t\t
+\t\t</div>
 \t</div>
 </div>", "Z:\\domains\\hatan.loc/themes/hatan/partials/header-site.htm", "");
     }
